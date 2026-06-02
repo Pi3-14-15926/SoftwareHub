@@ -1,0 +1,30 @@
+[
+  {
+    "id": "cat-reader",
+    "name": "阅读工具",
+    "slug": "reader",
+    "icon": "📖",
+    "sortOrder": 0
+  },
+  {
+    "id": "cat-tool",
+    "name": "系统工具",
+    "slug": "tool",
+    "icon": "🔧",
+    "sortOrder": 1
+  },
+  {
+    "id": "cat-media",
+    "name": "影音媒体",
+    "slug": "media",
+    "icon": "🎵",
+    "sortOrder": 2
+  },
+  {
+    "id": "cat-dev",
+    "name": "开发工具",
+    "slug": "dev",
+    "icon": "💻",
+    "sortOrder": 3
+  }
+]

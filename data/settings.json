@@ -1,0 +1,12 @@
+{
+  "siteName": "Software Hub",
+  "logo": "",
+  "announcement": "欢迎来到 Software Hub — 多版本软件聚合下载站",
+  "footer": "Powered by Software Hub | 应用版权归原作者所有",
+  "admins": [],
+  "seo": {
+    "title": "Software Hub - 多版本软件聚合下载站",
+    "description": "免费下载多版本软件，支持 GitHub 自动同步，历史版本下载",
+    "keywords": ["软件下载", "多版本", "聚合", "GitHub"]
+  }
+}

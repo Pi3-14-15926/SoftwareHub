@@ -91,7 +91,7 @@ const routes: RouteRecordRaw[] = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/SoftwareHub/'),
   routes,
   scrollBehavior() { return { top: 0 } },
 })

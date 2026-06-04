@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-import { NButton, NCard, NSpin, NSpace, NEmpty, NTag, NPopconfirm, NProgress, NInput, useMessage } from 'naive-ui'
+import { NButton, NCard, NSpin, NSpace, NEmpty, NTag, NPopconfirm, NProgress, NInput, NAlert, useMessage } from 'naive-ui'
 import AdminLayout from '../../components/admin/AdminLayout.vue'
 import { useProjectStore } from '../../store/project'
 import { useCategoryStore } from '../../store/category'
@@ -44,55 +44,62 @@ const webdavForm = ref({
 })
 const webdavTesting = ref(false)
 const webdavTested = ref(false)
+const isDev = import.meta.env.DEV
 
 async function loadWebdavConfig() {
-  try {
-    const res = await fetch('/__backup-webdav-config')
-    const data = await res.json()
-    if (data) {
-      webdavForm.value = {
-        url: data.url || '',
-        username: data.username || '',
-        password: '',
-        baseDir: data.baseDir || '/SoftwareHub',
-      }
-    }
-  } catch { /* ignore */ }
-  // 也从 localStorage 加载密码（如果有）
+  /* 先从 localStorage 加载 */
   const wd = settings.settings.webdav
   if (wd) {
-    if (!webdavForm.value.url) webdavForm.value.url = wd.url
-    if (!webdavForm.value.username) webdavForm.value.username = wd.username
-    if (!webdavForm.value.baseDir) webdavForm.value.baseDir = wd.baseDir || '/SoftwareHub'
+    webdavForm.value = {
+      url: wd.url || '',
+      username: wd.username || '',
+      password: '',
+      baseDir: wd.baseDir || '/SoftwareHub',
+    }
+  }
+  /* 本地开发时再从服务端加载（覆盖密码） */
+  if (isDev) {
+    try {
+      const res = await fetch('/__backup-webdav-config')
+      const data = await res.json()
+      if (data) {
+        webdavForm.value = {
+          url: data.url || webdavForm.value.url,
+          username: data.username || webdavForm.value.username,
+          password: '',
+          baseDir: data.baseDir || webdavForm.value.baseDir,
+        }
+      }
+    } catch { /* ignore */ }
   }
 }
 
 async function saveWebdavConfig() {
-  try {
-    const res = await fetch('/__backup-webdav-config', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(webdavForm.value),
-    })
-    const data = await res.json()
-    if (data.success) {
-      // 同时存到 localStorage
-      const s = { ...settings.settings }
-      s.webdav = {
-        url: webdavForm.value.url,
-        username: webdavForm.value.username,
-        password: webdavForm.value.password,
-        baseDir: webdavForm.value.baseDir,
-      }
-      settings.save(s)
-      message.success('WebDAV 配置已保存')
-      webdavTested.value = false
-    } else {
-      message.error('保存失败: ' + (data.error || '未知错误'))
-    }
-  } catch (e: any) {
-    message.error('请求失败: ' + e.message)
+  /* 存到 localStorage */
+  const s = { ...settings.settings }
+  s.webdav = {
+    url: webdavForm.value.url,
+    username: webdavForm.value.username,
+    password: webdavForm.value.password,
+    baseDir: webdavForm.value.baseDir,
   }
+  settings.save(s)
+
+  /* 本地开发时再同步到服务端 */
+  if (isDev) {
+    try {
+      const res = await fetch('/__backup-webdav-config', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(webdavForm.value),
+      })
+      const data = await res.json()
+      if (data.success) {
+        webdavTested.value = false
+      }
+    } catch { /* ignore */ }
+  }
+  message.success('WebDAV 配置已保存')
 }
 
 async function testWebdavConnection() {
@@ -350,6 +357,11 @@ onMounted(() => {
     <div class="backup-scroll">
       <h2 class="page-title">💾 WebDAV 备份</h2>
       <p class="page-desc">将 GitHub Release 的下载文件备份到 WebDAV 云盘，防止上游删库导致资源丢失。每个项目保留最近 2 次更新。</p>
+
+      <NAlert v-if="!isDev" type="warning" :bordered="false" style="margin-bottom:16px">
+        <strong>注意：</strong>WebDAV 备份功能需要本地开发服务器支持，GitHub Pages 上仅可保存配置。
+        如需使用完整备份功能，请在本地运行 <code>npm run dev</code>。
+      </NAlert>
 
       <NCard title="WebDAV 配置" class="action-card" style="margin-bottom: 16px">
         <div class="webdav-grid">

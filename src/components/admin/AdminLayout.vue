@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { useRouter, useRoute } from 'vue-router'
-import { NMenu, NButton, NDrawer, NDrawerContent } from 'naive-ui'
-import { ref } from 'vue'
+import { NMenu, NButton, NDrawer, NDrawerContent, NAvatar, NDropdown } from 'naive-ui'
+import { ref, computed } from 'vue'
 import type { MenuOption } from 'naive-ui'
 import { useScheduler } from '../../composables/useScheduler'
+import { getCurrentUser, clearToken } from '../../utils/auth'
 
 const router = useRouter()
 const route = useRoute()
@@ -20,6 +21,18 @@ const menuOptions: MenuOption[] = [
 ]
 
 const mobileOpen = ref(false)
+const user = computed(() => getCurrentUser())
+
+const userDropdownOptions = [
+  { label: '登出', key: 'logout' },
+]
+
+function handleUserAction(key: string) {
+  if (key === 'logout') {
+    clearToken()
+    router.push('/admin')
+  }
+}
 
 function handleMenuUpdate(key: string) {
   router.push(key)
@@ -51,6 +64,14 @@ function handleMenuUpdate(key: string) {
           <NButton size="small" type="primary" ghost @click="router.push('/')">
             🏠 返回首页
           </NButton>
+        </div>
+        <div class="header-right">
+          <NDropdown v-if="user" :options="userDropdownOptions" @select="handleUserAction">
+            <div class="user-info">
+              <NAvatar :src="user.avatar_url" size="small" round />
+              <span class="user-name">{{ user.login }}</span>
+            </div>
+          </NDropdown>
         </div>
       </header>
       <main class="admin-content">
@@ -115,7 +136,27 @@ function handleMenuUpdate(key: string) {
   display: flex;
   align-items: center;
   gap: 8px;
-  width: 100%;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.user-info:hover {
+  background: var(--hover-bg, rgba(0,0,0,0.05));
+}
+.user-name {
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 .header-title {
   font-weight: 700;

@@ -66,7 +66,7 @@ async function apiFetch(url, options = {}) {
   }
   if (GH_TOKEN) headers.Authorization = `Bearer ${GH_TOKEN}`
   const ctrl = new AbortController()
-  const timer = setTimeout(() => ctrl.abort(), 15000)
+  const timer = setTimeout(() => ctrl.abort(), 30000)
   try {
     const res = await fetch(url, { ...options, headers, signal: ctrl.signal })
     return res
@@ -199,6 +199,18 @@ async function cleanupOldBackups(client, projectDir) {
   } catch { /* ignore */ }
 }
 
+/** 带超时的 fetch */
+async function fetchWithTimeout(url, timeoutMs = 60000) {
+  const ctrl = new AbortController()
+  const timer = setTimeout(() => ctrl.abort(), timeoutMs)
+  try {
+    const res = await fetch(url, { signal: ctrl.signal })
+    return res
+  } finally {
+    clearTimeout(timer)
+  }
+}
+
 /** 备份单个版本的资源到 WebDAV */
 async function backupVersion(client, version, categoryName, projectName, ghProxy) {
   const safeCategory = sanitize(categoryName)
@@ -219,7 +231,7 @@ async function backupVersion(client, version, categoryName, projectName, ghProxy
       try {
         const original = dl.url.replace(/^https?:\/\//, '')
         const url = ghProxy ? ghProxy.replace(/\/+$/, '') + '/' + original : dl.url
-        const resp = await fetch(url)
+        const resp = await fetchWithTimeout(url, 120000)
         if (!resp.ok) throw new Error(`HTTP ${resp.status}`)
         const buffer = Buffer.from(await resp.arrayBuffer())
         await client.putFileContents(`${versionDir}/${dl.filename}`, buffer)

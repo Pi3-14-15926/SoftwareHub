@@ -14,6 +14,7 @@ const accentColors = ['#2a9d8f', '#dd5e43', '#4a7cba', '#b88b4a', '#8a6db0', '#c
 
   <div class="container">
     <header>
+      <div v-if="settings.settings.announcement" class="announcement">{{ settings.settings.announcement }}</div>
       <h1>{{ settings.settings.siteName }}</h1>
       <p class="tagline">发现优质软件 · 一站下载</p>
       <div class="card-grid">
@@ -36,11 +37,7 @@ const accentColors = ['#2a9d8f', '#dd5e43', '#4a7cba', '#b88b4a', '#8a6db0', '#c
       </div>
     </header>
 
-    <footer>
-      <p>本项目仅为聚合下载页面，应用版权归原作者所有</p>
-      <p v-if="settings.settings.footer">{{ settings.settings.footer }}</p>
-      <p v-else>Powered by Software Hub</p>
-    </footer>
+    <footer></footer>
   </div>
 </template>
 
@@ -71,6 +68,15 @@ h1 {
   color: var(--text-sec);
   font-size: 0.92rem;
   margin: 0 0 32px;
+}
+.announcement {
+  background: rgba(42, 157, 143, 0.08);
+  color: var(--accent-teal);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  display: inline-block;
 }
 
 .card-grid {

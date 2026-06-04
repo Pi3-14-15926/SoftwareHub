@@ -120,7 +120,7 @@ const columns = [
     render(row: Version) {
       return h(NSpace, { size: 'small' }, () => [
         h(NButton, { size: 'tiny', type: 'primary', onClick: () => openEdit(row) }, () => '编辑'),
-        h(NPopconfirm, { onPositiveClick: () => doDeleteVersion(row.id) }, {
+        h(NPopconfirm, { positiveText: '确认', negativeText: '取消', onPositiveClick: () => doDeleteVersion(row.id) }, {
           default: () => '确定删除此版本？',
           trigger: () => h(NButton, { size: 'tiny', type: 'error', tertiary: true }, () => '删除'),
         }),
@@ -147,7 +147,7 @@ onMounted(() => {
       </NSpace>
     </div>
 
-    <NCard>
+    <NCard style="flex: 1; min-height: 0; overflow: hidden;" content-style="overflow: auto; height: 100%;">
       <template v-if="versions.length">
         <NDataTable
           :columns="columns"

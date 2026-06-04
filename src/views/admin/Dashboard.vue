@@ -45,6 +45,7 @@ onMounted(() => {
 
 <template>
   <AdminLayout>
+    <div class="dash-scroll">
     <h2 class="page-title">📊 仪表盘</h2>
 
     <div class="stats-row">
@@ -84,6 +85,7 @@ onMounted(() => {
       </NSpace>
       <p v-if="syncResult" class="sync-result">{{ syncResult }}</p>
     </NCard>
+    </div>
   </AdminLayout>
 </template>
 
@@ -134,6 +136,7 @@ onMounted(() => {
 .sync-card { margin-top: 0; }
 .sync-desc { font-size: 0.9rem; color: var(--text-sec); margin-bottom: 12px; }
 .sync-result { margin-top: 10px; font-size: 0.9rem; color: var(--accent-teal); }
+.dash-scroll { overflow-y: auto; flex: 1; min-height: 0; }
 
 @media (max-width: 768px) {
   .stat-card { flex: 1 1 calc(50% - 14px); min-width: 0; padding: 16px 14px; }

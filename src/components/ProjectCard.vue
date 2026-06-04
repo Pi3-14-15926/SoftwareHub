@@ -6,6 +6,7 @@ import { fmtDate, relTime, fmtCompact } from '../utils'
 
 const props = defineProps<{ project: Project }>()
 const expanded = ref(false)
+function openUrl(url: string) { window.open(url, '_blank') }
 </script>
 
 <template>
@@ -64,7 +65,7 @@ const expanded = ref(false)
               v-for="dl in (expanded ? project.versions[0].downloads : project.versions[0].downloads.slice(0, 2))"
               :key="dl.filename"
               class="download-btn"
-              @click.stop
+              @click="openUrl(dl.url)"
             >
               <span class="apk-name">{{ dl.filename }}</span>
               <span class="apk-size">{{ dl.size }}</span>

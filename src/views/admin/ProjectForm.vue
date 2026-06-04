@@ -5,6 +5,7 @@ import { NInput, NButton, NSelect, NSpace, NCard, NAlert, useMessage } from 'nai
 import { useProjectStore } from '../../store/project'
 import { useCategoryStore } from '../../store/category'
 import { fetchReleases, releaseToVersion, fetchRepoDetail } from '../../utils/github'
+import type { Version } from '../../types'
 import AdminLayout from '../../components/admin/AdminLayout.vue'
 
 const router = useRouter()
@@ -88,7 +89,7 @@ async function doFetch() {
   fetching.value = false
 }
 
-const fetchedVersions = ref<any[]>([])
+const fetchedVersions = ref<Version[]>([])
 const fetchedStars = ref(0)
 const fetchedForks = ref(0)
 const latestVersionDisplay = computed(() => fetchedVersions.value[0]?.version || '—')
@@ -129,7 +130,13 @@ async function doSave() {
   if (isEdit.value) {
     const p = existingProject.value
     if (p) {
-      p.slug = form.value.slug.trim()
+      const newSlug = form.value.slug.trim()
+      if (newSlug !== p.slug && projects.slugExists(newSlug)) {
+        error.value = 'slug 已被其他项目使用'
+        saving.value = false
+        return
+      }
+      p.slug = newSlug
       p.name = form.value.name.trim()
       p.description = form.value.description.trim()
       p.logo = form.value.logo.trim()

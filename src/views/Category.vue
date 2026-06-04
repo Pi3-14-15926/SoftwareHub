@@ -59,9 +59,7 @@ const sorted = computed(() => {
       </div>
     </div>
 
-    <footer>
-      <p>{{ settings.settings.footer || 'Powered by Software Hub' }}</p>
-    </footer>
+    <footer></footer>
   </div>
 </template>
 

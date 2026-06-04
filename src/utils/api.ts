@@ -107,8 +107,10 @@ export function deleteCategory(id: string): void {
 export function getSettings(): Settings {
   return loadJSON<Settings>(KEY_SETTINGS, {
     siteName: 'Software Hub',
-    logo: '',
-    admins: [],
+    logo: 'https://i.postimg.cc/j5yhCmXp/dog.png',
+    admins: ['Pi3-14-15926'],
+    footer: 'Powered by Software Hub',
+    storageNote: '收藏精品软件',
   })
 }
 export function saveSettings(s: Settings): void {

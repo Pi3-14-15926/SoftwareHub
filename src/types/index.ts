@@ -65,6 +65,7 @@ export interface Settings {
   footer?: string
   admins: string[]
   seo?: SeoConfig
+  storageNote?: string
 }
 
 /** GitHub Release API 返回的 Asset */

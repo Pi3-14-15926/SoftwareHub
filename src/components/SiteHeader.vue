@@ -15,13 +15,12 @@ function doSearch() {
 
 <template>
   <header class="site-header">
-    <div class="header-inner">
-      <!-- 左：站点名称 -->
+    <div class="nav-inner">
       <router-link to="/" class="logo-link">
-        <span class="logo-text">{{ settings.settings.siteName }}</span>
+        <img v-if="settings.settings.logo" :src="settings.settings.logo" :alt="settings.settings.siteName" class="logo-img" />
+        <span v-else class="logo-text">{{ settings.settings.siteName }}</span>
       </router-link>
 
-      <!-- 中：搜索框 -->
       <div class="search-box">
         <input
           v-model="keyword"
@@ -31,11 +30,10 @@ function doSearch() {
         />
       </div>
 
-      <!-- 右：导航链接 -->
       <nav class="nav-links">
-        <router-link to="/" class="nav-link">首页</router-link>
-        <router-link :to="{ name: 'Search' }" class="nav-link">探索</router-link>
-        <router-link to="/admin" class="nav-link admin-link">管理</router-link>
+        <router-link to="/" class="nav-link" active-class="nav-active">首页</router-link>
+        <router-link :to="{ name: 'Search' }" class="nav-link" active-class="nav-active">探索</router-link>
+        <router-link to="/admin" class="nav-link nav-pill">管理</router-link>
       </nav>
     </div>
   </header>
@@ -43,90 +41,128 @@ function doSearch() {
 
 <style scoped>
 .site-header {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border-color);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
+  padding: 8px 16px 0;
+  padding-top: calc(8px + env(safe-area-inset-top, 0px));
+  pointer-events: none;
 }
-.header-inner {
-  max-width: 1100px;
+.nav-inner {
+  max-width: 1024px;
   margin: 0 auto;
-  padding: 0 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 20px;
   height: 56px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 2rem;
+  border: 1px solid rgba(208, 206, 206, 0.3);
+  pointer-events: auto;
 }
 .logo-link {
   text-decoration: none;
   flex-shrink: 0;
-  margin-left: -12px;
+  padding-left: 4px;
+  display: flex;
+  align-items: center;
+}
+.logo-img {
+  height: 32px;
+  width: auto;
+  display: block;
 }
 .logo-text {
-  font-family: var(--font-display);
+  font-family: 'Noto Serif SC', 'Playfair Display', serif;
   font-weight: 700;
-  font-size: 1.3rem;
-  color: #000;
-  letter-spacing: 0.5px;
+  font-size: 1.5rem;
+  color: #333;
 }
 .search-box {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 300px;
+  flex: 1;
+  max-width: 280px;
+  margin: 0 16px;
 }
 .header-search-input {
   width: 100%;
-  padding: 7px 16px;
-  border-radius: 999px;
-  border: 1px solid var(--border-color);
-  background: var(--card-bg);
-  font-size: 0.88rem;
+  padding: 6px 16px;
+  border-radius: 2rem;
+  border: 1px solid rgba(208, 206, 206, 0.4);
+  background: rgba(0, 0, 0, 0.02);
+  font-size: 0.85rem;
   font-family: inherit;
-  color: var(--text-main);
+  color: #333;
   outline: none;
-  transition: border-color 0.18s, box-shadow 0.18s;
+  transition: border-color 0.2s;
 }
 .header-search-input:focus {
-  border-color: var(--accent-teal);
-  box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.15);
+  border-color: #2098ff;
+}
+.header-search-input::placeholder {
+  color: #aaa;
 }
 .nav-links {
   display: flex;
-  gap: 4px;
+  align-items: center;
+  gap: 2px;
   flex-shrink: 0;
 }
 .nav-link {
   text-decoration: none;
-  color: var(--text-sec);
-  font-size: 0.88rem;
+  color: #777;
+  font-size: 0.95rem;
   padding: 6px 14px;
-  border-radius: 8px;
-  transition: background 0.15s, color 0.15s;
-  font-weight: 500;
+  border-radius: 2rem;
+  transition: color 0.2s;
+  font-weight: 400;
+  position: relative;
 }
 .nav-link:hover {
-  background: rgba(0, 0, 0, 0.05);
-  color: var(--text-main);
+  color: #333;
 }
-.admin-link {
-  color: var(--accent-teal);
-  font-weight: 600;
+.nav-active {
+  color: #333;
+  font-weight: 700;
 }
-.nav-link.router-link-active {
-  background: rgba(42, 157, 143, 0.1);
-  color: var(--accent-teal);
+.nav-active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  background: #2098ff;
+  border-radius: 1px;
+}
+.nav-pill {
+  margin-left: 6px;
+  border: 1px solid rgba(208, 206, 206, 0.5);
+  font-size: 0.85rem;
+  padding: 5px 16px;
+  color: #777;
+}
+.nav-pill:hover {
+  border-color: #2098ff;
+  color: #2098ff;
 }
 
 @media (max-width: 700px) {
-  .header-inner { padding: 0 12px; }
-  .search-box { width: 180px; }
-  .nav-link { padding: 6px 10px; font-size: 0.84rem; }
+  .site-header { padding: 4px 10px 0; }
+  .nav-inner { padding: 0 12px; height: 50px; }
+  .logo-text { font-size: 1.2rem; }
+  .search-box { max-width: 160px; margin: 0 8px; }
+  .nav-link { font-size: 0.85rem; padding: 5px 10px; }
+  .nav-pill { font-size: 0.8rem; padding: 4px 12px; }
 }
 @media (max-width: 500px) {
-  .search-box { position: static; transform: none; width: auto; flex: 1; }
-  .header-inner { gap: 8px; }
+  .nav-inner { gap: 4px; }
+  .search-box { max-width: none; flex: 1; }
+  .nav-link { padding: 4px 8px; font-size: 0.82rem; }
+  .nav-active::after { left: 8px; right: 8px; }
 }
 </style>

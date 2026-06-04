@@ -50,7 +50,7 @@ img { max-width: 100%; height: auto; display: block; }
   flex-direction: column;
 }
 
-main { flex: 1; }
+main { flex: 1; padding-top: 72px; }
 
 a { color: var(--accent-teal); text-decoration: none; }
 
@@ -71,4 +71,18 @@ a { color: var(--accent-teal); text-decoration: none; }
 /* 小屏全局 */
 @media (max-width: 480px) {
   body { padding: 12px; }
+}
+
+/* 修复 NPopconfirm 按钮布局和间距 */
+.n-popconfirm__panel {
+  padding: 4px 0;
+}
+.n-popconfirm__body {
+  padding: 4px 16px 8px;
+}
+.n-popconfirm__action {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 4px 14px 0;
 }

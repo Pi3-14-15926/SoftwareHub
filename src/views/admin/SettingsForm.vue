@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /* ===== 网站设置 ===== */
 import { ref, onMounted } from 'vue'
-import { NButton, NInput, NCard, NForm, NFormItem, NSpace, NAlert, NInputNumber, useMessage } from 'naive-ui'
+import { NButton, NInput, NCard, NForm, NFormItem, useMessage } from 'naive-ui'
 import { useSettingStore } from '../../store/settings'
 import AdminLayout from '../../components/admin/AdminLayout.vue'
 
@@ -17,6 +17,7 @@ const form = ref({
   seoTitle: '',
   seoDesc: '',
   seoKeywords: '',
+  storageNote: '',
 })
 
 onMounted(() => {
@@ -31,6 +32,7 @@ onMounted(() => {
     seoTitle: s.seo?.title || '',
     seoDesc: s.seo?.description || '',
     seoKeywords: (s.seo?.keywords || []).join(', '),
+    storageNote: s.storageNote || '',
   }
 })
 
@@ -52,9 +54,11 @@ function doSave() {
         .map((k) => k.trim())
         .filter(Boolean),
     },
+    storageNote: form.value.storageNote || undefined,
   })
   message.success('设置已保存')
 }
+
 </script>
 
 <template>
@@ -67,8 +71,8 @@ function doSave() {
           <NInput v-model:value="form.siteName" placeholder="Software Hub" />
         </NFormItem>
 
-        <NFormItem label="Logo URL">
-          <NInput v-model:value="form.logo" placeholder="Logo 图片链接（可选）" />
+        <NFormItem label="网站图标">
+          <NInput v-model:value="form.logo" placeholder="网站图标图片链接（可选）" />
         </NFormItem>
 
         <NFormItem label="公告">
@@ -77,6 +81,10 @@ function doSave() {
 
         <NFormItem label="页脚文字">
           <NInput v-model:value="form.footer" type="textarea" rows="2" placeholder="Powered by Software Hub" />
+        </NFormItem>
+
+        <NFormItem label="网站说明">
+          <NInput v-model:value="form.storageNote" placeholder="数据存储在 GitHub JSON 文件，零服务器成本" />
         </NFormItem>
 
         <NFormItem label="管理员（GitHub 用户名，逗号分隔）">
@@ -96,9 +104,9 @@ function doSave() {
         </NFormItem>
       </NForm>
 
-      <NSpace>
-        <NButton type="primary" @click="doSave">保存设置</NButton>
-      </NSpace>
+      <div class="form-actions">
+        <NButton type="primary" size="large" @click="doSave">保存设置</NButton>
+      </div>
     </NCard>
   </AdminLayout>
 </template>
@@ -106,5 +114,6 @@ function doSave() {
 <style scoped>
 .page-title { margin: 0 0 20px; font-size: 1.3rem; }
 .form-card { max-width: 680px; }
+.form-actions { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-color); }
 @media (max-width: 768px) { .form-card { max-width: 100%; } }
 </style>

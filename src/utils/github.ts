@@ -3,6 +3,18 @@ import type { GitHubRelease, Project, Version, Download } from '../types'
 import { uid } from './index'
 
 const GITHUB_API = 'https://api.github.com'
+const FETCH_TIMEOUT = 15000
+
+async function fetchWithTimeout(url: string, init?: RequestInit): Promise<Response> {
+  const ctrl = new AbortController()
+  const timer = setTimeout(() => ctrl.abort(), FETCH_TIMEOUT)
+  try {
+    const res = await fetch(url, { ...init, signal: ctrl.signal })
+    return res
+  } finally {
+    clearTimeout(timer)
+  }
+}
 
 /** 从 GitHub Release API 获取版本列表 */
 export async function fetchReleases(repo: string, token?: string): Promise<GitHubRelease[]> {
@@ -11,7 +23,7 @@ export async function fetchReleases(repo: string, token?: string): Promise<GitHu
   }
   if (token) headers.Authorization = `Bearer ${token}`
 
-  const res = await fetch(`${GITHUB_API}/repos/${repo}/releases?per_page=20`, { headers })
+  const res = await fetchWithTimeout(`${GITHUB_API}/repos/${repo}/releases?per_page=20`, { headers })
   if (!res.ok) throw new Error(`GitHub API 错误: ${res.status} ${res.statusText}`)
   return res.json()
 }
@@ -44,10 +56,15 @@ function guessPlatform(name: string): Download['platform'] {
 
 /** 从 GitHub API 获取仓库信息（Star/Fork 数） */
 export async function fetchRepoInfo(repo: string): Promise<{ stars: number; forks: number }> {
-  const res = await fetch(`${GITHUB_API}/repos/${repo}`)
-  if (!res.ok) return { stars: 0, forks: 0 }
-  const data = await res.json()
-  return { stars: data.stargazers_count ?? 0, forks: data.forks_count ?? 0 }
+  try {
+    const res = await fetchWithTimeout(`${GITHUB_API}/repos/${repo}`)
+    if (!res.ok) return { stars: 0, forks: 0 }
+    const data = await res.json()
+    return { stars: data.stargazers_count ?? 0, forks: data.forks_count ?? 0 }
+  } catch {
+    console.warn('fetchRepoInfo 失败:', repo)
+    return { stars: 0, forks: 0 }
+  }
 }
 
 /** 仓库详细信息（用于自动填充表单） */
@@ -66,7 +83,7 @@ export interface RepoDetail {
 
 /** 从 GitHub API 获取仓库详细信息 */
 export async function fetchRepoDetail(repo: string): Promise<RepoDetail> {
-  const res = await fetch(`${GITHUB_API}/repos/${repo}`)
+  const res = await fetchWithTimeout(`${GITHUB_API}/repos/${repo}`)
   if (!res.ok) throw new Error(`获取仓库信息失败 (${res.status})`)
   return res.json()
 }

@@ -38,7 +38,9 @@ export const useProjectStore = defineStore('project', () => {
     return projects.value.filter(
       (p) =>
         p.name.toLowerCase().includes(kw) ||
-        p.description.toLowerCase().includes(kw),
+        p.description.toLowerCase().includes(kw) ||
+        p.slug.toLowerCase().includes(kw) ||
+        (p.githubRepo || '').toLowerCase().includes(kw),
     )
   }
 
@@ -50,8 +52,13 @@ export const useProjectStore = defineStore('project', () => {
     [...projects.value].sort((a, b) => new Date(b.latestUpdateTime).getTime() - new Date(a.latestUpdateTime).getTime()),
   )
 
+  function slugExists(slug: string) {
+    return projects.value.some((p) => p.slug === slug)
+  }
+
   /** 新建 GitHub 项目 */
-  function createGitHub(slug: string, name: string, repo: string, categoryId: string): Project {
+  function createGitHub(slug: string, name: string, repo: string, categoryId: string): Project | null {
+    if (slugExists(slug)) return null
     const p: Project = {
       id: uid(),
       slug,
@@ -72,7 +79,8 @@ export const useProjectStore = defineStore('project', () => {
   }
 
   /** 新建自定义项目 */
-  function createCustom(slug: string, name: string, categoryId: string): Project {
+  function createCustom(slug: string, name: string, categoryId: string): Project | null {
+    if (slugExists(slug)) return null
     const p: Project = {
       id: uid(),
       slug,
@@ -125,6 +133,7 @@ export const useProjectStore = defineStore('project', () => {
     bySlug,
     byCategory,
     search,
+    slugExists,
     createGitHub,
     createCustom,
     addVersion,

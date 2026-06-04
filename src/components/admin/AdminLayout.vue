@@ -14,7 +14,6 @@ const menuOptions: MenuOption[] = [
   { label: '网站设置', key: '/admin/settings', icon: () => '⚙️' },
 ]
 
-const collapsed = ref(false)
 const mobileOpen = ref(false)
 
 function handleMenuUpdate(key: string) {
@@ -26,22 +25,15 @@ function handleMenuUpdate(key: string) {
 <template>
   <div class="admin-layout">
     <!-- 桌面端侧边栏 -->
-    <aside class="desktop-sider" :style="{ width: collapsed ? '64px' : '200px' }">
+    <aside class="desktop-sider">
       <div class="sider-header">
-        <span v-if="!collapsed" class="sider-title">管理后台</span>
-        <span v-else class="sider-title-mini">M</span>
+        <span class="sider-title">管理后台</span>
       </div>
       <NMenu
         :value="route.path"
-        :collapsed="collapsed"
-        :collapsed-width="64"
-        :collapsed-icon-size="20"
         :options="menuOptions"
         @update:value="handleMenuUpdate"
       />
-      <div class="sider-trigger" @click="collapsed = !collapsed">
-        {{ collapsed ? '▶' : '◀' }}
-      </div>
     </aside>
 
     <div class="inner-layout">
@@ -84,11 +76,11 @@ function handleMenuUpdate(key: string) {
   overflow: hidden;
 }
 .desktop-sider {
+  width: 200px;
   display: flex;
   flex-direction: column;
   border-right: 1px solid var(--border-color);
   background: var(--card-bg);
-  transition: width 0.2s;
   overflow: hidden;
 }
 .sider-header {
@@ -99,17 +91,6 @@ function handleMenuUpdate(key: string) {
   flex-shrink: 0;
 }
 .sider-title { font-size: 1rem; }
-.sider-title-mini { font-size: 1.2rem; }
-.sider-trigger {
-  padding: 8px;
-  text-align: center;
-  cursor: pointer;
-  border-top: 1px solid var(--border-color);
-  font-size: 0.85rem;
-  color: var(--text-sec);
-  flex-shrink: 0;
-}
-.sider-trigger:hover { background: rgba(46, 42, 36, 0.06); }
 
 .inner-layout {
   flex: 1;
@@ -142,7 +123,7 @@ function handleMenuUpdate(key: string) {
   display: flex;
   flex-direction: column;
   padding: 24px;
-  overflow: hidden;
+  overflow: auto;
   min-height: 0;
 }
 .drawer-footer { padding: 16px 0; }

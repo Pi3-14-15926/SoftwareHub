@@ -123,10 +123,7 @@ const historyVers = computed(() => project.value?.versions.slice(1) ?? [])
       </div>
     </template>
 
-    <footer>
-      <p>本项目仅为聚合下载页面，应用版权归原作者所有</p>
-      <p>{{ settings.settings.footer || 'Powered by Software Hub' }}</p>
-    </footer>
+    <footer></footer>
   </div>
 </template>
 

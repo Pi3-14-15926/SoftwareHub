@@ -93,7 +93,7 @@ const columns = [
         row.sourceType === 'github'
           ? h(NButton, { size: 'tiny', tertiary: true, onClick: () => doSync(row) }, () => '同步')
           : null,
-        h(NPopconfirm, { onPositiveClick: () => doDelete(row.id) }, {
+        h(NPopconfirm, { positiveText: '确认', negativeText: '取消', onPositiveClick: () => doDelete(row.id) }, {
           default: () => '确定删除此项目？',
           trigger: () => h(NButton, { size: 'tiny', type: 'error', tertiary: true }, () => '删除'),
         }),
@@ -113,7 +113,7 @@ const columns = [
       <NButton type="primary" @click="router.push(categoryId ? `/admin/projects/new?categoryId=${categoryId}` : '/admin/projects/new')">新增软件</NButton>
     </div>
 
-    <NCard>
+    <NCard style="flex: 1; min-height: 0; overflow: hidden;" content-style="overflow: auto; height: 100%;">
       <div class="toolbar">
         <NInput v-model:value="keyword" placeholder="搜索名称 / slug / 仓库" clearable class="search-input" />
         <span class="count">{{ filteredList.length }}{{ categoryId ? '' : ` / ${projects.projects.length}` }}</span>

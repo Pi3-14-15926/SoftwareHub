@@ -17,7 +17,8 @@ export function relTime(iso: string): string {
   const d = new Date(iso)
   if (isNaN(d.getTime())) return ''
   const days = Math.floor((Date.now() - d.getTime()) / 864e5)
-  if (days <= 0) return '今天'
+  if (days < 0) return '刚刚'
+  if (days === 0) return '今天'
   if (days === 1) return '昨天'
   if (days < 30) return `${days} 天前`
   if (days < 365) return `${Math.floor(days / 30)} 个月前`

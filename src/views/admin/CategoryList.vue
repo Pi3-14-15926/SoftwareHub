@@ -45,6 +45,8 @@ function doSave() {
 }
 
 function doDelete(id: string) {
+  const count = projectCount(id)
+  if (count > 0 && !confirm(`此页面下有 ${count} 个关联软件，确定要删除吗？（软件不会丢失，但将无法从页面访问）`)) return
   catStore.remove(id)
 }
 
@@ -73,7 +75,7 @@ const pageColumns = [
     render(row: Category) {
       return h(NSpace, { size: 'small' }, () => [
         h(NButton, { size: 'tiny', type: 'primary', onClick: () => openEdit(row) }, () => '编辑'),
-        h(NPopconfirm, { onPositiveClick: () => doDelete(row.id) }, {
+        h(NPopconfirm, { positiveText: '确认', negativeText: '取消', onPositiveClick: () => doDelete(row.id) }, {
           default: () => '确定删除此页面？',
           trigger: () => h(NButton, { size: 'tiny', type: 'error', tertiary: true }, () => '删除'),
         }),
@@ -90,7 +92,6 @@ onMounted(() => {
 
 <template>
   <AdminLayout>
-    <div class="category-page">
     <div class="page-header">
       <h2 class="page-title">📂 页面管理</h2>
       <NButton type="primary" @click="openNew">新增页面</NButton>
@@ -107,7 +108,6 @@ onMounted(() => {
           striped
         />
       </div>
-    </div>
     </div>
 
     <NModal v-model:show="showModal" title="页面信息" preset="card" style="max-width: 520px">
@@ -142,12 +142,6 @@ onMounted(() => {
 <style scoped>
 .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
 .page-title { margin: 0; font-size: 1.3rem; }
-.category-page {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  overflow: hidden;
-}
 .card-wrap {
   flex: 1;
   min-height: 0;

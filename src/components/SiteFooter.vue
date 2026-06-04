@@ -6,7 +6,7 @@ const settings = useSettingStore()
 <template>
   <footer class="site-footer">
     <p>{{ settings.settings.footer || 'Powered by Software Hub' }}</p>
-    <p class="footer-note">数据存储在 GitHub JSON 文件，零服务器成本</p>
+    <p v-if="settings.settings.storageNote" class="footer-note">{{ settings.settings.storageNote }}</p>
   </footer>
 </template>
 

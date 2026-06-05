@@ -94,10 +94,7 @@ async function saveWebdavConfig() {
   /* 本地开发时再同步到服务端 */
   if (isDev) {
     try {
-      const configToSend = { ...s.webdav }
-      if (!webdavForm.value.password) {
-        delete configToSend.password
-      }
+      const configToSend = { ...s.webdav, password: webdavForm.value.password || undefined }
       const res = await fetch('/__backup-webdav-config', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

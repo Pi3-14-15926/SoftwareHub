@@ -160,10 +160,26 @@ function formatSize(bytes: number): string {
 async function loadBackupFiles() {
   loadingFiles.value = true
   try {
-    const res = await fetch('/__backup-files')
-    const data = await res.json()
-    backupEntries.value = data.entries || []
-  } catch {
+    const manifestUrl = import.meta.env.BASE_URL + 'data/backup-manifest.json'
+    const res = await fetch(manifestUrl)
+    if (res.ok) {
+      const data = await res.json()
+      backupEntries.value = data.entries || []
+      loadingFiles.value = false
+      return
+    }
+  } catch { /* 没有清单文件，尝试 dev server */ }
+
+  // 本地开发时尝试从 Vite 插件读取
+  if (import.meta.env.DEV) {
+    try {
+      const res = await fetch('/__backup-files')
+      const data = await res.json()
+      backupEntries.value = data.entries || []
+    } catch {
+      backupEntries.value = []
+    }
+  } else {
     backupEntries.value = []
   }
   loadingFiles.value = false

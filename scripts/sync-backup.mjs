@@ -369,13 +369,62 @@ async function main() {
     log('\n--- WebDAV 未配置，跳过备份 ---')
   }
 
-  // 5. Commit & Push 变更
-  if (changed) {
+  // 5. 生成备份清单（给前端展示用）
+  let manifestBackedUp = false
+  if (WEBDAV_URL && WEBDAV_USERNAME && WEBDAV_PASSWORD) {
+    log('\n--- 生成备份清单 ---')
+    try {
+      const client = createClient(WEBDAV_URL, {
+        username: WEBDAV_USERNAME,
+        password: WEBDAV_PASSWORD,
+      })
+      const entries = []
+      const baseDir = WEBDAV_BASE_DIR
+
+      const cats = await webdavOp(client.getDirectoryContents(baseDir), '列出分类目录').catch(() => [])
+      for (const cat of (cats.filter(c => c.type === 'directory'))) {
+        const catName = sanitize(cat.basename || cat.filename.split('/').pop() || '')
+        const projs = await webdavOp(client.getDirectoryContents(cat.filename), `列出 ${catName}`).catch(() => [])
+        for (const proj of (projs.filter(p => p.type === 'directory'))) {
+          const projName = sanitize(proj.basename || proj.filename.split('/').pop() || '')
+          const vers = await webdavOp(client.getDirectoryContents(proj.filename), `列出 ${projName}`).catch(() => [])
+          for (const ver of (vers.filter(v => v.type === 'directory'))) {
+            const verName = ver.basename || ver.filename.split('/').pop() || ''
+            const files = await webdavOp(client.getDirectoryContents(ver.filename), `列出 ${verName}`).catch(() => [])
+            const fileEntries = files
+              .filter(f => f.type === 'file')
+              .map(f => ({
+                name: f.basename || f.filename.split('/').pop() || '',
+                size: f.size || 0,
+                url: `${baseDir}/${catName}/${projName}/${verName}/${f.basename || f.filename.split('/').pop() || ''}`,
+              }))
+            if (fileEntries.length > 0) {
+              entries.push({
+                category: catName,
+                project: projName,
+                versionDir: verName,
+                files: fileEntries,
+              })
+            }
+          }
+        }
+      }
+
+      writeJSON(path.resolve('public/data/backup-manifest.json'), { entries, updatedAt: new Date().toISOString() })
+      manifestBackedUp = true
+      log(`  清单完成: ${entries.length} 个项目`)
+    } catch (e) {
+      log(`  生成清单失败: ${e.message}`)
+    }
+  }
+
+  // 6. Commit & Push 变更
+  if (changed || manifestBackedUp) {
     log('\n--- 提交变更 ---')
     try {
       execSync('git config user.name "github-actions[bot]"', { stdio: 'pipe' })
       execSync('git config user.email "github-actions[bot]@users.noreply.github.com"', { stdio: 'pipe' })
-      execSync('git add public/data/projects.json', { stdio: 'pipe' })
+      execSync('git add public/data/', { stdio: 'pipe' })
       const diff = execSync('git diff --cached --stat', { encoding: 'utf-8' })
       if (diff.trim()) {
         execSync(`git commit -m "chore(data): 自动同步 GitHub Release [skip ci]"`, { stdio: 'pipe' })

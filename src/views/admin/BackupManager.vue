@@ -78,10 +78,15 @@ async function saveWebdavConfig() {
   /* 存到 localStorage */
   const s = { ...settings.settings }
   const storedPwd = s.webdav?.password || ''
+  if (!webdavForm.value.password && !storedPwd) {
+    message.error('请填写 WebDAV 密码')
+    throw new Error('密码为空')
+  }
+  const resolvedPwd = webdavForm.value.password || storedPwd
   s.webdav = {
     url: webdavForm.value.url,
     username: webdavForm.value.username,
-    password: webdavForm.value.password || storedPwd,
+    password: resolvedPwd,
     baseDir: webdavForm.value.baseDir,
   }
   settings.save(s)
@@ -89,16 +94,22 @@ async function saveWebdavConfig() {
   /* 本地开发时再同步到服务端 */
   if (isDev) {
     try {
+      const configToSend = { ...s.webdav }
+      if (!webdavForm.value.password) {
+        delete configToSend.password
+      }
       const res = await fetch('/__backup-webdav-config', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(s.webdav),
+        body: JSON.stringify(configToSend),
       })
       const data = await res.json()
       if (data.success) {
         webdavTested.value = false
       }
-    } catch { /* ignore */ }
+    } catch (e: any) {
+      message.warning('同步到服务端失败: ' + e.message)
+    }
   }
   message.success('WebDAV 配置已保存')
 }

@@ -387,11 +387,13 @@ function handleWebdavConfig(req: IncomingMessage, res: ServerResponse) {
   req.on('data', (chunk: string) => (raw += chunk))
   req.on('end', () => {
     try {
-      const config = JSON.parse(raw) as WebdavConfig
-      if (config.password === '' && webdavConfig) {
-        config.password = webdavConfig.password
+      const incoming = JSON.parse(raw)
+      webdavConfig = {
+        url: incoming.url ?? webdavConfig?.url ?? '',
+        username: incoming.username ?? webdavConfig?.username ?? '',
+        password: incoming.password ?? webdavConfig?.password ?? '',
+        baseDir: incoming.baseDir ?? webdavConfig?.baseDir ?? '/SoftwareHub',
       }
-      webdavConfig = config
       webdavClient = null
       res.writeHead(200, { 'Content-Type': 'application/json' })
       res.end(JSON.stringify({ success: true }))

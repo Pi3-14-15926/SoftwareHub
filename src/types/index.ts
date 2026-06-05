@@ -64,6 +64,7 @@ export interface WebDAVConfig {
   username: string
   password: string
   baseDir: string
+  uploadTimeout?: number
 }
 
 /** 站点设置 */

@@ -77,10 +77,11 @@ async function loadWebdavConfig() {
 async function saveWebdavConfig() {
   /* 存到 localStorage */
   const s = { ...settings.settings }
+  const storedPwd = s.webdav?.password || ''
   s.webdav = {
     url: webdavForm.value.url,
     username: webdavForm.value.username,
-    password: webdavForm.value.password,
+    password: webdavForm.value.password || storedPwd,
     baseDir: webdavForm.value.baseDir,
   }
   settings.save(s)
@@ -222,7 +223,10 @@ async function doBackup() {
     }, 3000)
 
     try {
-      logs.value.push({ type: 'meta', message: '发送请求到服务器...' })
+      // 先确保服务端有最新的 WebDAV 配置
+    await saveWebdavConfig()
+
+    logs.value.push({ type: 'meta', message: '发送请求到服务器...' })
       const res = await fetch('/__backup-assets', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

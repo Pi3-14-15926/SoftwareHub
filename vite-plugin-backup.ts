@@ -214,7 +214,10 @@ async function handleBackup(req: IncomingMessage, res: ServerResponse) {
             try {
               const original = dl.url.replace(/^https?:\/\//, '')
               const url = ghProxy ? ghProxy.replace(/\/+$/, '') + '/' + original : dl.url
-              const resp = await fetch(url)
+              const ctrl = new AbortController()
+              const timer = setTimeout(() => ctrl.abort(), 300000)
+              const resp = await fetch(url, { signal: ctrl.signal })
+              clearTimeout(timer)
               if (!resp.ok) throw new Error(`HTTP ${resp.status}`)
               const buffer = Buffer.from(await resp.arrayBuffer())
 

@@ -1,30 +1,26 @@
 [
   {
-    "id": "cat-reader",
-    "name": "阅读工具",
-    "slug": "reader",
+    "id": "mpwplwvrfti2db",
+    "name": "阅读",
+    "slug": "yuedu",
+    "sortOrder": 0,
     "icon": "📖",
-    "sortOrder": 0
+    "description": "阅读软件"
   },
   {
-    "id": "cat-tool",
-    "name": "系统工具",
-    "slug": "tool",
-    "icon": "🔧",
-    "sortOrder": 1
-  },
-  {
-    "id": "cat-media",
-    "name": "影音媒体",
-    "slug": "media",
+    "id": "mpwqe2ab42aot0",
+    "name": "音乐",
+    "slug": "music",
+    "sortOrder": 1,
     "icon": "🎵",
-    "sortOrder": 2
+    "description": "音乐软件"
   },
   {
-    "id": "cat-dev",
-    "name": "开发工具",
-    "slug": "dev",
-    "icon": "💻",
-    "sortOrder": 3
+    "id": "mpzijdnwrchrgw",
+    "name": "动漫",
+    "slug": "dongman",
+    "icon": "📺",
+    "description": "动漫软件",
+    "sortOrder": 2
   }
 ]

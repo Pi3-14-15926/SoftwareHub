@@ -200,12 +200,9 @@ async function ensureRemoteDir(client, dirPath) {
   let acc = ''
   for (const p of parts) {
     acc += '/' + p
-    try {
-      if (!(await webdavOp(client.exists(acc), `检查目录 ${acc}`))) {
-        await webdavOp(client.createDirectory(acc), `创建目录 ${acc}`)
-      }
-    } catch {
-      try { await webdavOp(client.createDirectory(acc), `重试创建目录 ${acc}`) } catch { /* ignore */ }
+    const exists = await webdavOp(client.exists(acc), `检查目录 ${acc}`).catch(() => false)
+    if (!exists) {
+      await webdavOp(client.createDirectory(acc), `创建目录 ${acc}`)
     }
   }
 }
@@ -319,6 +316,32 @@ async function main() {
       username: WEBDAV_USERNAME,
       password: WEBDAV_PASSWORD,
     })
+
+    // 测试连接
+    log('  测试 WebDAV 连接...')
+    try {
+      const baseExists = await webdavOp(client.exists(WEBDAV_BASE_DIR), `检查根目录 ${WEBDAV_BASE_DIR}`)
+      log(`  根目录 ${WEBDAV_BASE_DIR}: ${baseExists ? '已存在' : '不存在，将在备份时创建'}`)
+    } catch (e) {
+      log(`  ✗ WebDAV 连接失败: ${e.message}`)
+      log('\n=== 完成（WebDAV 备份跳过） ===')
+      process.exit(0)
+    }
+
+    let totalVersions = 0
+    let totalFiles = 0
+    for (const project of projects) {
+      if (project.sourceType !== 'github' || !project.versions.length) continue
+      const sorted = [...project.versions].sort(
+        (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+      )
+      const toBackup = sorted.slice(0, KEEP_VERSIONS)
+      totalVersions += toBackup.length
+      for (const ver of toBackup) {
+        totalFiles += ver.downloads.length
+      }
+    }
+    log(`  共 ${totalVersions} 个版本, ${totalFiles} 个文件待备份`)
 
     for (const project of projects) {
       if (project.sourceType !== 'github' || !project.versions.length) continue

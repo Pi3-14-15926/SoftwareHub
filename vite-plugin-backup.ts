@@ -39,6 +39,7 @@ interface WebdavConfig {
   username: string
   password: string
   baseDir: string
+  uploadTimeout?: number  // 上传超时(ms)，默认60000
 }
 
 const KEEP_LATEST = 2
@@ -221,7 +222,11 @@ async function handleBackup(req: IncomingMessage, res: ServerResponse) {
               if (!resp.ok) throw new Error(`HTTP ${resp.status}`)
               const buffer = Buffer.from(await resp.arrayBuffer())
 
-              await client.putFileContents(versionDir + '/' + dl.filename, buffer)
+              const uploadTimeout = webdavConfig?.uploadTimeout || 60000
+              await Promise.race([
+                client.putFileContents(versionDir + '/' + dl.filename, buffer),
+                new Promise((_, reject) => setTimeout(() => reject(new Error(`上传超时 (${uploadTimeout}ms)`)), uploadTimeout)),
+              ])
 
               writeNdjson(res, {
                 type: 'file',
@@ -393,6 +398,7 @@ function handleWebdavConfig(req: IncomingMessage, res: ServerResponse) {
         username: incoming.username ?? webdavConfig?.username ?? '',
         password: incoming.password ?? webdavConfig?.password ?? '',
         baseDir: incoming.baseDir ?? webdavConfig?.baseDir ?? '/SoftwareHub',
+        uploadTimeout: incoming.uploadTimeout ?? webdavConfig?.uploadTimeout ?? 60000,
       }
       webdavClient = null
       res.writeHead(200, { 'Content-Type': 'application/json' })

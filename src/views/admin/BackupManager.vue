@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-import { NButton, NCard, NSpin, NSpace, NEmpty, NTag, NPopconfirm, NProgress, NInput, NAlert, useMessage } from 'naive-ui'
+import { NButton, NCard, NSpin, NSpace, NEmpty, NTag, NPopconfirm, NProgress, NInput, NInputNumber, NAlert, useMessage } from 'naive-ui'
 import AdminLayout from '../../components/admin/AdminLayout.vue'
 import { useProjectStore } from '../../store/project'
 import { useCategoryStore } from '../../store/category'
@@ -41,6 +41,7 @@ const webdavForm = ref({
   username: '',
   password: '',
   baseDir: '/SoftwareHub',
+  uploadTimeout: 60,
 })
 const webdavTesting = ref(false)
 const webdavTested = ref(false)
@@ -55,6 +56,7 @@ async function loadWebdavConfig() {
       username: wd.username || '',
       password: '',
       baseDir: wd.baseDir || '/SoftwareHub',
+      uploadTimeout: wd.uploadTimeout ?? 60,
     }
   }
   /* 本地开发时再从服务端加载（覆盖密码） */
@@ -68,6 +70,7 @@ async function loadWebdavConfig() {
           username: data.username || webdavForm.value.username,
           password: '',
           baseDir: data.baseDir || webdavForm.value.baseDir,
+          uploadTimeout: data.uploadTimeout ?? webdavForm.value.uploadTimeout,
         }
       }
     } catch { /* ignore */ }
@@ -88,6 +91,7 @@ async function saveWebdavConfig() {
     username: webdavForm.value.username,
     password: resolvedPwd,
     baseDir: webdavForm.value.baseDir,
+    uploadTimeout: webdavForm.value.uploadTimeout,
   }
   settings.save(s)
 
@@ -397,6 +401,11 @@ onMounted(() => {
           <NInput v-model:value="webdavForm.username" placeholder="用户名" />
           <NInput v-model:value="webdavForm.password" type="password" placeholder="密码 (留空则不修改)" />
           <NInput v-model:value="webdavForm.baseDir" placeholder="根目录 (如 /SoftwareHub)" />
+        </div>
+        <div class="action-row" style="margin-top: 12px">
+          <span class="hint-text">上传超时:</span>
+          <NInputNumber v-model:value="webdavForm.uploadTimeout" :min="10" :max="600" style="width:100px" />
+          <span class="hint-text">秒（默认60秒，大文件请加长）</span>
         </div>
         <div class="action-row" style="margin-top: 12px">
           <NButton type="primary" @click="saveWebdavConfig" :disabled="!webdavForm.url">保存配置</NButton>

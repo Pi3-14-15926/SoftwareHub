@@ -30,6 +30,7 @@ const WEBDAV_PASSWORD = process.env.WEBDAV_PASSWORD || ''
 const WEBDAV_BASE_DIR = (process.env.WEBDAV_BASE_DIR || '/SoftwareHub').replace(/\/+$/, '')
 const GH_PROXY = process.env.GH_PROXY || ''
 const KEEP_VERSIONS = parseInt(process.env.KEEP_VERSIONS || '2', 10)
+const WEBDAV_TIMEOUT = parseInt(process.env.WEBDAV_TIMEOUT || '120000', 10)
 
 let changed = false  // 是否有数据变更，后续需要 commit
 
@@ -189,7 +190,7 @@ function getCategoryName(categories, categoryId) {
 
 /** 给 WebDAV 操作加超时 */
 function webdavOp(promise, label) {
-  return withTimeout(promise, 30000).catch(e => {
+  return withTimeout(promise, WEBDAV_TIMEOUT).catch(e => {
     throw new Error(`${label}: ${e.message}`)
   })
 }
@@ -446,4 +447,4 @@ async function main() {
 main().catch(e => {
   console.error('脚本异常:', e)
   process.exit(1)
-})
+}).finally(() => process.exit(0))

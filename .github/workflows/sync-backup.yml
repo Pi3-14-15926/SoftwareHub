@@ -40,3 +40,4 @@ jobs:
           WEBDAV_BASE_DIR: ${{ secrets.WEBDAV_BASE_DIR || '/SoftwareHub' }}
           GH_PROXY: ${{ secrets.GH_PROXY }}
           KEEP_VERSIONS: ${{ vars.KEEP_VERSIONS || '2' }}
+          WEBDAV_TIMEOUT: ${{ vars.WEBDAV_TIMEOUT || '60000' }}

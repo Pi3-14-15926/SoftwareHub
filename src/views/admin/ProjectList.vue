@@ -88,6 +88,14 @@ function platformList(s: Software): string[] {
   return api.getSoftwarePlatforms(s.id)
 }
 
+/* 来源链接：GitHub → 仓库地址；自定义 → 官网；无链接则空串 */
+function sourceLink(p: Software): string {
+  if (p.sourceType === 'github') {
+    return p.githubUrl || (p.githubRepo ? `https://github.com/${p.githubRepo}` : '')
+  }
+  return p.website || ''
+}
+
 /* 过滤 */
 const filteredList = computed(() => {
   let list = projects.software
@@ -342,7 +350,26 @@ watch(sortBy, () => { page.value = 1 })
             >
               {{ p.featured ? '⭐' : '☆' }}
             </button>
-            <span :class="['src-tag', p.sourceType === 'github' ? 'src-github' : 'src-custom']">
+            <a
+              v-if="sourceLink(p)"
+              :href="sourceLink(p)"
+              target="_blank"
+              rel="noopener noreferrer"
+              :class="['src-tag', 'src-tag-link', p.sourceType === 'github' ? 'src-github' : 'src-custom']"
+              :title="p.sourceType === 'github' ? '在 GitHub 打开' : '打开官网'"
+            >
+              <span class="src-dot"></span>
+              {{ p.sourceType === 'github' ? 'GitHub' : '自定义' }}
+              <svg class="src-ext" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+            </a>
+            <span
+              v-else
+              :class="['src-tag', p.sourceType === 'github' ? 'src-github' : 'src-custom']"
+            >
               <span class="src-dot"></span>
               {{ p.sourceType === 'github' ? 'GitHub' : '自定义' }}
             </span>
@@ -753,6 +780,9 @@ watch(sortBy, () => { page.value = 1 })
 .src-github .src-dot { background: #3478F6; }
 .src-custom { background: linear-gradient(135deg, rgba(140, 108, 255, 0.12), rgba(140, 108, 255, 0.12)); color: #6D4FD6; }
 .src-custom .src-dot { background: #8C6CFF; }
+.src-tag-link { text-decoration: none; cursor: pointer; transition: filter 0.15s, transform 0.15s; }
+.src-tag-link:hover { filter: brightness(0.95); transform: translateY(-1px); }
+.src-ext { margin-left: 3px; opacity: 0.65; vertical-align: -1px; }
 
 .ribbon-disabled {
   position: absolute;

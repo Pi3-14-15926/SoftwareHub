@@ -59,23 +59,54 @@ function emptyAppData(): AppData {
 }
 
 export function loadAppData(): AppData {
-  const raw = loadJSON<Partial<AppData> | null>(KEY, null)
-  if (!raw) return emptyAppData()
-  return {
-    ...emptyAppData(),
-    ...raw,
-    settings: { ...DEFAULT_SETTINGS, ...(raw.settings || {}) },
+  const raw = localStorage.getItem(KEY)
+  if (raw === null) {
+    if (_appDataCache) return _appDataCache.parsed
+    const parsed = emptyAppData()
+    _appDataCache = { raw: null, parsed }
+    return parsed
   }
+  if (_appDataCache && _appDataCache.raw === raw) return _appDataCache.parsed
+  const partial = JSON.parse(raw) as Partial<AppData>
+  const parsed: AppData = {
+    ...emptyAppData(),
+    ...partial,
+    settings: { ...DEFAULT_SETTINGS, ...(partial.settings || {}) },
+  }
+  _appDataCache = { raw, parsed }
+  return parsed
 }
 
 export function saveAppData(d: AppData): void {
   saveJSON(KEY, d)
+  invalidateDerivedCaches()
+}
+
+const _platformsCache = new Map<string, Platform[]>()
+const _realDLCache = new Map<string, number | null>()
+const _versionsByProjectCache = new Map<string, Version[]>()
+const _versionByIdCache = new Map<string, Version | undefined>()
+const _downloadsByVersionCache = new Map<string, Download[]>()
+let _allSoftwareCache: { data: AppData; list: Software[] } | null = null
+let _appDataCache: { raw: string | null; parsed: AppData } | null = null
+
+function invalidateDerivedCaches() {
+  _platformsCache.clear()
+  _realDLCache.clear()
+  _versionsByProjectCache.clear()
+  _versionByIdCache.clear()
+  _downloadsByVersionCache.clear()
+  _allSoftwareCache = null
+  _appDataCache = null
 }
 
 /* ========== Software ========== */
 export function getAllSoftware(): Software[] {
   const d = loadAppData()
-  return Object.values(d.software).flat()
+  if (_allSoftwareCache && _allSoftwareCache.data === d) return _allSoftwareCache.list
+  const list = Object.values(d.software).flat()
+  _allSoftwareCache = { data: d, list }
+  return list
 }
 
 export function getSoftwareBySlug(slug: string): Software | undefined {
@@ -122,24 +153,35 @@ export function deleteSoftware(id: string): void {
 
 /* ========== Version ========== */
 export function getSoftwareVersions(softwareId: string): Version[] {
+  const cached = _versionsByProjectCache.get(softwareId)
+  if (cached) return cached
   const d = loadAppData()
-  return Object.values(d.versions).flat()
+  const result = Object.values(d.versions).flat()
     .filter((v) => v.projectId === softwareId)
     .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+  _versionsByProjectCache.set(softwareId, result)
+  return result
 }
 
 export function getVersionById(id: string): Version | undefined {
+  if (_versionByIdCache.has(id)) return _versionByIdCache.get(id)
   const d = loadAppData()
-  return Object.values(d.versions).flat().find((v) => v.id === id)
+  const result = Object.values(d.versions).flat().find((v) => v.id === id)
+  _versionByIdCache.set(id, result)
+  return result
 }
 
 /** 派生：软件真实支持的平台集合（基于其所有版本的下载项 platform） */
 export function getSoftwarePlatforms(softwareId: string): Platform[] {
+  const cached = _platformsCache.get(softwareId)
+  if (cached) return cached
   const set = new Set<Platform>()
   for (const v of getSoftwareVersions(softwareId)) {
     for (const dl of getVersionDownloads(v.id)) set.add(dl.platform)
   }
-  return Array.from(set)
+  const result = Array.from(set)
+  _platformsCache.set(softwareId, result)
+  return result
 }
 
 export function latestVersionText(s: Software): string {
@@ -192,8 +234,12 @@ export function deleteVersion(id: string): void {
 
 /* ========== Download ========== */
 export function getVersionDownloads(versionId: string): Download[] {
+  const cached = _downloadsByVersionCache.get(versionId)
+  if (cached) return cached
   const d = loadAppData()
-  return Object.values(d.downloads).flat().filter((dl) => dl.versionId === versionId)
+  const result = Object.values(d.downloads).flat().filter((dl) => dl.versionId === versionId)
+  _downloadsByVersionCache.set(versionId, result)
+  return result
 }
 
 export function getDownloadsByIds(ids: string[]): Download[] {
@@ -422,13 +468,19 @@ const REMOTE_INDEX: RemoteFile[] = [
   { path: 'data/backup-manifest.json', data: null },
 ]
 
-async function fetchJSON<T>(url: string): Promise<T | null> {
+const FETCH_TIMEOUT_MS = 8000
+
+async function fetchJSON<T>(url: string, timeoutMs = FETCH_TIMEOUT_MS): Promise<T | null> {
+  const ctl = new AbortController()
+  const timer = setTimeout(() => ctl.abort(), timeoutMs)
   try {
-    const res = await fetch(url)
+    const res = await fetch(url, { signal: ctl.signal })
     if (!res.ok) return null
     return await res.json()
   } catch {
     return null
+  } finally {
+    clearTimeout(timer)
   }
 }
 
@@ -478,7 +530,7 @@ export async function loadRemoteData(): Promise<boolean> {
 async function loadAllRemoteData(): Promise<void> {
   const d = loadAppData()
 
-  // 1) 全局文件
+  // 1) 全局文件（5 个并发，秒级返回）
   const [index, categories, settings, iconAssets, backupManifest] = await Promise.all([
     fetchJSON<IndexEntry[]>(`${BASE}data/index.json`),
     fetchJSON<Category[]>(`${BASE}data/categories.json`),
@@ -492,9 +544,9 @@ async function loadAllRemoteData(): Promise<void> {
   if (iconAssets) d.iconAssets = iconAssets
   if (backupManifest) d.backupManifest = backupManifest
 
-  // 2) 每个分类
+  // 2) 每个分类：3 文件并发拉取，所有分类间也并行（pMap 限 4 并发，避免 429）
   const cats = d.categories.length ? d.categories : []
-  for (const c of cats) {
+  await pMap(cats, async (c) => {
     const [software, versions, downloads] = await Promise.all([
       fetchJSON<Software[]>(`${BASE}page/${c.slug}/software.json`),
       fetchJSON<Version[]>(`${BASE}page/${c.slug}/versions.json`),
@@ -503,7 +555,7 @@ async function loadAllRemoteData(): Promise<void> {
     if (software) d.software[c.slug] = software
     if (versions) d.versions[c.slug] = versions
     if (downloads) d.downloads[c.slug] = downloads
-  }
+  }, 4)
 
   saveAppData(d)
 }
@@ -600,6 +652,8 @@ export function parseGithubAssetUrl(url: string): { owner: string; repo: string;
 /** 累加一个软件下所有 downloadCount 真实下载量。
  *  返回 null = 该软件没有任何 GitHub 资产被同步过真实数据。*/
 export function realDownloads(s: Software): number | null {
+  const cached = _realDLCache.get(s.id)
+  if (cached !== undefined) return cached
   const vers = getSoftwareVersions(s.id)
   let total = 0
   let hasAny = false
@@ -611,7 +665,9 @@ export function realDownloads(s: Software): number | null {
       }
     }
   }
-  return hasAny ? total : null
+  const result = hasAny ? total : null
+  _realDLCache.set(s.id, result)
+  return result
 }
 
 /** 真实下载量 → 显示字符串（缺数据返回 "—"）*/

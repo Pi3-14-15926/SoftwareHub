@@ -115,20 +115,6 @@ function cmpRealDL(a: Software, b: Software): number {
   return vb - va
 }
 
-/* 软件的 latestVersion 字符串 */
-function latestVersionText(s: Software): string {
-  if (!s.latestVersionId) return ''
-  return getVersionById(s.latestVersionId)?.version || ''
-}
-
-/* 软件真实支持的平台（行内最多 3 个，独占行时给 6 个） */
-function platformsOf(s: Software, max = 3): string[] {
-  return getSoftwarePlatforms(s.id).slice(0, max)
-}
-function platformsMore(s: Software, max = 3): number {
-  return Math.max(0, getSoftwarePlatforms(s.id).length - max)
-}
-
 /* 本周下载榜（按 GitHub 真实下载量排序，缺数据排最后） */
 const topDownloads = computed(() => {
   return [...projects.software]
@@ -136,6 +122,30 @@ const topDownloads = computed(() => {
     .sort(cmpRealDL)
     .slice(0, 3)
 })
+
+/* === 派生数据映射（避免 v-for 里直接调 expensive 函数） === */
+const platformsMap = computed(() => {
+  const m = new Map<string, string[]>()
+  for (const p of projects.software) m.set(p.id, getSoftwarePlatforms(p.id))
+  return m
+})
+const latestVersionMap = computed(() => {
+  const m = new Map<string, string>()
+  for (const p of projects.software) {
+    m.set(p.id, p.latestVersionId ? getVersionById(p.latestVersionId)?.version || '' : '')
+  }
+  return m
+})
+
+function platformsOf(s: Software, max = 3): string[] {
+  return (platformsMap.value.get(s.id) || []).slice(0, max)
+}
+function platformsMore(s: Software, max = 3): number {
+  return Math.max(0, (platformsMap.value.get(s.id) || []).length - max)
+}
+function latestVersionText(s: Software): string {
+  return latestVersionMap.value.get(s.id) || ''
+}
 </script>
 
 <template>

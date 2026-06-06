@@ -2,7 +2,7 @@
 /* ===== 根组件 ===== */
 import { computed, watch, onErrorCaptured, onMounted, onUnmounted } from 'vue'
 import { RouterView, useRoute } from 'vue-router'
-import { NMessageProvider, useMessage } from 'naive-ui'
+import { NMessageProvider, createDiscreteApi } from 'naive-ui'
 import SiteHeader from './components/SiteHeader.vue'
 import SiteFooter from './components/SiteFooter.vue'
 import { useSettingStore } from './store/settings'
@@ -32,7 +32,7 @@ watch(() => settings.settings, (s) => {
 /* ===== 远程数据自动更新检测 ===== */
 const POLL_INTERVAL = 5 * 60 * 1000
 let pollTimer: number | null = null
-const messageApi = useMessage()
+const { message: messageApi } = createDiscreteApi(['message'])
 
 async function checkRemoteUpdate(showToast: boolean) {
   try {

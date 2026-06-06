@@ -10,8 +10,8 @@
     "featured": false,
     "githubRepo": "Luoyacheng/legado",
     "githubUrl": "https://github.com/Luoyacheng/legado",
-    "stars": 1659,
-    "forks": 234,
+    "stars": 1676,
+    "forks": 243,
     "platforms": [
       "Android"
     ],
@@ -29,8 +29,8 @@
     "featured": false,
     "githubRepo": "HapeLee/legado-with-MD3",
     "githubUrl": "https://github.com/HapeLee/legado-with-MD3",
-    "stars": 4268,
-    "forks": 409,
+    "stars": 4297,
+    "forks": 415,
     "platforms": [
       "Android"
     ],
@@ -48,8 +48,8 @@
     "featured": false,
     "githubRepo": "skybbk1001/legadoT",
     "githubUrl": "https://github.com/skybbk1001/legadoT",
-    "stars": 33,
-    "forks": 8,
+    "stars": 34,
+    "forks": 9,
     "platforms": [
       "Android"
     ],
@@ -67,13 +67,13 @@
     "featured": false,
     "githubRepo": "Rimchars/legado",
     "githubUrl": "https://github.com/Rimchars/legado",
-    "stars": 205,
+    "stars": 217,
     "forks": 11,
     "platforms": [
       "Android"
     ],
-    "latestVersionId": "mq09gedtfzef1m",
-    "latestUpdateTime": "2026-06-04T07:32:27Z"
+    "latestVersionId": "mq1ygoieurmp4a",
+    "latestUpdateTime": "2026-06-05T19:10:35Z"
   },
   {
     "id": "mpwoyw5uynpmko",
@@ -86,8 +86,8 @@
     "featured": false,
     "githubRepo": "LegadoTeam/Legado-Tauri-Release",
     "githubUrl": "https://github.com/LegadoTeam/Legado-Tauri-Release",
-    "stars": 182,
-    "forks": 13,
+    "stars": 180,
+    "forks": 14,
     "platforms": [
       "Windows",
       "Android"
@@ -103,34 +103,31 @@
     "description": "Legado 3.0 Book Reader with powerful controls & full functions❤️阅读3.0Max, 阅读Max是一款可以自定义来源阅读网络内容的工具，为网络爱好者提供一种方便、快捷舒适的试读体验。",
     "logo": "https://avatars.githubusercontent.com/u/110210241?v=4",
     "categorySlug": "yuedu",
-    "featured": false,
+    "featured": true,
     "githubRepo": "youfengknight/Legado_Max",
     "githubUrl": "https://github.com/youfengknight/Legado_Max",
-    "stars": 165,
-    "forks": 18,
+    "stars": 168,
+    "forks": 17,
     "platforms": [
       "Android"
     ],
-    "latestVersionId": "mq09gfemcsp4bw",
-    "latestUpdateTime": "2026-06-04T15:18:17Z"
+    "latestVersionId": "mq20s3m3cab22x",
+    "latestUpdateTime": "2026-06-05T14:32:41Z"
   },
   {
-    "id": "mpziqif08u08yz",
+    "id": "mq1yoxoecx1loi",
     "slug": "legado",
     "sourceType": "github",
-    "name": "阅读官方版",
+    "name": "legado",
     "description": "阅读3.0, 阅读是一款可以自定义来源阅读网络内容的工具，为广大网络文学爱好者提供一种方便、快捷舒适的试读体验。",
-    "logo": "https://avatars.githubusercontent.com/u/38980554?v=4",
+    "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/yuedu_mq1yodts.webp",
     "categorySlug": "yuedu",
-    "featured": false,
-    "githubRepo": "huajideshutiao/legado",
-    "githubUrl": "https://github.com/huajideshutiao/legado",
-    "stars": 53,
-    "forks": 49,
-    "platforms": [
-      "Android"
-    ],
-    "latestVersionId": "mpzipgp53oltxn",
-    "latestUpdateTime": "2026-06-03T03:40:18Z"
+    "featured": true,
+    "githubRepo": "gedoor/legado",
+    "githubUrl": "https://github.com/gedoor/legado",
+    "latestUpdateTime": "2026-05-24T00:00:00.000Z",
+    "stars": 46893,
+    "forks": 5717,
+    "latestVersionId": "mq1zlwkh40byby"
   }
 ]

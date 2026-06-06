@@ -243,6 +243,18 @@ function onLogoFileChange(e: Event) {
   if (t.files?.[0]) handleLogoFile(t.files[0])
   t.value = ''
 }
+
+function slugifyForIcon(name: string): string {
+  const base = (name || '').trim()
+  if (!base) return 'icon'
+  return base
+    .replace(/[\/\\:*?"<>|]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 60) || 'icon'
+}
+
 async function handleLogoFile(file: File) {
   if (!file.type.startsWith('image/')) {
     msg.error('请选择图片文件')
@@ -256,9 +268,13 @@ async function handleLogoFile(file: File) {
   try {
     const compressed = await compressImage(file, { maxSize: 256, quality: 0.85 })
     const base64 = await blobToBase64(compressed.blob)
-    const result = await uploadIcon(compressed.filename, base64)
+    const ext = compressed.filename.split('.').pop() || 'webp'
+    const slug = slugifyForIcon(form.value.name)
+    const finalName = `${slug}.${ext}`
+    const result = await uploadIcon(finalName, base64)
     form.value.logo = result.rawUrl
-    msg.success(`已上传 ${result.name}（${fmtSize(result.size)}）`)
+    const tag = result.overwritten ? '（已覆盖同名文件）' : ''
+    msg.success(`已上传 ${result.name}（${fmtSize(result.size)}）${tag}`)
     await loadIconLibrary()
   } catch (e: any) {
     msg.error(`上传失败: ${e.message}`)

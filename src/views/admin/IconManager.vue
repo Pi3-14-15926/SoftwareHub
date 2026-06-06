@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue'
-import { NPopconfirm, useMessage } from 'naive-ui'
+import { NPopconfirm, NInput, useMessage } from 'naive-ui'
 import AdminLayout from '../../components/admin/AdminLayout.vue'
 import AdminSearchBar from '../../components/admin/AdminSearchBar.vue'
 import AdminSortGroup, { type SortOption } from '../../components/admin/AdminSortGroup.vue'
@@ -22,6 +22,20 @@ const dragOver = ref(false)
 const uploading = ref(false)
 const uploadProgress = ref({ done: 0, total: 0 })
 const fileInput = ref<HTMLInputElement | null>(null)
+const customName = ref('')
+const pendingCount = ref(0)
+
+/** 根据用户输入 + 文件索引拼出最终 filename（不含时间戳后缀） */
+function buildFilename(rawFilename: string, index: number, total: number): string {
+  const ext = rawFilename.split('.').pop() || 'webp'
+  const base = customName.value.trim()
+  if (!base) return rawFilename
+  const safe = base.replace(/[^a-zA-Z0-9._-]/g, '_').slice(0, 60)
+  if (total <= 1) return `${safe}.${ext}`
+  return `${safe}-${index}.${ext}`
+}
+
+function clearCustomName() { customName.value = '' }
 
 /* ============== 图标库 ============== */
 const icons = ref<IconListItem[]>([])
@@ -122,14 +136,20 @@ async function handleFiles(files: FileList | File[]) {
 
   uploading.value = true
   uploadProgress.value = { done: 0, total: list.length }
+  const useCustom = customName.value.trim().length > 0
+  const usedNames = new Set<string>()
   let okCount = 0
   let failCount = 0
 
-  for (const file of list) {
+  for (let i = 0; i < list.length; i++) {
+    const file = list[i]
     try {
       const compressed = await compressImage(file, { maxSize: 256, quality: 0.85 })
       const base64 = await blobToBase64(compressed.blob)
-      const result = await uploadIcon(compressed.filename, base64)
+      const base = useCustom ? buildFilename(compressed.filename, i + 1, list.length) : compressed.filename
+      const finalName = uniqify(base, usedNames)
+      const result = await uploadIcon(finalName, base64)
+      usedNames.add(finalName)
       okCount++
       const tag = result.branchCreated ? ' [新分支已创建]' : ''
       message.success(`${result.overwritten ? '已更新' : '已上传'}: ${result.name} (${fmtSize(result.size)})${tag}`)
@@ -140,8 +160,21 @@ async function handleFiles(files: FileList | File[]) {
     uploadProgress.value.done++
   }
   uploading.value = false
-  if (okCount > 0) await loadIcons()
+  if (okCount > 0) {
+    await loadIcons()
+    if (useCustom) clearCustomName()
+  }
   if (failCount === 0) message.success(`全部 ${okCount} 个图标上传完成`)
+}
+
+function uniqify(name: string, used: Set<string>): string {
+  if (!used.has(name)) return name
+  const ext = name.split('.').pop() || 'webp'
+  const base = name.replace(/\.[^.]+$/, '')
+  for (let n = 1; ; n++) {
+    const candidate = `${base}-${n}.${ext}`
+    if (!used.has(candidate)) return candidate
+  }
 }
 
 async function blobToBase64(blob: Blob): Promise<string> {
@@ -166,7 +199,10 @@ function onDragOver(e: DragEvent) { e.preventDefault(); dragOver.value = true }
 function onDragLeave() { dragOver.value = false }
 function onFileChange(e: Event) {
   const t = e.target as HTMLInputElement
-  if (t.files) handleFiles(t.files)
+  if (t.files) {
+    pendingCount.value = t.files.length
+    handleFiles(t.files)
+  }
   t.value = ''
 }
 
@@ -261,6 +297,24 @@ async function copyUrl(url: string) {
           </div>
         </div>
       </section>
+
+      <!-- 自定义文件名（可选） -->
+      <div class="name-row">
+        <NInput
+          v-model:value="customName"
+          placeholder="自定义名称（可选，留空用原文件名）"
+          size="medium"
+          clearable
+          :disabled="uploading"
+        >
+          <template #prefix>📝</template>
+        </NInput>
+        <span class="name-hint">
+          {{ customName.trim()
+            ? `将上传为：${customName.replace(/[^a-zA-Z0-9._-]/g, '_').slice(0, 60)}.webp${pendingCount > 1 ? '、…-' + pendingCount + '.webp' : ''}`
+            : '留空 → 使用原文件名' }}
+        </span>
+      </div>
 
       <!-- 图标库 -->
       <section class="library-card">
@@ -402,6 +456,20 @@ async function copyUrl(url: string) {
 .upload-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .upload-title { font-size: 0.92rem; font-weight: 600; color: var(--text-main); }
 .upload-desc { font-size: 0.78rem; color: var(--text-tertiary); }
+
+.name-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.name-row .n-input { flex: 1; min-width: 240px; }
+.name-hint {
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
 
 /* === 图标库 === */
 .library-card {
@@ -558,5 +626,7 @@ async function copyUrl(url: string) {
   .head-actions button { flex: 1; }
   .icon-grid { grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); }
   .library-actions { width: 100%; }
+  .name-row { flex-direction: column; align-items: stretch; }
+  .name-hint { white-space: normal; }
 }
 </style>

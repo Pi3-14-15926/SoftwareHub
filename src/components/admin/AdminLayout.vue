@@ -13,7 +13,16 @@ const settings = useSettingStore()
 const { resolve } = useIconUrl()
 const siteLogo = computed(() => resolve(settings.settings.logo))
 
-onMounted(() => { settings.refresh() })
+onMounted(() => {
+  settings.refresh()
+  if (window.top && window.top !== window.self) {
+    try {
+      window.top.location.href = window.location.href
+    } catch {
+      document.body.innerHTML = '<div style="padding:60px 20px;text-align:center;font-family:system-ui"><h2 style="color:#E55353">⚠️ 检测到非法嵌入</h2><p style="color:#666">请直接访问本站，不要通过其他网站打开后台</p><p style="margin-top:16px"><a href="' + window.location.href + '" style="color:#3478F6">点此直达 →</a></p></div>'
+    }
+  }
+})
 
 useScheduler()
 

@@ -272,21 +272,142 @@ export async function uploadIcon(filename: string, contentBase64: string): Promi
 
 /* =================== 删除 =================== */
 
-export async function deleteIcon(path: string, sha: string): Promise<{ success: boolean }> {
+export async function deleteIcon(path: string, sha: string): Promise<{ success: boolean; refreshed?: boolean }> {
   const { owner, repo } = getRepoInfo()
   const token = getToken()
   if (!token) throw new Error('请先登录后台（需要 GitHub Token）')
-  await gh(
+
+  const doDelete = (s: string) => gh(
     `/repos/${owner}/${repo}/contents/${encodeURIComponent(path)}`,
     {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         message: `chore(icons): remove ${path.split('/').pop()} via SoftwareHub`,
-        sha,
+        sha: s,
         branch: ICON_BRANCH,
       }),
     },
   )
-  return { success: true }
+
+  try {
+    await doDelete(sha)
+    return { success: true }
+  } catch (e: any) {
+    const msg = String(e?.message || '')
+    const shaStale = /404|409|not found|conflict/i.test(msg)
+    if (!shaStale) throw e
+    try {
+      const fresh = await gh<{ sha: string }>(
+        `/repos/${owner}/${repo}/contents/${encodeURIComponent(path)}?ref=${encodeURIComponent(ICON_BRANCH)}`,
+      )
+      await doDelete(fresh.sha)
+      return { success: true, refreshed: true }
+    } catch (e2: any) {
+      const msg2 = String(e2?.message || '')
+      if (/404|not found/i.test(msg2)) {
+        throw new Error('文件已不存在（请刷新图标库）')
+      }
+      throw e2
+    }
+  }
+}
+
+/* =================== 重命名 =================== */
+
+/** 重命名图标的限制（防止破坏路径或覆盖同名） */
+export interface RenameResult {
+  oldName: string
+  newName: string
+  newPath: string
+  newCdnUrl: string
+  commitUrl: string
+  overwritten: boolean
+}
+
+/** 校验新文件名：保留扩展名、不能含 / 或 ..、不能与旧名相同 */
+export function validateIconRename(oldName: string, newName: string): { valid: boolean; error?: string; finalName?: string } {
+  const trimmed = newName.trim()
+  if (!trimmed) return { valid: false, error: '文件名不能为空' }
+  if (trimmed.includes('/') || trimmed.includes('\\')) return { valid: false, error: '文件名不能包含 / 或 \\' }
+  if (trimmed.includes('..')) return { valid: false, error: '文件名不能包含 ..' }
+  if (trimmed === oldName) return { valid: false, error: '新文件名与旧文件名相同' }
+  const oldExt = oldName.split('.').pop()?.toLowerCase() || ''
+  const newExt = trimmed.split('.').pop()?.toLowerCase() || ''
+  if (oldExt !== newExt) return { valid: false, error: `扩展名必须保持为 .${oldExt}` }
+  return { valid: true, finalName: trimmed }
+}
+
+/** GitHub Contents API 不支持原子 rename，分两步：PUT 新 + DELETE 旧 */
+export async function renameIcon(
+  item: IconListItem,
+  newName: string,
+): Promise<RenameResult> {
+  const token = getToken()
+  if (!token) throw new Error('请先登录后台（需要 GitHub Token）')
+
+  const v = validateIconRename(item.name, newName)
+  if (!v.valid || !v.finalName) throw new Error(v.error || '文件名无效')
+
+  const { owner, repo } = getRepoInfo()
+  const finalName = v.finalName
+  const dir = ICON_PATH.replace(/^\/+|\/+$/, '')
+  const newPath = `${dir}/${finalName}`
+
+  if (newPath === item.path) throw new Error('新旧路径相同')
+
+  // 1. 拉旧文件的 base64 内容
+  const oldFile = await gh<{ content: string; sha: string }>(
+    `/repos/${owner}/${repo}/contents/${encodeURIComponent(item.path)}?ref=${encodeURIComponent(ICON_BRANCH)}`,
+  )
+
+  // 2. 检查新名是否已存在（决定是否走覆盖）
+  let existingSha: string | undefined
+  try {
+    const exist = await gh<{ sha: string }>(
+      `/repos/${owner}/${repo}/contents/${encodeURIComponent(newPath)}?ref=${encodeURIComponent(ICON_BRANCH)}`,
+    )
+    existingSha = exist.sha
+  } catch { /* 404 = 新文件 */ }
+
+  // 3. PUT 新文件
+  const putRes = await gh<{ commit: { html_url: string }; content: { path: string } }>(
+    `/repos/${owner}/${repo}/contents/${encodeURIComponent(newPath)}`,
+    {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: existingSha
+          ? `chore(icons): rename ${item.name} → ${finalName} (overwrite) via SoftwareHub`
+          : `chore(icons): rename ${item.name} → ${finalName} via SoftwareHub`,
+        content: oldFile.content,
+        branch: ICON_BRANCH,
+        sha: existingSha,
+      }),
+    },
+  )
+
+  // 4. DELETE 旧文件
+  await gh(
+    `/repos/${owner}/${repo}/contents/${encodeURIComponent(item.path)}`,
+    {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: `chore(icons): remove old name ${item.name} after rename via SoftwareHub`,
+        sha: item.sha,
+        branch: ICON_BRANCH,
+      }),
+    },
+  )
+
+  const newCdnUrl = `${RAW_BASE}/${owner}/${repo}/${ICON_BRANCH}/${putRes.content.path}`
+  return {
+    oldName: item.name,
+    newName: finalName,
+    newPath: putRes.content.path,
+    newCdnUrl,
+    commitUrl: putRes.commit.html_url,
+    overwritten: !!existingSha,
+  }
 }

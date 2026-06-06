@@ -96,7 +96,7 @@ function loadImage(src: string | Blob): Promise<HTMLImageElement> {
 
 function replaceExt(name: string, ext: string): string {
   const base = name.replace(/\.[^.]+$/, '').replace(/[^a-zA-Z0-9_\-]/g, '_').slice(0, 40)
-  return `${base || 'icon'}_${Date.now().toString(36)}.${ext}`
+  return `${base || 'icon'}.${ext}`
 }
 
 async function hasAlpha(file: File | Blob): Promise<boolean> {

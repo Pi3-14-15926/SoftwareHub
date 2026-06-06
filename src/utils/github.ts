@@ -1,5 +1,5 @@
 /** GitHub API 工具 */
-import type { GitHubRelease, Project, Version, Download } from '../types'
+import type { GitHubRelease, Version, Platform } from '../types'
 import { uid } from './index'
 
 const GITHUB_API = 'https://api.github.com'
@@ -16,6 +16,13 @@ async function fetchWithTimeout(url: string, init?: RequestInit): Promise<Respon
   }
 }
 
+function ghError(message: string, status: number, retryAfter?: number): Error {
+  const e: any = new Error(message)
+  e.status = status
+  e.retryAfter = retryAfter
+  return e
+}
+
 /** 从 GitHub Release API 获取版本列表 */
 export async function fetchReleases(repo: string, token?: string): Promise<GitHubRelease[]> {
   const headers: Record<string, string> = {
@@ -24,34 +31,64 @@ export async function fetchReleases(repo: string, token?: string): Promise<GitHu
   if (token) headers.Authorization = `Bearer ${token}`
 
   const res = await fetchWithTimeout(`${GITHUB_API}/repos/${repo}/releases?per_page=20`, { headers })
-  if (!res.ok) throw new Error(`GitHub API 错误: ${res.status} ${res.statusText}`)
+  if (!res.ok) throw ghError(`GitHub API 错误: ${res.status} ${res.statusText}`, res.status)
   return res.json()
 }
 
-/** 将 GitHub Release 转换为内部 Version 格式 */
-export function releaseToVersion(release: GitHubRelease): Version {
+/** 从 GitHub Release API 获取单个 release（按 owner/repo/tag）
+ *  错误对象会带 status 和 retryAfter 字段，供调用方决定是否重试 */
+export async function fetchReleaseByTag(
+  owner: string,
+  repo: string,
+  tag: string,
+  token?: string,
+): Promise<GitHubRelease> {
+  const headers: Record<string, string> = {
+    Accept: 'application/vnd.github.v3+json',
+  }
+  if (token) headers.Authorization = `Bearer ${token}`
+  const res = await fetchWithTimeout(
+    `${GITHUB_API}/repos/${owner}/${repo}/releases/tags/${encodeURIComponent(tag)}`,
+    { headers },
+  )
+  if (res.ok) return res.json()
+  const retryAfter = Number(res.headers.get('retry-after') || 0) || undefined
+  if (res.status === 404) throw ghError('Release 不存在或仓库为私有/已删除', 404)
+  if (res.status === 401) throw ghError('Token 无效或已过期，请重新登录', 401)
+  if (res.status === 403 || res.status === 429) {
+    throw ghError(`GitHub API 限速 (HTTP ${res.status})`, res.status, retryAfter)
+  }
+  throw ghError(`GitHub API 错误: ${res.status} ${res.statusText}`, res.status, retryAfter)
+}
+
+/** 将 GitHub Release 转换为内部 Version（downloads 独立为 Download 实体，调用方负责 addDownload） */
+export function releaseToVersion(release: GitHubRelease, projectId: string): Version {
   return {
     id: uid(),
+    projectId,
     version: release.tag_name,
     publishedAt: release.published_at,
     changelog: release.body || '该版本未提供更新日志。',
-    downloads: release.assets.map((a) => ({
-      platform: guessPlatform(a.name),
-      filename: a.name,
-      size: `${(a.size / 1024 / 1024).toFixed(1)} MB`,
-      url: a.browser_download_url,
-    })),
+    downloadIds: [],
   }
 }
 
 /** 根据文件名猜测平台 */
-function guessPlatform(name: string): Download['platform'] {
+export function guessPlatform(name: string): Platform {
   const lower = name.toLowerCase()
   if (lower.includes('android') || lower.includes('apk')) return 'Android'
-  if (lower.includes('windows') || lower.includes('exe') || lower.includes('msi')) return 'Windows'
-  if (lower.includes('macos') || lower.includes('darwin') || lower.includes('dmg')) return 'MacOS'
-  if (lower.includes('linux') || lower.includes('deb') || lower.includes('appimage')) return 'Linux'
+  if (lower.includes('ios') || lower.includes('ipa')) return 'iOS'
+  if (lower.includes('windows') || lower.includes('win') || lower.includes('exe') || lower.includes('msi')) return 'Windows'
+  if (lower.includes('macos') || lower.includes('darwin') || lower.includes('dmg') || lower.includes('mac')) return 'MacOS'
+  if (lower.includes('linux') || lower.includes('deb') || lower.includes('appimage') || lower.includes('rpm')) return 'Linux'
+  if (lower.includes('web') || lower.endsWith('.html') || lower.endsWith('.js')) return 'Web'
   return 'Other'
+}
+
+/** 推断软件支持的平台列表（基于所有下载项） */
+export function inferPlatforms(downloads: { platform: Platform }[]): Platform[] {
+  const set = new Set(downloads.map((d) => d.platform))
+  return Array.from(set)
 }
 
 /** 从 GitHub API 获取仓库信息（Star/Fork 数） */

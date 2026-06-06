@@ -1,142 +1,154 @@
-/** 项目状态管理 */
+/** 软件状态管理（基于分层数据模型） */
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import type { Project, Version, Download } from '../types'
+import type { Software, Version, Download, Platform } from '../types'
 import * as api from '../utils/api'
 import { uid } from '../utils'
 
 export const useProjectStore = defineStore('project', () => {
-  const projects = ref<Project[]>(api.getProjects())
+  const software = ref<Software[]>(api.getAllSoftware())
 
   function refresh() {
-    projects.value = api.getProjects()
+    software.value = api.getAllSoftware()
   }
 
-  function save(p: Project) {
-    api.saveProject(p)
+  function save(s: Software) {
+    api.saveSoftware(s)
     refresh()
   }
 
   function remove(id: string) {
-    api.deleteProject(id)
+    api.deleteSoftware(id)
     refresh()
   }
 
-  /** 按 slug 查找 */
-  function bySlug(slug: string) {
-    return projects.value.find((p) => p.slug === slug)
+  function bySlug(slug: string): Software | undefined {
+    return software.value.find((s) => s.slug === slug)
   }
 
-  /** 按分类筛选 */
-  function byCategory(categoryId: string) {
-    return projects.value.filter((p) => p.categoryId === categoryId)
+  function byId(id: string): Software | undefined {
+    return software.value.find((s) => s.id === id)
   }
 
-  /** 搜索 */
-  function search(keyword: string) {
+  function byCategorySlug(slug: string): Software[] {
+    return software.value.filter((s) => s.categorySlug === slug)
+  }
+
+  function search(keyword: string): Software[] {
     const kw = keyword.toLowerCase()
-    return projects.value.filter(
-      (p) =>
-        p.name.toLowerCase().includes(kw) ||
-        p.description.toLowerCase().includes(kw) ||
-        p.slug.toLowerCase().includes(kw) ||
-        (p.githubRepo || '').toLowerCase().includes(kw),
+    return software.value.filter(
+      (s) =>
+        s.name.toLowerCase().includes(kw) ||
+        s.description.toLowerCase().includes(kw) ||
+        s.slug.toLowerCase().includes(kw) ||
+        (s.githubRepo || '').toLowerCase().includes(kw),
     )
   }
 
-  /** 推荐项目 */
-  const featured = computed(() => projects.value.filter((p) => p.featured))
+  const featured = computed(() => software.value.filter((s) => s.featured))
 
-  /** 最新更新 */
   const latest = computed(() =>
-    [...projects.value].sort((a, b) => new Date(b.latestUpdateTime).getTime() - new Date(a.latestUpdateTime).getTime()),
+    [...software.value].sort(
+      (a, b) => new Date(b.latestUpdateTime).getTime() - new Date(a.latestUpdateTime).getTime(),
+    ),
   )
 
   function slugExists(slug: string) {
-    return projects.value.some((p) => p.slug === slug)
+    return software.value.some((s) => s.slug === slug)
   }
 
-  /** 新建 GitHub 项目 */
-  function createGitHub(slug: string, name: string, repo: string, categoryId: string): Project | null {
+  function createGitHub(slug: string, name: string, repo: string, categorySlug: string): Software | null {
     if (slugExists(slug)) return null
-    const p: Project = {
+    const s: Software = {
       id: uid(),
       slug,
       sourceType: 'github',
       name,
       description: '',
       logo: '',
-      categoryId,
+      categorySlug,
       featured: false,
       githubRepo: repo,
       githubUrl: `https://github.com/${repo}`,
-      latestVersion: '',
-      latestUpdateTime: '',
-      versions: [],
+      latestUpdateTime: new Date().toISOString(),
     }
-    save(p)
-    return p
+    save(s)
+    return s
   }
 
-  /** 新建自定义项目 */
-  function createCustom(slug: string, name: string, categoryId: string): Project | null {
+  function createCustom(slug: string, name: string, categorySlug: string): Software | null {
     if (slugExists(slug)) return null
-    const p: Project = {
+    const s: Software = {
       id: uid(),
       slug,
       sourceType: 'custom',
       name,
       description: '',
       logo: '',
-      categoryId,
+      categorySlug,
       featured: false,
-      latestVersion: '',
-      latestUpdateTime: '',
-      versions: [],
+      latestUpdateTime: new Date().toISOString(),
     }
-    save(p)
-    return p
+    save(s)
+    return s
   }
 
-  /** 添加版本 */
-  function addVersion(projectId: string, v: Version) {
-    const p = projects.value.find((x) => x.id === projectId)
-    if (!p) return
-    p.versions.unshift(v)
-    p.latestVersion = v.version
-    p.latestUpdateTime = v.publishedAt
-    save(p)
+  function addVersion(v: Version) {
+    api.addVersion(v)
+    refresh()
   }
 
-  /** 删除版本 */
-  function removeVersion(projectId: string, versionId: string) {
-    const p = projects.value.find((x) => x.id === projectId)
-    if (!p) return
-    p.versions = p.versions.filter((v) => v.id !== versionId)
-    if (p.versions.length > 0) {
-      p.latestVersion = p.versions[0].version
-      p.latestUpdateTime = p.versions[0].publishedAt
-    } else {
-      p.latestVersion = ''
-      p.latestUpdateTime = ''
+  function removeVersion(versionId: string) {
+    api.deleteVersion(versionId)
+    refresh()
+  }
+
+  function addDownload(dl: Download) {
+    api.addDownload(dl)
+    refresh()
+  }
+
+  function removeDownload(dlId: string) {
+    api.deleteDownload(dlId)
+    refresh()
+  }
+
+  function getVersions(softwareId: string): Version[] {
+    return api.getSoftwareVersions(softwareId)
+  }
+
+  function getDownloads(versionId: string): Download[] {
+    return api.getVersionDownloads(versionId)
+  }
+
+  function getAllPlatforms(): Platform[] {
+    const set = new Set<Platform>()
+    for (const s of software.value) {
+      for (const p of api.getSoftwarePlatforms(s.id)) set.add(p)
     }
-    save(p)
+    return Array.from(set)
   }
 
   return {
-    projects,
+    software,
     featured,
     latest,
     refresh,
     save,
     remove,
     bySlug,
-    byCategory,
+    byId,
+    byCategorySlug,
     search,
     slugExists,
     createGitHub,
     createCustom,
     addVersion,
     removeVersion,
+    addDownload,
+    removeDownload,
+    getVersions,
+    getDownloads,
+    getAllPlatforms,
   }
 })

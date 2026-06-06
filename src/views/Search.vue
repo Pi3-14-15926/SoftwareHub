@@ -5,18 +5,20 @@ import { useProjectStore } from '../store/project'
 import { useCategoryStore } from '../store/category'
 import ProjectCard from '../components/ProjectCard.vue'
 import AmbientOrbs from '../components/AmbientOrbs.vue'
+import { useEnabled } from '../composables/useEnabled'
 
 const route = useRoute()
 const router = useRouter()
 const projects = useProjectStore()
 const categories = useCategoryStore()
+const { isProjectEnabled, isPageEnabled } = useEnabled()
 
 const keyword = ref((route.query.q as string) || '')
 const categoryFilter = ref<string>('')
 const sortKey = ref<'updated' | 'name' | 'stars'>('updated')
 
 const results = computed(() => {
-  let list = [...projects.projects]
+  let list = [...projects.software].filter((p) => isProjectEnabled(p.id))
   const kw = keyword.value.trim().toLowerCase()
   if (kw) {
     list = list.filter(
@@ -26,7 +28,11 @@ const results = computed(() => {
     )
   }
   if (categoryFilter.value) {
-    list = list.filter((p) => p.categoryId === categoryFilter.value)
+    const cat = categories.categories.find((c) => c.id === categoryFilter.value)
+    if (cat) {
+      if (!isPageEnabled(cat.id)) return []
+      list = list.filter((p) => p.categorySlug === cat.slug)
+    }
   }
   if (sortKey.value === 'name') list.sort((a, b) => a.name.localeCompare(b.name))
   else if (sortKey.value === 'stars') list.sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0))
@@ -34,10 +40,36 @@ const results = computed(() => {
   return list
 })
 
+/* === 分页（每页 5 个，与分类页保持一致） === */
+const PAGE_SIZE = 5
+const currentPage = ref(1)
+const totalPages = computed(() => Math.max(1, Math.ceil(results.value.length / PAGE_SIZE)))
+const pagedResults = computed(() => {
+  const start = (currentPage.value - 1) * PAGE_SIZE
+  return results.value.slice(start, start + PAGE_SIZE)
+})
+
+const visiblePages = computed(() => {
+  const total = totalPages.value
+  const cur = currentPage.value
+  const pages: number[] = []
+  for (let i = 1; i <= total; i++) {
+    if (i === 1 || i === total || (i >= cur - 1 && i <= cur + 1)) pages.push(i)
+  }
+  return pages
+})
+function goPage(n: number) {
+  if (n < 1 || n > totalPages.value) return
+  currentPage.value = n
+  document.querySelector('.result-grid')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
 watch(
   () => route.query.q,
   (q) => { keyword.value = (q as string) || '' },
 )
+/* 过滤条件变化时重置到第 1 页 */
+watch([keyword, categoryFilter, sortKey], () => { currentPage.value = 1 })
 
 function doSearch() {
   router.replace({ query: { q: keyword.value.trim() || undefined } })
@@ -55,13 +87,16 @@ function doSearch() {
     </div>
 
     <div class="search-bar">
+      <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14Z"/>
+      </svg>
       <input
         v-model="keyword"
         placeholder="输入软件名称或描述..."
         class="search-input"
         @keyup.enter="doSearch"
       />
-      <button class="btn-primary" @click="doSearch">搜索</button>
+      <button class="search-btn" @click="doSearch">搜索</button>
     </div>
 
     <div class="filter-bar">
@@ -88,7 +123,23 @@ function doSearch() {
     </div>
 
     <div v-if="results.length" class="result-grid">
-      <ProjectCard v-for="p in results" :key="p.id" :project="p" />
+      <ProjectCard v-for="p in pagedResults" :key="p.id" :software="p" />
+      <div v-if="totalPages > 1" class="pagination">
+        <span class="page-info">共 {{ totalPages }} 页</span>
+        <button class="page-btn" :disabled="currentPage === 1" @click="goPage(currentPage - 1)">‹</button>
+        <template v-for="(n, idx) in visiblePages" :key="n + '-' + idx">
+          <button
+            v-if="idx === 0 || visiblePages[idx - 1] !== n - 1"
+            class="page-ellipsis"
+            disabled
+          >…</button>
+          <button
+            :class="['page-btn', { active: currentPage === n }]"
+            @click="goPage(n)"
+          >{{ n }}</button>
+        </template>
+        <button class="page-btn" :disabled="currentPage === totalPages" @click="goPage(currentPage + 1)">›</button>
+      </div>
     </div>
     <div v-else class="not-found">
       <div class="not-found-icon">🔍</div>
@@ -141,28 +192,52 @@ function doSearch() {
 
 .search-bar {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 8px;
   max-width: 640px;
-  margin: 0 auto 16px;
-}
-.search-input {
-  flex: 1;
-  height: 44px;
-  padding: 0 18px;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-color);
+  margin: 0 auto 20px;
+  padding: 6px 6px 6px 16px;
   background: var(--color-card);
-  font-size: 0.95rem;
-  color: var(--text-main);
-  outline: none;
-  box-shadow: var(--shadow-xs);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
   transition: border-color 0.18s, box-shadow 0.18s;
 }
-.search-input:focus {
+.search-bar:focus-within {
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px var(--color-primary-soft);
 }
+.search-icon {
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+.search-input {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  border: none;
+  background: transparent;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  outline: none;
+}
 .search-input::placeholder { color: var(--text-tertiary); }
+.search-btn {
+  flex-shrink: 0;
+  height: 40px;
+  padding: 0 22px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--gradient-primary);
+  color: white;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.18s, opacity 0.18s;
+  box-shadow: var(--shadow-primary);
+}
+.search-btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-primary-hover); }
+.search-btn:active { transform: translateY(0); opacity: 0.9; }
 
 .filter-bar {
   display: flex;
@@ -234,6 +309,58 @@ function doSearch() {
   gap: 16px;
 }
 
+/* === 分页（与 Category.vue 一致） === */
+.pagination {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.page-info {
+  font-size: 0.82rem;
+  color: var(--text-tertiary);
+  margin-right: 6px;
+  font-family: var(--font-mono);
+}
+.page-btn {
+  min-width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  background: var(--color-card);
+  color: var(--text-sec);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.1s;
+}
+.page-btn:hover:not(:disabled) {
+  background: var(--color-card-soft);
+  color: var(--text-main);
+  border-color: var(--border-color);
+}
+.page-btn.active {
+  background: var(--gradient-primary);
+  color: white;
+  border-color: transparent;
+  box-shadow: var(--shadow-primary);
+  font-weight: 600;
+}
+.page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.page-ellipsis {
+  min-width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+  cursor: default;
+}
+
 .not-found {
   text-align: center;
   padding: 60px 20px;
@@ -248,7 +375,9 @@ function doSearch() {
   .result-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
-  .search-bar { flex-direction: column; }
-  .search-bar .btn-primary { width: 100%; }
+  .search-bar { padding: 5px 5px 5px 14px; gap: 6px; }
+  .search-input { height: 42px; font-size: 0.92rem; }
+  .search-icon { width: 18px; height: 18px; }
+  .search-btn { height: 38px; padding: 0 18px; font-size: 0.88rem; }
 }
 </style>

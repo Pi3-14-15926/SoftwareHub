@@ -1,13 +1,16 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { NPopconfirm, NSwitch, NCheckbox, NProgress, NTag, useMessage } from 'naive-ui'
 import { useProjectStore } from '../../store/project'
 import { useCategoryStore } from '../../store/category'
-import type { Project, Version } from '../../types'
+import type { Software, Version, Download } from '../../types'
 import { fmtDate } from '../../utils'
-import { syncGitHubProject } from '../../utils/api'
+import * as api from '../../utils/api'
+import { latestVersionText } from '../../utils/api'
 import { useIconUrl } from '../../composables/useIconUrl'
+import { platformClass, platformIcon } from '../../utils/platformTag'
+import { refreshEnabledState } from '../../composables/useEnabled'
 import AdminLayout from '../../components/admin/AdminLayout.vue'
 
 const router = useRouter()
@@ -25,10 +28,20 @@ const selectedIds = ref<Set<string>>(new Set())
 const page = ref(1)
 const pageSize = 9
 
-/* 版本展开状态：projectId */
+/* 排序 */
+type SortBy = 'time' | 'name' | 'featured'
+type SortOrder = 'asc' | 'desc'
+const sortBy = ref<SortBy>('time')
+const sortOrder = ref<SortOrder>('desc')
+function setSort(by: SortBy) {
+  if (sortBy.value === by) sortOrder.value = sortOrder.value === 'desc' ? 'asc' : 'desc'
+  else { sortBy.value = by; sortOrder.value = by === 'name' ? 'asc' : 'desc' }
+}
+
+/* 版本展开状态：softwareId */
 const expandedProjs = ref<Set<string>>(new Set())
 
-/* 同步状态：projectId -> { state: 'idle'|'syncing'|'success'|'error', percent: number, msg: string } */
+/* 同步状态：softwareId -> { state, msg } */
 interface SyncState { state: 'idle' | 'syncing' | 'success' | 'error'; msg: string }
 const syncStates = ref<Record<string, SyncState>>({})
 
@@ -39,76 +52,82 @@ function toggleEnabled(id: string) {
   if (disabledIds.value.has(id)) disabledIds.value.delete(id)
   else disabledIds.value.add(id)
   localStorage.setItem(DISABLED_KEY, JSON.stringify([...disabledIds.value]))
+  refreshEnabledState()
 }
 function isEnabled(id: string) { return !disabledIds.value.has(id) }
 
-/* 推荐状态同步：基于 Project.featured，但增加批量切换 */
-function toggleFeatured(p: Project) {
+/* 推荐状态 */
+function toggleFeatured(p: Software) {
   projects.save({ ...p, featured: !p.featured })
 }
 
 /* 分类查找 */
-function categoryName(catId: string) {
-  return categories.categories.find((c) => c.id === catId)?.name || '未分类'
+function categoryName(catSlug: string) {
+  return categories.categories.find((c) => c.slug === catSlug)?.name || '未分类'
 }
-function categoryIcon(catId: string) {
-  return categories.categories.find((c) => c.id === catId)?.icon || '📦'
-}
-
-/* 平台集合：合并所有版本 downloads 的 platform */
-function platformList(p: Project): string[] {
-  const set = new Set<string>()
-  for (const v of p.versions) for (const d of v.downloads) set.add(d.platform)
-  return Array.from(set)
+function categoryIcon(catSlug: string) {
+  return categories.categories.find((c) => c.slug === catSlug)?.icon || '📦'
 }
 
-function platformClass(platform: string): string {
-  const map: Record<string, string> = {
-    Windows: 'plat-win',
-    MacOS: 'plat-mac',
-    Android: 'plat-and',
-    Linux: 'plat-lin',
-    Other: 'plat-other',
-  }
-  return map[platform] || 'plat-other'
+/* 版本数量（按需查 api） */
+function versionCount(s: Software): number {
+  return api.getSoftwareVersions(s.id).length
 }
-function platformIcon(platform: string): string {
-  const map: Record<string, string> = {
-    Windows: '🪟',
-    MacOS: '🍎',
-    Android: '🤖',
-    Linux: '🐧',
-    Other: '📁',
-  }
-  return map[platform] || '📁'
+/* 下载数量（按需查 api，缓存到 map） */
+const downloadCountCache = ref<Record<string, number>>({})
+function downloadCount(s: Software): number {
+  if (downloadCountCache.value[s.id] !== undefined) return downloadCountCache.value[s.id]
+  const vers = api.getSoftwareVersions(s.id)
+  const total = vers.reduce((sum, v) => sum + v.downloadIds.length, 0)
+  downloadCountCache.value[s.id] = total
+  return total
+}
+
+/* 平台集合：由该软件所有下载项的 platform 派生（100% 真实可信） */
+function platformList(s: Software): string[] {
+  return api.getSoftwarePlatforms(s.id)
 }
 
 /* 过滤 */
 const filteredList = computed(() => {
-  let list = projects.projects
-  if (categoryId.value) list = list.filter((p) => p.categoryId === categoryId.value)
+  let list = projects.software
+  if (categoryId.value) {
+    const cat = categories.categories.find((c) => c.id === categoryId.value)
+    if (cat) list = list.filter((s) => s.categorySlug === cat.slug)
+  }
   const kw = keyword.value.trim().toLowerCase()
   if (kw) {
     list = list.filter(
-      (p) =>
-        p.name.toLowerCase().includes(kw) ||
-        p.slug.toLowerCase().includes(kw) ||
-        p.description.toLowerCase().includes(kw) ||
-        p.githubRepo?.toLowerCase().includes(kw) ||
-        categoryName(p.categoryId).toLowerCase().includes(kw),
+      (s) =>
+        s.name.toLowerCase().includes(kw) ||
+        s.slug.toLowerCase().includes(kw) ||
+        s.description.toLowerCase().includes(kw) ||
+        s.githubRepo?.toLowerCase().includes(kw) ||
+        categoryName(s.categorySlug).toLowerCase().includes(kw),
     )
   }
-  return [...list].sort((a, b) => {
-    /* 推荐优先，再按更新时间 */
-    if (a.featured !== b.featured) return a.featured ? -1 : 1
-    return new Date(b.latestUpdateTime || 0).getTime() - new Date(a.latestUpdateTime || 0).getTime()
+  return list
+})
+const sortedList = computed(() => {
+  const list = [...filteredList.value]
+  list.sort((a, b) => {
+    let cmp = 0
+    if (sortBy.value === 'time') {
+      cmp = new Date(a.latestUpdateTime || 0).getTime() - new Date(b.latestUpdateTime || 0).getTime()
+    } else if (sortBy.value === 'name') {
+      cmp = a.name.localeCompare(b.name, 'zh-Hans-CN')
+    } else if (sortBy.value === 'featured') {
+      cmp = (a.featured ? 1 : 0) - (b.featured ? 1 : 0)
+    }
+    return sortOrder.value === 'desc' ? -cmp : cmp
   })
+  return list
 })
 
-const totalPages = computed(() => Math.max(1, Math.ceil(filteredList.value.length / pageSize)))
+const totalPages = computed(() => Math.max(1, Math.ceil(sortedList.value.length / pageSize)))
 const pagedList = computed(() => {
   const start = (page.value - 1) * pageSize
-  return filteredList.value.slice(start, start + pageSize)
+  return sortedList.value.slice(start, start + pageSize)
 })
 function jumpPage(p: number) {
   if (p < 1 || p > totalPages.value) return
@@ -122,11 +141,11 @@ const pageNumbers = computed(() => {
   return [...set].filter((n) => n >= 1 && n <= total).sort((a, b) => a - b)
 })
 
-const allSelected = computed(() => pagedList.value.length > 0 && pagedList.value.every((p) => selectedIds.value.has(p.id)))
-const someSelected = computed(() => pagedList.value.some((p) => selectedIds.value.has(p.id)) && !allSelected.value)
+const allSelected = computed(() => pagedList.value.length > 0 && pagedList.value.every((s) => selectedIds.value.has(s.id)))
+const someSelected = computed(() => pagedList.value.some((s) => selectedIds.value.has(s.id)) && !allSelected.value)
 function toggleSelectAll() {
-  if (allSelected.value) pagedList.value.forEach((p) => selectedIds.value.delete(p.id))
-  else pagedList.value.forEach((p) => selectedIds.value.add(p.id))
+  if (allSelected.value) pagedList.value.forEach((s) => selectedIds.value.delete(s.id))
+  else pagedList.value.forEach((s) => selectedIds.value.add(s.id))
 }
 function toggleSelectOne(id: string) {
   if (selectedIds.value.has(id)) selectedIds.value.delete(id)
@@ -144,8 +163,8 @@ function bulkDelete() {
 function bulkFeature(feature: boolean) {
   const ids = [...selectedIds.value]
   ids.forEach((id) => {
-    const p = projects.projects.find((x) => x.id === id)
-    if (p && p.featured !== feature) projects.save({ ...p, featured: feature })
+    const s = projects.software.find((x) => x.id === id)
+    if (s && s.featured !== feature) projects.save({ ...s, featured: feature })
   })
   message.success(feature ? `已推荐 ${ids.length} 个软件` : `已取消推荐 ${ids.length} 个软件`)
 }
@@ -155,6 +174,7 @@ function bulkToggleEnabled(enable: boolean) {
     else disabledIds.value.add(id)
   })
   localStorage.setItem(DISABLED_KEY, JSON.stringify([...disabledIds.value]))
+  refreshEnabledState()
   message.success(enable ? `已启用 ${selectedIds.value.size} 个软件` : `已禁用 ${selectedIds.value.size} 个软件`)
 }
 
@@ -170,45 +190,49 @@ function toggleExpand(pid: string) {
   else expandedProjs.value.add(pid)
 }
 
-function doSync(project: Project) {
-  if (project.sourceType !== 'github') return
-  syncStates.value[project.id] = { state: 'syncing', msg: '正在同步...' }
-  syncGitHubProject(project)
-    .then((res) => {
-      if (res.success) {
-        syncStates.value[project.id] = { state: 'success', msg: res.newVersions ? `+${res.newVersions} 个新版本` : '已是最新' }
-        projects.refresh()
-        message.success(`「${project.name}」同步完成`)
-      } else {
-        syncStates.value[project.id] = { state: 'error', msg: res.error || '失败' }
-        message.error(`「${project.name}」同步失败：${res.error}`)
-      }
-    })
-    .catch((e: any) => {
-      syncStates.value[project.id] = { state: 'error', msg: e.message || '请求失败' }
-      message.error(`「${project.name}」同步失败：${e.message}`)
-    })
+async function doSync(software: Software) {
+  if (software.sourceType !== 'github') return
+  syncStates.value[software.id] = { state: 'syncing', msg: '正在同步...' }
+  try {
+    const res = await api.syncGitHubProject(software)
+    if (res.success) {
+      syncStates.value[software.id] = { state: 'success', msg: res.newVersions ? `+${res.newVersions} 个新版本` : '已是最新' }
+      projects.refresh()
+      message.success(`「${software.name}」同步完成`)
+    } else {
+      syncStates.value[software.id] = { state: 'error', msg: res.error || '失败' }
+      message.error(`「${software.name}」同步失败：${res.error}`)
+    }
+  } catch (e: any) {
+    syncStates.value[software.id] = { state: 'error', msg: e.message || '请求失败' }
+    message.error(`「${software.name}」同步失败：${e.message}`)
+  }
 }
 
-function deleteVersion(project: Project, v: Version) {
+function deleteVersion(software: Software, v: Version) {
   if (!confirm(`确定删除版本「${v.version}」？`)) return
-  projects.removeVersion(project.id, v.id)
+  api.deleteVersion(v.id)
+  projects.refresh()
   message.success('版本已删除')
 }
 
-function setAsLatest(project: Project, v: Version) {
-  projects.addVersion(project.id, v)
+function setAsLatest(software: Software, v: Version) {
+  /* 直接设置 software.latestVersionId 指向该版本 */
+  const updated: Software = { ...software, latestVersionId: v.id, latestUpdateTime: v.publishedAt }
+  projects.save(updated)
   message.success(`已将 ${v.version} 标记为最新`)
 }
 
-const featuredCount = computed(() => projects.projects.filter((p) => p.featured).length)
-const githubCount = computed(() => projects.projects.filter((p) => p.sourceType === 'github').length)
-const customCount = computed(() => projects.projects.filter((p) => p.sourceType === 'custom').length)
+const featuredCount = computed(() => projects.software.filter((s) => s.featured).length)
+const githubCount = computed(() => projects.software.filter((s) => s.sourceType === 'github').length)
+const customCount = computed(() => projects.software.filter((s) => s.sourceType === 'custom').length)
 
 onMounted(() => {
   projects.refresh()
   categories.refresh()
 })
+
+watch(sortBy, () => { page.value = 1 })
 </script>
 
 <template>
@@ -223,7 +247,7 @@ onMounted(() => {
             {{ category ? `${category.name} — 软件列表` : '软件管理' }}
           </h2>
           <p class="page-desc">
-            {{ category ? `该页面下所有软件的统一管理` : `共 ${projects.projects.length} 个软件 · 推荐 ${featuredCount} · GitHub ${githubCount} · 自定义 ${customCount}` }}
+            {{ category ? `该页面下所有软件的统一管理` : `共 ${projects.software.length} 个软件 · 推荐 ${featuredCount} · GitHub ${githubCount} · 自定义 ${customCount}` }}
           </p>
         </div>
         <div class="head-actions">
@@ -233,6 +257,32 @@ onMounted(() => {
             </svg>
             <input v-model="keyword" placeholder="搜索名称 / Slug / 仓库 / 分类..." class="search-input" />
             <button v-if="keyword" class="search-clear" @click="keyword = ''">×</button>
+          </div>
+          <div class="sort-group">
+            <button :class="['sort-btn', { active: sortBy === 'time' }]" @click="setSort('time')" title="按最近更新时间排序">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+              最近更新
+              <span class="sort-arrow">{{ sortBy === 'time' ? (sortOrder === 'desc' ? '↓' : '↑') : '↓' }}</span>
+            </button>
+            <button :class="['sort-btn', { active: sortBy === 'name' }]" @click="setSort('name')" title="按名称排序">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 6h13M3 12h9M3 18h5M17 10v10M17 10l-3 3M17 10l3 3"/>
+              </svg>
+              名称
+              <span class="sort-arrow">{{ sortBy === 'name' ? (sortOrder === 'desc' ? '↓' : '↑') : '↑' }}</span>
+            </button>
+            <button :class="['sort-btn', { active: sortBy === 'featured' }]" @click="setSort('featured')" title="按推荐状态排序">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+              推荐
+              <span class="sort-arrow">{{ sortBy === 'featured' ? (sortOrder === 'desc' ? '↓' : '↑') : '↓' }}</span>
+            </button>
           </div>
           <button class="btn-primary btn-add" @click="goNew">
             <span class="add-icon">＋</span>
@@ -265,7 +315,7 @@ onMounted(() => {
       </transition>
 
       <!-- 列表 -->
-      <div v-if="projects.projects.length === 0" class="empty-state">
+      <div v-if="projects.software.length === 0" class="empty-state">
         <div class="empty-icon">📦</div>
         <p>还没有任何软件，点击右上角"新增软件"开始添加</p>
       </div>
@@ -323,8 +373,8 @@ onMounted(() => {
           <!-- 标签区：分类 + 平台 -->
           <div class="pc-tags">
             <span class="cat-tag">
-              <span class="cat-icon">{{ categoryIcon(p.categoryId) }}</span>
-              {{ categoryName(p.categoryId) }}
+              <span class="cat-icon">{{ categoryIcon(p.categorySlug) }}</span>
+              {{ categoryName(p.categorySlug) }}
             </span>
             <div v-if="platformList(p).length > 0" class="plat-row">
               <span
@@ -344,7 +394,7 @@ onMounted(() => {
             <div class="version-info">
               <div class="vi-row">
                 <span class="vi-label">最新版本</span>
-                <span class="vi-version">{{ p.latestVersion || '—' }}</span>
+                <span class="vi-version">{{ latestVersionText(p) || '—' }}</span>
               </div>
               <div class="vi-row">
                 <span class="vi-label">更新时间</span>
@@ -352,7 +402,7 @@ onMounted(() => {
               </div>
               <div class="vi-row">
                 <span class="vi-label">版本数</span>
-                <span class="vi-count">{{ p.versions.length }}</span>
+                <span class="vi-count">{{ versionCount(p) }}</span>
               </div>
             </div>
             <div class="pc-status">
@@ -398,7 +448,7 @@ onMounted(() => {
                 <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z"/>
               </svg>
               版本
-              <span class="badge-count">{{ p.versions.length }}</span>
+              <span class="badge-count">{{ versionCount(p) }}</span>
             </button>
             <button
               v-if="p.sourceType === 'github'"
@@ -440,12 +490,12 @@ onMounted(() => {
           <transition name="version-panel">
             <div v-if="expandedProjs.has(p.id)" class="version-panel">
               <div class="vp-head">
-                <span class="vp-title">📦 版本历史（{{ p.versions.length }}）</span>
+                <span class="vp-title">📦 版本历史（{{ versionCount(p) }}）</span>
               </div>
-              <div v-if="p.versions.length === 0" class="vp-empty">暂无版本数据</div>
+              <div v-if="versionCount(p) === 0" class="vp-empty">暂无版本数据</div>
               <ul v-else class="vp-list">
                 <li
-                  v-for="(v, idx) in p.versions.slice(0, 8)"
+                  v-for="(v, idx) in api.getSoftwareVersions(p.id).slice(0, 8)"
                   :key="v.id"
                   :class="['vp-item', { latest: idx === 0 }]"
                 >
@@ -457,7 +507,7 @@ onMounted(() => {
                     <span class="vp-date">{{ fmtDate(v.publishedAt) }}</span>
                   </div>
                   <div class="vp-item-right">
-                    <span class="vp-files">{{ v.downloads.length }} 个文件</span>
+                    <span class="vp-files">{{ v.downloadIds.length }} 个文件</span>
                     <button v-if="idx !== 0" class="vp-btn" title="设为最新" @click="setAsLatest(p, v)">↑ 置顶</button>
                     <NPopconfirm positive-text="确认" negative-text="取消" @positive-click="deleteVersion(p, v)">
                       <template #trigger>
@@ -467,8 +517,8 @@ onMounted(() => {
                     </NPopconfirm>
                   </div>
                 </li>
-                <li v-if="p.versions.length > 8" class="vp-more">
-                  还有 {{ p.versions.length - 8 }} 个历史版本，
+                <li v-if="versionCount(p) > 8" class="vp-more">
+                  还有 {{ versionCount(p) - 8 }} 个历史版本，
                   <a class="vp-link" @click="goVersions(p.id)">前往完整版本管理 →</a>
                 </li>
               </ul>
@@ -485,7 +535,7 @@ onMounted(() => {
           <button :class="['pg-btn', { active: n === page }]" @click="jumpPage(n)">{{ n }}</button>
         </template>
         <button class="pg-btn" :disabled="page === totalPages" @click="jumpPage(page + 1)">›</button>
-        <span class="pg-info">第 {{ page }} / {{ totalPages }} 页 · 共 {{ filteredList.length }} 个</span>
+        <span class="pg-info">第 {{ page }} / {{ totalPages }} 页 · 共 {{ sortedList.length }} 个</span>
       </nav>
     </div>
   </AdminLayout>
@@ -586,6 +636,26 @@ onMounted(() => {
   line-height: 1;
 }
 .search-clear:hover { background: var(--color-primary-soft); color: var(--color-primary); }
+
+/* === 排序 === */
+.sort-group { display: flex; gap: 6px; }
+.sort-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  height: 48px; padding: 0 12px;
+  border-radius: var(--radius-full);
+  background: var(--admin-card);
+  color: var(--text-sec);
+  border: 1px solid var(--admin-border);
+  font-size: 0.85rem; font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+  box-shadow: var(--admin-shadow-card);
+}
+.sort-btn:hover { background: var(--color-primary-soft); color: var(--color-primary); border-color: var(--color-primary-soft); }
+.sort-btn.active { background: var(--color-primary-soft); color: var(--color-primary); border-color: var(--color-primary); }
+.sort-arrow { font-size: 0.95rem; line-height: 1; opacity: 0.55; font-weight: 700; }
+.sort-btn.active .sort-arrow { opacity: 1; }
 
 /* === 批量操作 === */
 .bulk-bar {
@@ -786,22 +856,6 @@ onMounted(() => {
 }
 .cat-icon { font-size: 0.8rem; }
 .plat-row { display: flex; gap: 3px; flex-wrap: wrap; }
-.plat-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
-  height: 20px;
-  padding: 0 7px;
-  border-radius: 7px;
-  font-size: 0.65rem;
-  font-weight: 600;
-  color: #FFFFFF;
-}
-.plat-win { background: linear-gradient(135deg, #0078D4, #00A4EF); }
-.plat-mac { background: linear-gradient(135deg, #555555, #888888); }
-.plat-and { background: linear-gradient(135deg, #3CB371, #2A8C56); }
-.plat-lin { background: linear-gradient(135deg, #E95420, #F0A020); }
-.plat-other { background: linear-gradient(135deg, #6B7280, #9CA3AF); }
 .plat-empty {
   font-size: 0.68rem;
   color: var(--text-tertiary);
@@ -1087,6 +1141,8 @@ onMounted(() => {
   .page-head { flex-direction: column; align-items: stretch; }
   .head-actions { width: 100%; }
   .search-bar { width: 100%; flex: 1; }
+  .sort-group { width: 100%; }
+  .sort-btn { flex: 1; justify-content: center; height: 40px; }
   .btn-add { flex: 1; }
   .project-grid { grid-template-columns: 1fr; }
   .pc-actions { justify-content: flex-end; }

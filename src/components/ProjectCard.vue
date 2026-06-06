@@ -1,42 +1,56 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import type { Project } from '../types'
+import { computed, ref, onMounted } from 'vue'
+import type { Software } from '../types'
 import { fmtCompact } from '../utils'
 import { useIconUrl } from '../composables/useIconUrl'
+import { getSoftwarePlatforms, realDownloads } from '../utils/api'
+import { platformClass, platformIcon } from '../utils/platformTag'
 
-const props = defineProps<{ project: Project; compact?: boolean }>()
+const props = defineProps<{ software: Software; compact?: boolean; hideDownloads?: boolean }>()
 
 const { resolveProject } = useIconUrl()
-const logoUrl = computed(() => resolveProject(props.project))
+const logoUrl = computed(() => resolveProject(props.software))
 
-function totalDownloads(): number {
-  return (props.project.versions || []).reduce(
-    (s, v) => s + (v.downloads?.length || 0),
-    0,
-  )
-}
+const realDL = ref<number | null>(null)
+const platforms = ref<string[]>([])
+
+onMounted(() => {
+  realDL.value = realDownloads(props.software)
+  platforms.value = getSoftwarePlatforms(props.software.id)
+})
 </script>
 
 <template>
-  <router-link :to="`/software/${project.slug}`" class="card">
+  <router-link :to="`/software/${software.slug}`" class="card">
     <div class="icon">
-      <img v-if="logoUrl" :src="logoUrl" :alt="project.name" />
-      <span v-else>{{ project.name[0] }}</span>
+      <img v-if="logoUrl" :src="logoUrl" :alt="software.name" />
+      <span v-else>{{ software.name[0] }}</span>
     </div>
-    <h3 class="title">{{ project.name }}</h3>
-    <p class="desc">{{ project.description || '暂无描述' }}</p>
-    <div class="stats">
-      <span v-if="project.stars !== undefined" class="stat" :title="`Star ${project.stars}`">
+    <h3 class="title">{{ software.name }}</h3>
+    <p class="desc">{{ software.description || '暂无描述' }}</p>
+    <div :class="['stats', { 'stats-solo': hideDownloads }]">
+      <span v-if="software.stars !== undefined" class="stat stat-star" :title="`Star ${software.stars}`">
         <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true">
           <path fill="currentColor" d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
         </svg>
-        {{ fmtCompact(project.stars ?? 0) }}
+        {{ fmtCompact(software.stars ?? 0) }}
       </span>
-      <span class="stat" :title="`下载量 ${totalDownloads()}`">
+      <span v-if="!hideDownloads" class="stat" :title="realDL != null ? `真实下载量 ${realDL}（GitHub）` : '暂无下载量数据（非 GitHub 来源或未同步）'">
         <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true">
-          <path fill="currentColor" d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+          <path fill="currentColor" d="M19 9h-4V3H9v6H5l7 7 7-7M5 18v2h14v-2H5z"/>
         </svg>
-        {{ fmtCompact(totalDownloads()) }}
+        {{ realDL != null ? fmtCompact(realDL) : '—' }}
+      </span>
+    </div>
+    <div v-if="platforms.length > 0" class="plat-row">
+      <span
+        v-for="pl in platforms"
+        :key="pl"
+        :class="['plat-tag', platformClass(pl)]"
+        :title="`支持 ${pl}`"
+      >
+        <span>{{ platformIcon(pl) }}</span>
+        {{ pl }}
       </span>
     </div>
     <span class="dl-btn">下载</span>
@@ -116,6 +130,9 @@ function totalDownloads(): number {
   margin-top: 2px;
   font-size: 0.78rem;
 }
+.stats-solo { gap: 0; }
+.stats-solo .stat-star { font-size: 0.92rem; font-weight: 700; color: #F5A623; }
+.stats-solo .stat-star svg { width: 14px; height: 14px; }
 .stat {
   display: inline-flex;
   align-items: center;
@@ -140,6 +157,15 @@ function totalDownloads(): number {
   font-weight: 600;
   transition: background 0.18s, color 0.18s;
 }
+
+/* === 平台标签（基础样式 + 色板在 src/style.css 全局） === */
+.plat-row {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2px;
+}
 .dl-btn::before {
   content: '↓';
   font-weight: 700;
@@ -154,7 +180,7 @@ function totalDownloads(): number {
   .icon { width: 40px; height: 40px; font-size: 18px; }
   .title { font-size: 0.85rem; }
   .desc { font-size: 0.72rem; }
-  .stats { gap: 8px; font-size: 0.72rem; }
+  .stats { gap: 6px; font-size: 0.72rem; }
   .dl-btn { height: 28px; font-size: 0.78rem; }
 }
 @media (max-width: 480px) {
@@ -164,6 +190,15 @@ function totalDownloads(): number {
   .desc { font-size: 0.68rem; -webkit-line-clamp: 1; }
   .stats { gap: 6px; font-size: 0.68rem; }
   .stats svg { width: 10px; height: 10px; }
+  /* 手机模式：标签更紧凑 */
+  .plat-row { margin-top: 1px; gap: 2px; }
+  .plat-tag {
+    height: 14px;
+    padding: 0 4px;
+    border-radius: 4px;
+    font-size: 0.54rem;
+    gap: 1px;
+  }
   .dl-btn { height: 24px; font-size: 0.72rem; }
 }
 </style>

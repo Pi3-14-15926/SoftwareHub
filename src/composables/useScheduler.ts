@@ -2,7 +2,7 @@ import { onMounted, onUnmounted, watch } from 'vue'
 import { useSettingStore } from '../store/settings'
 import { useProjectStore } from '../store/project'
 import { useCategoryStore } from '../store/category'
-import { syncAllGitHub } from '../utils/api'
+import { syncAllGitHub, getSoftwareVersions, getVersionDownloads } from '../utils/api'
 import type { ScheduleConfig } from '../types'
 
 export function useScheduler() {
@@ -13,29 +13,32 @@ export function useScheduler() {
   let timers: ReturnType<typeof setInterval>[] = []
 
   function clearTimers() {
-    timers.forEach(t => clearInterval(t))
+    timers.forEach((t) => clearInterval(t))
     timers = []
   }
 
   async function runBackup() {
-    const ghProjects = projects.projects.filter(
-      p => p.sourceType === 'github' && p.versions.length > 0,
+    const allProjects = projects.software.filter(
+      (s) => getSoftwareVersions(s.id).length > 0,
     )
-    if (ghProjects.length === 0) return
+    if (allProjects.length === 0) return
 
-    const backupData = ghProjects.map(p => ({
-      categoryName: categories.categories.find(c => c.id === p.categoryId)?.name || '未分类',
-      projectName: p.name,
-      projectId: p.id,
-      versions: p.versions.map(v => ({
-        version: v.version,
-        publishedAt: v.publishedAt,
-        downloads: v.downloads.map(d => ({
-          filename: d.filename,
-          url: d.url,
+    const backupData = allProjects.map((s) => {
+      const vers = getSoftwareVersions(s.id)
+      return {
+        categoryName: categories.categories.find((c) => c.slug === s.categorySlug)?.name || '未分类',
+        projectName: s.name,
+        projectId: s.id,
+        versions: vers.map((v) => ({
+          version: v.version,
+          publishedAt: v.publishedAt,
+          downloads: getVersionDownloads(v.id).map((d) => ({
+            filename: d.filename,
+            url: d.url,
+          })),
         })),
-      })),
-    }))
+      }
+    })
 
     const requestBody: any = { projects: backupData }
     const proxyUrl = settings.settings.ghProxyUrl
@@ -83,7 +86,11 @@ export function useScheduler() {
 
   onUnmounted(clearTimers)
 
-  watch(() => settings.settings.schedule, (cfg) => {
-    applySchedule(cfg)
-  }, { deep: true })
+  watch(
+    () => settings.settings.schedule,
+    (cfg) => {
+      applySchedule(cfg)
+    },
+    { deep: true },
+  )
 }

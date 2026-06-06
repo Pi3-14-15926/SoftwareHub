@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useRouter, useRoute } from 'vue-router'
-import { NButton, NDrawer, NDrawerContent, NAvatar, NDropdown } from 'naive-ui'
+import { NButton, NDrawer, NDrawerContent, NAvatar } from 'naive-ui'
 import { ref, computed, onMounted } from 'vue'
 import { useScheduler } from '../../composables/useScheduler'
 import { getCurrentUser, clearToken } from '../../utils/auth'
@@ -31,15 +31,9 @@ const menuOptions = [
 const mobileOpen = ref(false)
 const user = computed(() => getCurrentUser())
 
-const userDropdownOptions = [
-  { label: '登出', key: 'logout' },
-]
-
-function handleUserAction(key: string) {
-  if (key === 'logout') {
-    clearToken()
-    router.push('/admin')
-  }
+function doLogout() {
+  clearToken()
+  router.push('/admin')
 }
 
 function handleMenuUpdate(key: string) {
@@ -71,18 +65,6 @@ function handleMenuUpdate(key: string) {
           <span class="nav-label">{{ m.label }}</span>
         </a>
       </nav>
-      <div class="sider-footer" v-if="user">
-        <NDropdown :options="userDropdownOptions" @select="handleUserAction">
-          <div class="user-card">
-            <NAvatar :src="user.avatar_url" size="medium" round />
-            <div class="user-info">
-              <div class="user-name">{{ user.login }}</div>
-              <div class="user-role">管理员</div>
-            </div>
-            <span class="user-arrow">⌄</span>
-          </div>
-        </NDropdown>
-      </div>
     </aside>
 
     <div class="inner-layout">
@@ -98,16 +80,21 @@ function handleMenuUpdate(key: string) {
           <button class="btn-ghost" @click="router.push('/')">
             <span>🏠</span> 返回首页
           </button>
-          <button class="header-bell" title="通知">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-              <path d="M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2zm6-6V11a6 6 0 0 0-5-5.91V4a1 1 0 0 0-2 0v1.09A6 6 0 0 0 6 11v5l-2 2v1h16v-1l-2-2z"/>
-            </svg>
-            <span class="bell-dot"></span>
-          </button>
           <div v-if="user" class="header-user">
             <NAvatar :src="user.avatar_url" size="small" round />
-            <span class="header-user-name">{{ user.login }}</span>
+            <div class="header-user-info">
+              <div class="header-user-name">{{ user.login }}</div>
+              <div class="header-user-role">管理员</div>
+            </div>
           </div>
+          <button v-if="user" class="btn-logout" @click="doLogout">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16 17 21 12 16 7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+            登出
+          </button>
         </div>
       </header>
       <main class="admin-content">
@@ -238,35 +225,6 @@ function handleMenuUpdate(key: string) {
 .nav-icon { font-size: 1.15rem; line-height: 1; }
 .nav-label { flex: 1; }
 
-.sider-footer {
-  padding: 12px 14px 16px;
-  border-top: 1px solid var(--admin-border);
-}
-.user-card {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 12px;
-  border-radius: 14px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-.user-card:hover { background: rgba(79, 140, 255, 0.06); }
-.user-info { flex: 1; min-width: 0; }
-.user-name {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text-main);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.user-role {
-  font-size: 0.7rem;
-  color: var(--text-tertiary);
-}
-.user-arrow { color: var(--text-tertiary); font-size: 0.9rem; }
-
 /* ===== 顶栏 72px 圆角白色 ===== */
 .inner-layout {
   flex: 1;
@@ -296,43 +254,53 @@ function handleMenuUpdate(key: string) {
   letter-spacing: 0.2px;
 }
 .header-right { display: flex; align-items: center; gap: 12px; }
-.header-bell {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  border: none;
-  background: var(--color-card-soft);
-  color: var(--text-sec);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.18s, transform 0.18s;
-}
-.header-bell:hover { background: var(--color-primary-soft); color: var(--color-primary); transform: scale(1.05); }
-.bell-dot {
-  position: absolute;
-  top: 8px;
-  right: 9px;
-  width: 8px;
-  height: 8px;
-  background: var(--color-error);
-  border-radius: 50%;
-  border: 2px solid var(--admin-header-bg);
-}
 .header-user {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   padding: 4px 12px 4px 4px;
   border-radius: var(--radius-full);
   background: var(--color-card-soft);
+}
+.header-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  line-height: 1.2;
 }
 .header-user-name {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--text-main);
+  white-space: nowrap;
+}
+.header-user-role {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.btn-logout {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: var(--radius-full);
+  background: rgba(229, 83, 83, 0.08);
+  color: #E55353;
+  border: 1px solid rgba(229, 83, 83, 0.18);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.btn-logout:hover {
+  background: rgba(229, 83, 83, 0.16);
+  border-color: rgba(229, 83, 83, 0.32);
+  transform: translateY(-1px);
 }
 
 .admin-content {
@@ -382,7 +350,9 @@ function handleMenuUpdate(key: string) {
   .inner-layout { padding: 12px 12px 12px 0; }
   .admin-header { padding: 0 16px; border-radius: 18px; }
   .header-title { font-size: 1rem; }
-  .header-user-name { display: none; }
+  .header-user-info { display: none; }
   .header-user { padding: 4px; }
+  .btn-logout { width: 36px; padding: 0; justify-content: center; }
+  .btn-logout svg { width: 16px; height: 16px; }
 }
 </style>

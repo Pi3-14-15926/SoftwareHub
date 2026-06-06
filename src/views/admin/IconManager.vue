@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { NPopconfirm, useMessage } from 'naive-ui'
 import AdminLayout from '../../components/admin/AdminLayout.vue'
 import { useProjectStore } from '../../store/project'
@@ -27,11 +27,21 @@ const keyword = ref('')
 const selected = ref<Set<string>>(new Set())
 const deleting = ref<Set<string>>(new Set())
 const totalSize = ref(0)
+const page = ref(1)
+const pageSize = 30
+type SortBy = 'date' | 'name'
+type SortOrder = 'asc' | 'desc'
+const sortBy = ref<SortBy>('date')
+const sortOrder = ref<SortOrder>('desc')
+function setSort(by: SortBy) {
+  if (sortBy.value === by) sortOrder.value = sortOrder.value === 'desc' ? 'asc' : 'desc'
+  else { sortBy.value = by; sortOrder.value = 'desc' }
+}
 
 /* ============== 使用情况统计 ============== */
 const usedByMap = computed(() => {
   const map = new Map<string, number>()
-  for (const p of projects.projects) {
+  for (const p of projects.software) {
     if (!p.logo) continue
     const fname = p.logo.split('/').pop()?.split('?')[0]?.toLowerCase()
     if (fname) map.set(fname, (map.get(fname) || 0) + 1)
@@ -44,6 +54,39 @@ const filteredIcons = computed(() => {
   const kw = keyword.value.toLowerCase()
   return icons.value.filter((i) => i.name.toLowerCase().includes(kw))
 })
+const sortedIcons = computed(() => {
+  const list = [...filteredIcons.value]
+  list.sort((a, b) => {
+    let cmp = 0
+    if (sortBy.value === 'date') {
+      const ta = a.uploadedAt ? new Date(a.uploadedAt).getTime() : 0
+      const tb = b.uploadedAt ? new Date(b.uploadedAt).getTime() : 0
+      cmp = ta - tb
+    } else {
+      cmp = a.name.localeCompare(b.name, 'zh-Hans-CN')
+    }
+    return sortOrder.value === 'desc' ? -cmp : cmp
+  })
+  return list
+})
+const totalPages = computed(() => Math.max(1, Math.ceil(sortedIcons.value.length / pageSize)))
+const pagedIcons = computed(() => {
+  const start = (page.value - 1) * pageSize
+  return sortedIcons.value.slice(start, start + pageSize)
+})
+function jumpPage(p: number) {
+  if (p < 1 || p > totalPages.value) return
+  page.value = p
+}
+const pageNumbers = computed(() => {
+  const total = totalPages.value
+  const cur = page.value
+  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1)
+  const set = new Set<number>([1, total, cur, cur - 1, cur + 1])
+  return [...set].filter((n) => n >= 1 && n <= total).sort((a, b) => a - b)
+})
+watch(keyword, () => { page.value = 1 })
+watch(sortBy, () => { page.value = 1 })
 
 /* ============== 生命周期 ============== */
 onMounted(async () => {
@@ -199,20 +242,22 @@ async function copyUrl(url: string) {
       >
         <input ref="fileInput" type="file" accept="image/*" multiple style="display:none" @change="onFileChange" />
         <div class="upload-icon">
-          <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
             <polyline points="17 8 12 3 7 8"/>
             <line x1="12" y1="3" x2="12" y2="15"/>
           </svg>
         </div>
-        <div class="upload-title">
-          <span v-if="uploading">
-            上传中 {{ uploadProgress.done }} / {{ uploadProgress.total }}
-          </span>
-          <span v-else>拖拽图片到此处，或点击选择</span>
-        </div>
-        <div class="upload-desc">
-          支持 PNG / JPG / SVG / GIF · 自动压缩为 256×256 WebP · 质量 0.85
+        <div class="upload-text">
+          <div class="upload-title">
+            <span v-if="uploading">
+              上传中 {{ uploadProgress.done }} / {{ uploadProgress.total }}
+            </span>
+            <span v-else>拖拽图片到此处，或点击选择</span>
+          </div>
+          <div class="upload-desc">
+            支持 PNG / JPG / SVG / GIF · 自动压缩为 256×256 WebP · 质量 0.85
+          </div>
         </div>
       </section>
 
@@ -230,11 +275,30 @@ async function copyUrl(url: string) {
               </svg>
               <input v-model="keyword" placeholder="搜索文件名..." class="search-input" />
             </div>
+            <div class="sort-group">
+              <button :class="['sort-btn', { active: sortBy === 'date' }]" @click="setSort('date')" title="按上传日期排序">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                日期
+                <span class="sort-arrow">{{ sortBy === 'date' ? (sortOrder === 'desc' ? '↓' : '↑') : '↓' }}</span>
+              </button>
+              <button :class="['sort-btn', { active: sortBy === 'name' }]" @click="setSort('name')" title="按名称排序">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 6h13M3 12h9M3 18h5M17 10v10M17 10l-3 3M17 10l3 3"/>
+                </svg>
+                名称
+                <span class="sort-arrow">{{ sortBy === 'name' ? (sortOrder === 'desc' ? '↓' : '↑') : '↓' }}</span>
+              </button>
+            </div>
             <button v-if="selected.size > 0" class="btn-danger-soft" @click="doBatchDelete">
               删除选中 ({{ selected.size }})
             </button>
-            <button v-if="filteredIcons.length > 0" class="btn-ghost" @click="selectAll">
-              {{ selected.size === filteredIcons.length ? '取消全选' : '全选' }}
+            <button v-if="sortedIcons.length > 0" class="btn-ghost" @click="selectAll">
+              {{ selected.size === sortedIcons.length ? '取消全选' : '全选' }}
             </button>
           </div>
         </header>
@@ -262,13 +326,13 @@ async function copyUrl(url: string) {
         </div>
         <div v-else class="icon-grid">
           <div
-            v-for="icon in filteredIcons"
+            v-for="icon in pagedIcons"
             :key="icon.name"
             class="icon-tile"
             :class="{ selected: selected.has(icon.name) }"
           >
             <div class="icon-tile-check" @click.stop="toggleSelect(icon.name)">
-              <svg v-if="selected.has(icon.name)" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <svg v-if="selected.has(icon.name)" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"/>
               </svg>
             </div>
@@ -301,6 +365,17 @@ async function copyUrl(url: string) {
             </div>
           </div>
         </div>
+
+        <!-- 分页 -->
+        <nav v-if="totalPages > 1" class="pager">
+          <button class="pg-btn" :disabled="page === 1" @click="jumpPage(page - 1)">‹</button>
+          <template v-for="(n, i) in pageNumbers" :key="i">
+            <span v-if="i > 0 && n - pageNumbers[i - 1] > 1" class="pg-ellipsis">…</span>
+            <button :class="['pg-btn', { active: n === page }]" @click="jumpPage(n)">{{ n }}</button>
+          </template>
+          <button class="pg-btn" :disabled="page === totalPages" @click="jumpPage(page + 1)">›</button>
+          <span class="pg-info">第 {{ page }} / {{ totalPages }} 页 · 共 {{ sortedIcons.length }} 个</span>
+        </nav>
       </section>
     </div>
   </AdminLayout>
@@ -327,19 +402,19 @@ async function copyUrl(url: string) {
   background: var(--admin-card);
   border: 2px dashed var(--admin-border);
   border-radius: var(--admin-radius-card);
-  padding: 32px 24px;
-  text-align: center;
+  padding: 16px 22px;
   cursor: pointer;
   transition: all 0.2s ease;
-  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  display: flex; flex-direction: row; align-items: center; gap: 14px;
 }
 .upload-zone:hover { border-color: var(--color-primary); background: var(--color-primary-soft); }
-.upload-zone.active { border-color: var(--color-primary); background: var(--color-primary-soft); transform: scale(1.01); }
+.upload-zone.active { border-color: var(--color-primary); background: var(--color-primary-soft); transform: scale(1.005); }
 .upload-zone.disabled { opacity: 0.5; cursor: not-allowed; }
-.upload-icon { color: var(--color-primary); opacity: 0.7; }
-.upload-zone:hover .upload-icon, .upload-zone.active .upload-icon { opacity: 1; transform: translateY(-2px); transition: all 0.2s; }
-.upload-title { font-size: 1rem; font-weight: 600; color: var(--text-main); }
-.upload-desc { font-size: 0.82rem; color: var(--text-tertiary); }
+.upload-icon { color: var(--color-primary); opacity: 0.7; flex-shrink: 0; display: flex; align-items: center; }
+.upload-zone:hover .upload-icon, .upload-zone.active .upload-icon { opacity: 1; transition: all 0.2s; }
+.upload-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.upload-title { font-size: 0.92rem; font-weight: 600; color: var(--text-main); }
+.upload-desc { font-size: 0.78rem; color: var(--text-tertiary); }
 
 /* === 图标库 === */
 .library-card {
@@ -377,10 +452,29 @@ async function copyUrl(url: string) {
   font-size: 0.88rem; color: var(--text-main); min-width: 0;
 }
 
+/* === 排序 === */
+.sort-group { display: flex; gap: 6px; }
+.sort-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  height: 40px; padding: 0 12px;
+  border-radius: var(--admin-radius-btn);
+  background: var(--color-card-soft);
+  color: var(--text-sec);
+  border: 1px solid var(--admin-border);
+  font-size: 0.82rem; font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.sort-btn:hover { background: var(--color-primary-soft); color: var(--color-primary); border-color: var(--color-primary-soft); }
+.sort-btn.active { background: var(--color-primary-soft); color: var(--color-primary); border-color: var(--color-primary); }
+.sort-arrow { font-size: 0.92rem; line-height: 1; opacity: 0.55; font-weight: 700; }
+.sort-btn.active .sort-arrow { opacity: 1; }
+
 .icon-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
 }
 .icon-tile {
   background: var(--color-card-soft);
@@ -396,22 +490,24 @@ async function copyUrl(url: string) {
 .icon-tile-check {
   position: absolute;
   top: 8px; right: 8px;
-  width: 22px; height: 22px;
-  border-radius: 6px;
-  background: var(--admin-card);
-  border: 1.5px solid var(--admin-border);
+  width: 24px; height: 24px;
+  border-radius: 7px;
+  background: #FFFFFF;
+  border: 2px solid rgba(15, 23, 42, 0.22);
   display: flex; align-items: center; justify-content: center;
   color: var(--color-primary);
   z-index: 2;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.14);
   transition: all 0.15s;
 }
-.icon-tile.selected .icon-tile-check { background: var(--color-primary); color: #FFFFFF; border-color: var(--color-primary); }
+.icon-tile:hover .icon-tile-check { border-color: var(--color-primary); }
+.icon-tile.selected .icon-tile-check { background: var(--color-primary); color: #FFFFFF; border-color: var(--color-primary); box-shadow: 0 2px 8px rgba(79, 140, 255, 0.35); }
 
 .icon-preview {
   aspect-ratio: 1;
   display: flex; align-items: center; justify-content: center;
   background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
-  padding: 18px;
+  padding: 12px;
 }
 .icon-preview img {
   max-width: 100%; max-height: 100%;
@@ -419,12 +515,12 @@ async function copyUrl(url: string) {
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
 }
 .icon-meta {
-  padding: 10px 12px 12px;
+  padding: 8px 10px 10px;
   background: var(--admin-card);
   border-top: 1px solid var(--admin-border);
 }
 .icon-name {
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-family: var(--font-mono);
   color: var(--text-main);
   font-weight: 600;
@@ -435,8 +531,8 @@ async function copyUrl(url: string) {
 }
 .icon-info {
   display: flex; align-items: center; gap: 6px;
-  font-size: 0.72rem; color: var(--text-tertiary);
-  margin-bottom: 8px;
+  font-size: 0.68rem; color: var(--text-tertiary);
+  margin-bottom: 6px;
   flex-wrap: wrap;
 }
 .usage-pill {
@@ -452,12 +548,12 @@ async function copyUrl(url: string) {
 .icon-btn {
   flex: 1;
   display: inline-flex; align-items: center; justify-content: center; gap: 4px;
-  height: 26px; padding: 0 8px;
+  height: 24px; padding: 0 8px;
   border-radius: 8px;
   background: var(--color-card-soft);
   color: var(--text-sec);
   border: 1px solid var(--admin-border);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.15s;
@@ -466,6 +562,48 @@ async function copyUrl(url: string) {
 .icon-btn.danger { color: #E55353; }
 .icon-btn.danger:hover { background: rgba(229, 83, 83, 0.1); border-color: rgba(229, 83, 83, 0.2); color: #E55353; }
 .icon-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* === 分页 === */
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 16px 0 4px;
+  flex-shrink: 0;
+}
+.pg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 10px;
+  background: var(--color-card-soft);
+  color: var(--text-sec);
+  border: 1px solid var(--admin-border);
+  border-radius: 9px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, transform 0.18s;
+  font-variant-numeric: tabular-nums;
+}
+.pg-btn:hover:not(:disabled) {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  transform: scale(1.05);
+}
+.pg-btn.active {
+  background: var(--admin-gradient);
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(79, 140, 255, 0.28);
+}
+.pg-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.pg-ellipsis { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 34px; color: var(--text-tertiary); }
+.pg-info { margin-left: 10px; font-size: 0.76rem; color: var(--text-tertiary); }
 
 /* === 通用 === */
 .btn-danger-soft {
@@ -511,8 +649,12 @@ async function copyUrl(url: string) {
 @media (max-width: 640px) {
   .head-actions { width: 100%; }
   .head-actions button { flex: 1; }
-  .icon-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+  .icon-grid { grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); }
   .library-actions { width: 100%; }
   .search-bar { flex: 1; min-width: 0; }
+  .sort-group { width: 100%; }
+  .sort-btn { flex: 1; justify-content: center; }
+  .pager { gap: 4px; }
+  .pg-info { width: 100%; text-align: center; margin-left: 0; margin-top: 4px; }
 }
 </style>

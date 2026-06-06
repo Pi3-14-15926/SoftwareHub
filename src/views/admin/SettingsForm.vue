@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { NInput, NSwitch, NSelect, useMessage } from 'naive-ui'
+import { NInput, useMessage } from 'naive-ui'
 import { useSettingStore } from '../../store/settings'
 import AdminLayout from '../../components/admin/AdminLayout.vue'
 
@@ -13,56 +13,26 @@ const form = ref({
   footer: '',
   admins: '',
   storageNote: '',
-  syncEnabled: false,
-  syncIntervalHours: 6,
-  backupEnabled: false,
-  backupIntervalHours: 24,
 })
-
-const intervalOptions = [
-  { label: '每 1 小时', value: 1 },
-  { label: '每 6 小时', value: 6 },
-  { label: '每 12 小时', value: 12 },
-  { label: '每天', value: 24 },
-]
-const backupIntervalOptions = [
-  { label: '每 1 小时', value: 1 },
-  { label: '每 6 小时', value: 6 },
-  { label: '每 12 小时', value: 12 },
-  { label: '每天', value: 24 },
-  { label: '每 3 天', value: 72 },
-  { label: '每周', value: 168 },
-]
 
 onMounted(() => {
   store.refresh()
   const s = store.settings
-  const sc = s.schedule
   form.value = {
     siteName: s.siteName, logo: s.logo, footer: s.footer || '',
     admins: (s.admins || []).join(', '), storageNote: s.storageNote || '',
-    syncEnabled: sc?.syncEnabled ?? false, syncIntervalHours: sc?.syncIntervalHours ?? 6,
-    backupEnabled: sc?.backupEnabled ?? false, backupIntervalHours: sc?.backupIntervalHours ?? 24,
   }
 })
 
-function intervalLabel(list: { label: string; value: number }[], v: number) {
-  return list.find((o) => o.value === v)?.label || `${v} 小时`
-}
-
 function doSave() {
+  const cur = store.settings
   store.save({
+    ...cur,
     siteName: form.value.siteName,
     logo: form.value.logo,
     footer: form.value.footer || undefined,
     admins: form.value.admins.split(/[,，]/).map((a) => a.trim()).filter(Boolean),
     storageNote: form.value.storageNote || undefined,
-    schedule: {
-      syncEnabled: form.value.syncEnabled,
-      syncIntervalHours: form.value.syncIntervalHours,
-      backupEnabled: form.value.backupEnabled,
-      backupIntervalHours: form.value.backupIntervalHours,
-    },
   })
   message.success('设置已保存')
 }
@@ -111,58 +81,7 @@ function doSave() {
         </div>
       </section>
 
-      <!-- 定时任务：双卡 HyperOS 风格 -->
-      <section class="settings-card">
-        <header class="card-head">
-          <div class="card-icon">⏰</div>
-          <div>
-            <h3 class="card-title">定时任务</h3>
-            <p class="card-desc">在 GitHub Actions 上自动执行同步与备份</p>
-          </div>
-        </header>
-
-        <div class="task-list">
-          <div class="task-card">
-            <div class="task-info">
-              <div class="task-name">Release 同步</div>
-              <div class="task-desc">
-                拉取所有 GitHub 项目的最新 Release 信息
-                <span v-if="form.syncEnabled" class="task-interval">· {{ intervalLabel(intervalOptions, form.syncIntervalHours) }}</span>
-              </div>
-            </div>
-            <div class="task-control">
-              <NSelect
-                v-if="form.syncEnabled"
-                v-model:value="form.syncIntervalHours"
-                :options="intervalOptions"
-                size="small"
-                style="width: 120px;"
-              />
-              <NSwitch v-model:value="form.syncEnabled" />
-            </div>
-          </div>
-
-          <div class="task-card">
-            <div class="task-info">
-              <div class="task-name">WebDAV 备份</div>
-              <div class="task-desc">
-                将 Release 文件备份到 WebDAV 云盘
-                <span v-if="form.backupEnabled" class="task-interval">· {{ intervalLabel(backupIntervalOptions, form.backupIntervalHours) }}</span>
-              </div>
-            </div>
-            <div class="task-control">
-              <NSelect
-                v-if="form.backupEnabled"
-                v-model:value="form.backupIntervalHours"
-                :options="backupIntervalOptions"
-                size="small"
-                style="width: 120px;"
-              />
-              <NSwitch v-model:value="form.backupEnabled" />
-            </div>
-          </div>
-        </div>
-      </section>
+      <!-- 定时任务已迁移至「功能设置」页面 -->
 
       <div class="form-actions">
         <button class="btn-primary btn-large" @click="doSave">保存设置</button>
@@ -176,10 +95,10 @@ function doSave() {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 880px;
-  width: 100%;
-  margin: 0 auto;
+  flex: 1;
+  min-height: 0;
   padding-left: 25px;
+  padding-right: 25px;
   margin-right: -3px;
 }
 

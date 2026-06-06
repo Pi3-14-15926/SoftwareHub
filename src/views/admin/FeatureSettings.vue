@@ -1,146 +1,145 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { NInputNumber, NUpload, NProgress, NAlert, useMessage } from 'naive-ui'
-import type { UploadFileInfo } from 'naive-ui'
+import { ref, onMounted, computed } from 'vue'
+import { NInput, NInputNumber, NSwitch, NSelect, useMessage } from 'naive-ui'
 import AdminLayout from '../../components/admin/AdminLayout.vue'
 import { useSettingStore } from '../../store/settings'
-import { getProjects, getCategories, getSettings, saveSettings, saveJSON } from '../../utils/api'
-import { DEFAULT_SETTINGS } from '../../defaults'
-import { commitAllData } from '../../utils/githubRepo'
 
 const store = useSettingStore()
 const message = useMessage()
 
+/* ============== 定时任务 ============== */
+const taskForm = ref({
+  syncEnabled: false,
+  syncIntervalHours: 6,
+  backupEnabled: false,
+  backupIntervalHours: 24,
+})
+const intervalOptions = [
+  { label: '每 1 小时', value: 1 },
+  { label: '每 6 小时', value: 6 },
+  { label: '每 12 小时', value: 12 },
+  { label: '每天', value: 24 },
+]
+const backupIntervalOptions = [
+  { label: '每 1 小时', value: 1 },
+  { label: '每 6 小时', value: 6 },
+  { label: '每 12 小时', value: 12 },
+  { label: '每天', value: 24 },
+  { label: '每 3 天', value: 72 },
+  { label: '每周', value: 168 },
+]
+function intervalLabel(list: { label: string; value: number }[], v: number) {
+  return list.find((o) => o.value === v)?.label || `${v} 小时`
+}
+function saveTask() {
+  const cur = store.settings
+  store.save({
+    ...cur,
+    schedule: {
+      ...(cur.schedule || {}),
+      syncEnabled: taskForm.value.syncEnabled,
+      syncIntervalHours: taskForm.value.syncIntervalHours,
+      backupEnabled: taskForm.value.backupEnabled,
+      backupIntervalHours: taskForm.value.backupIntervalHours,
+    },
+  })
+  message.success('定时任务已保存')
+}
+
 /* ============== Web 备份设置 ============== */
 const webForm = ref({
+  url: '',
+  username: '',
+  password: '',
+  baseDir: '/SoftwareHub',
   uploadTimeout: 300,
   maxFileSize: 500,
 })
+const showPassword = ref(false)
+const testing = ref(false)
+const testResult = ref<{ ok: boolean; msg: string; count?: number } | null>(null)
+
+const webdavConfigured = computed(() =>
+  !!(webForm.value.url && webForm.value.username && webForm.value.password),
+)
 
 onMounted(() => {
   store.refresh()
+  const sc = store.settings.schedule
+  taskForm.value = {
+    syncEnabled: sc?.syncEnabled ?? false,
+    syncIntervalHours: sc?.syncIntervalHours ?? 6,
+    backupEnabled: sc?.backupEnabled ?? false,
+    backupIntervalHours: sc?.backupIntervalHours ?? 24,
+  }
   const wd = store.settings.webdav
   webForm.value = {
+    url: wd?.url ?? '',
+    username: wd?.username ?? '',
+    password: wd?.password ?? '',
+    baseDir: wd?.baseDir ?? '/SoftwareHub',
     uploadTimeout: wd?.uploadTimeout ?? 300,
     maxFileSize: wd?.maxFileSize ?? 500,
   }
 })
 
-function saveWeb() {
+function saveWebdavConfig() {
   const s = { ...store.settings }
   s.webdav = {
     ...(s.webdav || {}),
-    url: s.webdav?.url || '',
-    username: s.webdav?.username || '',
-    password: s.webdav?.password || '',
-    baseDir: s.webdav?.baseDir || '/SoftwareHub',
-    uploadTimeout: webForm.value.uploadTimeout,
-    maxFileSize: webForm.value.maxFileSize,
+    url: webForm.value.url,
+    username: webForm.value.username,
+    password: webForm.value.password,
+    baseDir: webForm.value.baseDir,
   }
   store.save(s)
-  message.success('Web 备份设置已保存')
+  message.success('WebDAV 配置已保存')
 }
 
-/* ============== 导入导出 ============== */
-const exporting = ref(false)
-const importing = ref(false)
-const importProgress = ref(0)
-const baking = ref(false)
-const publishing = ref(false)
-const commitUrl = ref('')
+function saveUploadConfig() {
+  const s = { ...store.settings }
+  s.webdav = {
+    ...(s.webdav || {}),
+    uploadTimeout: webForm.value.uploadTimeout,
+    maxFileSize: webForm.value.maxFileSize,
+  } as any
+  store.save(s)
+  message.success('上传设置已保存')
+}
 
-function exportData() {
-  exporting.value = true
-  try {
-    const data = {
-      exportTime: new Date().toISOString(),
-      version: '1.0.0',
-      projects: getProjects(),
-      categories: getCategories(),
-      settings: getSettings(),
-    }
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = `softwarehub-backup-${new Date().toISOString().slice(0, 10)}.json`
-    a.click()
-    URL.revokeObjectURL(url)
-    message.success('导出成功')
-  } catch (e: any) {
-    message.error('导出失败: ' + e.message)
-  } finally {
-    exporting.value = false
+async function testConnection() {
+  if (!webForm.value.url || !webForm.value.username || !webForm.value.password) {
+    testResult.value = { ok: false, msg: '请先填写完整的服务地址、用户名、密码' }
+    return
   }
-}
-
-function importFromJSON({ file }: { file: UploadFileInfo }) {
-  if (importing.value || !file.file) return
-  importing.value = true
-  importProgress.value = 0
-  const reader = new FileReader()
-  reader.onload = (e) => {
-    try {
-      const text = e.target?.result as string
-      const data = JSON.parse(text)
-      if (!data.projects || !data.categories || !data.settings) {
-        message.error('无效的备份文件：缺少必需字段')
-        importing.value = false
-        return
-      }
-      saveJSON('sh_projects', data.projects)
-      importProgress.value = 33
-      saveJSON('sh_categories', data.categories)
-      importProgress.value = 66
-      saveJSON('sh_settings', data.settings)
-      importProgress.value = 100
-      message.success(`导入成功！共 ${data.projects.length} 个项目、${data.categories.length} 个分类`)
-    } catch (e: any) {
-      message.error('导入失败: ' + e.message)
-    } finally {
-      importing.value = false
-    }
-  }
-  reader.onerror = () => { message.error('文件读取失败'); importing.value = false }
-  reader.readAsText(file.file as Blob)
-}
-
-async function bakeDefaults() {
-  baking.value = true
+  testing.value = true
+  testResult.value = null
   try {
-    const settings = getSettings()
-    const res = await fetch('/__bake-defaults', {
+    if (!import.meta.env.DEV) {
+      testResult.value = { ok: false, msg: '测试连接仅在本地开发环境可用（生产环境请直接进入「备份管理」查看 manifest）' }
+      testing.value = false
+      return
+    }
+    const cfgRes = await fetch('/__backup-webdav-config', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(settings),
+      body: JSON.stringify({
+        url: webForm.value.url,
+        username: webForm.value.username,
+        password: webForm.value.password,
+        baseDir: webForm.value.baseDir,
+      }),
     })
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({ error: '未知错误' }))
-      throw new Error(err.error || `HTTP ${res.status}`)
-    }
-    message.success('默认配置已写入 src/defaults.ts')
+    if (!cfgRes.ok) throw new Error('配置同步失败')
+    const listRes = await fetch('/__backup-files')
+    if (!listRes.ok) throw new Error(`连接失败 (HTTP ${listRes.status})`)
+    const data = await listRes.json()
+    const count = Array.isArray(data.entries) ? data.entries.length : 0
+    testResult.value = { ok: true, msg: '连接成功', count }
   } catch (e: any) {
-    message.error('写入失败: ' + e.message)
-  } finally {
-    baking.value = false
+    testResult.value = { ok: false, msg: e.message || '连接失败' }
   }
-}
-
-function resetDefaults() {
-  saveSettings(DEFAULT_SETTINGS)
-  message.success('设置已恢复为默认值')
-}
-
-async function publishToRepo() {
-  publishing.value = true
-  commitUrl.value = ''
-  try {
-    const result = await commitAllData()
-    commitUrl.value = `https://github.com/${result.repo}/commits/main`
-    message.success(`已提交 ${result.files} 个文件到 ${result.repo}，等待构建部署...`)
-  } catch (e: any) {
-    message.error('发布失败: ' + e.message)
-  } finally { publishing.value = false }
+  testing.value = false
 }
 </script>
 
@@ -154,76 +153,63 @@ async function publishToRepo() {
         </div>
       </div>
 
-      <!-- 导入导出 -->
+      <!-- 导入导出 已迁移至「统计概览」页面 -->
+
+      <!-- 定时任务 -->
       <section class="settings-card">
         <header class="card-head">
-          <div class="card-icon io">📋</div>
+          <div class="card-icon">⏰</div>
           <div>
-            <h3 class="card-title">导入导出</h3>
-            <p class="card-desc">数据备份、迁移、发布到 GitHub 仓库</p>
+            <h3 class="card-title">定时任务</h3>
+            <p class="card-desc">在 GitHub Actions 上自动执行同步与备份</p>
           </div>
         </header>
 
-        <div class="io-grid">
-          <div class="io-card">
-            <div class="io-mini-icon">📤</div>
-            <div class="io-content">
-              <h4 class="io-title">导出数据</h4>
-              <p class="io-desc">将项目、分类、设置打包为 JSON 文件下载到本地</p>
-              <button class="btn-primary" :disabled="exporting" @click="exportData">
-                {{ exporting ? '导出中...' : '导出数据' }}
-              </button>
-            </div>
-          </div>
-
-          <div class="io-card">
-            <div class="io-mini-icon">📥</div>
-            <div class="io-content">
-              <h4 class="io-title">导入数据</h4>
-              <p class="io-desc">从备份 JSON 文件恢复所有数据到 localStorage</p>
-              <NUpload accept=".json" :max="1" :show-file-list="false" :disabled="importing" @change="importFromJSON">
-                <button class="btn-primary" :disabled="importing">
-                  {{ importing ? '导入中...' : '选择备份文件' }}
-                </button>
-              </NUpload>
-              <NProgress v-if="importing" type="line" :percentage="importProgress" :height="6" :border-radius="999" class="import-progress" />
-            </div>
-          </div>
-
-          <div class="io-card">
-            <div class="io-mini-icon">🔧</div>
-            <div class="io-content">
-              <h4 class="io-title">写入默认配置</h4>
-              <p class="io-desc">将当前设置烘焙到 src/defaults.ts，构建后所有设备样式一致</p>
-              <div class="action-row">
-                <button class="btn-secondary" :disabled="baking" @click="bakeDefaults">
-                  {{ baking ? '写入中...' : '写入当前设置' }}
-                </button>
-                <button class="btn-ghost" @click="resetDefaults">恢复默认</button>
+        <div class="task-list">
+          <div class="task-card">
+            <div class="task-info">
+              <div class="task-name">Release 同步</div>
+              <div class="task-desc">
+                拉取所有 GitHub 项目的最新 Release 信息
+                <span v-if="taskForm.syncEnabled" class="task-interval">· {{ intervalLabel(intervalOptions, taskForm.syncIntervalHours) }}</span>
               </div>
             </div>
+            <div class="task-control">
+              <NSelect
+                v-if="taskForm.syncEnabled"
+                v-model:value="taskForm.syncIntervalHours"
+                :options="intervalOptions"
+                size="small"
+                style="width: 120px;"
+              />
+              <NSwitch v-model:value="taskForm.syncEnabled" />
+            </div>
           </div>
 
-          <div class="io-card">
-            <div class="io-mini-icon">🚀</div>
-            <div class="io-content">
-              <h4 class="io-title">发布到 GitHub</h4>
-              <p class="io-desc">将 localStorage 中的所有数据提交到仓库，触发 GitHub Pages 重新构建</p>
-              <div class="action-row">
-                <button class="btn-primary" :disabled="publishing" @click="publishToRepo">
-                  {{ publishing ? '提交中...' : '立即发布' }}
-                </button>
-                <a v-if="commitUrl" :href="commitUrl" target="_blank" rel="noopener" class="commit-link">
-                  查看提交记录 →
-                </a>
+          <div class="task-card">
+            <div class="task-info">
+              <div class="task-name">WebDAV 备份</div>
+              <div class="task-desc">
+                将 Release 文件备份到 WebDAV 云盘
+                <span v-if="taskForm.backupEnabled" class="task-interval">· {{ intervalLabel(backupIntervalOptions, taskForm.backupIntervalHours) }}</span>
               </div>
+            </div>
+            <div class="task-control">
+              <NSelect
+                v-if="taskForm.backupEnabled"
+                v-model:value="taskForm.backupIntervalHours"
+                :options="backupIntervalOptions"
+                size="small"
+                style="width: 120px;"
+              />
+              <NSwitch v-model:value="taskForm.backupEnabled" />
             </div>
           </div>
         </div>
 
-        <NAlert type="info" :bordered="false" class="info-alert">
-          <strong>注意：</strong>「写入默认配置」会把当前后台设置覆盖到 <code>src/defaults.ts</code> 文件中。执行 <code>npm run build</code> 后新用户将自动使用此配置。
-        </NAlert>
+        <div class="card-actions">
+          <button class="btn-primary" @click="saveTask">保存</button>
+        </div>
       </section>
 
       <!-- Web 备份设置 -->
@@ -232,9 +218,92 @@ async function publishToRepo() {
           <div class="card-icon">☁️</div>
           <div>
             <h3 class="card-title">Web 备份设置</h3>
-            <p class="card-desc">控制 WebDAV 备份时的上传行为（连接信息由服务端配置）</p>
+            <p class="card-desc">配置 WebDAV 云盘连接 + 控制上传行为</p>
           </div>
         </header>
+
+        <!-- WebDAV 配置 -->
+        <div class="webdav-section">
+          <div class="subsection-head">
+            <h4 class="subsection-title">WebDAV 配置</h4>
+            <span
+              class="status-tag"
+              :class="webdavConfigured ? 'status-ok' : 'status-miss'"
+            >
+              <span class="status-dot"></span>
+              {{ webdavConfigured ? '已配置' : '未配置' }}
+            </span>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="field">
+              <label class="field-label">服务地址</label>
+              <NInput
+                v-model:value="webForm.url"
+                placeholder="https://dav.jianguoyun.com/dav/"
+                size="large"
+              />
+              <span class="hint-text">WebDAV 服务器 URL</span>
+            </div>
+            <div class="field">
+              <label class="field-label">基础目录</label>
+              <NInput
+                v-model:value="webForm.baseDir"
+                placeholder="/SoftwareHub"
+                size="large"
+              />
+              <span class="hint-text">云盘上存放备份的子目录</span>
+            </div>
+            <div class="field">
+              <label class="field-label">用户名</label>
+              <NInput
+                v-model:value="webForm.username"
+                placeholder="WebDAV 账号"
+                size="large"
+              />
+            </div>
+            <div class="field">
+              <label class="field-label">密码</label>
+              <NInput
+                v-model:value="webForm.password"
+                :type="showPassword ? 'text' : 'password'"
+                placeholder="WebDAV 密码"
+                size="large"
+              >
+                <template #suffix>
+                  <button
+                    type="button"
+                    class="pwd-toggle"
+                    @click="showPassword = !showPassword"
+                  >
+                    {{ showPassword ? '隐藏' : '显示' }}
+                  </button>
+                </template>
+              </NInput>
+            </div>
+          </div>
+
+          <p class="webdav-hint">
+            💡 配置完成后，<a href="/admin/backup-files" class="link">备份管理</a>页面即可读取云盘上的文件列表。
+          </p>
+
+          <div class="webdav-actions">
+            <button class="btn-primary" @click="saveWebdavConfig">保存配置</button>
+            <button class="btn-secondary" :disabled="testing" @click="testConnection">
+              {{ testing ? '测试中...' : '测试连接' }}
+            </button>
+          </div>
+          <div
+            v-if="testResult"
+            class="test-result"
+            :class="testResult.ok ? 'test-ok' : 'test-err'"
+          >
+            <span class="test-icon">{{ testResult.ok ? '✓' : '✗' }}</span>
+            <span>{{ testResult.msg }}<span v-if="testResult.count != null"> · 列出 {{ testResult.count }} 个备份项</span></span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
 
         <div class="form-grid-2">
           <div class="field">
@@ -250,7 +319,7 @@ async function publishToRepo() {
         </div>
 
         <div class="card-actions">
-          <button class="btn-primary" @click="saveWeb">保存</button>
+          <button class="btn-primary" @click="saveUploadConfig">保存</button>
         </div>
       </section>
     </div>
@@ -262,10 +331,10 @@ async function publishToRepo() {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 1080px;
-  width: 100%;
-  margin: 0 auto;
+  flex: 1;
+  min-height: 0;
   padding-left: 25px;
+  padding-right: 25px;
   margin-right: -3px;
 }
 
@@ -309,82 +378,167 @@ async function publishToRepo() {
   margin: 0;
 }
 
-/* === 导入导出 内部 2x2 子卡 === */
-.io-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-.io-card {
-  display: flex;
-  gap: 14px;
-  padding: 18px 20px;
-  background: var(--color-card-soft);
-  border: 1px solid var(--admin-border);
-  border-radius: 18px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.io-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
-}
-.io-mini-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background: var(--admin-gradient);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  flex-shrink: 0;
-  color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(79, 140, 255, 0.24);
-}
-.io-content { flex: 1; min-width: 0; }
-.io-title {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text-main);
-  margin: 0 0 4px;
-}
-.io-desc {
-  font-size: 0.82rem;
-  color: var(--text-sec);
-  margin: 0 0 12px;
-  line-height: 1.5;
-}
-.action-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.commit-link {
-  font-size: 0.85rem;
-  color: var(--color-primary);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.18s ease;
-}
-.commit-link:hover { text-decoration: underline; }
-.import-progress { margin-top: 10px; }
-
-.info-alert {
-  background: rgba(79, 140, 255, 0.06) !important;
-  border: 1px solid rgba(79, 140, 255, 0.18) !important;
-  border-radius: var(--radius-lg);
-  margin-top: 16px;
-}
-.info-alert code {
-  font-size: 0.8rem;
-  background: var(--admin-card);
-  padding: 1px 6px;
-  border-radius: 4px;
-  font-family: var(--font-mono);
-  color: var(--color-primary);
-}
-
 /* === Web 备份设置 === */
 .form-grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
+}
+.webdav-section {
+  background: var(--color-card-soft);
+  border: 1px solid var(--admin-border);
+  border-radius: 16px;
+  padding: 20px 22px;
+  margin-bottom: 8px;
+}
+.subsection-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.subsection-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+.status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.status-ok {
+  color: var(--color-success);
+  background: rgba(60, 179, 113, 0.12);
+}
+.status-ok .status-dot {
+  background: var(--color-success);
+  box-shadow: 0 0 6px var(--color-success);
+}
+.status-miss {
+  color: var(--color-warning);
+  background: rgba(240, 160, 32, 0.12);
+}
+.status-miss .status-dot {
+  background: var(--color-warning);
+  box-shadow: 0 0 6px var(--color-warning);
+}
+.pwd-toggle {
+  background: transparent;
+  border: 0;
+  padding: 2px 6px;
+  font-size: 0.78rem;
+  color: var(--color-primary);
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background 0.15s ease;
+}
+.pwd-toggle:hover { background: rgba(79, 140, 255, 0.1); }
+.webdav-hint {
+  margin: 14px 0 0;
+  padding: 10px 14px;
+  background: rgba(79, 140, 255, 0.06);
+  border: 1px solid rgba(79, 140, 255, 0.18);
+  border-radius: 10px;
+  font-size: 0.82rem;
+  color: var(--text-sec);
+  line-height: 1.5;
+}
+.webdav-hint .link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+.webdav-hint .link:hover { text-decoration: underline; }
+.divider {
+  height: 1px;
+  background: var(--admin-border);
+  margin: 20px 0;
+}
+.webdav-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+.test-result {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.86rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.test-ok {
+  color: var(--color-success);
+  background: rgba(60, 179, 113, 0.08);
+  border: 1px solid rgba(60, 179, 113, 0.22);
+}
+.test-err {
+  color: var(--color-error, #E55353);
+  background: rgba(229, 83, 83, 0.08);
+  border: 1px solid rgba(229, 83, 83, 0.22);
+}
+.test-icon {
+  font-size: 1rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* === 任务卡（HyperOS 风格） === */
+.task-list { display: flex; flex-direction: column; gap: 12px; }
+.task-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  background: var(--color-card-soft);
+  border: 1px solid var(--admin-border);
+  border-radius: 18px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.task-card:hover {
+  background: #FFFFFF;
+  border-color: var(--color-primary-soft);
+}
+.task-info { flex: 1; min-width: 0; }
+.task-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+.task-desc {
+  font-size: 0.82rem;
+  color: var(--text-tertiary);
+}
+.task-interval {
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-left: 4px;
+}
+.task-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
 }
 .field {
   display: flex;
@@ -409,9 +563,8 @@ async function publishToRepo() {
 }
 
 @media (max-width: 768px) {
-  .io-grid { grid-template-columns: 1fr; }
   .form-grid-2 { grid-template-columns: 1fr; }
-  .io-card { padding: 16px; }
-  .io-mini-icon { width: 36px; height: 36px; font-size: 1.1rem; }
+  .task-card { flex-direction: column; align-items: flex-start; }
+  .task-control { width: 100%; justify-content: space-between; }
 }
 </style>

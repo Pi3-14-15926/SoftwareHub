@@ -132,10 +132,10 @@ function doSave() {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 880px;
-  width: 100%;
-  margin: 0 auto;
+  flex: 1;
+  min-height: 0;
   padding-left: 25px;
+  padding-right: 25px;
   margin-right: -3px;
 }
 

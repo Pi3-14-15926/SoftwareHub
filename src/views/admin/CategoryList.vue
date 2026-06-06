@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, h } from 'vue'
+import { ref, computed, onMounted, h, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { NInput, NInputNumber, NModal, NForm, NFormItem, NPopconfirm, NSwitch, NCheckbox, useMessage } from 'naive-ui'
 import { useCategoryStore } from '../../store/category'
 import { useProjectStore } from '../../store/project'
+import { refreshEnabledState } from '../../composables/useEnabled'
+import { emojiLibrary } from '../../utils/emojiLibrary'
 import type { Category } from '../../types'
 import AdminLayout from '../../components/admin/AdminLayout.vue'
 
@@ -26,6 +28,16 @@ const selectedIds = ref<Set<string>>(new Set())
 const page = ref(1)
 const pageSize = 12
 
+/* 排序 */
+type SortBy = 'order' | 'name' | 'count'
+type SortOrder = 'asc' | 'desc'
+const sortBy = ref<SortBy>('order')
+const sortOrder = ref<SortOrder>('asc')
+function setSort(by: SortBy) {
+  if (sortBy.value === by) sortOrder.value = sortOrder.value === 'desc' ? 'asc' : 'desc'
+  else { sortBy.value = by; sortOrder.value = 'asc' }
+}
+
 /* 状态开关：localStorage 持久化，键 'sh_page_disabled' */
 const DISABLED_KEY = 'sh_page_disabled'
 const disabledIds = ref<Set<string>>(new Set(JSON.parse(localStorage.getItem(DISABLED_KEY) || '[]')))
@@ -33,12 +45,13 @@ function toggleEnabled(id: string) {
   if (disabledIds.value.has(id)) disabledIds.value.delete(id)
   else disabledIds.value.add(id)
   localStorage.setItem(DISABLED_KEY, JSON.stringify([...disabledIds.value]))
+  refreshEnabledState()
 }
 function isEnabled(id: string) { return !disabledIds.value.has(id) }
 
 /* 派生：每个页面的项目数 */
-function projectCount(catId: string) {
-  return projStore.projects.filter((p) => p.categoryId === catId).length
+function projectCount(catSlug: string) {
+  return projStore.software.filter((p) => p.categorySlug === catSlug).length
 }
 
 /* 过滤后的列表 */
@@ -53,13 +66,24 @@ const filteredCats = computed(() => {
       (c.icon || '').toLowerCase().includes(kw)
     )
   }
-  return [...list].sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0))
+  return list
+})
+const sortedCats = computed(() => {
+  const list = [...filteredCats.value]
+  list.sort((a, b) => {
+    let cmp = 0
+    if (sortBy.value === 'order') cmp = (a.sortOrder ?? 0) - (b.sortOrder ?? 0)
+    else if (sortBy.value === 'name') cmp = a.name.localeCompare(b.name, 'zh-Hans-CN')
+    else if (sortBy.value === 'count') cmp = projectCount(a.slug) - projectCount(b.slug)
+    return sortOrder.value === 'desc' ? -cmp : cmp
+  })
+  return list
 })
 
-const totalPages = computed(() => Math.max(1, Math.ceil(filteredCats.value.length / pageSize)))
+const totalPages = computed(() => Math.max(1, Math.ceil(sortedCats.value.length / pageSize)))
 const pagedCats = computed(() => {
   const start = (page.value - 1) * pageSize
-  return filteredCats.value.slice(start, start + pageSize)
+  return sortedCats.value.slice(start, start + pageSize)
 })
 function jumpPage(p: number) {
   if (p < 1 || p > totalPages.value) return
@@ -86,7 +110,10 @@ function clearSelection() {
 function bulkDelete() {
   if (selectedIds.value.size === 0) return
   const ids = [...selectedIds.value]
-  const withProjects = ids.filter((id) => projectCount(id) > 0)
+  const withProjects = ids.filter((id) => {
+    const cat = catStore.categories.find((c) => c.id === id)
+    return cat ? projectCount(cat.slug) > 0 : false
+  })
   let msg = `确定要删除选中的 ${ids.length} 个页面吗？`
   if (withProjects.length > 0) {
     msg += `\n\n其中 ${withProjects.length} 个页面下有关联软件，软件不会被删除，但将无法从这些页面访问。`
@@ -102,6 +129,7 @@ function bulkEnable(enable: boolean) {
     else disabledIds.value.add(id)
   })
   localStorage.setItem(DISABLED_KEY, JSON.stringify([...disabledIds.value]))
+  refreshEnabledState()
   message.success(enable ? `已启用 ${selectedIds.value.size} 个页面` : `已禁用 ${selectedIds.value.size} 个页面`)
 }
 
@@ -132,8 +160,14 @@ function doSave() {
   message.success('保存成功')
 }
 
+/* Emoji 选择器 */
+const activeEmojiCat = ref(0)
+function pickEmoji(e: string) {
+  form.value.icon = e
+}
+
 function doDelete(c: Category) {
-  const count = projectCount(c.id)
+  const count = projectCount(c.slug)
   if (count > 0 && !confirm(`此页面下有 ${count} 个关联软件，确定要删除吗？\n（软件不会被删除，但将无法从此页面访问）`)) return
   catStore.remove(c.id)
   message.success('已删除')
@@ -151,6 +185,8 @@ const pageNumbers = computed(() => {
   const set = new Set<number>([1, total, cur, cur - 1, cur + 1])
   return [...set].filter((n) => n >= 1 && n <= total).sort((a, b) => a - b)
 })
+
+watch(sortBy, () => { page.value = 1 })
 
 onMounted(() => {
   catStore.refresh()
@@ -178,6 +214,38 @@ onMounted(() => {
               class="search-input"
             />
             <button v-if="keyword" class="search-clear" @click="keyword = ''">×</button>
+          </div>
+          <div class="sort-group">
+            <button :class="['sort-btn', { active: sortBy === 'order' }]" @click="setSort('order')" title="按自定义顺序排序">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="6" x2="13" y2="6"/>
+                <line x1="3" y1="12" x2="9" y2="12"/>
+                <line x1="3" y1="18" x2="11" y2="18"/>
+                <polyline points="16 8 20 4 16 4"/>
+                <line x1="20" y1="4" x2="20" y2="14"/>
+              </svg>
+              顺序
+              <span class="sort-arrow">{{ sortBy === 'order' ? (sortOrder === 'desc' ? '↓' : '↑') : '↑' }}</span>
+            </button>
+            <button :class="['sort-btn', { active: sortBy === 'name' }]" @click="setSort('name')" title="按名称排序">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 6h13M3 12h9M3 18h5M17 10v10M17 10l-3 3M17 10l3 3"/>
+              </svg>
+              名称
+              <span class="sort-arrow">{{ sortBy === 'name' ? (sortOrder === 'desc' ? '↓' : '↑') : '↑' }}</span>
+            </button>
+            <button :class="['sort-btn', { active: sortBy === 'count' }]" @click="setSort('count')" title="按项目数排序">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="8" y1="6" x2="21" y2="6"/>
+                <line x1="8" y1="12" x2="21" y2="12"/>
+                <line x1="8" y1="18" x2="21" y2="18"/>
+                <line x1="3" y1="6" x2="3.01" y2="6"/>
+                <line x1="3" y1="12" x2="3.01" y2="12"/>
+                <line x1="3" y1="18" x2="3.01" y2="18"/>
+              </svg>
+              项目数
+              <span class="sort-arrow">{{ sortBy === 'count' ? (sortOrder === 'desc' ? '↓' : '↑') : '↑' }}</span>
+            </button>
           </div>
           <button class="btn-primary btn-add" @click="openNew">
             <span class="add-icon">＋</span>
@@ -229,9 +297,9 @@ onMounted(() => {
               @update:checked="toggleSelectOne(c.id)"
             />
             <span class="order-num">{{ c.sortOrder ?? 0 }}</span>
-            <span :class="['type-tag', projectCount(c.id) > 0 ? 'type-dynamic' : 'type-static']">
+            <span :class="['type-tag', projectCount(c.slug) > 0 ? 'type-dynamic' : 'type-static']">
               <span class="type-dot"></span>
-              {{ projectCount(c.id) > 0 ? '动态' : '静态' }}
+              {{ projectCount(c.slug) > 0 ? '动态' : '静态' }}
             </span>
           </div>
 
@@ -253,7 +321,7 @@ onMounted(() => {
             <div class="pc-meta">
               <span class="meta-item">
                 <span class="meta-icon">📦</span>
-                <span class="meta-val">{{ projectCount(c.id) }}</span>
+                <span class="meta-val">{{ projectCount(c.slug) }}</span>
                 <span class="meta-label">个软件</span>
               </span>
               <span class="meta-item">
@@ -300,8 +368,8 @@ onMounted(() => {
                 </button>
               </template>
               确定删除「{{ c.name }}」？<br />
-              <small v-if="projectCount(c.id) > 0" style="color: var(--text-tertiary);">
-                此页面下有 {{ projectCount(c.id) }} 个软件
+              <small v-if="projectCount(c.slug) > 0" style="color: var(--text-tertiary);">
+                此页面下有 {{ projectCount(c.slug) }} 个软件
               </small>
             </NPopconfirm>
           </div>
@@ -319,12 +387,12 @@ onMounted(() => {
           >{{ n }}</button>
         </template>
         <button class="pg-btn" :disabled="page === totalPages" @click="jumpPage(page + 1)">›</button>
-        <span class="pg-info">第 {{ page }} / {{ totalPages }} 页 · 共 {{ filteredCats.length }} 个</span>
+        <span class="pg-info">第 {{ page }} / {{ totalPages }} 页 · 共 {{ sortedCats.length }} 个</span>
       </nav>
     </div>
 
     <!-- 新增/编辑弹窗 -->
-    <NModal v-model:show="showModal" preset="card" :title="editingCat ? '编辑页面' : '新增页面'" style="max-width: 520px; border-radius: var(--admin-radius-card);">
+    <NModal v-model:show="showModal" preset="card" :title="editingCat ? '编辑页面' : '新增页面'" style="max-width: 620px; border-radius: var(--admin-radius-card);">
       <NForm :model="form" label-placement="top">
         <NFormItem label="名称" required>
           <NInput v-model:value="form.name" placeholder="如: 阅读工具" size="large" />
@@ -333,9 +401,34 @@ onMounted(() => {
           <NInput v-model:value="form.slug" placeholder="如: reader" size="large" />
         </NFormItem>
         <NFormItem label="图标（Emoji）">
-          <NInput v-model:value="form.icon" placeholder="如: 📖" size="large" />
+          <NInput v-model:value="form.icon" placeholder="如: 📖 或在下方选择" size="large" />
         </NFormItem>
-        <NFormItem label="描述">
+
+        <div class="emoji-picker">
+          <div class="emoji-picker-tabs">
+            <button
+              v-for="(cat, i) in emojiLibrary"
+              :key="cat.name"
+              :class="['emoji-tab', { active: activeEmojiCat === i }]"
+              @click="activeEmojiCat = i"
+              type="button"
+            >
+              <span class="emoji-tab-icon">{{ cat.icon }}</span>
+              <span class="emoji-tab-name">{{ cat.name }}</span>
+            </button>
+          </div>
+          <div class="emoji-picker-grid">
+            <button
+              v-for="e in emojiLibrary[activeEmojiCat].emojis"
+              :key="e"
+              :class="['emoji-cell', { active: form.icon === e }]"
+              type="button"
+              @click="pickEmoji(e)"
+            >{{ e }}</button>
+          </div>
+        </div>
+
+        <NFormItem label="描述" style="margin-top: 16px;">
           <NInput v-model:value="form.description" type="textarea" rows="2" placeholder="此页面聚合了哪些软件..." />
         </NFormItem>
         <NFormItem label="排序">
@@ -429,6 +522,26 @@ onMounted(() => {
   line-height: 1;
 }
 .search-clear:hover { background: var(--color-primary-soft); color: var(--color-primary); }
+
+/* === 排序 === */
+.sort-group { display: flex; gap: 6px; }
+.sort-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  height: 48px; padding: 0 12px;
+  border-radius: var(--radius-full);
+  background: var(--admin-card);
+  color: var(--text-sec);
+  border: 1px solid var(--admin-border);
+  font-size: 0.85rem; font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+  box-shadow: var(--admin-shadow-card);
+}
+.sort-btn:hover { background: var(--color-primary-soft); color: var(--color-primary); border-color: var(--color-primary-soft); }
+.sort-btn.active { background: var(--color-primary-soft); color: var(--color-primary); border-color: var(--color-primary); }
+.sort-arrow { font-size: 0.95rem; line-height: 1; opacity: 0.55; font-weight: 700; }
+.sort-btn.active .sort-arrow { opacity: 1; }
 
 /* === 批量操作条 === */
 .bulk-bar {
@@ -672,6 +785,74 @@ onMounted(() => {
 }
 .empty-icon { font-size: 3.5rem; margin-bottom: 8px; }
 
+/* === Emoji 选择器 === */
+.emoji-picker {
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius-card);
+  background: var(--color-card-soft);
+  overflow: hidden;
+}
+.emoji-picker-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 8px;
+  background: var(--admin-card);
+  border-bottom: 1px solid var(--admin-border);
+}
+.emoji-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-sec);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.emoji-tab:hover { background: var(--color-primary-soft); color: var(--color-primary); }
+.emoji-tab.active {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.emoji-tab-icon { font-size: 1rem; line-height: 1; }
+.emoji-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 2px;
+  padding: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+.emoji-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0;
+  font-size: 1.4rem;
+  line-height: 1;
+  background: transparent;
+  border: 1.5px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.emoji-cell:hover {
+  background: var(--admin-card);
+  border-color: var(--color-primary);
+  transform: scale(1.15);
+}
+.emoji-cell.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
 /* === 分页 === */
 .pager {
   display: flex;
@@ -733,6 +914,8 @@ onMounted(() => {
   .page-head { flex-direction: column; align-items: stretch; }
   .head-actions { width: 100%; }
   .search-bar { width: 100%; flex: 1; }
+  .sort-group { width: 100%; }
+  .sort-btn { flex: 1; justify-content: center; height: 40px; }
   .btn-add { flex: 1; }
   .page-grid { grid-template-columns: 1fr; }
   .pc-actions { justify-content: flex-end; }
@@ -740,5 +923,6 @@ onMounted(() => {
   .pc-status { width: 100%; justify-content: space-between; }
   .pager { gap: 4px; }
   .pg-info { width: 100%; text-align: center; margin-left: 0; margin-top: 4px; }
+  .emoji-picker-grid { grid-template-columns: repeat(6, 1fr); }
 }
 </style>

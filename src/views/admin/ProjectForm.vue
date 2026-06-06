@@ -1,15 +1,18 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { NInput, NButton, NSelect, NSpace, NCard, NAlert, NSwitch, NPopconfirm, useMessage } from 'naive-ui'
 import { useProjectStore } from '../../store/project'
 import { useCategoryStore } from '../../store/category'
 import { useSettingStore } from '../../store/settings'
-import { fetchReleases, releaseToVersion, fetchRepoDetail } from '../../utils/github'
+import { fetchReleases, releaseToVersion, fetchRepoDetail, guessPlatform } from '../../utils/github'
 import { compressImage, blobToBase64, fmtSize } from '../../utils/imageCompressor'
 import { uploadIcon, listIcons, type IconListItem } from '../../utils/iconsApi'
 import { resolveIconUrl, buildIconUrls } from '../../utils/iconUrl'
-import type { Version } from '../../types'
+import * as api from '../../utils/api'
+import { platformClass, platformIcon } from '../../utils/platformTag'
+import { uid } from '../../utils'
+import type { Version, Download, Platform } from '../../types'
 import AdminLayout from '../../components/admin/AdminLayout.vue'
 
 const router = useRouter()
@@ -20,7 +23,7 @@ const categories = useCategoryStore()
 const settings = useSettingStore()
 
 const isEdit = computed(() => !!route.params.id)
-const existingProject = computed(() => projects.projects.find((p) => p.id === route.params.id))
+const existingProject = computed(() => projects.software.find((p) => p.id === route.params.id))
 
 const step = ref<'input' | 'review'>('input')
 const repoInput = ref('')
@@ -33,7 +36,7 @@ const form = ref({
   description: '',
   logo: '',
   sourceType: 'github' as 'github' | 'custom',
-  categoryId: '',
+  categorySlug: '',
   githubRepo: '',
   website: '',
   featured: false,
@@ -69,15 +72,20 @@ async function doFetch() {
       fetchRepoDetail(repo),
       fetchReleases(repo),
     ])
-    const versions = releases.map((r) => releaseToVersion(r))
+    const tempId = 'pending'
+    const versions: Version[] = releases.map((r) => releaseToVersion(r, tempId))
     versions.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+    /* 缓存原始 assets 以便 doSave 时写入 Download 实体 */
+    const tagMap = new Map<string, any[]>()
+    for (const r of releases) tagMap.set(r.tag_name, r.assets || [])
+    releasesByTag.value = tagMap
     form.value = {
       slug: slugify(detail.name),
       name: detail.name,
       description: detail.description || '',
       logo: detail.owner.avatar_url || '',
       sourceType: 'github',
-      categoryId: form.value.categoryId,
+      categorySlug: form.value.categorySlug,
       githubRepo: repo,
       website: '',
       featured: false,
@@ -97,13 +105,15 @@ onMounted(() => {
   categories.refresh()
   settings.refresh()
   if (route.query.categoryId) {
-    form.value.categoryId = route.query.categoryId as string
+    const catId = route.query.categoryId as string
+    const cat = categories.categories.find((c) => c.id === catId)
+    if (cat) form.value.categorySlug = cat.slug
   }
   if (existingProject.value) {
     const p = existingProject.value
     form.value = {
       slug: p.slug, name: p.name, description: p.description, logo: p.logo,
-      sourceType: p.sourceType, categoryId: p.categoryId,
+      sourceType: p.sourceType, categorySlug: p.categorySlug,
       githubRepo: p.githubRepo || '', website: p.website || '', featured: p.featured,
     }
     step.value = 'review'
@@ -132,7 +142,7 @@ async function doSave() {
       p.description = form.value.description.trim()
       p.logo = form.value.logo.trim()
       p.sourceType = form.value.sourceType
-      p.categoryId = form.value.categoryId
+      p.categorySlug = form.value.categorySlug
       p.githubRepo = form.value.githubRepo.trim() || undefined
       p.githubUrl = form.value.githubRepo.trim() ? `https://github.com/${form.value.githubRepo.trim()}` : undefined
       p.website = form.value.website.trim() || undefined
@@ -144,7 +154,7 @@ async function doSave() {
     router.push('/admin/projects')
     return
   }
-  const p = projects.createGitHub(form.value.slug.trim(), form.value.name.trim(), form.value.githubRepo.trim(), form.value.categoryId)
+  const p = projects.createGitHub(form.value.slug.trim(), form.value.name.trim(), form.value.githubRepo.trim(), form.value.categorySlug)
   if (!p) {
     saving.value = false
     error.value = '创建项目失败，slug 可能已存在'
@@ -156,16 +166,37 @@ async function doSave() {
   p.featured = form.value.featured
   p.stars = fetchedStars.value || undefined
   p.forks = fetchedForks.value || undefined
-  p.versions = fetchedVersions.value
-  if (fetchedVersions.value.length > 0) {
-    p.latestVersion = fetchedVersions.value[0].version
-    p.latestUpdateTime = fetchedVersions.value[0].publishedAt
-  }
   projects.save(p)
+  /* 把从 GitHub 获取的版本和下载逐个写入分层存储 */
+  for (const fetched of fetchedVersions.value) {
+    const realV: Version = {
+      id: uid(),
+      projectId: p.id,
+      version: fetched.version,
+      publishedAt: fetched.publishedAt,
+      changelog: fetched.changelog,
+      downloadIds: [],
+    }
+    api.addVersion(realV)
+    const r = releasesByTag.value.get(realV.version) || []
+    for (const a of r) {
+      api.addDownload({
+        id: uid(),
+        versionId: realV.id,
+        platform: guessPlatform(a.name),
+        filename: a.name,
+        size: `${(a.size / 1024 / 1024).toFixed(1)} MB`,
+        url: a.browser_download_url,
+      })
+    }
+  }
   saving.value = false
   msg.success(`项目「${p.name}」创建成功`)
   setTimeout(() => router.push('/admin/projects'), 800)
 }
+
+/* 缓存 GitHub release 原始数据，用于写入下载项 */
+const releasesByTag = ref<Map<string, any[]>>(new Map())
 
 /* === Logo 上传备选 === */
 const logoDragOver = ref(false)
@@ -245,6 +276,60 @@ function openIconPicker() {
   iconPickerOpen.value = true
   loadIconLibrary()
 }
+
+/* === 平台管理（编辑模式） === */
+const allDownloads = ref<Download[]>([])
+
+function refreshDownloads() {
+  if (!existingProject.value) {
+    allDownloads.value = []
+    return
+  }
+  const list: Download[] = []
+  for (const v of api.getSoftwareVersions(existingProject.value.id)) {
+    for (const dl of api.getVersionDownloads(v.id)) list.push(dl)
+  }
+  allDownloads.value = list
+}
+
+const platformStats = computed(() => {
+  const map = new Map<Platform, number>()
+  for (const dl of allDownloads.value) map.set(dl.platform, (map.get(dl.platform) || 0) + 1)
+  return Array.from(map.entries()).sort((a, b) => b[1] - a[1])
+})
+
+const allPlatforms: { value: Platform; label: string; icon: string }[] = [
+  { value: 'Android', label: 'Android', icon: '🤖' },
+  { value: 'Windows', label: 'Windows', icon: '🪟' },
+  { value: 'MacOS',   label: 'MacOS',   icon: '🍎' },
+  { value: 'Linux',   label: 'Linux',   icon: '🐧' },
+  { value: 'iOS',     label: 'iOS',     icon: '📱' },
+  { value: 'Web',     label: 'Web',     icon: '🌐' },
+  { value: 'Other',   label: 'Other',   icon: '📁' },
+]
+
+/* 一键按文件名重新推断所有下载项 platform */
+function reGuessPlatforms() {
+  if (!existingProject.value) return
+  if (allDownloads.value.length === 0) {
+    msg.warning('该软件暂无下载项')
+    return
+  }
+  if (!confirm(`将按文件名重新推断 ${allDownloads.value.length} 个下载项的平台，是否继续？`)) return
+  let changed = 0
+  for (const dl of allDownloads.value) {
+    const newPlat = guessPlatform(dl.filename)
+    if (newPlat !== dl.platform) {
+      api.updateDownload({ ...dl, platform: newPlat })
+      changed++
+    }
+  }
+  refreshDownloads()
+  msg.success(`已重新推断 ${allDownloads.value.length} 个下载项（${changed} 项发生变更）`)
+}
+
+watch(existingProject, refreshDownloads, { immediate: true })
+watch(() => route.params.id, refreshDownloads)
 </script>
 
 <template>
@@ -296,8 +381,8 @@ function openIconPicker() {
             <div class="field">
               <label>所属页面</label>
               <NSelect
-                v-model:value="form.categoryId"
-                :options="categories.categories.map((c) => ({ label: `${c.icon || ''} ${c.name}`, value: c.id }))"
+                v-model:value="form.categorySlug"
+                :options="categories.categories.map((c) => ({ label: `${c.icon || ''} ${c.name}`, value: c.slug }))"
                 placeholder="选择页面"
                 clearable
               />
@@ -381,6 +466,35 @@ function openIconPicker() {
               <span>⭐ {{ fetchedStars?.toLocaleString() || '—' }}</span>
               <span>最新版本: {{ latestVersionDisplay }}</span>
               <span>共 {{ versionCount }} 个版本</span>
+            </div>
+          </div>
+
+          <!-- 平台管理（仅编辑模式） -->
+          <div v-if="isEdit" class="platform-panel">
+            <div class="panel-head">
+              <h3 class="panel-title">📋 平台管理</h3>
+              <span class="panel-hint">当前 {{ allDownloads.length }} 个下载项，分布于 {{ platformStats.length }} 个平台</span>
+            </div>
+            <div v-if="allDownloads.length === 0" class="platform-empty">该软件暂无下载项，请先在「版本管理」中添加</div>
+            <div v-else class="platform-stats">
+              <div v-for="[plat, count] in platformStats" :key="plat" class="plat-stat">
+                <span :class="['plat-tag', platformClass(plat)]">
+                  <span>{{ platformIcon(plat) }}</span>{{ plat }}
+                </span>
+                <span class="plat-count">× {{ count }}</span>
+              </div>
+            </div>
+            <div class="platform-actions">
+              <button type="button" class="btn-secondary btn-sm" @click="reGuessPlatforms">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/>
+                  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                </svg>
+                按文件名重新推断所有平台
+              </button>
+              <button type="button" class="btn-ghost btn-sm" @click="router.push('/admin/versions')">
+                前往版本管理 →
+              </button>
             </div>
           </div>
 
@@ -469,6 +583,65 @@ function openIconPicker() {
 }
 .preview-title { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; color: var(--text-main); }
 .preview-stats { display: flex; gap: 18px; font-size: 0.85rem; color: var(--text-sec); flex-wrap: wrap; }
+
+/* === 平台管理面板 === */
+.platform-panel {
+  background: var(--color-card-soft);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.platform-panel .panel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.platform-panel .panel-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+.platform-panel .panel-hint {
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+}
+.platform-empty {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  text-align: center;
+  padding: 16px 0;
+  font-style: italic;
+}
+.platform-stats {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.plat-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.plat-count {
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+  font-family: var(--font-mono);
+}
+.platform-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding-top: 4px;
+  border-top: 1px dashed var(--border-soft);
+}
 
 .form-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 

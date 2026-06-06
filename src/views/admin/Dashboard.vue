@@ -1,24 +1,40 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-import { useMessage } from 'naive-ui'
+import { useMessage, NUpload, NProgress, NAlert, NDrawer, NDrawerContent, NTag } from 'naive-ui'
+import type { UploadFileInfo } from 'naive-ui'
 import { useProjectStore } from '../../store/project'
 import { useCategoryStore } from '../../store/category'
-import { syncAllGitHub } from '../../utils/api'
+import { useSettingStore } from '../../store/settings'
+import { syncAllGitHub, getSoftwareVersions } from '../../utils/api'
 import { triggerSyncBackup } from '../../utils/githubRepo'
+import { commitAllData } from '../../utils/githubRepo'
+import { DEFAULT_SETTINGS } from '../../defaults'
+import { getToken } from '../../utils/auth'
+import * as api from '../../utils/api'
+import type { AppData, Download, EnrichError } from '../../types'
 import AdminLayout from '../../components/admin/AdminLayout.vue'
 
 const message = useMessage()
 const projects = useProjectStore()
 const categories = useCategoryStore()
+const settingStore = useSettingStore()
+
+const scheduleNote = computed(() => {
+  const sc = settingStore.settings.schedule
+  if (!sc) return '定时任务未配置'
+  const sync = sc.syncEnabled ? `同步 ${sc.syncIntervalHours}h` : '同步已禁用'
+  const backup = sc.backupEnabled ? `备份 ${sc.backupIntervalHours}h` : '备份已禁用'
+  return `自动：${sync} · ${backup}`
+})
 
 const syncing = ref(false)
 const syncResult = ref('')
 const backingUp = ref(false)
 
-const githubCount = computed(() => projects.projects.filter(p => p.sourceType === 'github').length)
-const customCount = computed(() => projects.projects.filter(p => p.sourceType === 'custom').length)
+const githubCount = computed(() => projects.software.filter((p) => p.sourceType === 'github').length)
+const customCount = computed(() => projects.software.filter((p) => p.sourceType === 'custom').length)
 const totalVersions = computed(() =>
-  projects.projects.reduce((sum, p) => sum + p.versions.length, 0),
+  projects.software.reduce((sum, p) => sum + getSoftwareVersions(p.id).length, 0),
 )
 
 async function doSync() {
@@ -47,11 +63,62 @@ async function doSyncBackup() {
   backingUp.value = false
 }
 
+const refreshing = ref(false)
+const refreshResult = ref('')
+const refreshProgress = ref(0)
+const refreshErrors = ref<EnrichError[]>([])
+const showErrorsDrawer = ref(false)
+
+async function doRefreshDownloads() {
+  refreshing.value = true
+  refreshResult.value = ''
+  refreshProgress.value = 0
+  refreshErrors.value = []
+  try {
+    const token = getToken() || undefined
+    const allDownloads: Download[] = []
+    for (const sw of projects.software) {
+      for (const v of api.getSoftwareVersions(sw.id)) {
+        allDownloads.push(...api.getVersionDownloads(v.id))
+      }
+    }
+    if (allDownloads.length === 0) {
+      refreshResult.value = '没有可刷新的下载项'
+      message.warning(refreshResult.value)
+      refreshing.value = false
+      return
+    }
+    let lastRateLimited = 0
+    const counts = await api.enrichDownloadCounts(allDownloads, token, (p) => {
+      refreshProgress.value = p.total > 0 ? Math.round((p.done / p.total) * 100) : 0
+      lastRateLimited = p.rateLimited
+      refreshErrors.value = p.errors
+      const rt = p.retried > 0 ? ` · 重试 ${p.retried}` : ''
+      const rl = p.rateLimited > 0 ? ` · 限速 ${p.rateLimited}` : ''
+      const er = p.errored > 0 ? ` · 失败 ${p.errored}` : ''
+      const tag = p.status === 'retry' ? ' · 限速等待重试中...' : ''
+      refreshResult.value = `拉取中 ${p.done}/${p.total}（${refreshProgress.value}%）${rt}${rl}${er}${tag}`
+    })
+    const updated = api.batchUpdateDownloadCounts(counts)
+    const skipped = allDownloads.length - updated
+    const limitNote = lastRateLimited > 0
+      ? `（${lastRateLimited} 个仓库命中 GitHub API 限速，建议稍后重试或检查 Token 有效性）`
+      : (skipped > 0 ? '（部分 URL 解析失败或仓库不可访问）' : '')
+    refreshResult.value = `已更新 ${updated} 个文件，跳过 ${skipped} 个${limitNote}`
+    message.success(refreshResult.value)
+    projects.refresh()
+  } catch (e: any) {
+    refreshResult.value = `刷新失败：${e.message}`
+    message.error(refreshResult.value)
+  }
+  refreshing.value = false
+}
+
 const stats = computed(() => [
-  { label: '软件总数', value: projects.projects.length, desc: '所有已添加的软件', color: 'blue', icon: '📦' },
+  { label: '软件总数', value: projects.software.length, desc: '所有已添加的软件', color: 'blue', icon: '📦' },
   {
     label: '项目总数',
-    value: projects.projects.length,
+    value: projects.software.length,
     desc: `GitHub ${githubCount.value} · 自定义 ${customCount.value}`,
     color: 'purple',
     icon: '🔗',
@@ -59,6 +126,168 @@ const stats = computed(() => [
   { label: '页面总数', value: categories.categories.length, desc: '用于分类聚合', color: 'green', icon: '📂' },
   { label: '版本总数', value: totalVersions.value, desc: '所有项目累计', color: 'pink', icon: '🚀' },
 ])
+
+/* ============== 导入导出 ============== */
+const exporting = ref(false)
+const importing = ref(false)
+const importProgress = ref(0)
+const baking = ref(false)
+const publishing = ref(false)
+const commitUrl = ref('')
+
+function exportData() {
+  exporting.value = true
+  try {
+    const json = api.exportAppData()
+    const data = JSON.parse(json)
+    const wrapper = {
+      exportTime: new Date().toISOString(),
+      version: '1.0.0',
+      ...data,
+    }
+    const blob = new Blob([JSON.stringify(wrapper, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `softwarehub-backup-${new Date().toISOString().slice(0, 10)}.json`
+    a.click()
+    URL.revokeObjectURL(url)
+    message.success('导出成功')
+  } catch (e: any) {
+    message.error('导出失败: ' + e.message)
+  } finally {
+    exporting.value = false
+  }
+}
+
+function importFromJSON({ file }: { file: UploadFileInfo }) {
+  if (importing.value || !file.file) return
+  importing.value = true
+  importProgress.value = 0
+  const reader = new FileReader()
+  reader.onload = (e) => {
+    try {
+      const text = e.target?.result as string
+      const data = JSON.parse(text)
+      let appData: AppData
+      if (data.software && data.versions && data.downloads) {
+        appData = data as AppData
+      } else if (data.projects && data.categories && data.settings) {
+        appData = {
+          index: [],
+          software: {},
+          versions: {},
+          downloads: {},
+          categories: data.categories,
+          settings: data.settings,
+          iconAssets: data.iconAssets || [],
+          backupManifest: data.backupManifest || { entries: [], updatedAt: new Date().toISOString() },
+        }
+        for (const p of data.projects) {
+          const slug = p.categorySlug || p.categoryId
+          if (!appData.software[slug]) appData.software[slug] = []
+          const sw = {
+            id: p.id, slug: p.slug, sourceType: p.sourceType, name: p.name,
+            description: p.description, logo: p.logo, categorySlug: slug,
+            featured: p.featured, githubRepo: p.githubRepo, githubUrl: p.githubUrl,
+            website: p.website, stars: p.stars, forks: p.forks,
+            latestVersionId: p.latestVersionId,
+            latestUpdateTime: p.latestUpdateTime,
+          }
+          appData.software[slug].push(sw)
+          appData.index.push({
+            id: sw.id, name: sw.name, slug: sw.slug, categorySlug: sw.categorySlug,
+            description: sw.description, logo: sw.logo, featured: sw.featured,
+            latestVersionId: sw.latestVersionId, latestUpdateTime: sw.latestUpdateTime,
+            githubRepo: sw.githubRepo, githubUrl: sw.githubUrl, website: sw.website,
+            stars: sw.stars, forks: sw.forks,
+          })
+          if (p.versions) {
+            if (!appData.versions[slug]) appData.versions[slug] = []
+            for (const v of p.versions) {
+              const newV = {
+                id: v.id, projectId: p.id, version: v.version, publishedAt: v.publishedAt,
+                changelog: v.changelog, downloadIds: [] as string[],
+              }
+              appData.versions[slug].push(newV)
+              if (v.downloads) {
+                if (!appData.downloads[slug]) appData.downloads[slug] = []
+                for (const dl of v.downloads) {
+                  const newDl = {
+                    id: dl.id || `dl-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+                    versionId: v.id, platform: dl.platform, filename: dl.filename,
+                    size: dl.size, url: dl.url,
+                    downloadCount: dl.downloadCount,
+                    downloadCountSyncedAt: dl.downloadCountSyncedAt,
+                  }
+                  appData.downloads[slug].push(newDl)
+                  newV.downloadIds.push(newDl.id)
+                }
+              }
+            }
+          }
+        }
+      } else {
+        message.error('无效的备份文件：缺少必需字段')
+        importing.value = false
+        return
+      }
+      importProgress.value = 50
+      api.saveAppData(appData)
+      importProgress.value = 100
+      const swCount = Object.values(appData.software).reduce((s, arr) => s + arr.length, 0)
+      const verCount = Object.values(appData.versions).reduce((s, arr) => s + arr.length, 0)
+      const dlCount = Object.values(appData.downloads).reduce((s, arr) => s + arr.length, 0)
+      message.success(
+        `导入成功！${swCount} 个项目、${verCount} 个版本、${dlCount} 个下载、${appData.categories.length} 个分类`,
+      )
+    } catch (e: any) {
+      message.error('导入失败: ' + e.message)
+    } finally {
+      importing.value = false
+    }
+  }
+  reader.onerror = () => { message.error('文件读取失败'); importing.value = false }
+  reader.readAsText(file.file as Blob)
+}
+
+async function bakeDefaults() {
+  baking.value = true
+  try {
+    const settings = api.getSettings()
+    const res = await fetch('/__bake-defaults', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(settings),
+    })
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({ error: '未知错误' }))
+      throw new Error(err.error || `HTTP ${res.status}`)
+    }
+    message.success('默认配置已写入 src/defaults.ts')
+  } catch (e: any) {
+    message.error('写入失败: ' + e.message)
+  } finally {
+    baking.value = false
+  }
+}
+
+function resetDefaults() {
+  api.saveSettings({ ...DEFAULT_SETTINGS })
+  message.success('设置已恢复为默认值')
+}
+
+async function publishToRepo() {
+  publishing.value = true
+  commitUrl.value = ''
+  try {
+    const result = await commitAllData()
+    commitUrl.value = `https://github.com/${result.repo}/commits/main`
+    message.success(`已提交 ${result.files} 个文件到 ${result.repo}，等待构建部署...`)
+  } catch (e: any) {
+    message.error('发布失败: ' + e.message)
+  } finally { publishing.value = false }
+}
 
 onMounted(() => {
   projects.refresh()
@@ -116,13 +345,135 @@ onMounted(() => {
                 {{ backingUp ? '触发中...' : '同步 + WebDAV 备份' }}
               </button>
             </div>
-            <p class="action-result">每 6 小时自动执行，也可手动触发</p>
+            <p class="action-result">{{ scheduleNote }}</p>
+          </div>
+        </div>
+
+        <div class="action-card">
+          <div class="action-icon">📊</div>
+          <div class="action-content">
+            <h3 class="action-title">刷新下载量</h3>
+            <p class="action-desc">批量拉取所有 GitHub 资产的真实下载量</p>
+            <div class="action-buttons">
+              <button class="btn-primary" :disabled="refreshing" @click="doRefreshDownloads">
+                {{ refreshing ? '刷新中...' : '刷新下载量' }}
+              </button>
+            </div>
+            <NProgress
+              v-if="refreshing && refreshProgress > 0"
+              type="line"
+              :percentage="refreshProgress"
+              :height="6"
+              :border-radius="999"
+              class="import-progress"
+            />
+            <div v-if="refreshResult" class="action-result">
+              <span>{{ refreshResult }}</span>
+              <a
+                v-if="refreshErrors.length > 0"
+                class="action-result-link"
+                @click="showErrorsDrawer = true"
+              >
+                查看 {{ refreshErrors.length }} 个失败详情 →
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </AdminLayout>
-</template>
+
+      <!-- 导入导出 -->
+      <section class="settings-card">
+        <header class="card-head">
+          <div class="card-icon io">📋</div>
+          <div>
+            <h3 class="card-title">导入导出</h3>
+            <p class="card-desc">数据备份、迁移、发布到 GitHub 仓库</p>
+          </div>
+        </header>
+
+        <div class="io-grid">
+          <div class="io-card">
+            <div class="io-mini-icon">📤</div>
+            <div class="io-content">
+              <h4 class="io-title">导出数据</h4>
+              <p class="io-desc">将项目、分类、设置打包为 JSON 文件下载到本地</p>
+              <button class="btn-primary" :disabled="exporting" @click="exportData">
+                {{ exporting ? '导出中...' : '导出数据' }}
+              </button>
+            </div>
+          </div>
+
+          <div class="io-card">
+            <div class="io-mini-icon">📥</div>
+            <div class="io-content">
+              <h4 class="io-title">导入数据</h4>
+              <p class="io-desc">从备份 JSON 文件恢复所有数据到 localStorage</p>
+              <NUpload accept=".json" :max="1" :show-file-list="false" :disabled="importing" @change="importFromJSON">
+                <button class="btn-primary" :disabled="importing">
+                  {{ importing ? '导入中...' : '导入数据' }}
+                </button>
+              </NUpload>
+              <NProgress v-if="importing" type="line" :percentage="importProgress" :height="6" :border-radius="999" class="import-progress" />
+            </div>
+          </div>
+
+          <div class="io-card">
+            <div class="io-mini-icon">🔧</div>
+            <div class="io-content">
+              <h4 class="io-title">写入默认</h4>
+              <p class="io-desc">将当前设置烘焙到 src/defaults.ts，构建后所有设备样式一致</p>
+              <div class="action-row">
+                <button class="btn-primary" :disabled="baking" @click="bakeDefaults">
+                  {{ baking ? '写入中...' : '写入设置' }}
+                </button>
+                <button class="btn-ghost" @click="resetDefaults">恢复默认</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="io-card">
+            <div class="io-mini-icon">🚀</div>
+            <div class="io-content">
+              <h4 class="io-title">发布到 GitHub</h4>
+              <p class="io-desc">将 localStorage 中的所有数据提交到仓库，触发 GitHub Pages 重新构建</p>
+              <div class="action-row">
+                <button class="btn-primary" :disabled="publishing" @click="publishToRepo">
+                  {{ publishing ? '提交中...' : '立即发布' }}
+                </button>
+                <a v-if="commitUrl" :href="commitUrl" target="_blank" rel="noopener" class="commit-link">
+                  查看提交记录 →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+         <NAlert type="info" :bordered="false" class="info-alert">
+           <strong>注意：</strong>「写入默认」会把当前后台设置覆盖到 <code>src/defaults.ts</code> 文件中。执行 <code>npm run build</code> 后新用户将自动使用此配置。
+         </NAlert>
+       </section>
+     </div>
+
+     <NDrawer v-model:show="showErrorsDrawer" :width="640" placement="right">
+       <NDrawerContent title="失败详情" closable>
+         <p class="errors-hint">
+           以下 {{ refreshErrors.length }} 个 release 调用 GitHub API 失败。常见原因：仓库私有、release 被删除、tag 不存在。点击链接可手动打开查看。
+         </p>
+         <div class="error-list">
+           <div v-for="(e, i) in refreshErrors" :key="i" class="error-item">
+             <div class="error-head">
+               <NTag :type="e.status === 404 ? 'warning' : (e.status === 403 || e.status === 429 ? 'error' : 'default')" size="small">
+                 {{ e.status ? `HTTP ${e.status}` : '网络/超时' }}
+               </NTag>
+               <a :href="e.url" target="_blank" rel="noopener" class="error-link">{{ e.group }}</a>
+             </div>
+             <div class="error-msg">{{ e.message }}</div>
+           </div>
+         </div>
+       </NDrawerContent>
+     </NDrawer>
+   </AdminLayout>
+ </template>
 
 <style scoped>
 .dash-scroll {
@@ -264,6 +615,165 @@ onMounted(() => {
   font-weight: 500;
 }
 
+/* === 导入导出卡片 === */
+.settings-card {
+  background: var(--admin-card);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius-card);
+  box-shadow: var(--admin-shadow-card);
+  padding: 24px;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--admin-border);
+}
+.card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  background: rgba(52, 120, 246, 0.12);
+}
+.card-icon.io { background: rgba(140, 108, 255, 0.12); }
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 2px;
+}
+.card-desc {
+  font-size: 0.82rem;
+  color: var(--text-tertiary);
+  margin: 0;
+}
+
+.io-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.io-card {
+  display: flex;
+  gap: 14px;
+  padding: 18px 20px;
+  background: var(--color-card-soft);
+  border: 1px solid var(--admin-border);
+  border-radius: 18px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.io-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
+}
+.io-mini-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--admin-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(79, 140, 255, 0.24);
+}
+.io-content { flex: 1; min-width: 0; }
+.io-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 4px;
+}
+.io-desc {
+  font-size: 0.82rem;
+  color: var(--text-sec);
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+.action-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.commit-link {
+  font-size: 0.85rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.18s ease;
+}
+.commit-link:hover { text-decoration: underline; }
+.import-progress { margin-top: 10px; }
+
+.info-alert {
+  background: rgba(79, 140, 255, 0.06) !important;
+  border: 1px solid rgba(79, 140, 255, 0.18) !important;
+  border-radius: var(--radius-lg);
+  margin-top: 16px;
+}
+.info-alert code {
+  font-size: 0.8rem;
+  background: var(--admin-card);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  color: var(--color-primary);
+}
+
+.action-result-link {
+  margin-left: 10px;
+  color: var(--color-primary);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.action-result-link:hover { opacity: 0.8; }
+
+.errors-hint {
+  font-size: 0.86rem;
+  color: var(--text-sec);
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+.error-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.error-item {
+  background: var(--color-card-soft);
+  border: 1px solid var(--admin-border);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+.error-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+.error-link {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  word-break: break-all;
+}
+.error-link:hover { text-decoration: underline; }
+.error-msg {
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+  font-family: var(--font-mono);
+}
+
 @media (max-width: 768px) {
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .stat-card { padding: 16px 18px; }
@@ -272,5 +782,8 @@ onMounted(() => {
   .action-card { flex-direction: column; }
   .action-buttons .btn-primary,
   .action-buttons .btn-secondary { width: 100%; }
+  .io-grid { grid-template-columns: 1fr; }
+  .io-card { padding: 16px; }
+  .io-mini-icon { width: 36px; height: 36px; font-size: 1.1rem; }
 }
 </style>

@@ -6,15 +6,23 @@ import { useCategoryStore } from '../store/category'
 import AmbientOrbs from '../components/AmbientOrbs.vue'
 import { fmtDate } from '../utils'
 import { useIconUrl } from '../composables/useIconUrl'
+import { getVersionById, getSoftwarePlatforms } from '../utils/api'
+import { platformClass, platformIcon } from '../utils/platformTag'
+import { useEnabled } from '../composables/useEnabled'
+import type { Software } from '../types'
 
 const route = useRoute()
 const router = useRouter()
 const projects = useProjectStore()
 const categories = useCategoryStore()
 const { resolveProject } = useIconUrl()
+const { isProjectEnabled, isPageEnabled } = useEnabled()
 
 const cat = computed(() => categories.bySlug(route.params.slug as string))
-const list = computed(() => (cat.value ? projects.byCategory(cat.value.id) : []))
+const pageVisible = computed(() => cat.value && isPageEnabled(cat.value.id))
+const list = computed(() =>
+  cat.value ? projects.byCategorySlug(cat.value.slug).filter((p) => isProjectEnabled(p.id)) : [],
+)
 
 type Tab = 'list' | 'featured' | 'updated' | 'top'
 const activeTab = ref<Tab>('list')
@@ -37,13 +45,12 @@ function setPage(n: number) {
   else if (activeTab.value === 'updated') updatedPage.value = n
   else if (activeTab.value === 'top') topPage.value = n
 }
-/* 切 tab 时重置到第 1 页 */
 watch(activeTab, () => { /* 由各 tab 的 setter 自行处理 */ })
 
 /* 软件数量 / 平均评分 / 总下载数 / 热门标签  */
 const totalCount = computed(() => list.value.length)
 const avgRating = computed(() => {
-  const rated = list.value.filter(p => p.stars && p.stars > 0)
+  const rated = list.value.filter((p) => p.stars && p.stars > 0)
   if (rated.length === 0) return 0
   return rated.reduce((s, p) => s + (p.stars ?? 0), 0) / rated.length
 })
@@ -53,8 +60,8 @@ const totalStars = computed(() => {
 const hotTags = computed(() => {
   const map = new Map<string, number>()
   for (const p of list.value) {
-    if (p.categoryId) {
-      const c = categories.categories.find(x => x.id === p.categoryId)
+    if (p.categorySlug) {
+      const c = categories.categories.find((x) => x.slug === p.categorySlug)
       if (c) map.set(c.name, (map.get(c.name) || 0) + 1)
     }
   }
@@ -62,10 +69,10 @@ const hotTags = computed(() => {
 })
 
 /* 标签页过滤 */
-const featured = computed(() => list.value.filter(p => p.featured))
+const featured = computed(() => list.value.filter((p) => p.featured))
 const recentlyUpdated = computed(() => {
   return [...list.value]
-    .filter(p => p.latestUpdateTime)
+    .filter((p) => p.latestUpdateTime)
     .sort((a, b) => new Date(b.latestUpdateTime).getTime() - new Date(a.latestUpdateTime).getTime())
 })
 const topRanked = computed(() => {
@@ -108,13 +115,11 @@ const currentTotalPages = computed(() => {
   return 1
 })
 
-/* 切换 tab 时把对应页码重置为 1 */
 watch(activeTab, () => {
   listPage.value = 1
   updatedPage.value = 1
   topPage.value = 1
 })
-/* 切排序时也回到第 1 页 */
 watch(sortKey, () => { listPage.value = 1 })
 
 /* 翻页工具：当前页码周围显示哪些页 */
@@ -130,18 +135,21 @@ const visiblePages = computed(() => {
 function goPage(n: number) {
   if (n < 1 || n > currentTotalPages.value) return
   setPage(n)
-  /* 滚动到该 tab 顶部 */
   document.querySelector('.cat-main')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
-/* 平台标签：根据项目名/描述简单识别 */
-function platformLabel(p: any): string {
-  const text = `${p.name} ${p.description || ''}`.toLowerCase()
-  if (text.includes('android') || text.includes('安卓') || text.includes('apk')) return 'Android'
-  if (text.includes('ios') || text.includes('ipa')) return 'iOS'
-  if (text.includes('mac') || text.includes('osx')) return 'macOS'
-  if (text.includes('linux')) return 'Linux'
-  return 'Windows'
+/* 软件最新版本号文本 */
+function latestVersionText(s: Software): string {
+  if (!s.latestVersionId) return ''
+  return getVersionById(s.latestVersionId)?.version || ''
+}
+
+/* 软件真实支持的平台（最多 6 个，避免行式布局太挤） */
+function platformsOf(s: Software, max = 6): string[] {
+  return getSoftwarePlatforms(s.id).slice(0, max)
+}
+function platformsMore(s: Software, max = 6): number {
+  return Math.max(0, getSoftwarePlatforms(s.id).length - max)
 }
 
 const tabs: { key: Tab; label: string; icon: string }[] = [
@@ -176,6 +184,10 @@ const tabs: { key: Tab; label: string; icon: string }[] = [
     </div>
 
     <div v-if="!cat" class="not-found">页面未找到</div>
+    <div v-else-if="!pageVisible" class="not-found">
+      <div class="not-found-icon">🚫</div>
+      <p>该页面已下架</p>
+    </div>
 
     <template v-else>
       <!-- Tab 导航 -->
@@ -225,14 +237,26 @@ const tabs: { key: Tab; label: string; icon: string }[] = [
                     <span v-if="p.featured" class="cat-row-badge">推荐</span>
                     <span v-if="p.stars" class="cat-row-stars">⭐ {{ p.stars.toFixed(1) }}</span>
                   </div>
+                  <div v-if="platformsOf(p).length" class="cat-row-platline">
+                    <span
+                      v-for="pl in platformsOf(p)"
+                      :key="pl"
+                      :class="['plat-tag', platformClass(pl)]"
+                      :title="`支持 ${pl}`"
+                    >
+                      <span>{{ platformIcon(pl) }}</span>{{ pl }}
+                    </span>
+                    <span v-if="platformsMore(p) > 0" class="plat-more">+{{ platformsMore(p) }}</span>
+                  </div>
                   <div class="cat-row-desc">{{ p.description }}</div>
                 </div>
                 <div class="cat-row-side">
-                  <div v-if="p.latestVersion" class="cat-row-version">{{ p.latestVersion }}</div>
+                  <div v-if="latestVersionText(p)" class="cat-row-version">{{ latestVersionText(p) }}</div>
                   <div v-if="p.latestUpdateTime" class="cat-row-date">{{ fmtDate(p.latestUpdateTime) }} 更新</div>
                 </div>
               </router-link>
               <div v-if="totalListPages > 1" class="pagination">
+                <span class="page-info">共 {{ totalListPages }} 页</span>
                 <button class="page-btn" :disabled="listPage === 1" @click="goPage(listPage - 1)">‹</button>
                 <template v-for="(n, idx) in visiblePages" :key="n + '-' + idx">
                   <button
@@ -270,14 +294,26 @@ const tabs: { key: Tab; label: string; icon: string }[] = [
                     <span class="cat-row-name">{{ p.name }}</span>
                     <span v-if="p.stars" class="cat-row-stars">⭐ {{ p.stars.toFixed(1) }}</span>
                   </div>
+                  <div v-if="platformsOf(p).length" class="cat-row-platline">
+                    <span
+                      v-for="pl in platformsOf(p)"
+                      :key="pl"
+                      :class="['plat-tag', platformClass(pl)]"
+                      :title="`支持 ${pl}`"
+                    >
+                      <span>{{ platformIcon(pl) }}</span>{{ pl }}
+                    </span>
+                    <span v-if="platformsMore(p) > 0" class="plat-more">+{{ platformsMore(p) }}</span>
+                  </div>
                   <div class="cat-row-desc">{{ p.description }}</div>
                 </div>
                 <div class="cat-row-side">
-                  <div v-if="p.latestVersion" class="cat-row-version">{{ p.latestVersion }}</div>
+                  <div v-if="latestVersionText(p)" class="cat-row-version">{{ latestVersionText(p) }}</div>
                   <div v-if="p.latestUpdateTime" class="cat-row-date">{{ fmtDate(p.latestUpdateTime) }} 更新</div>
                 </div>
               </router-link>
               <div v-if="totalUpdatedPages > 1" class="pagination">
+                <span class="page-info">共 {{ totalUpdatedPages }} 页</span>
                 <button class="page-btn" :disabled="updatedPage === 1" @click="goPage(updatedPage - 1)">‹</button>
                 <template v-for="(n, idx) in visiblePages" :key="n + '-' + idx">
                   <button
@@ -316,14 +352,26 @@ const tabs: { key: Tab; label: string; icon: string }[] = [
                     <span class="cat-row-name">{{ p.name }}</span>
                     <span v-if="p.stars" class="cat-row-stars">⭐ {{ p.stars.toFixed(1) }}</span>
                   </div>
+                  <div v-if="platformsOf(p).length" class="cat-row-platline">
+                    <span
+                      v-for="pl in platformsOf(p)"
+                      :key="pl"
+                      :class="['plat-tag', platformClass(pl)]"
+                      :title="`支持 ${pl}`"
+                    >
+                      <span>{{ platformIcon(pl) }}</span>{{ pl }}
+                    </span>
+                    <span v-if="platformsMore(p) > 0" class="plat-more">+{{ platformsMore(p) }}</span>
+                  </div>
                   <div class="cat-row-desc">{{ p.description }}</div>
                 </div>
                 <div class="cat-row-side">
-                  <div v-if="p.latestVersion" class="cat-row-version">{{ p.latestVersion }}</div>
+                  <div v-if="latestVersionText(p)" class="cat-row-version">{{ latestVersionText(p) }}</div>
                   <div v-if="p.latestUpdateTime" class="cat-row-date">{{ fmtDate(p.latestUpdateTime) }} 更新</div>
                 </div>
               </router-link>
               <div v-if="totalTopPages > 1" class="pagination">
+                <span class="page-info">共 {{ totalTopPages }} 页</span>
                 <button class="page-btn" :disabled="topPage === 1" @click="goPage(topPage - 1)">‹</button>
                 <template v-for="(n, idx) in visiblePages" :key="n + '-' + idx">
                   <button
@@ -384,7 +432,18 @@ const tabs: { key: Tab; label: string; icon: string }[] = [
                 </div>
                 <div class="aside-info">
                   <div class="aside-name">{{ p.name }}</div>
-                  <div class="aside-version">{{ p.latestVersion }} · {{ fmtDate(p.latestUpdateTime) }}</div>
+                  <div v-if="platformsOf(p, 3).length" class="aside-plats">
+                    <span
+                      v-for="pl in platformsOf(p, 3)"
+                      :key="pl"
+                      :class="['plat-tag', platformClass(pl)]"
+                      :title="`支持 ${pl}`"
+                    >
+                      <span>{{ platformIcon(pl) }}</span>{{ pl }}
+                    </span>
+                    <span v-if="platformsMore(p, 3) > 0" class="plat-more">+{{ platformsMore(p, 3) }}</span>
+                  </div>
+                  <div class="aside-version">{{ latestVersionText(p) }} · {{ fmtDate(p.latestUpdateTime) }}</div>
                 </div>
               </router-link>
             </div>
@@ -670,6 +729,21 @@ const tabs: { key: Tab; label: string; icon: string }[] = [
   flex-direction: column;
   gap: 4px;
 }
+.cat-row-platline {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 20px;
+}
+.cat-row-platline .plat-more {
+  height: 20px;
+  padding: 0 5px;
+  font-size: 0.65rem;
+  background: var(--color-card-soft);
+  color: var(--text-tertiary);
+  border: 1px dashed var(--border-soft);
+}
 .cat-row-head {
   display: flex;
   align-items: center;
@@ -755,6 +829,12 @@ const tabs: { key: Tab; label: string; icon: string }[] = [
   gap: 6px;
   margin-top: 20px;
   flex-wrap: wrap;
+}
+.page-info {
+  font-size: 0.82rem;
+  color: var(--text-tertiary);
+  margin-right: 6px;
+  font-family: var(--font-mono);
 }
 .page-btn {
   min-width: 32px;
@@ -982,6 +1062,25 @@ const tabs: { key: Tab; label: string; icon: string }[] = [
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.aside-plats {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 2px;
+  min-height: 16px;
+}
+.aside-plats .plat-more {
+  height: 16px;
+  padding: 0 4px;
+  font-size: 0.58rem;
+  background: var(--color-card-soft);
+  color: var(--text-tertiary);
+  border: 1px dashed var(--border-soft);
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
 }
 .aside-version {
   font-size: 0.72rem;

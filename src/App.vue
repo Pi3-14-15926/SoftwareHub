@@ -1,11 +1,12 @@
 <script setup lang="ts">
 /* ===== 根组件 ===== */
-import { computed, watch, onErrorCaptured } from 'vue'
+import { computed, watch, onErrorCaptured, onMounted, onUnmounted } from 'vue'
 import { RouterView, useRoute } from 'vue-router'
-import { NMessageProvider } from 'naive-ui'
+import { NMessageProvider, useMessage } from 'naive-ui'
 import SiteHeader from './components/SiteHeader.vue'
 import SiteFooter from './components/SiteFooter.vue'
 import { useSettingStore } from './store/settings'
+import { loadRemoteData } from './utils/api'
 
 const route = useRoute()
 const isAdmin = computed(() => route.path.startsWith('/admin'))
@@ -27,6 +28,46 @@ watch(() => settings.settings, (s) => {
   }
   link.href = s.logo || '/favicon.svg'
 }, { immediate: true, deep: true })
+
+/* ===== 远程数据自动更新检测 ===== */
+const POLL_INTERVAL = 5 * 60 * 1000
+let pollTimer: number | null = null
+let messageApi: ReturnType<typeof useMessage> | null = null
+
+async function checkRemoteUpdate(showToast: boolean) {
+  try {
+    const updated = await loadRemoteData()
+    if (updated) {
+      messageApi = messageApi || useMessage()
+      if (showToast) {
+        messageApi.success('网站数据有更新，正在刷新...', { duration: 2000 })
+        setTimeout(() => location.reload(), 1200)
+      }
+    }
+  } catch (e) {
+    console.warn('远程数据检测失败:', e)
+  }
+}
+
+onMounted(() => {
+  pollTimer = window.setInterval(() => {
+    if (document.visibilityState === 'visible') {
+      checkRemoteUpdate(true)
+    }
+  }, POLL_INTERVAL)
+  document.addEventListener('visibilitychange', onVisibility)
+})
+
+onUnmounted(() => {
+  if (pollTimer) clearInterval(pollTimer)
+  document.removeEventListener('visibilitychange', onVisibility)
+})
+
+function onVisibility() {
+  if (document.visibilityState === 'visible') {
+    checkRemoteUpdate(true)
+  }
+}
 </script>
 
 <template>

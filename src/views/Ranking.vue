@@ -5,10 +5,15 @@ import { useCategoryStore } from '../store/category'
 import AmbientOrbs from '../components/AmbientOrbs.vue'
 import { fmtDate, fmtCompact } from '../utils'
 import { useIconUrl } from '../composables/useIconUrl'
+import { latestVersionText, getSoftwarePlatforms, realDownloads, fmtRealDownloads } from '../utils/api'
+import { platformClass, platformIcon } from '../utils/platformTag'
+import { useEnabled } from '../composables/useEnabled'
+import type { Software } from '../types'
 
 const projects = useProjectStore()
 const categories = useCategoryStore()
 const { resolveProject } = useIconUrl()
+const { isProjectEnabled } = useEnabled()
 
 /* 排序方式 */
 type RankKey = 'stars' | 'downloads' | 'updated'
@@ -19,18 +24,26 @@ const rankOptions: { key: RankKey; label: string; icon: string }[] = [
   { key: 'updated', label: '最近更新', icon: '🆕' },
 ]
 
-/* 累计下载量 */
-function totalDownloads(p: any): number {
-  return (p.versions || []).reduce((s: number, v: any) => s + (v.downloads?.length || 0), 0)
+/* 真实下载量（仅 GitHub 来源有数据） */
+function realDL(p: Software): number | null {
+  return realDownloads(p)
+}
+function cmpRealDL(a: Software, b: Software): number {
+  const va = realDL(a)
+  const vb = realDL(b)
+  if (va == null && vb == null) return 0
+  if (va == null) return 1
+  if (vb == null) return -1
+  return vb - va
 }
 
 /* 排行榜数据 */
 const ranked = computed(() => {
-  const arr = [...projects.projects]
+  const arr = [...projects.software].filter((p) => isProjectEnabled(p.id))
   if (rankKey.value === 'stars') {
     arr.sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0))
   } else if (rankKey.value === 'downloads') {
-    arr.sort((a, b) => totalDownloads(b) - totalDownloads(a))
+    arr.sort(cmpRealDL)
   } else {
     arr.sort((a, b) => {
       const ta = a.latestUpdateTime ? new Date(a.latestUpdateTime).getTime() : 0
@@ -66,8 +79,16 @@ function goPage(n: number) {
   document.querySelector('.rank-main')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
-function categoryName(cid: string): string {
-  return categories.categories.find(c => c.id === cid)?.name || '未分类'
+function categoryName(slug: string): string {
+  return categories.categories.find(c => c.slug === slug)?.name || '未分类'
+}
+
+/* 软件真实支持的平台（最多 6 个） */
+function platformsOf(s: Software, max = 6): string[] {
+  return getSoftwarePlatforms(s.id).slice(0, max)
+}
+function platformsMore(s: Software, max = 6): number {
+  return Math.max(0, getSoftwarePlatforms(s.id).length - max)
 }
 
 /* 顶部前三名用于大徽章展示 */
@@ -120,7 +141,7 @@ onMounted(() => {
         </div>
         <div class="podium-rank">2</div>
         <div class="podium-name">{{ topThree[1].name }}</div>
-        <div class="podium-meta">{{ categoryName(topThree[1].categoryId) }} · ⭐ {{ fmtCompact(topThree[1].stars ?? 0) }}</div>
+        <div class="podium-meta">{{ categoryName(topThree[1].categorySlug) }} · ⭐ {{ fmtCompact(topThree[1].stars ?? 0) }}</div>
         <router-link :to="`/software/${topThree[1].slug}`" class="podium-btn">查看</router-link>
       </div>
       <div class="podium-item podium-1">
@@ -130,7 +151,7 @@ onMounted(() => {
         </div>
         <div class="podium-rank podium-rank-1">👑 1</div>
         <div class="podium-name podium-name-lg">{{ topThree[0].name }}</div>
-        <div class="podium-meta">{{ categoryName(topThree[0].categoryId) }} · ⭐ {{ fmtCompact(topThree[0].stars ?? 0) }}</div>
+        <div class="podium-meta">{{ categoryName(topThree[0].categorySlug) }} · ⭐ {{ fmtCompact(topThree[0].stars ?? 0) }}</div>
         <router-link :to="`/software/${topThree[0].slug}`" class="podium-btn podium-btn-primary">查看</router-link>
       </div>
       <div class="podium-item podium-3">
@@ -140,7 +161,7 @@ onMounted(() => {
         </div>
         <div class="podium-rank">3</div>
         <div class="podium-name">{{ topThree[2].name }}</div>
-        <div class="podium-meta">{{ categoryName(topThree[2].categoryId) }} · ⭐ {{ fmtCompact(topThree[2].stars ?? 0) }}</div>
+        <div class="podium-meta">{{ categoryName(topThree[2].categorySlug) }} · ⭐ {{ fmtCompact(topThree[2].stars ?? 0) }}</div>
         <router-link :to="`/software/${topThree[2].slug}`" class="podium-btn">查看</router-link>
       </div>
     </div>
@@ -167,15 +188,26 @@ onMounted(() => {
               <span class="cat-row-name">{{ p.name }}</span>
               <span v-if="p.stars" class="cat-row-stars">⭐ {{ p.stars.toFixed(1) }}</span>
             </div>
+            <div v-if="platformsOf(p).length" class="cat-row-platline">
+              <span
+                v-for="pl in platformsOf(p)"
+                :key="pl"
+                :class="['plat-tag', platformClass(pl)]"
+                :title="`支持 ${pl}`"
+              >
+                <span>{{ platformIcon(pl) }}</span>{{ pl }}
+              </span>
+              <span v-if="platformsMore(p) > 0" class="plat-more">+{{ platformsMore(p) }}</span>
+            </div>
             <div class="cat-row-desc">{{ p.description }}</div>
             <div class="cat-row-extra">
               <span v-if="p.stars !== undefined" class="extra-pill">⭐ {{ fmtCompact(p.stars ?? 0) }} Stars</span>
-              <span class="extra-pill">↓ {{ fmtCompact(totalDownloads(p)) }} 下载</span>
+              <span class="extra-pill">↓ {{ fmtRealDownloads(p) }} 下载</span>
               <span v-if="p.latestUpdateTime" class="extra-pill extra-pill-mono">{{ fmtDate(p.latestUpdateTime) }}</span>
             </div>
           </div>
           <div class="cat-row-side">
-            <div v-if="p.latestVersion" class="cat-row-version">{{ p.latestVersion }}</div>
+            <div v-if="latestVersionText(p)" class="cat-row-version">{{ latestVersionText(p) }}</div>
             <div v-if="p.latestUpdateTime" class="cat-row-date">{{ fmtDate(p.latestUpdateTime) }} 更新</div>
           </div>
         </router-link>
@@ -183,6 +215,7 @@ onMounted(() => {
 
       <!-- 分页 -->
       <div v-if="totalPages > 1" class="pagination">
+        <span class="page-info">共 {{ totalPages }} 页</span>
         <button class="page-btn" :disabled="currentPage === 1" @click="goPage(currentPage - 1)">‹</button>
         <template v-for="(n, idx) in visiblePages" :key="n + '-' + idx">
           <button
@@ -480,6 +513,21 @@ onMounted(() => {
   color: white;
 }
 .cat-row-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.cat-row-platline {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 20px;
+}
+.cat-row-platline .plat-more {
+  height: 20px;
+  padding: 0 5px;
+  font-size: 0.65rem;
+  background: var(--color-card-soft);
+  color: var(--text-tertiary);
+  border: 1px dashed var(--border-soft);
+}
 .cat-row-head {
   display: flex;
   align-items: center;
@@ -546,6 +594,12 @@ onMounted(() => {
   margin-top: 20px;
   flex-wrap: wrap;
 }
+.page-info {
+  font-size: 0.82rem;
+  color: var(--text-tertiary);
+  margin-right: 6px;
+  font-family: var(--font-mono);
+}
 .page-btn {
   min-width: 32px;
   height: 32px;
@@ -583,7 +637,6 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
-  .rank-hero { padding: 24px 20px; }
   .podium { grid-template-columns: 1fr 1.1fr 1fr; gap: 8px; }
   .podium-item { padding: 14px 8px; }
   .podium-1 { padding: 18px 8px; }
@@ -592,6 +645,42 @@ onMounted(() => {
   .podium-name { font-size: 0.85rem; }
   .podium-meta { font-size: 0.7rem; }
   .podium-btn { height: 24px; padding: 0 10px; font-size: 0.72rem; }
+  /* 平板模式：标签稍小 */
+  .cat-row-platline { gap: 3px; }
+  .cat-row-platline .plat-tag {
+    height: 18px;
+    padding: 0 6px;
+    border-radius: 6px;
+    font-size: 0.62rem;
+  }
+  .cat-row-platline .plat-more {
+    height: 18px;
+    padding: 0 4px;
+    font-size: 0.62rem;
+  }
+}
+@media (max-width: 480px) {
+  .cat-row { padding: 12px; gap: 12px; }
+  .cat-row-icon { width: 44px; height: 44px; font-size: 1.1rem; }
+  .cat-row-name { font-size: 0.92rem; }
+  .cat-row-desc { font-size: 0.8rem; }
+  .cat-row-extra { display: none; }
+  .cat-row-version { font-size: 0.78rem; }
+  .cat-row-date { font-size: 0.72rem; }
+  /* 手机模式：标签更紧凑 */
+  .cat-row-platline { gap: 2px; min-height: 14px; }
+  .cat-row-platline .plat-tag {
+    height: 14px;
+    padding: 0 4px;
+    border-radius: 4px;
+    font-size: 0.54rem;
+    gap: 1px;
+  }
+  .cat-row-platline .plat-more {
+    height: 14px;
+    padding: 0 3px;
+    font-size: 0.54rem;
+  }
 }
 @media (max-width: 640px) {
   .cat-row { padding: 12px; gap: 12px; }

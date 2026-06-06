@@ -48,6 +48,7 @@ export interface IconListItem {
   rawUrl: string
   downloadUrl: string | null
   htmlUrl: string
+  uploadedAt?: string
 }
 
 export interface UploadResult {
@@ -172,10 +173,44 @@ export async function listIcons(): Promise<{ items: IconListItem[]; error?: stri
         downloadUrl: i.download_url,
         htmlUrl: i.html_url,
       }))
+
+    // 拉取每个文件的最后 commit 时间（N+1，但 pMap 4 并发，~50 文件约 2-3s）
+    await enrichUploadDates(items)
     return { items }
   } catch (e: any) {
     return { items: [], error: e.message }
   }
+}
+
+async function pMapIcons<T, R>(
+  items: T[],
+  fn: (item: T, index: number) => Promise<R>,
+  concurrency = 4,
+): Promise<R[]> {
+  const results: R[] = new Array(items.length)
+  let cursor = 0
+  const workers = Array.from({ length: concurrency }, async () => {
+    while (true) {
+      const idx = cursor++
+      if (idx >= items.length) return
+      results[idx] = await fn(items[idx], idx)
+    }
+  })
+  await Promise.all(workers)
+  return results
+}
+
+async function enrichUploadDates(items: IconListItem[]): Promise<void> {
+  const { owner, repo } = getRepoInfo()
+  await pMapIcons(items, async (item) => {
+    try {
+      const commits = await gh<Array<{ commit?: { committer?: { date?: string } } }>>(
+        `/repos/${owner}/${repo}/commits?sha=${encodeURIComponent(ICON_BRANCH)}&path=${encodeURIComponent(item.path)}&per_page=1`,
+      )
+      const date = commits[0]?.commit?.committer?.date
+      if (date) item.uploadedAt = date
+    } catch { /* 静默：拿不到时间的图标仍可显示，仅不参与日期排序 */ }
+  })
 }
 
 /* =================== 上传 =================== */

@@ -358,3 +358,25 @@ input, textarea, select, button {
 @media (max-width: 480px) {
   main { padding-top: 64px; }
 }
+
+/* === 平台标签（全局共享：admin / Home / ProjectCard 统一视觉） === */
+.plat-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  height: 20px;
+  padding: 0 7px;
+  border-radius: 7px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  white-space: nowrap;
+  letter-spacing: 0.1px;
+}
+.plat-win   { background: linear-gradient(135deg, #0078D4, #00A4EF); }
+.plat-mac   { background: linear-gradient(135deg, #555555, #888888); }
+.plat-and   { background: linear-gradient(135deg, #3CB371, #2A8C56); }
+.plat-lin   { background: linear-gradient(135deg, #E95420, #F0A020); }
+.plat-ios   { background: linear-gradient(135deg, #007AFF, #5856D6); }
+.plat-web   { background: linear-gradient(135deg, #06B6D4, #3B82F6); }
+.plat-other { background: linear-gradient(135deg, #6B7280, #9CA3AF); }

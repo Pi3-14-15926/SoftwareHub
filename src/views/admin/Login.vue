@@ -1,12 +1,19 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { NInput, useMessage } from 'naive-ui'
 import { validateToken, saveLogin, isAuthenticated } from '../../utils/auth'
 import { getSettings, saveSettings } from '../../utils/api'
+import { useSettingStore } from '../../store/settings'
+import { useIconUrl } from '../../composables/useIconUrl'
 
 const router = useRouter()
 const message = useMessage()
+const settings = useSettingStore()
+const { resolve } = useIconUrl()
+const siteLogo = computed(() => resolve(settings.settings.logo))
+
+onMounted(() => { settings.refresh() })
 
 const token = ref('')
 const loading = ref(false)
@@ -26,12 +33,12 @@ async function doLogin() {
   errorMsg.value = ''
   try {
     const user = await validateToken(trimmed)
-    const settings = getSettings()
-    const admins = settings.admins || []
+    const stored = getSettings()
+    const admins = stored.admins || []
 
     if (admins.length === 0) {
-      settings.admins = [user.login]
-      saveSettings(settings)
+      stored.admins = [user.login]
+      saveSettings(stored)
       message.success(`"${user.login}" 已自动注册为管理员`)
     } else if (!admins.includes(user.login)) {
       throw new Error(`"${user.login}" 不是管理员，无权访问后台`)
@@ -53,9 +60,10 @@ async function doLogin() {
     <div class="login-card">
       <header class="login-header">
         <div class="logo-mark">
-          <span class="logo-glyph">🐺</span>
+          <img v-if="siteLogo" :src="siteLogo" :alt="settings.settings.siteName" class="logo-img" />
+          <span v-else class="logo-glyph">🐺</span>
         </div>
-        <h1 class="brand-name">Software Hub</h1>
+        <h1 class="brand-name">{{ settings.settings.siteName || 'Software Hub' }}</h1>
         <p class="brand-sub">管理员登录</p>
       </header>
 
@@ -93,13 +101,6 @@ async function doLogin() {
           <span class="hint-title">安全认证</span>
         </div>
         <p class="hint-desc">Token 仅存储在本地浏览器，不会上传到任何服务器</p>
-        <ul class="perm-list">
-          <li><code>public_repo</code> — 读取公开仓库 Release</li>
-          <li><code>repo</code> — 同步私有仓库</li>
-        </ul>
-        <a href="https://github.com/settings/tokens" target="_blank" rel="noopener noreferrer" class="hint-link">
-          → 创建 Token
-        </a>
       </div>
     </div>
 
@@ -183,6 +184,11 @@ async function doLogin() {
   justify-content: center;
   box-shadow: 0 12px 32px rgba(79, 140, 255, 0.32);
   position: relative;
+  overflow: hidden;
+}
+.logo-mark:has(.logo-img) {
+  background: #FFFFFF;
+  border: 1px solid var(--admin-border);
 }
 .logo-mark::after {
   content: '';
@@ -193,6 +199,12 @@ async function doLogin() {
   opacity: 0.2;
   filter: blur(12px);
   z-index: -1;
+}
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8px;
 }
 .logo-glyph {
   font-size: 2.2rem;
@@ -269,26 +281,6 @@ async function doLogin() {
   margin: 0 0 8px;
   color: var(--text-tertiary);
   font-size: 0.78rem;
-}
-.perm-list {
-  margin: 6px 0;
-  padding-left: 20px;
-  font-size: 0.78rem;
-}
-.perm-list code {
-  font-family: var(--font-mono);
-  background: var(--admin-card);
-  padding: 1px 6px;
-  border-radius: 4px;
-  color: var(--color-primary);
-  font-size: 0.75rem;
-}
-.hint-link {
-  display: inline-block;
-  margin-top: 4px;
-  color: var(--color-primary);
-  font-weight: 500;
-  font-size: 0.8rem;
 }
 
 /* === 装饰 === */

@@ -5,18 +5,18 @@ import { useCategoryStore } from '../store/category'
 import { useSettingStore } from '../store/settings'
 import { fmtDate, fmtCompact } from '../utils'
 import { useIconUrl } from '../composables/useIconUrl'
+import { getSoftwareVersions, getVersionDownloads, getVersionById, getSoftwarePlatforms, realDownloads, fmtRealDownloads } from '../utils/api'
+import { platformClass, platformIcon } from '../utils/platformTag'
+import { useEnabled } from '../composables/useEnabled'
 import ProjectCard from '../components/ProjectCard.vue'
 import AmbientOrbs from '../components/AmbientOrbs.vue'
+import type { Software } from '../types'
 
 const projects = useProjectStore()
 const categories = useCategoryStore()
 const settings = useSettingStore()
 const { resolveProject } = useIconUrl()
-
-/* 分类图标（柔和渐变背景 + 字符） */
-const categoryIconColors: Record<string, string> = {
-  default: 'linear-gradient(135deg, #3478F6 0%, #8C6CFF 100%)',
-}
+const { isProjectEnabled } = useEnabled()
 
 /* 默认推荐（无数据时兜底显示） */
 const defaultFeatured: any[] = [
@@ -54,7 +54,7 @@ const defaultFeatured: any[] = [
 
 /* 特色项目（featured），用于 Hero 轮播 */
 const featured = computed(() => {
-  const real = projects.projects.filter(p => p.featured)
+  const real = projects.software.filter((p) => p.featured && isProjectEnabled(p.id))
   return real.length > 0 ? real : defaultFeatured
 })
 const carouselIndex = ref(0)
@@ -79,39 +79,63 @@ onMounted(() => {
 onUnmounted(() => { if (timer) clearInterval(timer) })
 
 /* 分类下软件数量 */
-function projectCountByCategory(cid: string): number {
-  return projects.projects.filter(p => p.categoryId === cid).length
+function projectCountByCategory(cslug: string): number {
+  return projects.software.filter((p) => p.categorySlug === cslug).length
 }
 
 /* 热门软件（按 Star 排序） */
 const hotProjects = computed(() => {
-  return [...projects.projects]
-    .filter(p => p.sourceType === 'github' && (p.stars ?? 0) > 0)
+  return [...projects.software]
+    .filter((p) => isProjectEnabled(p.id))
+    .filter((p) => p.sourceType === 'github' && (p.stars ?? 0) > 0)
     .sort((a, b) => (b.stars ?? 0) - (a.stars ?? 0))
     .slice(0, 3)
 })
 
 /* 最近更新（按 latestUpdateTime 倒序） */
 const recentlyUpdated = computed(() => {
-  return [...projects.projects]
-    .filter(p => p.latestUpdateTime)
+  return [...projects.software]
+    .filter((p) => isProjectEnabled(p.id))
+    .filter((p) => p.latestUpdateTime)
     .sort((a, b) => new Date(b.latestUpdateTime).getTime() - new Date(a.latestUpdateTime).getTime())
     .slice(0, 3)
 })
 
-/* 本周下载榜（按 downloads 累计） */
-function totalDownloads(p: any): number {
-  return (p.versions || []).reduce((s: number, v: any) => s + (v.downloads?.length || 0), 0)
+/* 软件真实下载量（仅 GitHub Release 来源有数据，否则 null） */
+function realDL(s: Software): number | null {
+  return realDownloads(s)
 }
+/* 下载量排序：缺数据排最后 */
+function cmpRealDL(a: Software, b: Software): number {
+  const va = realDL(a)
+  const vb = realDL(b)
+  if (va == null && vb == null) return 0
+  if (va == null) return 1
+  if (vb == null) return -1
+  return vb - va
+}
+
+/* 软件的 latestVersion 字符串 */
+function latestVersionText(s: Software): string {
+  if (!s.latestVersionId) return ''
+  return getVersionById(s.latestVersionId)?.version || ''
+}
+
+/* 软件真实支持的平台（行内最多 3 个，独占行时给 6 个） */
+function platformsOf(s: Software, max = 3): string[] {
+  return getSoftwarePlatforms(s.id).slice(0, max)
+}
+function platformsMore(s: Software, max = 3): number {
+  return Math.max(0, getSoftwarePlatforms(s.id).length - max)
+}
+
+/* 本周下载榜（按 GitHub 真实下载量排序，缺数据排最后） */
 const topDownloads = computed(() => {
-  return [...projects.projects]
-    .sort((a, b) => totalDownloads(b) - totalDownloads(a))
+  return [...projects.software]
+    .filter((p) => isProjectEnabled(p.id))
+    .sort(cmpRealDL)
     .slice(0, 3)
 })
-
-function categoryFor(cid: string) {
-  return categories.categories.find(c => c.id === cid)
-}
 </script>
 
 <template>
@@ -185,7 +209,7 @@ function categoryFor(cid: string) {
             <span>{{ c.icon || '📦' }}</span>
           </div>
           <div class="cat-name">{{ c.name }}</div>
-          <div class="cat-count">{{ projectCountByCategory(c.id) }}+ 款软件</div>
+          <div class="cat-count">{{ projectCountByCategory(c.slug) }}+ 款软件</div>
         </router-link>
         <router-link to="/search" class="cat-card cat-card-more">
           <div class="cat-icon">
@@ -204,7 +228,7 @@ function categoryFor(cid: string) {
         <router-link to="/search" class="section-more">查看全部 ›</router-link>
       </div>
       <div class="hot-grid">
-        <ProjectCard v-for="p in hotProjects" :key="p.id" :project="p" />
+        <ProjectCard v-for="p in hotProjects" :key="p.id" :software="p" hide-downloads />
       </div>
     </section>
 
@@ -228,7 +252,21 @@ function categoryFor(cid: string) {
                 <span v-else>{{ p.name[0] }}</span>
               </div>
               <div class="row-info">
-                <div class="row-name">{{ p.name }} <span class="row-version">{{ p.latestVersion }}</span></div>
+                <div class="row-name">
+                  {{ p.name }}
+                  <span class="row-version">{{ latestVersionText(p) }}</span>
+                </div>
+                <div v-if="platformsOf(p, 6).length" class="row-platline">
+                  <span
+                    v-for="pl in platformsOf(p, 6)"
+                    :key="pl"
+                    :class="['plat-tag', platformClass(pl)]"
+                    :title="`支持 ${pl}`"
+                  >
+                    <span>{{ platformIcon(pl) }}</span>{{ pl }}
+                  </span>
+                  <span v-if="platformsMore(p, 6) > 0" class="plat-more">+{{ platformsMore(p, 6) }}</span>
+                </div>
                 <div class="row-desc-line" :title="p.description">{{ p.description }}</div>
               </div>
               <div class="row-date">{{ fmtDate(p.latestUpdateTime) }}</div>
@@ -255,11 +293,22 @@ function categoryFor(cid: string) {
               </div>
               <div class="row-info">
                 <div class="row-name">{{ p.name }}</div>
+                <div v-if="platformsOf(p, 6).length" class="row-platline">
+                  <span
+                    v-for="pl in platformsOf(p, 6)"
+                    :key="pl"
+                    :class="['plat-tag', platformClass(pl)]"
+                    :title="`支持 ${pl}`"
+                  >
+                    <span>{{ platformIcon(pl) }}</span>{{ pl }}
+                  </span>
+                  <span v-if="platformsMore(p, 6) > 0" class="plat-more">+{{ platformsMore(p, 6) }}</span>
+                </div>
                 <div class="row-meta">
                   <span v-if="p.stars" class="rank-stars">⭐ {{ fmtCompact(p.stars) }}</span>
                 </div>
               </div>
-              <div class="row-dl">↓ {{ totalDownloads(p) }}w</div>
+              <div class="row-dl">↓ {{ fmtRealDownloads(p) }}</div>
             </router-link>
           </div>
         </div>
@@ -543,7 +592,7 @@ function categoryFor(cid: string) {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 8px;
+  padding: 12px 8px;
   border-radius: var(--radius-md);
   text-decoration: none;
   color: var(--text-main);
@@ -585,6 +634,24 @@ function categoryFor(cid: string) {
   font-weight: 500;
   font-family: var(--font-mono);
   flex-shrink: 0;
+}
+
+/* 独占一行的平台标签（用于"最近更新"和"本周下载榜"卡片） */
+.row-platline {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 4px;
+  min-height: 20px;
+}
+.row-platline .plat-more {
+  height: 20px;
+  padding: 0 5px;
+  font-size: 0.65rem;
+  background: var(--color-card-soft);
+  color: var(--text-tertiary);
+  border: 1px dashed var(--border-soft);
 }
 .row-desc-line {
   font-size: 0.8rem;

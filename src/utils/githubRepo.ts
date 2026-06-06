@@ -1,9 +1,20 @@
 /**
  * 通过 GitHub API 将数据提交回仓库
  * 使用管理员登录时保存的 Token 认证
+ *
+ * 新数据模型：分层 JSON 文件
+ *  - public/data/index.json
+ *  - public/data/categories.json
+ *  - public/data/settings.json
+ *  - public/data/iconAssets.json
+ *  - public/data/backup-manifest.json
+ *  - public/page/{slug}/software.json
+ *  - public/page/{slug}/versions.json
+ *  - public/page/{slug}/downloads.json
+ * 上述每个文件都同步写一份到 data/ 路径（GitHub Pages 根目录）
  */
-import type { Project, Category, Settings } from '../types'
-import { getProjects, getCategories, getSettings } from './api'
+import type { Category, Settings } from '../types'
+import * as api from './api'
 import { getToken } from './auth'
 
 const API_BASE = 'https://api.github.com'
@@ -99,31 +110,63 @@ export async function triggerSyncBackup(): Promise<void> {
   await triggerWorkflow('sync-backup.yml')
 }
 
-/** 将所有数据提交到仓库，触发 GitHub Pages 重新构建 */
+/** 将所有数据提交到仓库，触发 GitHub Pages 重新构建
+ *  按新分层模型发布：data/ + page/{slug}/
+ */
 export async function commitAllData(): Promise<{ files: number; repo: string }> {
   const token = getToken()
   if (!token) throw new Error('未登录，请先登录')
 
-  const projects = getProjects()
-  const categories = getCategories()
-  const settings = getSettings()
+  const d = api.loadAppData()
+  const categories: Category[] = d.categories
+  const settings: Settings = d.settings
 
-  if (!projects.length && !categories.length) {
+  const swCount = Object.values(d.software).reduce((s, arr) => s + arr.length, 0)
+  if (!swCount && !categories.length) {
     throw new Error('没有数据可提交')
+  }
+
+  d.backupManifest = {
+    ...d.backupManifest,
+    updatedAt: new Date().toISOString(),
   }
 
   const timestamp = new Date().toISOString().slice(0, 19).replace('T', ' ')
   const message = `chore(data): 发布数据更新 ${timestamp}`
 
-  const files = [
-    { path: 'public/data/projects.json', content: JSON.stringify(projects, null, 2) },
-    { path: 'data/projects.json', content: JSON.stringify(projects, null, 2) },
+  /* 全局文件 */
+  const globalFiles: { path: string; content: string }[] = [
+    { path: 'public/data/index.json', content: JSON.stringify(d.index, null, 2) },
+    { path: 'data/index.json', content: JSON.stringify(d.index, null, 2) },
     { path: 'public/data/categories.json', content: JSON.stringify(categories, null, 2) },
     { path: 'data/categories.json', content: JSON.stringify(categories, null, 2) },
     { path: 'public/data/settings.json', content: JSON.stringify(settings, null, 2) },
     { path: 'data/settings.json', content: JSON.stringify(settings, null, 2) },
+    { path: 'public/data/iconAssets.json', content: JSON.stringify(d.iconAssets, null, 2) },
+    { path: 'data/iconAssets.json', content: JSON.stringify(d.iconAssets, null, 2) },
+    { path: 'public/data/backup-manifest.json', content: JSON.stringify(d.backupManifest, null, 2) },
+    { path: 'data/backup-manifest.json', content: JSON.stringify(d.backupManifest, null, 2) },
   ]
 
+  /* 每个分类目录下的 3 个文件 */
+  const pageFiles: { path: string; content: string }[] = []
+  for (const c of categories) {
+    const slug = c.slug
+    const sw = d.software[slug] || []
+    const ver = d.versions[slug] || []
+    const dl = d.downloads[slug] || []
+    const enc = (obj: any) => JSON.stringify(obj, null, 2)
+    pageFiles.push(
+      { path: `public/page/${slug}/software.json`, content: enc(sw) },
+      { path: `public/page/${slug}/versions.json`, content: enc(ver) },
+      { path: `public/page/${slug}/downloads.json`, content: enc(dl) },
+      { path: `data/page/${slug}/software.json`, content: enc(sw) },
+      { path: `data/page/${slug}/versions.json`, content: enc(ver) },
+      { path: `data/page/${slug}/downloads.json`, content: enc(dl) },
+    )
+  }
+
+  const files = [...globalFiles, ...pageFiles]
   for (const file of files) {
     await commitFile(file.path, file.content, message)
   }

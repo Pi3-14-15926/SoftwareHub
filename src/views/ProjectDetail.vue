@@ -5,53 +5,94 @@ import { useProjectStore } from '../store/project'
 import { useCategoryStore } from '../store/category'
 import { fmtDate, relTime, fmtCompact } from '../utils'
 import { useIconUrl } from '../composables/useIconUrl'
+import { getSoftwareVersions, getVersionDownloads } from '../utils/api'
+import { platformClass, platformIcon } from '../utils/platformTag'
+import { useEnabled } from '../composables/useEnabled'
 import AmbientOrbs from '../components/AmbientOrbs.vue'
+import type { Version, Download } from '../types'
 
 const route = useRoute()
 const router = useRouter()
 const projects = useProjectStore()
 const categories = useCategoryStore()
 const { resolveProject } = useIconUrl()
+const { isProjectEnabled } = useEnabled()
 
-const project = computed(() => projects.bySlug(route.params.slug as string))
+const project = computed(() => {
+  const p = projects.bySlug(route.params.slug as string)
+  return p && isProjectEnabled(p.id) ? p : null
+})
 const projectLogo = computed(() => resolveProject(project.value))
 const category = computed(() =>
-  project.value ? categories.categories.find((c) => c.id === project.value!.categoryId) : null,
+  project.value ? categories.categories.find((c) => c.slug === project.value!.categorySlug) : null,
 )
+
+const allVersions = computed<Version[]>(() => project.value ? getSoftwareVersions(project.value.id) : [])
 
 const expanded = ref(false)
 const showAllLatestDownloads = ref(false)
 const expandedHistory = ref<Set<string>>(new Set())
-const latestVer = computed(() => project.value?.versions[0] ?? null)
-const historyVers = computed(() => project.value?.versions.slice(1) ?? [])
+const latestVer = computed<Version | null>(() => allVersions.value[0] ?? null)
+const historyVers = computed<Version[]>(() => allVersions.value.slice(1))
+
+/* === 排序：默认大小降序 === */
+type SortKey = 'size-desc' | 'size-asc' | 'name-asc' | 'name-desc'
+const sortKey = ref<SortKey>('size-desc')
+const sortOptions: { value: SortKey; label: string }[] = [
+  { value: 'size-desc', label: '大小 ↓' },
+  { value: 'size-asc',  label: '大小 ↑' },
+  { value: 'name-asc',  label: '名称 A→Z' },
+  { value: 'name-desc', label: '名称 Z→A' },
+]
+
+function parseSize(s: string): number {
+  const m = s.match(/([\d.]+)\s*(B|KB|MB|GB|TB)/i)
+  if (!m) return 0
+  const v = parseFloat(m[1])
+  const u = m[2].toUpperCase()
+  const mult: Record<string, number> = { B: 1, KB: 1024, MB: 1024 ** 2, GB: 1024 ** 3, TB: 1024 ** 4 }
+  return v * (mult[u] || 1)
+}
+
+function sortDownloads(list: Download[]): Download[] {
+  const arr = [...list]
+  switch (sortKey.value) {
+    case 'size-desc': arr.sort((a, b) => parseSize(b.size) - parseSize(a.size)); break
+    case 'size-asc':  arr.sort((a, b) => parseSize(a.size) - parseSize(b.size)); break
+    case 'name-asc':  arr.sort((a, b) => a.filename.localeCompare(b.filename)); break
+    case 'name-desc': arr.sort((a, b) => b.filename.localeCompare(a.filename)); break
+  }
+  return arr
+}
+
+function downloadsOf(v: Version): Download[] {
+  return getVersionDownloads(v.id)
+}
 
 /* 最新版本下载：超过 5 个时默认折叠 */
 const DOWNLOAD_LIMIT = 5
 const HISTORY_DL_LIMIT = 3
+const latestDownloads = computed<Download[]>(() =>
+  latestVer.value ? sortDownloads(downloadsOf(latestVer.value)) : [],
+)
 const visibleDownloads = computed(() => {
-  if (!latestVer.value) return []
-  if (showAllLatestDownloads.value) return latestVer.value.downloads
-  return latestVer.value.downloads.slice(0, DOWNLOAD_LIMIT)
+  if (showAllLatestDownloads.value) return latestDownloads.value
+  return latestDownloads.value.slice(0, DOWNLOAD_LIMIT)
 })
-const hiddenDownloadCount = computed(() => {
-  if (!latestVer.value) return 0
-  return Math.max(0, latestVer.value.downloads.length - DOWNLOAD_LIMIT)
-})
+const hiddenDownloadCount = computed(() => Math.max(0, latestDownloads.value.length - DOWNLOAD_LIMIT))
 
 /* 历史版本下载：超过 3 个时默认折叠 */
-function visibleHistoryDownloads(v: any) {
-  if (expandedHistory.value.has(v.id)) return v.downloads
-  return v.downloads.slice(0, HISTORY_DL_LIMIT)
+function visibleHistoryDownloads(v: Version): Download[] {
+  const dls = sortDownloads(downloadsOf(v))
+  if (expandedHistory.value.has(v.id)) return dls
+  return dls.slice(0, HISTORY_DL_LIMIT)
 }
-function hiddenHistoryDownloadCount(v: any): number {
-  return Math.max(0, v.downloads.length - HISTORY_DL_LIMIT)
+function hiddenHistoryDownloadCount(v: Version): number {
+  return Math.max(0, downloadsOf(v).length - HISTORY_DL_LIMIT)
 }
-function toggleHistoryDownloads(v: any) {
-  if (expandedHistory.value.has(v.id)) {
-    expandedHistory.value.delete(v.id)
-  } else {
-    expandedHistory.value.add(v.id)
-  }
+function toggleHistoryDownloads(v: Version) {
+  if (expandedHistory.value.has(v.id)) expandedHistory.value.delete(v.id)
+  else expandedHistory.value.add(v.id)
 }
 </script>
 
@@ -114,20 +155,31 @@ function toggleHistoryDownloads(v: any) {
         <div v-if="latestVer.changelog" class="release-notes">
           <pre>{{ latestVer.changelog }}</pre>
         </div>
-        <div class="list-label">资源列表</div>
+        <div class="list-head">
+          <span class="list-label">资源列表</span>
+          <select v-model="sortKey" class="sort-select" title="排序方式">
+            <option v-for="opt in sortOptions" :key="opt.value" :value="opt.value">{{ opt.label }}</option>
+          </select>
+        </div>
         <div class="download-list">
           <a
             v-for="dl in visibleDownloads"
-            :key="dl.url"
+            :key="dl.id"
             :href="dl.url"
             target="_blank"
             rel="noopener noreferrer"
             class="download-btn"
           >
+            <span :class="['plat-tag', platformClass(dl.platform)]" :title="dl.platform">
+              <span>{{ platformIcon(dl.platform) }}</span>{{ dl.platform }}
+            </span>
             <span class="apk-name">{{ dl.filename }}</span>
             <span class="apk-size">{{ dl.size }}</span>
+            <span :class="['apk-dl', dl.downloadCount == null ? 'apk-dl-empty' : '']" :title="dl.downloadCount != null ? `真实下载 ${dl.downloadCount}（GitHub）` : '非 GitHub 来源'">
+              ↓ {{ dl.downloadCount != null ? fmtCompact(dl.downloadCount) : '—' }}
+            </span>
           </a>
-          <div v-if="latestVer.downloads.length === 0" class="empty-state">该版本暂无文件</div>
+          <div v-if="latestDownloads.length === 0" class="empty-state">该版本暂无文件</div>
         </div>
         <div v-if="hiddenDownloadCount > 0" class="dl-more">
           <button v-if="!showAllLatestDownloads" class="more-btn" @click="showAllLatestDownloads = true">
@@ -154,21 +206,32 @@ function toggleHistoryDownloads(v: any) {
             <div v-if="v.changelog" class="release-notes-mini">
               <pre>{{ v.changelog }}</pre>
             </div>
-            <div class="list-label list-label-sm">资源列表</div>
+            <div class="list-head list-head-sm">
+              <span class="list-label list-label-sm">资源列表</span>
+              <select v-model="sortKey" class="sort-select sort-select-sm" title="排序方式">
+                <option v-for="opt in sortOptions" :key="opt.value" :value="opt.value">{{ opt.label }}</option>
+              </select>
+            </div>
             <div class="download-list">
               <a
                 v-for="dl in visibleHistoryDownloads(v)"
-                :key="dl.url"
+                :key="dl.id"
                 :href="dl.url"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="download-btn download-btn-sm"
               >
+                <span :class="['plat-tag', 'plat-tag-sm', platformClass(dl.platform)]" :title="dl.platform">
+                  <span>{{ platformIcon(dl.platform) }}</span>{{ dl.platform }}
+                </span>
                 <span class="apk-name">{{ dl.filename }}</span>
                 <span class="apk-size">{{ dl.size }}</span>
+                <span :class="['apk-dl', 'apk-dl-sm', dl.downloadCount == null ? 'apk-dl-empty' : '']" :title="dl.downloadCount != null ? `真实下载 ${dl.downloadCount}（GitHub）` : '非 GitHub 来源'">
+                  ↓ {{ dl.downloadCount != null ? fmtCompact(dl.downloadCount) : '—' }}
+                </span>
               </a>
             </div>
-            <div v-if="v.downloads.length > HISTORY_DL_LIMIT" class="dl-more">
+            <div v-if="downloadsOf(v).length > HISTORY_DL_LIMIT" class="dl-more">
               <button
                 v-if="!expandedHistory.has(v.id)"
                 class="more-btn more-btn-sm"
@@ -361,15 +424,39 @@ function toggleHistoryDownloads(v: any) {
   color: var(--color-primary);
   font-size: 0.78rem;
   font-weight: 600;
-  margin-bottom: 10px;
   letter-spacing: 0.2px;
 }
 .list-label-sm {
   height: 22px;
   padding: 0 10px;
   font-size: 0.72rem;
-  margin-bottom: 8px;
 }
+.list-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.list-head-sm { margin-bottom: 8px; }
+
+.sort-select {
+  height: 24px;
+  padding: 0 8px;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-full);
+  background: var(--color-card-soft);
+  color: var(--text-sec);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.sort-select:hover { border-color: var(--color-primary); }
+.sort-select:focus { border-color: var(--color-primary); }
+.sort-select-sm { height: 22px; font-size: 0.7rem; padding: 0 6px; }
 .download-btn {
   display: flex;
   align-items: center;
@@ -398,6 +485,14 @@ function toggleHistoryDownloads(v: any) {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.download-btn .plat-tag { flex-shrink: 0; }
+.download-btn-sm .plat-tag-sm {
+  height: 16px;
+  padding: 0 5px;
+  border-radius: 5px;
+  font-size: 0.58rem;
+  gap: 1px;
+}
 .apk-size {
   font-size: 0.78rem;
   opacity: 0.92;
@@ -407,6 +502,23 @@ function toggleHistoryDownloads(v: any) {
   padding: 2px 8px;
   border-radius: var(--radius-full);
 }
+.apk-dl {
+  font-size: 0.76rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  color: #FFFFFF;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.apk-dl-empty {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+.apk-dl-sm { font-size: 0.7rem; padding: 1px 6px; }
 
 .empty-state {
   text-align: center;

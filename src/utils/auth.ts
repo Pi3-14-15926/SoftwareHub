@@ -10,31 +10,31 @@ export interface GitHubUser {
   name: string | null
 }
 
-/** 保存 Token 到 sessionStorage */
+/** 保存 Token 到 localStorage（持久化，刷新/新 tab 都在） */
 export function setToken(token: string): void {
-  sessionStorage.setItem(TOKEN_KEY, token)
+  localStorage.setItem(TOKEN_KEY, token)
 }
 
 /** 获取保存的 Token */
 export function getToken(): string | null {
-  return sessionStorage.getItem(TOKEN_KEY)
+  return localStorage.getItem(TOKEN_KEY)
 }
 
 /** 清除 Token */
 export function clearToken(): void {
-  sessionStorage.removeItem(TOKEN_KEY)
-  sessionStorage.removeItem(USER_KEY)
+  localStorage.removeItem(TOKEN_KEY)
+  localStorage.removeItem(USER_KEY)
 }
 
 /** 保存用户信息 */
 function setUser(user: GitHubUser): void {
-  sessionStorage.setItem(USER_KEY, JSON.stringify(user))
+  localStorage.setItem(USER_KEY, JSON.stringify(user))
 }
 
 /** 获取已认证用户信息 */
 export function getCurrentUser(): GitHubUser | null {
   try {
-    const raw = sessionStorage.getItem(USER_KEY)
+    const raw = localStorage.getItem(USER_KEY)
     return raw ? JSON.parse(raw) : null
   } catch {
     return null

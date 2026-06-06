@@ -22,15 +22,15 @@ export const useCategoryStore = defineStore('category', () => {
     refresh()
   }
 
-  function bySlug(slug: string) {
+  function bySlug(slug: string): Category | undefined {
     return categories.value.find((c) => c.slug === slug)
   }
 
   function create(name: string, slug: string, icon?: string, description?: string): Category {
     const c: Category = {
       id: uid(),
-      name,
       slug,
+      name,
       icon,
       description,
       sortOrder: categories.value.length,

@@ -151,6 +151,10 @@ function fileUrl(category: string, project: string, versionDir: string, fname: s
   return ''
 }
 
+function isGithubUrl(u: string): boolean {
+  return /github\.com|raw\.githubusercontent\.com|gist\.githubusercontent\.com|objects\.githubusercontent\.com|release-assets\.githubusercontent\.com/i.test(u)
+}
+
 async function handleBackup(req: IncomingMessage, res: ServerResponse) {
   res.writeHead(200, {
     'Content-Type': 'application/x-ndjson',
@@ -232,7 +236,9 @@ async function handleBackup(req: IncomingMessage, res: ServerResponse) {
 
             try {
               const original = dl.url.replace(/^https?:\/\//, '')
-              const url = ghProxy ? ghProxy.replace(/\/+$/, '') + '/' + original : dl.url
+              const url = ghProxy && isGithubUrl(dl.url)
+                ? ghProxy.replace(/\/+$/, '') + '/' + original
+                : dl.url
               const ctrl = new AbortController()
               const timer = setTimeout(() => ctrl.abort(), 300000)
               const resp = await fetch(url, { signal: ctrl.signal })

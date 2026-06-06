@@ -620,6 +620,7 @@ onMounted(() => { loadFiles() })
   padding: 0 18px;
   height: 48px;
   gap: 10px;
+  flex-shrink: 0;
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 .search-bar:focus-within {

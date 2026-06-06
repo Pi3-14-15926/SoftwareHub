@@ -1,50 +1,77 @@
 /* ====== 项目核心类型定义 ====== */
 
-/** 下载项 */
-export interface Download {
-  platform: 'Android' | 'Windows' | 'MacOS' | 'Linux' | 'Other'
-  filename: string
-  size: string         // 如 "12.5 MB"
-  url: string
-}
-
-/** 版本 */
-export interface Version {
-  id: string
-  version: string
-  publishedAt: string   // ISO 日期
-  changelog: string
-  downloads: Download[]
-}
+/** 支持的平台（7 个：移动/桌面/服务器/网页） */
+export type Platform = 'Android' | 'Windows' | 'MacOS' | 'Linux' | 'iOS' | 'Web' | 'Other'
 
 /** 项目类型 */
 export type SourceType = 'github' | 'custom'
 
-/** 项目 */
-export interface Project {
+/** 软件（项目主实体） */
+export interface Software {
   id: string
   slug: string
   sourceType: SourceType
   name: string
   description: string
   logo: string
-  categoryId: string
+  categorySlug: string
   featured: boolean
-  githubRepo?: string   // owner/repo
+  githubRepo?: string
   githubUrl?: string
   website?: string
   stars?: number
   forks?: number
-  latestVersion: string
+  latestVersionId?: string
   latestUpdateTime: string
-  versions: Version[]
+}
+
+/** 版本（属于某个 Software） */
+export interface Version {
+  id: string
+  projectId: string
+  version: string
+  publishedAt: string
+  changelog: string
+  downloadIds: string[]
+}
+
+/** 下载项（属于某个 Version） */
+export interface Download {
+  id: string
+  versionId: string
+  platform: Platform
+  filename: string
+  size: string
+  url: string
+  /** 真实下载量（仅 GitHub Release 来源可获取，自定义 URL 留空） */
+  downloadCount?: number
+  /** 真实下载量的拉取时间 ISO 字符串 */
+  downloadCountSyncedAt?: string
+}
+
+/** 全站搜索索引（轻量：不含 versions/downloads；平台由 Download 派生） */
+export interface IndexEntry {
+  id: string
+  name: string
+  slug: string
+  categorySlug: string
+  description: string
+  logo: string
+  featured: boolean
+  latestVersionId?: string
+  latestUpdateTime: string
+  githubRepo?: string
+  githubUrl?: string
+  website?: string
+  stars?: number
+  forks?: number
 }
 
 /** 页面（原分类） */
 export interface Category {
   id: string
-  name: string
   slug: string
+  name: string
   icon?: string
   description?: string
   sortOrder?: number
@@ -64,19 +91,19 @@ export interface WebDAVConfig {
   username: string
   password: string
   baseDir: string
-  uploadTimeout?: number    // 上传超时(秒)，默认 300
-  maxFileSize?: number      // 文件大小限制(MB)，默认 500
+  uploadTimeout?: number
+  maxFileSize?: number
 }
 
 /** 图标库资源 */
 export interface IconAsset {
-  filename: string        // 仓库中的文件名，含 icons/ 前缀
-  name: string            // 不含路径的纯文件名
-  size: number            // 字节
+  filename: string
+  name: string
+  size: number
   sha: string
-  rawUrl: string          // raw.githubusercontent.com 原始链接
-  cdnUrl: string          // jsDelivr 加速链接
-  uploadedAt: string      // ISO
+  rawUrl: string
+  cdnUrl: string
+  uploadedAt: string
 }
 
 /** CDN 加速策略 */
@@ -103,6 +130,7 @@ export interface GitHubAsset {
   size: number
   browser_download_url: string
   content_type: string
+  download_count: number
 }
 
 /** GitHub Release API 返回 */
@@ -119,4 +147,49 @@ export interface SyncResult {
   success: boolean
   error?: string
   newVersions?: number
+}
+
+/** enrichDownloadCounts 单个失败详情 */
+export interface EnrichError {
+  group: string
+  url: string
+  status?: number
+  message: string
+}
+
+/** enrichDownloadCounts 实时进度回调参数 */
+export interface EnrichProgress {
+  done: number
+  total: number
+  currentGroup: string
+  status: 'ok' | 'rate-limit' | 'retry' | 'error'
+  ok: number
+  rateLimited: number
+  errored: number
+  retried: number
+  errors: EnrichError[]
+}
+
+/** ====== 运行时数据聚合（前端用） ====== */
+
+/** 完整的软件（含版本和下载） */
+export interface SoftwareWithDetails extends Software {
+  versions: Version[]
+}
+
+/** 完整的版本（含下载） */
+export interface VersionWithDownloads extends Version {
+  downloads: Download[]
+}
+
+/** 完整应用状态（localStorage 存储模型） */
+export interface AppData {
+  index: IndexEntry[]
+  software: Record<string, Software[]>
+  versions: Record<string, Version[]>
+  downloads: Record<string, Download[]>
+  categories: Category[]
+  settings: Settings
+  iconAssets: IconAsset[]
+  backupManifest: { entries: any[]; updatedAt: string }
 }

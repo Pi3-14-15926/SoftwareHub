@@ -10,7 +10,7 @@
     <!--
       Content Security Policy
       - default-src 'self'：只允许同源资源
-      - script-src 'self' 'unsafe-inline' (Vue 模板编译) 'unsafe-eval' (Vite dev)
+      - script-src 'self' 'unsafe-inline' (Vue 模板编译) 'unsafe-eval' (Vite dev) + Cloudflare Insights
       - connect-src 允许 GitHub API (api.github.com)、jsDelivr (cdn.jsdelivr.net)、WebDAV (任何 https)、dev server
       - img-src 允许 data: (缩略图) 和 https (jsDelivr 图标)
       - style-src 'self' 'unsafe-inline' (Naive UI 内联样式)
@@ -20,7 +20,7 @@
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self';
-               script-src 'self' 'unsafe-inline' 'unsafe-eval';
+               script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com;
                style-src 'self' 'unsafe-inline';
                img-src 'self' data: https: blob:;
                font-src 'self' data:;

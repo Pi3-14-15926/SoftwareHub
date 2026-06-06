@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-import { useMessage, NUpload, NProgress, NAlert, NDrawer, NDrawerContent, NTag } from 'naive-ui'
+import { useMessage, NUpload, NProgress, NAlert, NDrawer, NDrawerContent, NTag, NInput, NSpace } from 'naive-ui'
 import type { UploadFileInfo } from 'naive-ui'
 import { useProjectStore } from '../../store/project'
 import { useCategoryStore } from '../../store/category'
 import { useSettingStore } from '../../store/settings'
 import { syncAllGitHub, getSoftwareVersions } from '../../utils/api'
-import { triggerSyncBackup } from '../../utils/githubRepo'
+import { triggerSyncBackup, getRepoInfo, setRepoInfo, clearRepoInfo } from '../../utils/githubRepo'
 import { commitAllData } from '../../utils/githubRepo'
 import { DEFAULT_SETTINGS } from '../../defaults'
 import { getToken } from '../../utils/auth'
@@ -134,6 +134,34 @@ const importProgress = ref(0)
 const baking = ref(false)
 const publishing = ref(false)
 const commitUrl = ref('')
+const repoInput = ref('')
+const currentRepo = ref('')
+
+onMounted(() => {
+  const r = getRepoInfo()
+  currentRepo.value = `${r.owner}/${r.repo}`
+  repoInput.value = currentRepo.value
+})
+
+function saveRepoConfig() {
+  const v = repoInput.value.trim()
+  if (!v || !v.includes('/')) {
+    message.error('请输入 owner/repo 格式，例如 Pi3-14-15926/SoftwareHub')
+    return
+  }
+  setRepoInfo(v)
+  const r = getRepoInfo()
+  currentRepo.value = `${r.owner}/${r.repo}`
+  message.success(`仓库已设为 ${currentRepo.value}`)
+}
+
+function resetRepoConfig() {
+  clearRepoInfo()
+  const r = getRepoInfo()
+  currentRepo.value = `${r.owner}/${r.repo}`
+  repoInput.value = currentRepo.value
+  message.success(`已重置为默认 ${currentRepo.value}`)
+}
 
 function exportData() {
   exporting.value = true
@@ -436,6 +464,19 @@ onMounted(() => {
             <div class="io-content">
               <h4 class="io-title">发布到 GitHub</h4>
               <p class="io-desc">将 localStorage 中的所有数据提交到仓库，触发 GitHub Pages 重新构建</p>
+              <div class="repo-config">
+                <NInput
+                  v-model:value="repoInput"
+                  placeholder="owner/repo"
+                  size="small"
+                  @keyup.enter="saveRepoConfig"
+                >
+                  <template #prefix>🐙</template>
+                </NInput>
+                <button class="btn-ghost btn-sm" @click="saveRepoConfig">保存</button>
+                <button class="btn-ghost btn-sm" @click="resetRepoConfig">重置</button>
+              </div>
+              <p class="io-meta">当前目标：<code>{{ currentRepo || '未配置' }}</code></p>
               <div class="action-row">
                 <button class="btn-primary" :disabled="publishing" @click="publishToRepo">
                   {{ publishing ? '提交中...' : '立即发布' }}
@@ -710,6 +751,27 @@ onMounted(() => {
 }
 .commit-link:hover { text-decoration: underline; }
 .import-progress { margin-top: 10px; }
+
+.repo-config {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.repo-config .n-input { flex: 1; min-width: 0; }
+.io-meta {
+  font-size: 0.76rem;
+  color: var(--text-tertiary);
+  margin: 0 0 10px;
+}
+.io-meta code {
+  font-family: var(--font-mono);
+  background: var(--color-card-soft);
+  padding: 1px 5px;
+  border-radius: 4px;
+  color: var(--text-sec);
+}
+.btn-sm { padding: 6px 12px !important; font-size: 0.82rem !important; }
 
 .info-alert {
   background: rgba(79, 140, 255, 0.06) !important;

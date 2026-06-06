@@ -24,16 +24,49 @@ interface RepoInfo {
   repo: string
 }
 
-/** 获取仓库信息 */
-export function getRepoInfo(): RepoInfo {
-  if (import.meta.env.PROD) {
-    const hostname = window.location.hostname
-    const pathname = window.location.pathname
-    const owner = hostname.split('.')[0]
-    const repo = pathname.split('/')[1]
-    return { owner, repo }
+const REPO_KEY = 'sh_admin_repo'
+const DEFAULT_REPO: RepoInfo = { owner: 'Pi3-14-15926', repo: 'SoftwareHub' }
+
+/** 保存仓库信息（owner/repo 格式） */
+export function setRepoInfo(repo: string): void {
+  const trimmed = repo.trim()
+  if (trimmed && trimmed.includes('/')) {
+    localStorage.setItem(REPO_KEY, trimmed)
   }
-  return { owner: 'Pi3-14-15926', repo: 'SoftwareHub' }
+}
+
+/** 清除自定义仓库配置（回退到派生/默认值） */
+export function clearRepoInfo(): void {
+  localStorage.removeItem(REPO_KEY)
+}
+
+/** 获取仓库信息
+ *  解析顺序：
+ *  1. localStorage 手动配置（最高优先，跨域名/子路径部署必须）
+ *  2. dev 环境硬编码默认值
+ *  3. 生产 + github.io 标准部署 → 从 URL 派生
+ *  4. 其他（自定义域名 + 子路径）→ 硬编码默认值（需用户在 Dashboard 配置）
+ */
+export function getRepoInfo(): RepoInfo {
+  try {
+    const stored = localStorage.getItem(REPO_KEY)
+    if (stored && stored.includes('/')) {
+      const [owner, repo] = stored.split('/', 2)
+      if (owner && repo) return { owner, repo }
+    }
+  } catch { /* localStorage 不可用时忽略 */ }
+
+  if (!import.meta.env.PROD) return DEFAULT_REPO
+
+  const hostname = window.location.hostname
+  const pathname = window.location.pathname
+  const owner = hostname.split('.')[0]
+  if (hostname.endsWith('.github.io')) {
+    const repo = pathname.split('/').filter(Boolean)[0]
+    if (repo) return { owner, repo }
+  }
+
+  return DEFAULT_REPO
 }
 
 /** GitHub API 请求头 */

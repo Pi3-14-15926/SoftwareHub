@@ -32,13 +32,12 @@ watch(() => settings.settings, (s) => {
 /* ===== 远程数据自动更新检测 ===== */
 const POLL_INTERVAL = 5 * 60 * 1000
 let pollTimer: number | null = null
-let messageApi: ReturnType<typeof useMessage> | null = null
+const messageApi = useMessage()
 
 async function checkRemoteUpdate(showToast: boolean) {
   try {
     const updated = await loadRemoteData()
     if (updated) {
-      messageApi = messageApi || useMessage()
       if (showToast) {
         messageApi.success('网站数据有更新，正在刷新...', { duration: 2000 })
         setTimeout(() => location.reload(), 1200)

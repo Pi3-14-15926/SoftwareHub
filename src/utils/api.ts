@@ -452,6 +452,9 @@ export async function loadRemoteData(): Promise<boolean> {
   const remoteTime = remoteManifest?.updatedAt
   const localTime = d.backupManifest?.updatedAt
 
+  // 远端 manifest 拉不到（CORS / 404 / 离线）→ 不覆盖本地，避免清空用户数据
+  if (!remoteTime) return false
+
   // 开发环境 + 本地有数据 → 跳过远程同步
   if (!import.meta.env.PROD && !isEmpty) return false
 
@@ -462,7 +465,7 @@ export async function loadRemoteData(): Promise<boolean> {
   }
 
   // 老用户：对比时间戳
-  if (localTime && remoteTime && localTime >= remoteTime) {
+  if (localTime && localTime >= remoteTime) {
     return false
   }
 

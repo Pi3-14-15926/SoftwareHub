@@ -7,15 +7,12 @@
     "description": "阅读Sigma是gedoor/legado的一个分支版本，在原有基础上增加更多功能，为书源带来更多可能性。",
     "logo": "https://avatars.githubusercontent.com/u/59725261?v=4",
     "featured": false,
-    "platforms": [
-      "Android"
-    ],
     "latestVersionId": "mpwomcwxfes2c9",
     "latestUpdateTime": "2026-03-21T14:12:43Z",
     "githubRepo": "Luoyacheng/legado",
     "githubUrl": "https://github.com/Luoyacheng/legado",
-    "stars": 1659,
-    "forks": 234
+    "stars": 1676,
+    "forks": 243
   },
   {
     "id": "mpwouieuddbq2d",
@@ -25,15 +22,12 @@
     "description": "使用 Material Design 3 全新设计的阅读 3.0",
     "logo": "https://avatars.githubusercontent.com/u/63206378?v=4",
     "featured": false,
-    "platforms": [
-      "Android"
-    ],
     "latestVersionId": "mq09gdgxjqukdv",
     "latestUpdateTime": "2026-06-03T17:11:22Z",
     "githubRepo": "HapeLee/legado-with-MD3",
     "githubUrl": "https://github.com/HapeLee/legado-with-MD3",
-    "stars": 4268,
-    "forks": 409
+    "stars": 4297,
+    "forks": 415
   },
   {
     "id": "mpwowqbvn123ig",
@@ -43,15 +37,12 @@
     "description": "开源阅读修改版，添加基于cron的定时任务支持。",
     "logo": "https://avatars.githubusercontent.com/u/70464410?v=4",
     "featured": false,
-    "platforms": [
-      "Android"
-    ],
     "latestVersionId": "mpwow55qsslhd1",
     "latestUpdateTime": "2026-05-29T20:44:25Z",
     "githubRepo": "skybbk1001/legadoT",
     "githubUrl": "https://github.com/skybbk1001/legadoT",
-    "stars": 33,
-    "forks": 8
+    "stars": 34,
+    "forks": 9
   },
   {
     "id": "mpwoxcif3y72eu",
@@ -61,14 +52,11 @@
     "description": "阅读Sigma是gedoor/legado的一个分支版本，在原有基础上增加更多功能，为书源带来更多可能性。",
     "logo": "https://avatars.githubusercontent.com/u/104863909?v=4",
     "featured": false,
-    "platforms": [
-      "Android"
-    ],
-    "latestVersionId": "mq09gedtfzef1m",
-    "latestUpdateTime": "2026-06-04T07:32:27Z",
+    "latestVersionId": "mq1ygoieurmp4a",
+    "latestUpdateTime": "2026-06-05T19:10:35Z",
     "githubRepo": "Rimchars/legado",
     "githubUrl": "https://github.com/Rimchars/legado",
-    "stars": 205,
+    "stars": 217,
     "forks": 11
   },
   {
@@ -79,16 +67,12 @@
     "description": "",
     "logo": "https://avatars.githubusercontent.com/u/223791923?v=4",
     "featured": false,
-    "platforms": [
-      "Windows",
-      "Android"
-    ],
     "latestVersionId": "mpwoxp6fccaoac",
     "latestUpdateTime": "2026-05-28T16:44:14Z",
     "githubRepo": "LegadoTeam/Legado-Tauri-Release",
     "githubUrl": "https://github.com/LegadoTeam/Legado-Tauri-Release",
-    "stars": 182,
-    "forks": 13
+    "stars": 180,
+    "forks": 14
   },
   {
     "id": "mpwp1hvpsn5ffl",
@@ -97,16 +81,28 @@
     "categorySlug": "yuedu",
     "description": "Legado 3.0 Book Reader with powerful controls & full functions❤️阅读3.0Max, 阅读Max是一款可以自定义来源阅读网络内容的工具，为网络爱好者提供一种方便、快捷舒适的试读体验。",
     "logo": "https://avatars.githubusercontent.com/u/110210241?v=4",
-    "featured": false,
-    "platforms": [
-      "Android"
-    ],
-    "latestVersionId": "mq09gfemcsp4bw",
-    "latestUpdateTime": "2026-06-04T15:18:17Z",
+    "featured": true,
+    "latestVersionId": "mq20s3m3cab22x",
+    "latestUpdateTime": "2026-06-05T14:32:41Z",
     "githubRepo": "youfengknight/Legado_Max",
     "githubUrl": "https://github.com/youfengknight/Legado_Max",
-    "stars": 165,
-    "forks": 18
+    "stars": 168,
+    "forks": 17
+  },
+  {
+    "id": "mq1yoxoecx1loi",
+    "name": "legado",
+    "slug": "legado",
+    "categorySlug": "yuedu",
+    "description": "阅读3.0, 阅读是一款可以自定义来源阅读网络内容的工具，为广大网络文学爱好者提供一种方便、快捷舒适的试读体验。",
+    "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/yuedu_mq1yodts.webp",
+    "featured": true,
+    "latestVersionId": "mq1zlwkh40byby",
+    "latestUpdateTime": "2026-05-24T00:00:00.000Z",
+    "githubRepo": "gedoor/legado",
+    "githubUrl": "https://github.com/gedoor/legado",
+    "stars": 46893,
+    "forks": 5717
   },
   {
     "id": "mpwreu1xdmxt5v",
@@ -115,37 +111,13 @@
     "categorySlug": "music",
     "description": "一个基于 Electron 的音乐软件",
     "logo": "https://avatars.githubusercontent.com/u/20365169?v=4",
-    "featured": false,
-    "platforms": [
-      "Linux",
-      "Other",
-      "MacOS",
-      "Windows"
-    ],
+    "featured": true,
     "latestVersionId": "mpwreeavwjr9sc",
     "latestUpdateTime": "2026-05-01T05:35:34Z",
     "githubRepo": "lyswhut/lx-music-desktop",
     "githubUrl": "https://github.com/lyswhut/lx-music-desktop",
-    "stars": 51371,
-    "forks": 6845
-  },
-  {
-    "id": "mpziqif08u08yz",
-    "name": "阅读官方版",
-    "slug": "legado",
-    "categorySlug": "yuedu",
-    "description": "阅读3.0, 阅读是一款可以自定义来源阅读网络内容的工具，为广大网络文学爱好者提供一种方便、快捷舒适的试读体验。",
-    "logo": "https://avatars.githubusercontent.com/u/38980554?v=4",
-    "featured": false,
-    "platforms": [
-      "Android"
-    ],
-    "latestVersionId": "mpzipgp53oltxn",
-    "latestUpdateTime": "2026-06-03T03:40:18Z",
-    "githubRepo": "huajideshutiao/legado",
-    "githubUrl": "https://github.com/huajideshutiao/legado",
-    "stars": 53,
-    "forks": 49
+    "stars": 51390,
+    "forks": 6848
   },
   {
     "id": "mpzjjzg2ylm14p",
@@ -154,19 +126,12 @@
     "categorySlug": "dongman",
     "description": "集找番、追番、看番的一站式弹幕追番平台，云收藏同步 (Bangumi)，离线缓存，BitTorrent，弹幕云过滤。100% Kotlin/Compose Multiplatform",
     "logo": "https://avatars.githubusercontent.com/u/166622089?v=4",
-    "featured": false,
-    "platforms": [
-      "Android",
-      "Linux",
-      "MacOS",
-      "Windows",
-      "Other"
-    ],
+    "featured": true,
     "latestVersionId": "mpzjjudy9mstsw",
     "latestUpdateTime": "2026-05-28T19:26:21Z",
     "githubRepo": "open-ani/animeko",
     "githubUrl": "https://github.com/open-ani/animeko",
-    "stars": 18138,
+    "stars": 18160,
     "forks": 483
   },
   {
@@ -177,18 +142,11 @@
     "description": "基于自定义规则的番剧采集APP，支持流媒体在线观看，支持弹幕，支持实时超分辨率。",
     "logo": "https://avatars.githubusercontent.com/u/34627277?v=4",
     "featured": false,
-    "platforms": [
-      "Android",
-      "Other",
-      "Linux",
-      "MacOS",
-      "Windows"
-    ],
     "latestVersionId": "mpzjknwaomh2fi",
     "latestUpdateTime": "2026-05-29T03:00:35Z",
     "githubRepo": "Predidit/Kazumi",
     "githubUrl": "https://github.com/Predidit/Kazumi",
-    "stars": 26040,
-    "forks": 748
+    "stars": 26106,
+    "forks": 750
   }
 ]

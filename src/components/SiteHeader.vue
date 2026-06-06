@@ -42,7 +42,7 @@ function goManage() { router.push('/admin') }
         </svg>
         <input
           v-model="keyword"
-          placeholder="搜索软件、分类或关键词..."
+          placeholder="搜索软件…"
           class="header-search-input"
           @keyup.enter="doSearch"
         />
@@ -228,12 +228,15 @@ function goManage() { router.push('/admin') }
   .logo-slogan { display: none; }
   .logo-name { font-size: 0.88rem; }
   .search-box { max-width: none; flex: 1; margin: 0; }
+  .search-icon { left: 10px; width: 14px; height: 14px; }
+  .header-search-input { height: 32px; font-size: 0.82rem; padding: 0 10px 0 30px; }
   .nav-link { padding: 6px 10px; font-size: 0.85rem; }
   .nav-pill { height: 32px; padding: 0 14px; font-size: 0.8rem; margin-left: 4px; }
 }
 @media (max-width: 480px) {
   .nav-inner { gap: 4px; padding: 4px 6px 4px 10px; }
   .logo-text { display: none; }
+  .header-search-input { font-size: 0.78rem; padding: 0 8px 0 28px; }
   .nav-link { padding: 5px 8px; font-size: 0.8rem; }
   .nav-pill { padding: 0 10px; font-size: 0.78rem; }
 }

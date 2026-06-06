@@ -370,7 +370,7 @@ function doSearch() {
 .not-found p { margin: 0; font-size: 0.95rem; }
 
 @media (max-width: 768px) {
-  .filter-bar { flex-wrap: wrap; padding: 10px 12px; }
+  .filter-bar { flex-wrap: wrap; padding: 10px 12px; border-radius: var(--radius-lg); }
   .filter-right { width: 100%; }
   .result-grid { grid-template-columns: 1fr; }
 }

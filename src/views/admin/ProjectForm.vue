@@ -260,10 +260,6 @@ async function handleLogoFile(file: File) {
     msg.error('请选择图片文件')
     return
   }
-  if (!import.meta.env.DEV) {
-    msg.warning('本地上传需要在 dev 模式下使用，请先用 URL 方式保存')
-    return
-  }
   uploadingLogo.value = true
   try {
     const compressed = await compressImage(file, { maxSize: 256, quality: 0.85 })

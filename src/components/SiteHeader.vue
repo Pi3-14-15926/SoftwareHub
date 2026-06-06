@@ -2,11 +2,14 @@
 import { ref, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useSettingStore } from '../store/settings'
+import { useIconUrl } from '../composables/useIconUrl'
 import { getCurrentUser } from '../utils/auth'
 
 const router = useRouter()
 const route = useRoute()
 const settings = useSettingStore()
+const { resolve } = useIconUrl()
+const siteLogo = computed(() => resolve(settings.settings.logo))
 const keyword = ref('')
 
 const user = computed(() => getCurrentUser())
@@ -25,7 +28,7 @@ function goManage() { router.push('/admin') }
   <header class="site-header">
     <div class="nav-inner glass-card">
       <a class="logo-link" @click="goHome" role="button" tabindex="0" @keyup.enter="goHome">
-        <img v-if="settings.settings.logo" :src="settings.settings.logo" :alt="settings.settings.siteName" class="logo-img" />
+        <img v-if="siteLogo" :src="siteLogo" :alt="settings.settings.siteName" class="logo-img" />
         <span v-else class="logo-mark">🐺</span>
         <div class="logo-text">
           <div class="logo-name">{{ settings.settings.siteName }}</div>

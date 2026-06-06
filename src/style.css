@@ -90,6 +90,22 @@
   --space-6: 40px;
   --space-7: 48px;
   --space-8: 64px;
+
+  /* === Admin v2 设计 token === */
+  --admin-sidebar-w: 280px;
+  --admin-header-h: 72px;
+  --admin-radius-card: 24px;
+  --admin-radius-input: 14px;
+  --admin-radius-btn: 14px;
+  --admin-shadow-card: 0 10px 40px rgba(15, 23, 42, 0.05);
+  --admin-shadow-card-hover: 0 16px 48px rgba(15, 23, 42, 0.08);
+  --admin-bg: #F6F8FC;
+  --admin-card: #FFFFFF;
+  --admin-border: #EDF1F5;
+  --admin-gradient: linear-gradient(135deg, #4F8CFF 0%, #8C6CFF 100%);
+  --admin-login-gradient: linear-gradient(135deg, #EEF4FF 0%, #F6F2FF 100%);
+  --admin-header-bg: #FFFFFF;
+  --admin-sider-bg: rgba(255, 255, 255, 0.7);
 }
 
 * { box-sizing: border-box; }
@@ -173,6 +189,20 @@ button {
   50% { opacity: 0.6; }
 }
 
+/* === Admin v2 页面切换动画 === */
+.admin-fade-enter-active,
+.admin-fade-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.admin-fade-enter-from {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.admin-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
@@ -201,19 +231,19 @@ button {
   gap: 6px;
   height: 40px;
   padding: 0 20px;
-  border-radius: var(--radius-md);
-  background: var(--gradient-primary);
+  border-radius: var(--admin-radius-btn);
+  background: var(--admin-gradient);
   color: var(--text-on-primary);
   font-weight: 600;
   font-size: 0.95rem;
   border: none;
   cursor: pointer;
-  box-shadow: var(--shadow-primary);
-  transition: transform 0.15s ease, box-shadow 0.18s ease;
+  box-shadow: 0 6px 20px rgba(52, 120, 246, 0.28);
+  transition: transform 0.18s ease, box-shadow 0.22s ease;
 }
 .btn-primary:hover:not(:disabled) {
-  transform: translateY(-1px) scale(1.02);
-  box-shadow: var(--shadow-primary-hover);
+  transform: scale(1.03);
+  box-shadow: 0 10px 28px rgba(52, 120, 246, 0.36);
 }
 .btn-primary:active:not(:disabled) { transform: scale(0.98); }
 .btn-primary:disabled { opacity: 0.55; cursor: not-allowed; }
@@ -225,18 +255,18 @@ button {
   gap: 6px;
   height: 40px;
   padding: 0 20px;
-  border-radius: var(--radius-md);
+  border-radius: var(--admin-radius-btn);
   background: var(--color-card-soft);
   color: var(--text-main);
   font-weight: 600;
   font-size: 0.95rem;
   border: 1px solid var(--border-strong);
   cursor: pointer;
-  transition: transform 0.15s ease, background 0.18s ease;
+  transition: transform 0.18s ease, background 0.18s ease;
 }
 .btn-secondary:hover:not(:disabled) {
   background: var(--color-bg);
-  transform: translateY(-1px);
+  transform: scale(1.03);
 }
 .btn-secondary:disabled { opacity: 0.55; cursor: not-allowed; }
 
@@ -247,15 +277,15 @@ button {
   gap: 6px;
   height: 40px;
   padding: 0 16px;
-  border-radius: var(--radius-md);
+  border-radius: var(--admin-radius-btn);
   background: transparent;
   color: var(--color-primary);
   font-weight: 600;
   border: none;
   cursor: pointer;
-  transition: background 0.18s ease;
+  transition: background 0.18s ease, transform 0.18s ease;
 }
-.btn-ghost:hover { background: var(--color-primary-soft); }
+.btn-ghost:hover { background: var(--color-primary-soft); transform: scale(1.03); }
 
 .tag {
   display: inline-flex;
@@ -276,6 +306,36 @@ button {
 .tag-red { background: rgba(255, 107, 107, 0.12); color: #E55353; }
 .tag-purple { background: rgba(140, 108, 255, 0.12); color: #6D4FD6; }
 .tag-blue { background: rgba(79, 193, 255, 0.12); color: #2A95D6; }
+
+/* === 后台页面标题（统一 7 个 admin 页面） === */
+.page-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+.page-title-emoji {
+  display: inline-block;
+  font-size: 1.6rem;
+  line-height: 1;
+  margin-right: 8px;
+  vertical-align: -3px;
+}
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+}
+.page-desc {
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+  margin: 0;
+  line-height: 1.5;
+}
 
 /* === NPopconfirm 间距修复 === */
 .n-popconfirm__panel { padding: 4px 0; }

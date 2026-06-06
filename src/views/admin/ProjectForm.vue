@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import { NInput, NButton, NSelect, NSpace, NCard, NAlert, NSwitch, useMessage } from 'naive-ui'
+import { NInput, NButton, NSelect, NSpace, NCard, NAlert, NSwitch, NPopconfirm, useMessage } from 'naive-ui'
 import { useProjectStore } from '../../store/project'
 import { useCategoryStore } from '../../store/category'
+import { useSettingStore } from '../../store/settings'
 import { fetchReleases, releaseToVersion, fetchRepoDetail } from '../../utils/github'
+import { compressImage, blobToBase64, fmtSize } from '../../utils/imageCompressor'
+import { uploadIcon, listIcons, type IconListItem } from '../../utils/iconsApi'
+import { resolveIconUrl, buildIconUrls } from '../../utils/iconUrl'
 import type { Version } from '../../types'
 import AdminLayout from '../../components/admin/AdminLayout.vue'
 
@@ -13,6 +17,7 @@ const route = useRoute()
 const msg = useMessage()
 const projects = useProjectStore()
 const categories = useCategoryStore()
+const settings = useSettingStore()
 
 const isEdit = computed(() => !!route.params.id)
 const existingProject = computed(() => projects.projects.find((p) => p.id === route.params.id))
@@ -90,6 +95,7 @@ async function doFetch() {
 
 onMounted(() => {
   categories.refresh()
+  settings.refresh()
   if (route.query.categoryId) {
     form.value.categoryId = route.query.categoryId as string
   }
@@ -102,6 +108,7 @@ onMounted(() => {
     }
     step.value = 'review'
   }
+  loadIconLibrary()
 })
 
 async function doSave() {
@@ -158,6 +165,85 @@ async function doSave() {
   saving.value = false
   msg.success(`项目「${p.name}」创建成功`)
   setTimeout(() => router.push('/admin/projects'), 800)
+}
+
+/* === Logo 上传备选 === */
+const logoDragOver = ref(false)
+const uploadingLogo = ref(false)
+const logoFileInput = ref<HTMLInputElement | null>(null)
+const iconLibrary = ref<IconListItem[]>([])
+const iconPickerOpen = ref(false)
+const iconPickerKeyword = ref('')
+
+const previewLogoUrl = computed(() => {
+  if (!form.value.logo) return ''
+  return resolveIconUrl(form.value.logo, settings.settings)
+})
+
+const filteredLibraryIcons = computed(() => {
+  if (!iconPickerKeyword.value.trim()) return iconLibrary.value
+  const kw = iconPickerKeyword.value.toLowerCase()
+  return iconLibrary.value.filter((i) => i.name.toLowerCase().includes(kw))
+})
+
+async function loadIconLibrary() {
+  if (!import.meta.env.DEV) return
+  try {
+    const r = await listIcons()
+    iconLibrary.value = r.items || []
+  } catch { iconLibrary.value = [] }
+}
+
+function logoCdnUrl(item: IconListItem): string {
+  return buildIconUrls(item.name, settings.settings.iconCdnMode || 'jsdelivr', settings.settings.iconCdnCustomBase).cdnUrl
+}
+
+function pickLogoFile() { logoFileInput.value?.click() }
+function onLogoDragOver(e: DragEvent) { e.preventDefault(); logoDragOver.value = true }
+function onLogoDragLeave() { logoDragOver.value = false }
+function onLogoDrop(e: DragEvent) {
+  e.preventDefault()
+  logoDragOver.value = false
+  const f = e.dataTransfer?.files?.[0]
+  if (f) handleLogoFile(f)
+}
+function onLogoFileChange(e: Event) {
+  const t = e.target as HTMLInputElement
+  if (t.files?.[0]) handleLogoFile(t.files[0])
+  t.value = ''
+}
+async function handleLogoFile(file: File) {
+  if (!file.type.startsWith('image/')) {
+    msg.error('请选择图片文件')
+    return
+  }
+  if (!import.meta.env.DEV) {
+    msg.warning('本地上传需要在 dev 模式下使用，请先用 URL 方式保存')
+    return
+  }
+  uploadingLogo.value = true
+  try {
+    const compressed = await compressImage(file, { maxSize: 256, quality: 0.85 })
+    const base64 = await blobToBase64(compressed.blob)
+    const result = await uploadIcon(compressed.filename, base64)
+    form.value.logo = result.rawUrl
+    msg.success(`已上传 ${result.name}（${fmtSize(result.size)}）`)
+    await loadIconLibrary()
+  } catch (e: any) {
+    msg.error(`上传失败: ${e.message}`)
+  }
+  uploadingLogo.value = false
+}
+
+function selectLibraryIcon(item: IconListItem) {
+  form.value.logo = item.rawUrl
+  iconPickerOpen.value = false
+  msg.success(`已选择: ${item.name}`)
+}
+
+function openIconPicker() {
+  iconPickerOpen.value = true
+  loadIconLibrary()
 }
 </script>
 
@@ -222,9 +308,53 @@ async function doSave() {
               <NInput v-model:value="form.description" type="textarea" rows="3" placeholder="软件简介" />
             </div>
 
-            <div class="field">
-              <label>Logo URL</label>
-              <NInput v-model:value="form.logo" placeholder="图片链接" />
+            <div class="field field-full">
+              <label>软件图标</label>
+              <div class="logo-field">
+                <div class="logo-preview">
+                  <img v-if="previewLogoUrl" :src="previewLogoUrl" :alt="form.name" />
+                  <div v-else class="logo-placeholder">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="logo-inputs">
+                  <NInput v-model:value="form.logo" placeholder="图标 URL（推荐，自动从仓库获取的 URL 即可）" />
+                  <div class="logo-actions">
+                    <button
+                      type="button"
+                      class="btn-secondary btn-sm"
+                      :class="{ drop: logoDragOver }"
+                      @click="pickLogoFile"
+                      @dragover="onLogoDragOver"
+                      @dragleave="onLogoDragLeave"
+                      @drop="onLogoDrop"
+                    >
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+                      </svg>
+                      {{ uploadingLogo ? '上传中...' : '本地上传' }}
+                    </button>
+                    <button type="button" class="btn-ghost btn-sm" @click="openIconPicker">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <polyline points="21 15 16 10 5 21"/>
+                      </svg>
+                      从图标库选择
+                    </button>
+                    <input ref="logoFileInput" type="file" accept="image/*" style="display:none" @change="onLogoFileChange" />
+                  </div>
+                  <p class="field-hint">
+                    <span v-if="form.logo">将自动通过 CDN 加速显示（当前设置：{{ settings.settings.iconCdnMode || 'jsdelivr' }}）</span>
+                    <span v-else>支持 URL · 本地上传（自动压缩为 256×256 WebP）· 从图标库选择</span>
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div class="field">
@@ -260,6 +390,37 @@ async function doSave() {
             </button>
             <button v-if="!isEdit" class="btn-secondary" @click="step = 'input'">返回修改仓库地址</button>
             <button class="btn-ghost" @click="router.push('/admin/projects')">取消</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 图标库选择弹窗 -->
+    <div v-if="iconPickerOpen" class="picker-mask" @click.self="iconPickerOpen = false">
+      <div class="picker-panel">
+        <header class="picker-head">
+          <div>
+            <h3 class="picker-title">从图标库选择</h3>
+            <p class="picker-sub">点击图标直接填入 URL（自动使用 CDN 加速）</p>
+          </div>
+          <button class="picker-close" @click="iconPickerOpen = false">×</button>
+        </header>
+        <div class="picker-search">
+          <input v-model="iconPickerKeyword" placeholder="搜索图标名..." class="picker-search-input" />
+        </div>
+        <div v-if="iconLibrary.length === 0" class="picker-empty">
+          <p>图标库还是空的，请先到「图标管理」页面上传图标</p>
+          <button class="btn-primary" @click="router.push('/admin/icons'); iconPickerOpen = false">前往图标管理</button>
+        </div>
+        <div v-else class="picker-grid">
+          <div
+            v-for="icon in filteredLibraryIcons"
+            :key="icon.name"
+            class="picker-tile"
+            @click="selectLibraryIcon(icon)"
+          >
+            <img :src="logoCdnUrl(icon) + '?v=' + Date.now()" :alt="icon.name" />
+            <div class="picker-name">{{ icon.name }}</div>
           </div>
         </div>
       </div>
@@ -311,8 +472,143 @@ async function doSave() {
 
 .form-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
+/* === Logo 字段 === */
+.logo-field {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.logo-preview {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #E0EAFE 0%, #EDE7FF 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+.logo-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+}
+.logo-placeholder { color: #9CA3AF; }
+.logo-inputs { flex: 1; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.logo-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.btn-sm { height: 32px !important; padding: 0 12px !important; font-size: 0.82rem !important; border-radius: 10px !important; }
+.btn-secondary.drop { background: var(--color-primary-soft); border-color: var(--color-primary); color: var(--color-primary); }
+
+/* === 图标库选择弹窗 === */
+.picker-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.picker-panel {
+  background: var(--admin-card);
+  border-radius: var(--admin-radius-card);
+  width: 100%;
+  max-width: 720px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: panelRise 0.25s ease;
+}
+@keyframes panelRise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.picker-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--admin-border);
+}
+.picker-title { font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin: 0 0 2px; }
+.picker-sub { font-size: 0.82rem; color: var(--text-tertiary); margin: 0; }
+.picker-close {
+  width: 32px; height: 32px;
+  border: none; background: var(--color-card-soft);
+  border-radius: 10px;
+  font-size: 1.2rem;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.picker-close:hover { background: rgba(229, 83, 83, 0.1); color: #E55353; }
+.picker-search { padding: 16px 24px; }
+.picker-search-input {
+  width: 100%;
+  height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--admin-border);
+  border-radius: var(--radius-full);
+  background: var(--color-card-soft);
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.15s;
+}
+.picker-search-input:focus { border-color: var(--color-primary); box-shadow: 0 0 0 3px var(--color-primary-soft); background: var(--admin-card); }
+.picker-grid {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 24px 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 12px;
+}
+.picker-tile {
+  background: var(--color-card-soft);
+  border: 1.5px solid var(--admin-border);
+  border-radius: 14px;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.picker-tile:hover { border-color: var(--color-primary); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06); }
+.picker-tile img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  margin-bottom: 6px;
+}
+.picker-name {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  color: var(--text-sec);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.picker-empty {
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--text-tertiary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
 @media (max-width: 768px) {
   .form-grid { grid-template-columns: 1fr; }
   .form-card { padding: 20px; }
+  .logo-field { flex-direction: column; }
+  .picker-panel { max-height: 90vh; }
+  .picker-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); }
 }
 </style>

@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import type { Project } from '../types'
 import { fmtCompact } from '../utils'
+import { useIconUrl } from '../composables/useIconUrl'
 
 const props = defineProps<{ project: Project; compact?: boolean }>()
+
+const { resolveProject } = useIconUrl()
+const logoUrl = computed(() => resolveProject(props.project))
 
 function totalDownloads(): number {
   return (props.project.versions || []).reduce(
@@ -16,7 +20,7 @@ function totalDownloads(): number {
 <template>
   <router-link :to="`/software/${project.slug}`" class="card">
     <div class="icon">
-      <img v-if="project.logo" :src="project.logo" :alt="project.name" />
+      <img v-if="logoUrl" :src="logoUrl" :alt="project.name" />
       <span v-else>{{ project.name[0] }}</span>
     </div>
     <h3 class="title">{{ project.name }}</h3>

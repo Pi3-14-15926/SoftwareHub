@@ -14,7 +14,7 @@ interface RepoInfo {
 }
 
 /** 获取仓库信息 */
-function getRepoInfo(): RepoInfo {
+export function getRepoInfo(): RepoInfo {
   if (import.meta.env.PROD) {
     const hostname = window.location.hostname
     const pathname = window.location.pathname

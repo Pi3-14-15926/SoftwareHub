@@ -4,14 +4,17 @@ import { useRoute, useRouter } from 'vue-router'
 import { useProjectStore } from '../store/project'
 import { useCategoryStore } from '../store/category'
 import { fmtDate, relTime, fmtCompact } from '../utils'
+import { useIconUrl } from '../composables/useIconUrl'
 import AmbientOrbs from '../components/AmbientOrbs.vue'
 
 const route = useRoute()
 const router = useRouter()
 const projects = useProjectStore()
 const categories = useCategoryStore()
+const { resolveProject } = useIconUrl()
 
 const project = computed(() => projects.bySlug(route.params.slug as string))
+const projectLogo = computed(() => resolveProject(project.value))
 const category = computed(() =>
   project.value ? categories.categories.find((c) => c.id === project.value!.categoryId) : null,
 )
@@ -68,7 +71,7 @@ function toggleHistoryDownloads(v: any) {
       <div class="detail-hero">
         <div class="hero-info">
           <div class="project-avatar">
-            <img v-if="project.logo" :src="project.logo" :alt="project.name" />
+            <img v-if="projectLogo" :src="projectLogo" :alt="project.name" />
             <span v-else>{{ project.name[0] }}</span>
           </div>
           <div class="hero-meta">

@@ -5,11 +5,13 @@ import { useProjectStore } from '../store/project'
 import { useCategoryStore } from '../store/category'
 import AmbientOrbs from '../components/AmbientOrbs.vue'
 import { fmtDate } from '../utils'
+import { useIconUrl } from '../composables/useIconUrl'
 
 const route = useRoute()
 const router = useRouter()
 const projects = useProjectStore()
 const categories = useCategoryStore()
+const { resolveProject } = useIconUrl()
 
 const cat = computed(() => categories.bySlug(route.params.slug as string))
 const list = computed(() => (cat.value ? projects.byCategory(cat.value.id) : []))
@@ -214,7 +216,7 @@ const tabs: { key: Tab; label: string; icon: string }[] = [
                 class="cat-row"
               >
                 <div class="cat-row-icon">
-                  <img v-if="p.logo" :src="p.logo" :alt="p.name" />
+                  <img v-if="p.logo" :src="resolveProject(p)" :alt="p.name" />
                   <span v-else>{{ p.name[0] }}</span>
                 </div>
                 <div class="cat-row-main">
@@ -260,7 +262,7 @@ const tabs: { key: Tab; label: string; icon: string }[] = [
                 class="cat-row"
               >
                 <div class="cat-row-icon">
-                  <img v-if="p.logo" :src="p.logo" :alt="p.name" />
+                  <img v-if="p.logo" :src="resolveProject(p)" :alt="p.name" />
                   <span v-else>{{ p.name[0] }}</span>
                 </div>
                 <div class="cat-row-main">
@@ -306,7 +308,7 @@ const tabs: { key: Tab; label: string; icon: string }[] = [
               >
                 <span :class="['rank-num', { 'rank-top': i < 3 }]">{{ (topPage - 1) * PAGE_SIZE + i + 1 }}</span>
                 <div class="cat-row-icon">
-                  <img v-if="p.logo" :src="p.logo" :alt="p.name" />
+                  <img v-if="p.logo" :src="resolveProject(p)" :alt="p.name" />
                   <span v-else>{{ p.name[0] }}</span>
                 </div>
                 <div class="cat-row-main">
@@ -377,7 +379,7 @@ const tabs: { key: Tab; label: string; icon: string }[] = [
                 class="aside-item"
               >
                 <div class="row-icon row-icon-sm">
-                  <img v-if="p.logo" :src="p.logo" :alt="p.name" />
+                  <img v-if="p.logo" :src="resolveProject(p)" :alt="p.name" />
                   <span v-else>{{ p.name[0] }}</span>
                 </div>
                 <div class="aside-info">

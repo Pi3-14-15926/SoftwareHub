@@ -4,12 +4,14 @@ import { useProjectStore } from '../store/project'
 import { useCategoryStore } from '../store/category'
 import { useSettingStore } from '../store/settings'
 import { fmtDate, fmtCompact } from '../utils'
+import { useIconUrl } from '../composables/useIconUrl'
 import ProjectCard from '../components/ProjectCard.vue'
 import AmbientOrbs from '../components/AmbientOrbs.vue'
 
 const projects = useProjectStore()
 const categories = useCategoryStore()
 const settings = useSettingStore()
+const { resolveProject } = useIconUrl()
 
 /* 分类图标（柔和渐变背景 + 字符） */
 const categoryIconColors: Record<string, string> = {
@@ -147,7 +149,7 @@ function categoryFor(cid: string) {
           </div>
           <div class="hero-visual">
             <div class="hero-icon-wrap">
-              <img v-if="p.logo" :src="p.logo" :alt="p.name" class="hero-icon" />
+              <img v-if="p.logo" :src="resolveProject(p)" :alt="p.name" class="hero-icon" />
               <span v-else-if="p.iconEmoji" class="hero-icon-emoji">{{ p.iconEmoji }}</span>
               <span v-else class="hero-icon-text">{{ p.name[0] }}</span>
             </div>
@@ -222,7 +224,7 @@ function categoryFor(cid: string) {
               class="row-item"
             >
               <div class="row-icon">
-                <img v-if="p.logo" :src="p.logo" :alt="p.name" />
+                <img v-if="p.logo" :src="resolveProject(p)" :alt="p.name" />
                 <span v-else>{{ p.name[0] }}</span>
               </div>
               <div class="row-info">

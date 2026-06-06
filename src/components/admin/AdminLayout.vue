@@ -1,22 +1,31 @@
 <script setup lang="ts">
 import { useRouter, useRoute } from 'vue-router'
 import { NButton, NDrawer, NDrawerContent, NAvatar, NDropdown } from 'naive-ui'
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useScheduler } from '../../composables/useScheduler'
 import { getCurrentUser, clearToken } from '../../utils/auth'
+import { useSettingStore } from '../../store/settings'
+import { useIconUrl } from '../../composables/useIconUrl'
 
 const router = useRouter()
 const route = useRoute()
+const settings = useSettingStore()
+const { resolve } = useIconUrl()
+const siteLogo = computed(() => resolve(settings.settings.logo))
+
+onMounted(() => { settings.refresh() })
 
 useScheduler()
 
 const menuOptions = [
-  { label: '仪表盘', key: '/admin/dashboard', icon: '📊' },
+  { label: '统计概览', key: '/admin/dashboard', icon: '📊' },
   { label: '软件管理', key: '/admin/projects', icon: '📦' },
   { label: '页面管理', key: '/admin/categories', icon: '📂' },
-  { label: 'WebDAV 备份', key: '/admin/backup', icon: '💾' },
-  { label: '导入导出', key: '/admin/backup-data', icon: '📋' },
+  { label: '图标管理', key: '/admin/icons', icon: '🖼️' },
+  { label: '备份管理', key: '/admin/backup-files', icon: '📁' },
   { label: '网站设置', key: '/admin/settings', icon: '⚙️' },
+  { label: '加速设置', key: '/admin/acceleration', icon: '⚡' },
+  { label: '功能设置', key: '/admin/features', icon: '🛠️' },
 ]
 
 const mobileOpen = ref(false)
@@ -41,13 +50,14 @@ function handleMenuUpdate(key: string) {
 
 <template>
   <div class="admin-layout">
-    <!-- 桌面端侧边栏 -->
+    <!-- 桌面端侧边栏：280px 毛玻璃 -->
     <aside class="desktop-sider">
       <div class="sider-brand" @click="router.push('/admin/dashboard')">
-        <span class="brand-mark">🐺</span>
+        <img v-if="siteLogo" :src="siteLogo" :alt="settings.settings.siteName" class="brand-img" />
+        <span v-else class="brand-mark">🐺</span>
         <div class="brand-text">
-          <div class="brand-name">Software Hub</div>
-          <div class="brand-sub">管理后台</div>
+          <div class="brand-name">{{ settings.settings.siteName || 'Software Hub' }}</div>
+          <div class="brand-sub">Admin Console</div>
         </div>
       </div>
       <nav class="sider-nav">
@@ -76,12 +86,13 @@ function handleMenuUpdate(key: string) {
     </aside>
 
     <div class="inner-layout">
+      <!-- 72px 圆角白色顶栏 -->
       <header class="admin-header">
         <div class="header-left">
           <NButton class="mobile-menu-btn" @click="mobileOpen = true" circle>
             <span style="font-size:1.2rem;line-height:1">☰</span>
           </NButton>
-          <span class="header-title">管理后台</span>
+          <h1 class="header-title">{{ route.meta?.title || '管理后台' }}</h1>
         </div>
         <div class="header-right">
           <button class="btn-ghost" @click="router.push('/')">
@@ -93,6 +104,10 @@ function handleMenuUpdate(key: string) {
             </svg>
             <span class="bell-dot"></span>
           </button>
+          <div v-if="user" class="header-user">
+            <NAvatar :src="user.avatar_url" size="small" round />
+            <span class="header-user-name">{{ user.login }}</span>
+          </div>
         </div>
       </header>
       <main class="admin-content">
@@ -102,7 +117,7 @@ function handleMenuUpdate(key: string) {
   </div>
 
   <!-- 移动端抽屉菜单 -->
-  <NDrawer v-model:show="mobileOpen" placement="left" :width="240">
+  <NDrawer v-model:show="mobileOpen" placement="left" :width="280">
     <NDrawerContent title="管理后台" closable>
       <nav class="drawer-nav">
         <a
@@ -127,97 +142,119 @@ function handleMenuUpdate(key: string) {
   display: flex;
   height: 100vh;
   overflow: hidden;
-  background: var(--color-bg);
+  background: var(--admin-bg);
 }
 
+/* ===== 侧边栏 280px 毛玻璃 ===== */
 .desktop-sider {
-  width: 220px;
+  width: var(--admin-sidebar-w);
   display: flex;
   flex-direction: column;
-  background: var(--color-card);
-  border-right: 1px solid var(--border-soft);
+  background: var(--admin-sider-bg);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-right: 1px solid var(--admin-border);
   flex-shrink: 0;
+  z-index: 2;
 }
 .sider-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 18px 18px;
+  gap: 12px;
+  padding: 22px 24px 20px;
   cursor: pointer;
-  border-bottom: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--admin-border);
 }
 .brand-mark {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: var(--radius-md);
-  background: var(--gradient-primary-soft);
+  background: var(--admin-gradient);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.4rem;
+  flex-shrink: 0;
+  box-shadow: 0 6px 20px rgba(79, 140, 255, 0.32);
 }
-.brand-text { line-height: 1.2; }
+.brand-img {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.brand-text { line-height: 1.2; min-width: 0; }
 .brand-name {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .brand-sub {
   font-size: 0.72rem;
   color: var(--text-tertiary);
-  margin-top: 1px;
+  margin-top: 2px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 .sider-nav {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 12px 8px;
-  gap: 2px;
+  padding: 16px 14px;
+  gap: 4px;
   overflow-y: auto;
 }
 .nav-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
-  border-radius: var(--radius-md);
+  gap: 12px;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 14px;
   color: var(--text-sec);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
   text-decoration: none;
-  transition: background 0.18s, color 0.18s;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 .nav-item:hover {
-  background: var(--color-card-soft);
+  background: rgba(79, 140, 255, 0.06);
   color: var(--text-main);
+  transform: translateX(2px);
 }
 .nav-item.active {
-  background: var(--gradient-primary-soft);
-  color: var(--color-primary);
+  background: var(--admin-gradient);
+  color: #FFFFFF;
   font-weight: 600;
+  box-shadow: 0 8px 24px rgba(79, 140, 255, 0.32);
 }
-.nav-icon { font-size: 1.1rem; line-height: 1; }
+.nav-icon { font-size: 1.15rem; line-height: 1; }
 .nav-label { flex: 1; }
 
 .sider-footer {
-  padding: 12px;
-  border-top: 1px solid var(--border-soft);
+  padding: 12px 14px 16px;
+  border-top: 1px solid var(--admin-border);
 }
 .user-card {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 10px;
-  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  border-radius: 14px;
   cursor: pointer;
-  transition: background 0.18s;
+  transition: background 0.2s ease;
 }
-.user-card:hover { background: var(--color-card-soft); }
+.user-card:hover { background: rgba(79, 140, 255, 0.06); }
 .user-info { flex: 1; min-width: 0; }
 .user-name {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--text-main);
   white-space: nowrap;
@@ -230,62 +267,86 @@ function handleMenuUpdate(key: string) {
 }
 .user-arrow { color: var(--text-tertiary); font-size: 0.9rem; }
 
+/* ===== 顶栏 72px 圆角白色 ===== */
 .inner-layout {
   flex: 1;
   display: flex;
   flex-direction: column;
   min-width: 0;
+  padding: 16px 16px 16px 0;
 }
 .admin-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
-  height: 60px;
-  background: var(--color-card);
-  border-bottom: 1px solid var(--border-soft);
+  padding: 0 28px;
+  height: var(--admin-header-h);
+  background: var(--admin-header-bg);
+  border-radius: var(--admin-radius-card);
+  box-shadow: var(--admin-shadow-card);
   flex-shrink: 0;
+  margin-bottom: 16px;
 }
 .header-left { display: flex; align-items: center; gap: 12px; }
 .header-title {
+  margin: 0;
+  font-size: 1.15rem;
   font-weight: 700;
-  font-size: 1rem;
   color: var(--text-main);
+  letter-spacing: 0.2px;
 }
-.header-right { display: flex; align-items: center; gap: 8px; }
+.header-right { display: flex; align-items: center; gap: 12px; }
 .header-bell {
   position: relative;
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-md);
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
   border: none;
-  background: transparent;
+  background: var(--color-card-soft);
   color: var(--text-sec);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.18s;
+  transition: background 0.18s, transform 0.18s;
 }
-.header-bell:hover { background: var(--color-card-soft); color: var(--text-main); }
+.header-bell:hover { background: var(--color-primary-soft); color: var(--color-primary); transform: scale(1.05); }
 .bell-dot {
   position: absolute;
   top: 8px;
-  right: 8px;
+  right: 9px;
   width: 8px;
   height: 8px;
   background: var(--color-error);
   border-radius: 50%;
-  border: 2px solid var(--color-card);
+  border: 2px solid var(--admin-header-bg);
+}
+.header-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px 4px 4px;
+  border-radius: var(--radius-full);
+  background: var(--color-card-soft);
+}
+.header-user-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
 }
 
 .admin-content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  padding: 0 12px 12px 0;
   overflow: auto;
   min-height: 0;
+  animation: admin-fade-in 0.25s ease;
+}
+@keyframes admin-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .mobile-menu-btn { display: none; }
@@ -293,31 +354,35 @@ function handleMenuUpdate(key: string) {
 .drawer-nav {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+  padding: 8px 0;
 }
 .drawer-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 14px;
-  border-radius: var(--radius-md);
+  gap: 12px;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 14px;
   color: var(--text-sec);
   font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
   text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
 }
-.drawer-item:hover { background: var(--color-card-soft); color: var(--text-main); }
-.drawer-item.active { background: var(--gradient-primary-soft); color: var(--color-primary); font-weight: 600; }
-.drawer-footer { margin-top: 16px; }
+.drawer-item:hover { background: rgba(79, 140, 255, 0.06); color: var(--text-main); }
+.drawer-item.active { background: var(--admin-gradient); color: #FFFFFF; font-weight: 600; }
+.drawer-footer { margin-top: 20px; }
 .drawer-footer .btn-secondary { width: 100%; }
 
-@media (min-width: 769px) {
-  .header-title { display: none; }
-}
 @media (max-width: 768px) {
   .desktop-sider { display: none; }
   .mobile-menu-btn { display: inline-flex; }
-  .admin-content { padding: 16px 12px; }
+  .inner-layout { padding: 12px 12px 12px 0; }
+  .admin-header { padding: 0 16px; border-radius: 18px; }
+  .header-title { font-size: 1rem; }
+  .header-user-name { display: none; }
+  .header-user { padding: 4px; }
 }
 </style>

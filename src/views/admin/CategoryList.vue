@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted, h } from 'vue'
+import { ref, computed, onMounted, h } from 'vue'
 import { useRouter } from 'vue-router'
-import { NButton, NInput, NDataTable, NSpace, NPopconfirm, NModal, NForm, NFormItem, NInputNumber, useMessage } from 'naive-ui'
+import { NInput, NInputNumber, NModal, NForm, NFormItem, NPopconfirm, NSwitch, NCheckbox, useMessage } from 'naive-ui'
 import { useCategoryStore } from '../../store/category'
 import { useProjectStore } from '../../store/project'
 import type { Category } from '../../types'
@@ -16,8 +16,93 @@ const showModal = ref(false)
 const editingCat = ref<Category | null>(null)
 const form = ref({ name: '', slug: '', icon: '', description: '', sortOrder: 0 })
 
+/* 搜索关键词 */
+const keyword = ref('')
+
+/* 批量选中 */
+const selectedIds = ref<Set<string>>(new Set())
+
+/* 分页 */
+const page = ref(1)
+const pageSize = 12
+
+/* 状态开关：localStorage 持久化，键 'sh_page_disabled' */
+const DISABLED_KEY = 'sh_page_disabled'
+const disabledIds = ref<Set<string>>(new Set(JSON.parse(localStorage.getItem(DISABLED_KEY) || '[]')))
+function toggleEnabled(id: string) {
+  if (disabledIds.value.has(id)) disabledIds.value.delete(id)
+  else disabledIds.value.add(id)
+  localStorage.setItem(DISABLED_KEY, JSON.stringify([...disabledIds.value]))
+}
+function isEnabled(id: string) { return !disabledIds.value.has(id) }
+
+/* 派生：每个页面的项目数 */
 function projectCount(catId: string) {
   return projStore.projects.filter((p) => p.categoryId === catId).length
+}
+
+/* 过滤后的列表 */
+const filteredCats = computed(() => {
+  const kw = keyword.value.trim().toLowerCase()
+  let list = catStore.categories
+  if (kw) {
+    list = list.filter((c) =>
+      c.name.toLowerCase().includes(kw) ||
+      c.slug.toLowerCase().includes(kw) ||
+      (c.description || '').toLowerCase().includes(kw) ||
+      (c.icon || '').toLowerCase().includes(kw)
+    )
+  }
+  return [...list].sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0))
+})
+
+const totalPages = computed(() => Math.max(1, Math.ceil(filteredCats.value.length / pageSize)))
+const pagedCats = computed(() => {
+  const start = (page.value - 1) * pageSize
+  return filteredCats.value.slice(start, start + pageSize)
+})
+function jumpPage(p: number) {
+  if (p < 1 || p > totalPages.value) return
+  page.value = p
+}
+
+const allSelected = computed(() => pagedCats.value.length > 0 && pagedCats.value.every((c) => selectedIds.value.has(c.id)))
+const someSelected = computed(() => pagedCats.value.some((c) => selectedIds.value.has(c.id)) && !allSelected.value)
+function toggleSelectAll() {
+  if (allSelected.value) {
+    pagedCats.value.forEach((c) => selectedIds.value.delete(c.id))
+  } else {
+    pagedCats.value.forEach((c) => selectedIds.value.add(c.id))
+  }
+}
+function toggleSelectOne(id: string) {
+  if (selectedIds.value.has(id)) selectedIds.value.delete(id)
+  else selectedIds.value.add(id)
+}
+function clearSelection() {
+  selectedIds.value.clear()
+}
+
+function bulkDelete() {
+  if (selectedIds.value.size === 0) return
+  const ids = [...selectedIds.value]
+  const withProjects = ids.filter((id) => projectCount(id) > 0)
+  let msg = `确定要删除选中的 ${ids.length} 个页面吗？`
+  if (withProjects.length > 0) {
+    msg += `\n\n其中 ${withProjects.length} 个页面下有关联软件，软件不会被删除，但将无法从这些页面访问。`
+  }
+  if (!confirm(msg)) return
+  ids.forEach((id) => catStore.remove(id))
+  message.success(`已删除 ${ids.length} 个页面`)
+  clearSelection()
+}
+function bulkEnable(enable: boolean) {
+  selectedIds.value.forEach((id) => {
+    if (enable) disabledIds.value.delete(id)
+    else disabledIds.value.add(id)
+  })
+  localStorage.setItem(DISABLED_KEY, JSON.stringify([...disabledIds.value]))
+  message.success(enable ? `已启用 ${selectedIds.value.size} 个页面` : `已禁用 ${selectedIds.value.size} 个页面`)
 }
 
 function openNew() {
@@ -47,41 +132,25 @@ function doSave() {
   message.success('保存成功')
 }
 
-function doDelete(id: string) {
-  const count = projectCount(id)
-  if (count > 0 && !confirm(`此页面下有 ${count} 个关联软件，确定要删除吗？（软件不会丢失，但将无法从页面访问）`)) return
-  catStore.remove(id)
+function doDelete(c: Category) {
+  const count = projectCount(c.id)
+  if (count > 0 && !confirm(`此页面下有 ${count} 个关联软件，确定要删除吗？\n（软件不会被删除，但将无法从此页面访问）`)) return
+  catStore.remove(c.id)
   message.success('已删除')
 }
 
-const pageColumns = [
-  { title: '排序', key: 'sortOrder', width: 70, render: (row: Category) => h('span', { class: 'order-num' }, row.sortOrder ?? 0) },
-  { title: '图标', key: 'icon', width: 70, render: (row: Category) => h('span', { class: 'cat-icon-cell' }, row.icon || '📦') },
-  {
-    title: '名称', key: 'name', width: 160,
-    render(row: Category) {
-      return h('a', {
-        class: 'cat-name-link',
-        onClick: () => router.push(`/admin/categories/${row.id}/projects`),
-      }, row.name)
-    },
-  },
-  { title: 'Slug', key: 'slug', width: 110, render: (row: Category) => h('code', { class: 'slug-code' }, row.slug) },
-  { title: '描述', key: 'description', ellipsis: { tooltip: true }, render: (row: Category) => row.description || '—' },
-  { title: '软件数', key: 'projectCount', width: 80, render: (row: Category) => h('span', { class: 'count-badge' }, projectCount(row.id)) },
-  {
-    title: '操作', key: 'actions', width: 160,
-    render(row: Category) {
-      return h(NSpace, { size: 'small' }, () => [
-        h(NButton, { size: 'small', type: 'primary', onClick: () => openEdit(row) }, () => '编辑'),
-        h(NPopconfirm, { positiveText: '确认', negativeText: '取消', onPositiveClick: () => doDelete(row.id) }, {
-          default: () => '确定删除此页面？',
-          trigger: () => h(NButton, { size: 'small', type: 'error', tertiary: true }, () => '删除'),
-        }),
-      ])
-    },
-  },
-]
+function preview(c: Category) {
+  window.open(`/category/${c.slug}`, '_blank')
+}
+
+/* 智能分页：1 ... 4 5 6 ... N */
+const pageNumbers = computed(() => {
+  const total = totalPages.value
+  const cur = page.value
+  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1)
+  const set = new Set<number>([1, total, cur, cur - 1, cur + 1])
+  return [...set].filter((n) => n >= 1 && n <= total).sort((a, b) => a - b)
+})
 
 onMounted(() => {
   catStore.refresh()
@@ -91,114 +160,585 @@ onMounted(() => {
 
 <template>
   <AdminLayout>
-    <div class="list-page">
-      <div class="page-header">
+    <div class="pages-page">
+      <!-- 顶部操作区 -->
+      <header class="page-head">
         <div>
-          <h2 class="page-title">📂 页面管理</h2>
-          <p class="page-desc">前台页面的统一管理</p>
+          <h2 class="page-title"><span class="page-title-emoji">📂</span>页面管理</h2>
+          <p class="page-desc">前台页面的统一管理 · 共 {{ catStore.categories.length }} 个页面</p>
         </div>
-        <NButton type="primary" size="large" @click="openNew">➕ 新增页面</NButton>
+        <div class="head-actions">
+          <div class="search-bar">
+            <svg class="search-icon" viewBox="0 0 24 24" width="16" height="16">
+              <path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14Z"/>
+            </svg>
+            <input
+              v-model="keyword"
+              placeholder="搜索页面名称 / 路径 / 标签..."
+              class="search-input"
+            />
+            <button v-if="keyword" class="search-clear" @click="keyword = ''">×</button>
+          </div>
+          <button class="btn-primary btn-add" @click="openNew">
+            <span class="add-icon">＋</span>
+            新增页面
+          </button>
+        </div>
+      </header>
+
+      <!-- 批量操作条 -->
+      <transition name="bulk-bar">
+        <div v-if="selectedIds.size > 0" class="bulk-bar">
+          <div class="bulk-info">
+            <span class="bulk-count">{{ selectedIds.size }}</span>
+            <span>个页面已选中</span>
+          </div>
+          <div class="bulk-actions">
+            <button class="btn-ghost" @click="bulkEnable(true)">✓ 批量启用</button>
+            <button class="btn-ghost" @click="bulkEnable(false)">⏸ 批量禁用</button>
+            <NPopconfirm positive-text="确认删除" negative-text="取消" @positive-click="bulkDelete">
+              <template #trigger>
+                <button class="btn-ghost bulk-danger">🗑 批量删除</button>
+              </template>
+              确定要删除选中的 {{ selectedIds.size }} 个页面吗？
+            </NPopconfirm>
+            <button class="btn-ghost" @click="clearSelection">取消</button>
+          </div>
+        </div>
+      </transition>
+
+      <!-- 列表 -->
+      <div v-if="catStore.categories.length === 0" class="empty-state">
+        <div class="empty-icon">📂</div>
+        <p>还没有任何页面，点击右上角"新增页面"开始创建</p>
+      </div>
+      <div v-else-if="pagedCats.length === 0" class="empty-state">
+        <div class="empty-icon">🔍</div>
+        <p>没有匹配 "{{ keyword }}" 的页面</p>
+      </div>
+      <div v-else class="page-grid">
+        <article
+          v-for="c in pagedCats"
+          :key="c.id"
+          :class="['page-card', { disabled: !isEnabled(c.id) }]"
+        >
+          <!-- 顶部：复选框 + 排序 + 类型标签 -->
+          <div class="pc-top">
+            <NCheckbox
+              :checked="selectedIds.has(c.id)"
+              @update:checked="toggleSelectOne(c.id)"
+            />
+            <span class="order-num">{{ c.sortOrder ?? 0 }}</span>
+            <span :class="['type-tag', projectCount(c.id) > 0 ? 'type-dynamic' : 'type-static']">
+              <span class="type-dot"></span>
+              {{ projectCount(c.id) > 0 ? '动态' : '静态' }}
+            </span>
+          </div>
+
+          <!-- 中部：图标 + 名称 + 路径 -->
+          <div class="pc-mid">
+            <div class="pc-icon">{{ c.icon || '📦' }}</div>
+            <div class="pc-info">
+              <h3 class="pc-name" @click="router.push(`/admin/categories/${c.id}/projects`)">{{ c.name }}</h3>
+              <div class="pc-slug-row">
+                <code class="pc-slug">/category/{{ c.slug }}</code>
+              </div>
+              <p v-if="c.description" class="pc-desc" :title="c.description">{{ c.description }}</p>
+              <p v-else class="pc-desc pc-desc-empty">暂无描述</p>
+            </div>
+          </div>
+
+          <!-- 底部：项目数 + 状态开关 + 操作 -->
+          <footer class="pc-foot">
+            <div class="pc-meta">
+              <span class="meta-item">
+                <span class="meta-icon">📦</span>
+                <span class="meta-val">{{ projectCount(c.id) }}</span>
+                <span class="meta-label">个软件</span>
+              </span>
+              <span class="meta-item">
+                <span class="meta-icon">📅</span>
+                <span class="meta-label">创建于近期</span>
+              </span>
+            </div>
+            <div class="pc-status">
+              <span class="status-text">{{ isEnabled(c.id) ? '已启用' : '已禁用' }}</span>
+              <NSwitch
+                :value="isEnabled(c.id)"
+                size="small"
+                @update:value="toggleEnabled(c.id)"
+              />
+            </div>
+          </footer>
+
+          <div class="pc-actions">
+            <button class="pc-btn" title="预览前台" @click="preview(c)">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+              </svg>
+              预览
+            </button>
+            <button class="pc-btn" title="管理软件" @click="router.push(`/admin/categories/${c.id}/projects`)">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+              软件
+            </button>
+            <button class="pc-btn" title="编辑" @click="openEdit(c)">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+              </svg>
+              编辑
+            </button>
+            <NPopconfirm positive-text="确认删除" negative-text="取消" @positive-click="doDelete(c)">
+              <template #trigger>
+                <button class="pc-btn pc-btn-danger" title="删除">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                    <path d="M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                  </svg>
+                  删除
+                </button>
+              </template>
+              确定删除「{{ c.name }}」？<br />
+              <small v-if="projectCount(c.id) > 0" style="color: var(--text-tertiary);">
+                此页面下有 {{ projectCount(c.id) }} 个软件
+              </small>
+            </NPopconfirm>
+          </div>
+        </article>
       </div>
 
-      <div class="content-card">
-        <NDataTable
-          :columns="pageColumns"
-          :data="catStore.categories"
-          :row-key="(row: Category) => row.id"
-          :bordered="false"
-          size="medium"
-          striped
-        />
-      </div>
+      <!-- 分页 -->
+      <nav v-if="totalPages > 1" class="pager">
+        <button class="pg-btn" :disabled="page === 1" @click="jumpPage(page - 1)">‹</button>
+        <template v-for="(n, i) in pageNumbers" :key="i">
+          <span v-if="i > 0 && n - pageNumbers[i - 1] > 1" class="pg-ellipsis">…</span>
+          <button
+            :class="['pg-btn', { active: n === page }]"
+            @click="jumpPage(n)"
+          >{{ n }}</button>
+        </template>
+        <button class="pg-btn" :disabled="page === totalPages" @click="jumpPage(page + 1)">›</button>
+        <span class="pg-info">第 {{ page }} / {{ totalPages }} 页 · 共 {{ filteredCats.length }} 个</span>
+      </nav>
     </div>
 
-    <NModal v-model:show="showModal" preset="card" :title="editingCat ? '编辑页面' : '新增页面'" style="max-width: 520px; border-radius: var(--radius-lg);">
+    <!-- 新增/编辑弹窗 -->
+    <NModal v-model:show="showModal" preset="card" :title="editingCat ? '编辑页面' : '新增页面'" style="max-width: 520px; border-radius: var(--admin-radius-card);">
       <NForm :model="form" label-placement="top">
         <NFormItem label="名称" required>
-          <NInput v-model:value="form.name" placeholder="如: 阅读工具" />
+          <NInput v-model:value="form.name" placeholder="如: 阅读工具" size="large" />
         </NFormItem>
         <NFormItem label="Slug（URL 标识）" required>
-          <NInput v-model:value="form.slug" placeholder="如: reader" />
+          <NInput v-model:value="form.slug" placeholder="如: reader" size="large" />
         </NFormItem>
         <NFormItem label="图标（Emoji）">
-          <NInput v-model:value="form.icon" placeholder="如: 📖" />
+          <NInput v-model:value="form.icon" placeholder="如: 📖" size="large" />
         </NFormItem>
         <NFormItem label="描述">
           <NInput v-model:value="form.description" type="textarea" rows="2" placeholder="此页面聚合了哪些软件..." />
         </NFormItem>
         <NFormItem label="排序">
-          <NInputNumber v-model:value="form.sortOrder" :min="0" style="width: 100%" />
+          <NInputNumber v-model:value="form.sortOrder" :min="0" style="width: 100%" size="large" />
         </NFormItem>
       </NForm>
       <template #footer>
-        <NSpace justify="end">
-          <NButton @click="showModal = false">取消</NButton>
-          <NButton type="primary" @click="doSave">保存</NButton>
-        </NSpace>
+        <div style="display: flex; justify-content: flex-end; gap: 10px;">
+          <button class="btn-secondary" @click="showModal = false">取消</button>
+          <button class="btn-primary" @click="doSave">保存</button>
+        </div>
       </template>
     </NModal>
   </AdminLayout>
 </template>
 
 <style scoped>
-.list-page { display: flex; flex-direction: column; gap: 16px; flex: 1; min-height: 0; }
-.page-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; }
-.page-title { margin: 0; font-size: 1.4rem; font-weight: 700; color: var(--text-main); }
-.page-desc { margin: 4px 0 0; font-size: 0.88rem; color: var(--text-tertiary); }
-.content-card {
-  background: var(--color-card);
-  border: 1px solid var(--border-soft);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  padding: 20px;
+.pages-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   flex: 1;
   min-height: 0;
+  padding-left: 25px;
+  margin-right: -3px;
 }
 
-:deep(.order-num) {
+/* === 顶部操作区 === */
+.head-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.btn-add {
+  height: 48px;
+  padding: 0 24px;
+  font-size: 1rem;
+  font-weight: 700;
+  gap: 6px;
+}
+.add-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.search-bar {
+  position: relative;
+  background: var(--admin-card);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--radius-full);
+  box-shadow: var(--admin-shadow-card);
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  height: 48px;
+  width: 320px;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.search-bar:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px var(--color-primary-soft);
+}
+.search-icon { color: var(--text-tertiary); flex-shrink: 0; }
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.92rem;
+  color: var(--text-main);
+  margin-left: 10px;
+  height: 100%;
+}
+.search-input::placeholder { color: var(--text-tertiary); }
+.search-clear {
+  width: 22px; height: 22px;
+  border: none;
+  background: var(--color-card-soft);
+  color: var(--text-tertiary);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+.search-clear:hover { background: var(--color-primary-soft); color: var(--color-primary); }
+
+/* === 批量操作条 === */
+.bulk-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, rgba(79, 140, 255, 0.08), rgba(140, 108, 255, 0.08));
+  border: 1px solid rgba(79, 140, 255, 0.22);
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(79, 140, 255, 0.08);
+}
+.bulk-info { display: flex; align-items: center; gap: 6px; font-size: 0.9rem; color: var(--text-sec); }
+.bulk-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 8px;
+  border-radius: var(--radius-full);
+  background: var(--admin-gradient);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+.bulk-actions { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.bulk-danger:hover { color: #E55353 !important; background: rgba(229, 83, 83, 0.1) !important; }
+.bulk-bar-enter-active, .bulk-bar-leave-active { transition: opacity 0.2s ease, transform 0.2s ease; }
+.bulk-bar-enter-from, .bulk-bar-leave-to { opacity: 0; transform: translateY(-4px); }
+
+/* === 卡片网格 === */
+.page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+.page-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px 20px;
+  background: var(--admin-card);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius-card);
+  box-shadow: var(--admin-shadow-card);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.page-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--admin-shadow-card-hover);
+}
+.page-card.disabled { opacity: 0.6; }
+.page-card.disabled::before {
+  content: '';
+  position: absolute;
+  top: 12px; right: -36px;
+  width: 120px;
+  text-align: center;
+  background: var(--text-tertiary);
+  color: #FFFFFF;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 2px 0;
+  transform: rotate(35deg);
+  z-index: 1;
+}
+
+/* 卡片顶部 */
+.pc-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 2;
+}
+.order-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 6px;
+  border-radius: var(--radius-full);
   background: var(--color-card-soft);
   color: var(--text-sec);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
 }
-:deep(.cat-icon-cell) { font-size: 1.2rem; }
-:deep(.cat-name-link) {
-  color: var(--color-primary);
+.type-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 22px;
+  padding: 0 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
   font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
+  margin-left: auto;
 }
-:deep(.cat-name-link):hover { text-decoration: underline; }
-:deep(.slug-code) {
+.type-tag .type-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+}
+.type-dynamic {
+  background: linear-gradient(135deg, rgba(79, 140, 255, 0.12), rgba(52, 120, 246, 0.12));
+  color: #2563EB;
+}
+.type-dynamic .type-dot { background: #3478F6; }
+.type-static {
+  background: linear-gradient(135deg, rgba(140, 108, 255, 0.12), rgba(140, 108, 255, 0.12));
+  color: #6D4FD6;
+}
+.type-static .type-dot { background: #8C6CFF; }
+
+/* 卡片中部 */
+.pc-mid {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.pc-icon {
+  width: 52px; height: 52px;
+  border-radius: 16px;
+  background: var(--admin-gradient);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.7rem;
+  flex-shrink: 0;
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px rgba(79, 140, 255, 0.28);
+}
+.pc-info { flex: 1; min-width: 0; }
+.pc-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.18s ease;
+}
+.pc-name:hover { color: var(--color-primary); }
+.pc-slug-row { margin-bottom: 6px; }
+.pc-slug {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   background: var(--color-card-soft);
   padding: 2px 8px;
-  border-radius: 4px;
+  border-radius: 6px;
   color: var(--color-primary);
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
 }
-:deep(.count-badge) {
+.pc-desc {
+  font-size: 0.82rem;
+  color: var(--text-sec);
+  line-height: 1.5;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.pc-desc-empty { color: var(--text-tertiary); font-style: italic; }
+
+/* 卡片底部 */
+.pc-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--admin-border);
+}
+.pc-meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.meta-item { display: inline-flex; align-items: center; gap: 4px; font-size: 0.78rem; color: var(--text-tertiary); }
+.meta-icon { font-size: 0.85rem; }
+.meta-val { font-weight: 700; color: var(--text-main); font-variant-numeric: tabular-nums; }
+.meta-label { color: var(--text-tertiary); }
+.pc-status { display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.status-text {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-sec);
+}
+
+/* 操作按钮 */
+.pc-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.pc-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 32px;
+  padding: 0 10px;
+  background: var(--color-card-soft);
+  color: var(--text-sec);
+  border: 1px solid var(--admin-border);
+  border-radius: 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, transform 0.18s, border-color 0.18s;
+}
+.pc-btn:hover {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  border-color: var(--color-primary-soft);
+  transform: scale(1.04);
+}
+.pc-btn-danger:hover {
+  background: rgba(229, 83, 83, 0.1);
+  color: #E55353;
+  border-color: rgba(229, 83, 83, 0.2);
+}
+.pc-btn svg { display: block; }
+
+/* === 空状态 === */
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--text-tertiary);
+  font-size: 0.95rem;
+  background: var(--admin-card);
+  border: 1px dashed var(--admin-border);
+  border-radius: var(--admin-radius-card);
+}
+.empty-icon { font-size: 3.5rem; margin-bottom: 8px; }
+
+/* === 分页 === */
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 8px 0 4px;
+}
+.pg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px;
+  background: var(--admin-card);
+  color: var(--text-sec);
+  border: 1px solid var(--admin-border);
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, transform 0.18s, border-color 0.18s;
+  font-variant-numeric: tabular-nums;
+}
+.pg-btn:hover:not(:disabled) {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  border-color: var(--color-primary-soft);
+  transform: scale(1.05);
+}
+.pg-btn.active {
+  background: var(--admin-gradient);
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(79, 140, 255, 0.28);
+}
+.pg-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.pg-ellipsis {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-width: 28px;
-  height: 24px;
-  padding: 0 8px;
-  border-radius: var(--radius-full);
-  background: var(--color-primary-soft);
-  color: var(--color-primary);
-  font-weight: 600;
+  height: 36px;
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
+}
+.pg-info {
+  margin-left: 12px;
   font-size: 0.78rem;
+  color: var(--text-tertiary);
 }
 
+@media (max-width: 1024px) {
+  .page-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+}
 @media (max-width: 768px) {
-  .page-header { flex-direction: column; align-items: stretch; }
-  .page-header :deep(.n-button) { width: 100%; }
+  .page-head { flex-direction: column; align-items: stretch; }
+  .head-actions { width: 100%; }
+  .search-bar { width: 100%; flex: 1; }
+  .btn-add { flex: 1; }
+  .page-grid { grid-template-columns: 1fr; }
+  .pc-actions { justify-content: flex-end; }
+  .pc-foot { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .pc-status { width: 100%; justify-content: space-between; }
+  .pager { gap: 4px; }
+  .pg-info { width: 100%; text-align: center; margin-left: 0; margin-top: 4px; }
 }
 </style>

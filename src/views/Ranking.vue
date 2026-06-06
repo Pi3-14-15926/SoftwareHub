@@ -4,9 +4,11 @@ import { useProjectStore } from '../store/project'
 import { useCategoryStore } from '../store/category'
 import AmbientOrbs from '../components/AmbientOrbs.vue'
 import { fmtDate, fmtCompact } from '../utils'
+import { useIconUrl } from '../composables/useIconUrl'
 
 const projects = useProjectStore()
 const categories = useCategoryStore()
+const { resolveProject } = useIconUrl()
 
 /* 排序方式 */
 type RankKey = 'stars' | 'downloads' | 'updated'
@@ -113,7 +115,7 @@ onMounted(() => {
     <div v-if="currentPage === 1 && topThree.length >= 3" class="podium">
       <div class="podium-item podium-2">
         <div class="podium-avatar">
-          <img v-if="topThree[1].logo" :src="topThree[1].logo" :alt="topThree[1].name" />
+          <img v-if="topThree[1].logo" :src="resolveProject(topThree[1])" :alt="topThree[1].name" />
           <span v-else>{{ topThree[1].name[0] }}</span>
         </div>
         <div class="podium-rank">2</div>
@@ -123,7 +125,7 @@ onMounted(() => {
       </div>
       <div class="podium-item podium-1">
         <div class="podium-avatar podium-avatar-lg">
-          <img v-if="topThree[0].logo" :src="topThree[0].logo" :alt="topThree[0].name" />
+          <img v-if="topThree[0].logo" :src="resolveProject(topThree[0])" :alt="topThree[0].name" />
           <span v-else>{{ topThree[0].name[0] }}</span>
         </div>
         <div class="podium-rank podium-rank-1">👑 1</div>
@@ -133,7 +135,7 @@ onMounted(() => {
       </div>
       <div class="podium-item podium-3">
         <div class="podium-avatar">
-          <img v-if="topThree[2].logo" :src="topThree[2].logo" :alt="topThree[2].name" />
+          <img v-if="topThree[2].logo" :src="resolveProject(topThree[2])" :alt="topThree[2].name" />
           <span v-else>{{ topThree[2].name[0] }}</span>
         </div>
         <div class="podium-rank">3</div>
@@ -157,7 +159,7 @@ onMounted(() => {
             {{ (currentPage - 1) * PAGE_SIZE + i + 1 }}
           </span>
           <div class="cat-row-icon">
-            <img v-if="p.logo" :src="p.logo" :alt="p.name" />
+            <img v-if="p.logo" :src="resolveProject(p)" :alt="p.name" />
             <span v-else>{{ p.name[0] }}</span>
           </div>
           <div class="cat-row-main">

@@ -68,6 +68,20 @@ export interface WebDAVConfig {
   maxFileSize?: number      // 文件大小限制(MB)，默认 500
 }
 
+/** 图标库资源 */
+export interface IconAsset {
+  filename: string        // 仓库中的文件名，含 icons/ 前缀
+  name: string            // 不含路径的纯文件名
+  size: number            // 字节
+  sha: string
+  rawUrl: string          // raw.githubusercontent.com 原始链接
+  cdnUrl: string          // jsDelivr 加速链接
+  uploadedAt: string      // ISO
+}
+
+/** CDN 加速策略 */
+export type IconCdnMode = 'jsdelivr' | 'statically' | 'githack' | 'custom' | 'none'
+
 /** 站点设置 */
 export interface Settings {
   siteName: string
@@ -79,6 +93,8 @@ export interface Settings {
   ghProxyUrl?: string
   schedule?: ScheduleConfig
   webdav?: WebDAVConfig
+  iconCdnMode?: IconCdnMode
+  iconCdnCustomBase?: string
 }
 
 /** GitHub Release API 返回的 Asset */

@@ -11,7 +11,7 @@
     "latestUpdateTime": "2026-03-21T14:12:43Z",
     "githubRepo": "Luoyacheng/legado",
     "githubUrl": "https://github.com/Luoyacheng/legado",
-    "stars": 1692,
+    "stars": 1693,
     "forks": 251
   },
   {
@@ -22,12 +22,12 @@
     "description": "使用 Material Design 3 全新设计的阅读 3.0",
     "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/__-MD3.webp",
     "featured": false,
-    "latestVersionId": "mq3sgsl2lm7p0c",
-    "latestUpdateTime": "2026-06-07T10:41:14Z",
+    "latestVersionId": "mq46p7mre1bxo2",
+    "latestUpdateTime": "2026-06-07T18:49:26Z",
     "githubRepo": "HapeLee/legado-with-MD3",
     "githubUrl": "https://github.com/HapeLee/legado-with-MD3",
-    "stars": 4337,
-    "forks": 425
+    "stars": 4347,
+    "forks": 428
   },
   {
     "id": "mpwowqbvn123ig",
@@ -41,7 +41,7 @@
     "latestUpdateTime": "2026-06-06T13:27:18Z",
     "githubRepo": "skybbk1001/legadoT",
     "githubUrl": "https://github.com/skybbk1001/legadoT",
-    "stars": 36,
+    "stars": 37,
     "forks": 11
   },
   {
@@ -56,7 +56,7 @@
     "latestUpdateTime": "2026-06-07T03:35:12Z",
     "githubRepo": "Rimchars/legado",
     "githubUrl": "https://github.com//Rimchars/legado",
-    "stars": 221,
+    "stars": 227,
     "forks": 11
   },
   {
@@ -71,7 +71,7 @@
     "latestUpdateTime": "2026-05-28T16:44:14Z",
     "githubRepo": "LegadoTeam/Legado-Tauri-Release",
     "githubUrl": "https://github.com/LegadoTeam/Legado-Tauri-Release",
-    "stars": 181,
+    "stars": 182,
     "forks": 14
   },
   {
@@ -86,7 +86,7 @@
     "latestUpdateTime": "2026-06-05T14:32:41Z",
     "githubRepo": "youfengknight/Legado_Max",
     "githubUrl": "https://github.com/youfengknight/Legado_Max",
-    "stars": 170,
+    "stars": 173,
     "forks": 18
   },
   {
@@ -116,8 +116,8 @@
     "latestUpdateTime": "2026-05-01T05:35:34Z",
     "githubRepo": "lyswhut/lx-music-desktop",
     "githubUrl": "https://github.com/lyswhut/lx-music-desktop",
-    "stars": 51423,
-    "forks": 6849
+    "stars": 51433,
+    "forks": 6850
   },
   {
     "id": "mpzjjzg2ylm14p",
@@ -131,8 +131,8 @@
     "latestUpdateTime": "2026-05-28T19:26:21Z",
     "githubRepo": "open-ani/animeko",
     "githubUrl": "https://github.com/open-ani/animeko",
-    "stars": 18200,
-    "forks": 484
+    "stars": 18207,
+    "forks": 485
   },
   {
     "id": "mpzjkpvzeuh3zl",
@@ -146,7 +146,7 @@
     "latestUpdateTime": "2026-06-07T02:32:12Z",
     "githubRepo": "Predidit/Kazumi",
     "githubUrl": "https://github.com/Predidit/Kazumi",
-    "stars": 26163,
+    "stars": 26184,
     "forks": 754
   }
 ]

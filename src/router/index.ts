@@ -105,6 +105,12 @@ const routes: RouteRecordRaw[] = [
     component: () => import('../views/admin/FeatureSettings.vue'),
     meta: { requiresAuth: true, title: '功能设置' },
   },
+  {
+    path: '/admin/channel-backup',
+    name: 'AdminChannelBackup',
+    component: () => import('../views/admin/ChannelBackup.vue'),
+    meta: { requiresAuth: true, title: '渠道备份' },
+  },
 ]
 
 const router = createRouter({

@@ -6,12 +6,11 @@
     "name": "阅读Sigma",
     "description": "阅读Sigma是gedoor/legado的一个分支版本，在原有基础上增加更多功能，为书源带来更多可能性。",
     "logo": "https://avatars.githubusercontent.com/u/59725261?v=4",
-    "categorySlug": "yuedu",
     "featured": false,
     "githubRepo": "Luoyacheng/legado",
     "githubUrl": "https://github.com/Luoyacheng/legado",
-    "stars": 1676,
-    "forks": 243,
+    "stars": 1691,
+    "forks": 251,
     "platforms": [
       "Android"
     ],
@@ -25,12 +24,11 @@
     "name": "阅读 MD3",
     "description": "使用 Material Design 3 全新设计的阅读 3.0",
     "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/__-MD3.webp",
-    "categorySlug": "yuedu",
     "featured": false,
     "githubRepo": "HapeLee/legado-with-MD3",
     "githubUrl": "https://github.com/HapeLee/legado-with-MD3",
-    "stars": 4297,
-    "forks": 415,
+    "stars": 4331,
+    "forks": 423,
     "platforms": [
       "Android"
     ],
@@ -44,17 +42,17 @@
     "name": "阅读 T",
     "description": "开源阅读修改版，添加基于cron的定时任务支持。",
     "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/__-T.webp",
-    "categorySlug": "yuedu",
     "featured": false,
     "githubRepo": "skybbk1001/legadoT",
     "githubUrl": "https://github.com/skybbk1001/legadoT",
-    "stars": 34,
-    "forks": 9,
+    "stars": 36,
+    "forks": 11,
     "platforms": [
       "Android"
     ],
     "latestVersionId": "mpwow55qsslhd1",
-    "latestUpdateTime": "2026-05-29T20:44:25Z"
+    "latestUpdateTime": "2026-06-06T13:27:18Z",
+    "latestVersion": "release"
   },
   {
     "id": "mpwoxcif3y72eu",
@@ -63,17 +61,17 @@
     "name": "阅读 Archive",
     "description": "阅读Archive继承自 Lyc 维护的 Legado 分支，增强界面、AI、EPUB、漫画、视频和主题能力。",
     "logo": "https://raw.githubusercontent.com/Rimchars/legado/main/docs/archive_icon.svg",
-    "categorySlug": "yuedu",
     "featured": false,
-    "githubRepo": "/Rimchars/legado",
+    "githubRepo": "Rimchars/legado",
     "githubUrl": "https://github.com//Rimchars/legado",
-    "stars": 217,
+    "stars": 221,
     "forks": 11,
     "platforms": [
       "Android"
     ],
     "latestVersionId": "mq1ygoieurmp4a",
-    "latestUpdateTime": "2026-06-05T19:10:35Z"
+    "latestUpdateTime": "2026-06-07T03:35:12Z",
+    "latestVersion": "archive-v3-3.26.06071119"
   },
   {
     "id": "mpwoyw5uynpmko",
@@ -82,11 +80,10 @@
     "name": "阅读 Tauri",
     "description": "",
     "logo": "https://avatars.githubusercontent.com/u/223791923?v=4",
-    "categorySlug": "yuedu",
     "featured": false,
     "githubRepo": "LegadoTeam/Legado-Tauri-Release",
     "githubUrl": "https://github.com/LegadoTeam/Legado-Tauri-Release",
-    "stars": 180,
+    "stars": 181,
     "forks": 14,
     "platforms": [
       "Windows",
@@ -102,12 +99,11 @@
     "name": "阅读 Max",
     "description": "阅读继承自阅读Sigma，在其基础上新增更多实用和强大功能。",
     "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/__-Max.webp",
-    "categorySlug": "yuedu",
     "featured": false,
     "githubRepo": "youfengknight/Legado_Max",
     "githubUrl": "https://github.com/youfengknight/Legado_Max",
     "stars": 168,
-    "forks": 17,
+    "forks": 18,
     "platforms": [
       "Android"
     ],
@@ -121,7 +117,6 @@
     "name": "Legado",
     "description": "阅读3.0, 阅读是一款可以自定义来源阅读网络内容的工具，为广大网络文学爱好者提供一种方便、快捷舒适的试读体验。",
     "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/Legado.webp",
-    "categorySlug": "yuedu",
     "featured": true,
     "githubRepo": "gedoor/legado",
     "githubUrl": "https://github.com/gedoor/legado",

@@ -1110,12 +1110,52 @@
     "downloadCountSyncedAt": "2026-06-06T08:36:39.978Z"
   },
   {
+    "id": "mq3kwowzubx19d",
+    "versionId": "mq3kwowyvc7td3",
+    "platform": "Android",
+    "filename": "legado_app_3.26.06062118_release.apk",
+    "size": "58.4 MB",
+    "url": "https://github.com/skybbk1001/legadoT/releases/download/release/legado_app_3.26.06062118_release.apk"
+  },
+  {
     "id": "dl_ihzpslupal",
     "versionId": "mpwow55qsslhd1",
     "platform": "Android",
     "filename": "legado_app_3.26.05300435_release.apk",
     "size": "57.9 MB",
     "url": "https://github.com/skybbk1001/legadoT/releases/download/beta/legado_app_3.26.05300435_release.apk"
+  },
+  {
+    "id": "mq3kwpwfpqzojg",
+    "versionId": "mq3kwpwfs1rccs",
+    "platform": "Android",
+    "filename": "legado-arm64-v8a_app_3.26.06071119_29680039.apk",
+    "size": "34.7 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.06071119/legado-arm64-v8a_app_3.26.06071119_29680039.apk"
+  },
+  {
+    "id": "mq3kwpwf3km42x",
+    "versionId": "mq3kwpwfs1rccs",
+    "platform": "Android",
+    "filename": "legado-armeabi-v7a_app_3.26.06071119_29680039.apk",
+    "size": "34.6 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.06071119/legado-armeabi-v7a_app_3.26.06071119_29680039.apk"
+  },
+  {
+    "id": "mq3kwpwfeq3r7a",
+    "versionId": "mq3kwpwfuoqoq0",
+    "platform": "Android",
+    "filename": "legado-arm64-v8a_app_3.26.06070308_29679548.apk",
+    "size": "34.7 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.06070308/legado-arm64-v8a_app_3.26.06070308_29679548.apk"
+  },
+  {
+    "id": "mq3kwpwfvss80y",
+    "versionId": "mq3kwpwfuoqoq0",
+    "platform": "Android",
+    "filename": "legado-armeabi-v7a_app_3.26.06070308_29679548.apk",
+    "size": "34.6 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.06070308/legado-armeabi-v7a_app_3.26.06070308_29679548.apk"
   },
   {
     "id": "dl_gfrcidbwuw",
@@ -2252,126 +2292,6 @@
     "filename": "legado_plus_3.26.05081158_releaseS.apk",
     "size": "21.4 MB",
     "url": "https://github.com/youfengknight/Legado_Max/releases/download/beta-3.26.05081158/legado_plus_3.26.05081158_releaseS.apk"
-  },
-  {
-    "id": "dl_nc1dzohmiw",
-    "versionId": "mpzipgp53oltxn",
-    "platform": "Android",
-    "filename": "all.apk",
-    "size": "14.5 MB",
-    "url": "https://github.com/huajideshutiao/legado/releases/download/beta/all.apk"
-  },
-  {
-    "id": "dl_0t90y5qupi",
-    "versionId": "mpzipgp53oltxn",
-    "platform": "Android",
-    "filename": "all_releaseA.apk",
-    "size": "14.5 MB",
-    "url": "https://github.com/huajideshutiao/legado/releases/download/beta/all_releaseA.apk"
-  },
-  {
-    "id": "dl_h2v9qo0a6i",
-    "versionId": "mpzipgp53oltxn",
-    "platform": "Android",
-    "filename": "arm64.apk",
-    "size": "8.5 MB",
-    "url": "https://github.com/huajideshutiao/legado/releases/download/beta/arm64.apk"
-  },
-  {
-    "id": "dl_1bfb0j8isi",
-    "versionId": "mpzipgp53oltxn",
-    "platform": "Android",
-    "filename": "arm64_releaseA.apk",
-    "size": "8.5 MB",
-    "url": "https://github.com/huajideshutiao/legado/releases/download/beta/arm64_releaseA.apk"
-  },
-  {
-    "id": "dl_4m15cucdx8",
-    "versionId": "mpzipgp53oltxn",
-    "platform": "Android",
-    "filename": "armv7.apk",
-    "size": "8.1 MB",
-    "url": "https://github.com/huajideshutiao/legado/releases/download/beta/armv7.apk"
-  },
-  {
-    "id": "dl_taw8kdcdsd",
-    "versionId": "mpzipgp53oltxn",
-    "platform": "Android",
-    "filename": "armv7_releaseA.apk",
-    "size": "8.1 MB",
-    "url": "https://github.com/huajideshutiao/legado/releases/download/beta/armv7_releaseA.apk"
-  },
-  {
-    "id": "dl_8zvszpagyh",
-    "versionId": "mpzipgp53oltxn",
-    "platform": "Android",
-    "filename": "x64.apk",
-    "size": "8.7 MB",
-    "url": "https://github.com/huajideshutiao/legado/releases/download/beta/x64.apk"
-  },
-  {
-    "id": "dl_ehu2hkpfhf",
-    "versionId": "mpzipgp53oltxn",
-    "platform": "Android",
-    "filename": "x64_releaseA.apk",
-    "size": "8.7 MB",
-    "url": "https://github.com/huajideshutiao/legado/releases/download/beta/x64_releaseA.apk"
-  },
-  {
-    "id": "dl_v4t2f4sks4",
-    "versionId": "mpzipgp53oltxn",
-    "platform": "Android",
-    "filename": "x86.apk",
-    "size": "8.8 MB",
-    "url": "https://github.com/huajideshutiao/legado/releases/download/beta/x86.apk"
-  },
-  {
-    "id": "dl_5xgh4ocqc3",
-    "versionId": "mpzipgp53oltxn",
-    "platform": "Android",
-    "filename": "x86_releaseA.apk",
-    "size": "8.8 MB",
-    "url": "https://github.com/huajideshutiao/legado/releases/download/beta/x86_releaseA.apk"
-  },
-  {
-    "id": "dl_n78mrbsg1t",
-    "versionId": "mpzipgp5zxyrd3",
-    "platform": "Android",
-    "filename": "legado_all.apk",
-    "size": "15.9 MB",
-    "url": "https://github.com/huajideshutiao/legado/releases/download/3.26.052421/legado_all.apk"
-  },
-  {
-    "id": "dl_xwqjaapz5e",
-    "versionId": "mpzipgp5zxyrd3",
-    "platform": "Android",
-    "filename": "legado_arm64.apk",
-    "size": "9.9 MB",
-    "url": "https://github.com/huajideshutiao/legado/releases/download/3.26.052421/legado_arm64.apk"
-  },
-  {
-    "id": "dl_6abiigu9fz",
-    "versionId": "mpzipgp5zxyrd3",
-    "platform": "Android",
-    "filename": "legado_armv7.apk",
-    "size": "9.5 MB",
-    "url": "https://github.com/huajideshutiao/legado/releases/download/3.26.052421/legado_armv7.apk"
-  },
-  {
-    "id": "dl_h05eq5sprq",
-    "versionId": "mpzipgp5zxyrd3",
-    "platform": "Android",
-    "filename": "legado_x64.apk",
-    "size": "10.2 MB",
-    "url": "https://github.com/huajideshutiao/legado/releases/download/3.26.052421/legado_x64.apk"
-  },
-  {
-    "id": "dl_4okvwr85lv",
-    "versionId": "mpzipgp5zxyrd3",
-    "platform": "Android",
-    "filename": "legado_x86.apk",
-    "size": "10.2 MB",
-    "url": "https://github.com/huajideshutiao/legado/releases/download/3.26.052421/legado_x86.apk"
   },
   {
     "id": "mq1zlwkqhhtpo2",

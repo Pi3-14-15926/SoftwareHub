@@ -56,6 +56,7 @@ function getOrInitClient(): WebDAVClient | null {
     webdavClient = createClient(webdavConfig.url, {
       username: webdavConfig.username,
       password: webdavConfig.password,
+      headers: { 'User-Agent': 'SoftwareHub-Backup/1.0 (Node.js)' },
     })
   }
   return webdavClient
@@ -235,9 +236,11 @@ async function handleBackup(req: IncomingMessage, res: ServerResponse) {
             }
 
             try {
-              const original = dl.url.replace(/^https?:\/\//, '')
+              /* gh-proxy 协议：保留原 URL 的 https://
+               * 例：https://gh.api.99988866.xyz/ + https://github.com/xxx/yyy
+               *  → https://gh.api.99988866.xyz/https://github.com/xxx/yyy */
               const url = ghProxy && isGithubUrl(dl.url)
-                ? ghProxy.replace(/\/+$/, '') + '/' + original
+                ? ghProxy.replace(/\/+$/, '') + '/' + dl.url
                 : dl.url
               const ctrl = new AbortController()
               const timer = setTimeout(() => ctrl.abort(), 300000)
@@ -247,10 +250,14 @@ async function handleBackup(req: IncomingMessage, res: ServerResponse) {
               const buffer = Buffer.from(await resp.arrayBuffer())
 
               const uploadTimeout = webdavConfig?.uploadTimeout || 300000
-              await Promise.race([
-                client.putFileContents(versionDir + '/' + dl.filename, buffer),
-                new Promise((_, reject) => setTimeout(() => reject(new Error(`上传超时 (${uploadTimeout}ms)`)), uploadTimeout)),
-              ])
+              /* 用真 AbortController，传 signal 到 putFileContents：超时真正取消请求，释放 socket */
+              const putCtrl = new AbortController()
+              const putTimer = setTimeout(() => putCtrl.abort(new Error(`上传超时 (${uploadTimeout}ms)`)), uploadTimeout)
+              try {
+                await client.putFileContents(versionDir + '/' + dl.filename, buffer, { signal: putCtrl.signal })
+              } finally {
+                clearTimeout(putTimer)
+              }
 
               writeNdjson(res, {
                 type: 'file',

@@ -35,6 +35,7 @@ const menuOptions = [
   { label: '网站设置', key: '/admin/settings', icon: '⚙️' },
   { label: '加速设置', key: '/admin/acceleration', icon: '⚡' },
   { label: '功能设置', key: '/admin/features', icon: '🛠️' },
+  { label: '渠道备份', key: '/admin/channel-backup', icon: '📡' },
 ]
 
 const mobileOpen = ref(false)

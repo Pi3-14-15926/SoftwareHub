@@ -31,7 +31,7 @@ const WEBDAV_PASSWORD = process.env.WEBDAV_PASSWORD || ''
 const WEBDAV_BASE_DIR = (process.env.WEBDAV_BASE_DIR || '/SoftwareHub').replace(/\/+$/, '')
 const GH_PROXY = process.env.GH_PROXY || ''
 const KEEP_VERSIONS = parseInt(process.env.KEEP_VERSIONS || '2', 10)
-const WEBDAV_TIMEOUT = parseInt(process.env.WEBDAV_TIMEOUT || '300000', 10)
+const WEBDAV_TIMEOUT = parseInt(process.env.WEBDAV_TIMEOUT || '600000', 10)
 
 let changed = false  // 是否有数据变更，后续需要 commit
 
@@ -199,12 +199,11 @@ function writeToNewModel(projects) {
   }
 }
 
-/** 给 Promise 加超时 */
-function withTimeout(promise, ms) {
-  return Promise.race([
-    promise,
-    new Promise((_, reject) => setTimeout(() => reject(new Error(`操作超时 (${ms}ms)`)), ms)),
-  ])
+/** 给 Promise 加超时（真正 abort 底层 fetch，而不仅仅是 race 拒绝） */
+function withTimeout(fn, ms) {
+  const ctrl = new AbortController()
+  const timer = setTimeout(() => ctrl.abort(), ms)
+  return fn(ctrl.signal).finally(() => clearTimeout(timer))
 }
 
 /** 安全 fetch（支持超时和认证） */
@@ -352,9 +351,9 @@ function getCategoryName(categories, key) {
   return c ? c.name : '未分类'
 }
 
-/** 给 WebDAV 操作加超时 */
-function webdavOp(promise, label) {
-  return withTimeout(promise, WEBDAV_TIMEOUT).catch(e => {
+/** 给 WebDAV 操作加超时（工厂模式：fn 接收 signal，超时时真的 abort 底层 fetch） */
+function webdavOp(fn, label) {
+  return withTimeout((signal) => fn(signal), WEBDAV_TIMEOUT).catch(e => {
     throw new Error(`${label}: ${e.message}`)
   })
 }
@@ -365,9 +364,9 @@ async function ensureRemoteDir(client, dirPath) {
   let acc = ''
   for (const p of parts) {
     acc += '/' + p
-    const exists = await webdavOp(client.exists(acc), `检查目录 ${acc}`).catch(() => false)
+    const exists = await webdavOp((s) => client.exists(acc, { signal: s }), `检查目录 ${acc}`).catch(() => false)
     if (!exists) {
-      await webdavOp(client.createDirectory(acc), `创建目录 ${acc}`)
+      await webdavOp((s) => client.createDirectory(acc, { signal: s }), `创建目录 ${acc}`)
     }
   }
 }
@@ -375,7 +374,7 @@ async function ensureRemoteDir(client, dirPath) {
 /** WebDAV 清理旧版本 */
 async function cleanupOldBackups(client, projectDir) {
   try {
-    const entries = await webdavOp(client.getDirectoryContents(projectDir), `列出目录 ${projectDir}`)
+    const entries = await webdavOp((s) => client.getDirectoryContents(projectDir, { signal: s }), `列出目录 ${projectDir}`)
     const dirs = entries
       .filter(e => e.type === 'directory')
       .sort((a, b) => {
@@ -384,7 +383,7 @@ async function cleanupOldBackups(client, projectDir) {
         return bm - am
       })
     for (const entry of dirs.slice(KEEP_VERSIONS)) {
-      await webdavOp(client.deleteFile(entry.filename), `删除 ${entry.basename || entry.filename}`)
+      await webdavOp((s) => client.deleteFile(entry.filename, { signal: s }), `删除 ${entry.basename || entry.filename}`)
       log(`  清理旧版本: ${entry.basename || entry.filename}`)
     }
   } catch { /* ignore */ }
@@ -411,7 +410,7 @@ async function backupVersion(client, version, categoryName, projectName, ghProxy
   const versionDir = `${WEBDAV_BASE_DIR}/${safeCategory}/${safeProject}/${dateStr}_${safeVer}`
 
   try {
-    const exists = await webdavOp(client.exists(versionDir), `检查版本目录 ${versionDir}`)
+    const exists = await webdavOp((s) => client.exists(versionDir, { signal: s }), `检查版本目录 ${versionDir}`)
     if (exists) {
       return { version: version.version, status: 'skip', message: '已存在' }
     }
@@ -433,7 +432,7 @@ async function backupVersion(client, version, categoryName, projectName, ghProxy
         if (!resp.ok) throw new Error(`HTTP ${resp.status}`)
         const buffer = Buffer.from(await resp.arrayBuffer())
         log(`    ↑ 上传 ${dl.filename} → WebDAV`)
-        await webdavOp(client.putFileContents(`${versionDir}/${dl.filename}`, buffer), `上传 ${dl.filename}`)
+        await webdavOp((s) => client.putFileContents(`${versionDir}/${dl.filename}`, buffer, { signal: s }), `上传 ${dl.filename}`)
         fileCount++
       } catch (e) {
         log(`    ✗ ${dl.filename}: ${e.message}`)
@@ -498,7 +497,7 @@ async function main() {
     // 测试连接
     log('  测试 WebDAV 连接...')
     try {
-      const baseExists = await webdavOp(client.exists(WEBDAV_BASE_DIR), `检查根目录 ${WEBDAV_BASE_DIR}`)
+      const baseExists = await webdavOp((s) => client.exists(WEBDAV_BASE_DIR, { signal: s }), `检查根目录 ${WEBDAV_BASE_DIR}`)
       log(`  根目录 ${WEBDAV_BASE_DIR}: ${baseExists ? '已存在' : '不存在，将在备份时创建'}`)
     } catch (e) {
       log(`  ✗ WebDAV 连接失败: ${e.message}`)
@@ -559,16 +558,16 @@ async function main() {
       const entries = []
       const baseDir = WEBDAV_BASE_DIR
 
-      const cats = await webdavOp(client.getDirectoryContents(baseDir), '列出分类目录').catch(() => [])
+      const cats = await webdavOp((s) => client.getDirectoryContents(baseDir, { signal: s }), '列出分类目录').catch(() => [])
       for (const cat of (cats.filter(c => c.type === 'directory'))) {
         const catName = sanitize(cat.basename || cat.filename.split('/').pop() || '')
-        const projs = await webdavOp(client.getDirectoryContents(cat.filename), `列出 ${catName}`).catch(() => [])
+        const projs = await webdavOp((s) => client.getDirectoryContents(cat.filename, { signal: s }), `列出 ${catName}`).catch(() => [])
         for (const proj of (projs.filter(p => p.type === 'directory'))) {
           const projName = sanitize(proj.basename || proj.filename.split('/').pop() || '')
-          const vers = await webdavOp(client.getDirectoryContents(proj.filename), `列出 ${projName}`).catch(() => [])
+          const vers = await webdavOp((s) => client.getDirectoryContents(proj.filename, { signal: s }), `列出 ${projName}`).catch(() => [])
           for (const ver of (vers.filter(v => v.type === 'directory'))) {
             const verName = ver.basename || ver.filename.split('/').pop() || ''
-            const files = await webdavOp(client.getDirectoryContents(ver.filename), `列出 ${verName}`).catch(() => [])
+            const files = await webdavOp((s) => client.getDirectoryContents(ver.filename, { signal: s }), `列出 ${verName}`).catch(() => [])
             const fileEntries = files
               .filter(f => f.type === 'file')
               .map(f => ({

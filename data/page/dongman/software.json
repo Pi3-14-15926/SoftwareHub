@@ -1,7 +1,7 @@
 [
   {
     "id": "mpzjjzg2ylm14p",
-    "slug": "animeko",
+    "slug": "dongmananimeko",
     "sourceType": "github",
     "name": "Animeko",
     "description": "集找番、追番、看番的一站式弹幕追番平台，云收藏同步 (Bangumi)，离线缓存，BitTorrent，弹幕云过滤。100% Kotlin/Compose Multiplatform",
@@ -24,11 +24,11 @@
   },
   {
     "id": "mpzjkpvzeuh3zl",
-    "slug": "kazumi",
+    "slug": "dongmankazumi",
     "sourceType": "github",
     "name": "Kazumi",
     "description": "基于自定义规则的番剧采集APP，支持流媒体在线观看，支持弹幕，支持实时超分辨率。",
-    "logo": "https://avatars.githubusercontent.com/u/34627277?v=4",
+    "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/Kazumi.webp",
     "categorySlug": "dongman",
     "featured": false,
     "githubRepo": "Predidit/Kazumi",

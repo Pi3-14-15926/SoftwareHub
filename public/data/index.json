@@ -11,8 +11,8 @@
     "latestUpdateTime": "2026-03-21T14:12:43Z",
     "githubRepo": "Luoyacheng/legado",
     "githubUrl": "https://github.com/Luoyacheng/legado",
-    "stars": 1693,
-    "forks": 251
+    "stars": 1702,
+    "forks": 255
   },
   {
     "id": "mpwouieuddbq2d",
@@ -22,12 +22,12 @@
     "description": "使用 Material Design 3 全新设计的阅读 3.0",
     "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/__-MD3.webp",
     "featured": false,
-    "latestVersionId": "mq46p7mre1bxo2",
-    "latestUpdateTime": "2026-06-07T18:49:26Z",
+    "latestVersionId": "mq5ec8fm9mazjd",
+    "latestUpdateTime": "2026-06-08T06:01:53Z",
     "githubRepo": "HapeLee/legado-with-MD3",
     "githubUrl": "https://github.com/HapeLee/legado-with-MD3",
-    "stars": 4347,
-    "forks": 428
+    "stars": 4371,
+    "forks": 433
   },
   {
     "id": "mpwowqbvn123ig",
@@ -41,7 +41,7 @@
     "latestUpdateTime": "2026-06-06T13:27:18Z",
     "githubRepo": "skybbk1001/legadoT",
     "githubUrl": "https://github.com/skybbk1001/legadoT",
-    "stars": 37,
+    "stars": 38,
     "forks": 11
   },
   {
@@ -56,7 +56,7 @@
     "latestUpdateTime": "2026-06-07T03:35:12Z",
     "githubRepo": "Rimchars/legado",
     "githubUrl": "https://github.com//Rimchars/legado",
-    "stars": 227,
+    "stars": 236,
     "forks": 11
   },
   {
@@ -86,8 +86,8 @@
     "latestUpdateTime": "2026-06-05T14:32:41Z",
     "githubRepo": "youfengknight/Legado_Max",
     "githubUrl": "https://github.com/youfengknight/Legado_Max",
-    "stars": 173,
-    "forks": 18
+    "stars": 175,
+    "forks": 19
   },
   {
     "id": "mq1yoxoecx1loi",
@@ -116,8 +116,8 @@
     "latestUpdateTime": "2026-05-01T05:35:34Z",
     "githubRepo": "lyswhut/lx-music-desktop",
     "githubUrl": "https://github.com/lyswhut/lx-music-desktop",
-    "stars": 51433,
-    "forks": 6850
+    "stars": 51449,
+    "forks": 6851
   },
   {
     "id": "mpzjjzg2ylm14p",
@@ -131,7 +131,7 @@
     "latestUpdateTime": "2026-05-28T19:26:21Z",
     "githubRepo": "open-ani/animeko",
     "githubUrl": "https://github.com/open-ani/animeko",
-    "stars": 18207,
+    "stars": 18230,
     "forks": 485
   },
   {
@@ -146,7 +146,7 @@
     "latestUpdateTime": "2026-06-07T02:32:12Z",
     "githubRepo": "Predidit/Kazumi",
     "githubUrl": "https://github.com/Predidit/Kazumi",
-    "stars": 26184,
+    "stars": 26227,
     "forks": 754
   }
 ]

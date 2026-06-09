@@ -118,6 +118,7 @@ export interface Settings {
   storageNote?: string
   ghProxyEnabled?: boolean
   ghProxyUrl?: string
+  networkProxy?: string
   schedule?: ScheduleConfig
   webdav?: WebDAVConfig
   iconCdnMode?: IconCdnMode

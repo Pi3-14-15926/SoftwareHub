@@ -13,6 +13,7 @@ const form = ref({
   ghProxyEnabled: false,
   ghProxyUrl: 'https://gh-proxy.com/',
   ghProxyCustomUrl: '',
+  networkProxy: '',
   iconCdnMode: 'jsdelivr' as IconCdnMode,
   iconCdnCustomBase: '',
 })
@@ -42,6 +43,7 @@ onMounted(() => {
     ghProxyEnabled: s.ghProxyEnabled ?? false,
     ghProxyUrl: matchedPreset ? proxyUrl : (proxyUrl ? 'custom' : 'https://gh-proxy.com/'),
     ghProxyCustomUrl: matchedPreset ? '' : proxyUrl,
+    networkProxy: s.networkProxy || '',
     iconCdnMode: s.iconCdnMode || 'jsdelivr',
     iconCdnCustomBase: s.iconCdnCustomBase || '',
   }
@@ -56,6 +58,7 @@ function doSave() {
   } else {
     s.ghProxyUrl = selected || undefined
   }
+  s.networkProxy = form.value.networkProxy || undefined
   s.iconCdnMode = form.value.iconCdnMode
   s.iconCdnCustomBase = form.value.iconCdnCustomBase || undefined
   store.save(s)
@@ -104,6 +107,28 @@ function doSave() {
           内置多个公益加速节点，也可以自行部署
           <a href="https://github.com/hunshcn/gh-proxy" target="_blank" rel="noopener">gh-proxy</a>。
           配置后所有 <code>github.com</code> 下载链接会自动通过代理转发。
+        </p>
+      </section>
+
+      <!-- 网络代理 -->
+      <section class="settings-card">
+        <header class="card-head">
+          <div class="card-icon" style="background: linear-gradient(135deg, #f59e0b, #fb923c); box-shadow: 0 6px 20px rgba(245, 158, 11, 0.28);">🌐</div>
+          <div>
+            <h3 class="card-title">网络代理</h3>
+            <p class="card-desc">配置本地代理，用于 rclone 连接 Google Drive 等境外服务</p>
+          </div>
+        </header>
+
+        <div class="field">
+          <label class="field-label">代理地址</label>
+          <NInput v-model:value="form.networkProxy" placeholder="http://127.0.0.1:10808" size="large" />
+        </div>
+
+        <p class="card-hint">
+          用于 rclone 连接 Google Drive、OneDrive 等需要翻墙的服务。
+          留空则默认使用 <code>http://127.0.0.1:10808</code>（V2Ray 默认端口）。
+          设置后需重启 dev server 生效。
         </p>
       </section>
 

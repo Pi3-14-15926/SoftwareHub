@@ -18,6 +18,24 @@ export function localBackupPlugin(): Plugin {
   let running = false
   let currentChild: import('child_process').ChildProcess | null = null
 
+  /** 获取带代理的环境变量（供 rclone 使用） */
+  function getProxyEnv(): NodeJS.ProcessEnv {
+    const proxy = process.env.HTTPS_PROXY || process.env.https_proxy || process.env.HTTP_PROXY || process.env.http_proxy
+    if (proxy) return {}
+    // 从 settings.json 读取用户配置的代理
+    try {
+      const settingsPath = resolve(__dirname, 'data/settings.json')
+      if (fs.existsSync(settingsPath)) {
+        const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf-8'))
+        if (settings.networkProxy) {
+          return { HTTPS_PROXY: settings.networkProxy, HTTP_PROXY: settings.networkProxy }
+        }
+      }
+    } catch { /* noop */ }
+    // 默认使用本地 V2Ray/Clash 代理
+    return { HTTPS_PROXY: 'http://127.0.0.1:10808', HTTP_PROXY: 'http://127.0.0.1:10808' }
+  }
+
   /** 获取 rclone 可执行文件路径 */
   function getRclonePath(): string {
     const localPath = resolve(__dirname, 'scripts/bin/rclone.exe')
@@ -275,7 +293,7 @@ export function localBackupPlugin(): Plugin {
           const rclone = getRclonePath()
           let output: string
           try {
-            output = execSync(`${rclone} listremotes`, { encoding: 'utf-8', timeout: 10000 })
+            output = execSync(`${rclone} listremotes`, { encoding: 'utf-8', timeout: 10000, env: { ...process.env, ...getProxyEnv() } })
           } catch {
             output = ''
           }
@@ -306,7 +324,7 @@ export function localBackupPlugin(): Plugin {
           const rclone = getRclonePath()
           const remote = remoteName.endsWith(':') ? remoteName : `${remoteName}:`
           try {
-            const output = execSync(`${rclone} lsd ${remote}`, { encoding: 'utf-8', timeout: 30000 })
+            const output = execSync(`${rclone} lsd ${remote}`, { encoding: 'utf-8', timeout: 30000, env: { ...process.env, ...getProxyEnv() } })
             const dirs = output.trim().split('\n').filter(Boolean).length
             res.end(JSON.stringify({ ok: true, message: `连接成功，根目录下有 ${dirs} 个文件夹` }))
           } catch (e: any) {
@@ -360,6 +378,7 @@ export function localBackupPlugin(): Plugin {
 
         const env: NodeJS.ProcessEnv = {
           ...process.env,
+          ...getProxyEnv(),
           LOCAL_MODE: '1',
           RCLONE_REMOTE: rcloneRemote,
           RCLONE_PATH: rclonePath,

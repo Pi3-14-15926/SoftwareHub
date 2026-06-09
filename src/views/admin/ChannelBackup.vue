@@ -308,7 +308,7 @@ onBeforeUnmount(() => {})
 
 <template>
   <AdminLayout>
-    <div class="channel-page">
+    <div class="backup-page">
       <div class="page-head">
         <div>
           <h2 class="page-title"><span class="page-title-emoji">📡</span>渠道备份</h2>
@@ -327,43 +327,49 @@ onBeforeUnmount(() => {})
         </header>
 
         <!-- 已配置的渠道列表 -->
-        <div v-if="rcloneRemotes.length > 0" class="channel-list">
-          <div class="channel-list-header">
-            <span class="channel-list-title">已配置的渠道</span>
-            <button class="btn-primary small" @click="openNewChannelForm">+ 添加渠道</button>
-          </div>
-          <div class="channel-items">
-            <div
-              v-for="remote in rcloneRemotes"
-              :key="remote.name"
-              class="channel-item"
-              :class="{ active: selectedRemote === remote.name }"
-              @click="selectedRemote = remote.name"
-            >
-              <div class="channel-item-icon">
+        <div v-if="rcloneRemotes.length > 0" class="channel-grid">
+          <div
+            v-for="remote in rcloneRemotes"
+            :key="remote.name"
+            class="channel-card"
+            :class="{ active: selectedRemote === remote.name }"
+            @click="selectedRemote = remote.name"
+          >
+            <div class="channel-card-top">
+              <div class="channel-card-icon" :class="`icon-${remote.type}`">
                 {{ remote.type === 'webdav' ? '☁️' : remote.type === 'onedrive' ? '📁' : remote.type === 'drive' ? '📗' : '💾' }}
               </div>
-              <div class="channel-item-info">
-                <div class="channel-item-name">{{ remote.name }}</div>
-                <div class="channel-item-type">{{ remote.type }}</div>
-              </div>
-              <div class="channel-item-actions">
-                <button class="btn-icon" @click.stop="editChannel(remote.name)" title="编辑">✏️</button>
-                <button class="btn-icon btn-danger" @click.stop="deleteChannel(remote.name)" title="删除">🗑️</button>
+              <div class="channel-card-actions">
+                <button class="btn-icon" @click.stop="editChannel(remote.name)" title="编辑">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                </button>
+                <button class="btn-icon btn-icon-danger" @click.stop="deleteChannel(remote.name)" title="删除">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                </button>
               </div>
             </div>
+            <div class="channel-card-name">{{ remote.name }}</div>
+            <div class="channel-card-type">{{ remote.type }}</div>
+            <div v-if="selectedRemote === remote.name" class="channel-card-check">✓</div>
+          </div>
+
+          <div class="channel-card channel-card-add" @click="openNewChannelForm">
+            <div class="channel-card-add-icon">+</div>
+            <div class="channel-card-name">添加渠道</div>
           </div>
         </div>
 
         <div v-if="rcloneRemotes.length === 0" class="rclone-empty">
-          <p>还没有配置任何渠道</p>
-          <button class="btn-primary" @click="openNewChannelForm">+ 添加第一个渠道</button>
+          <div class="rclone-empty-icon">📂</div>
+          <p class="rclone-empty-title">还没有配置任何渠道</p>
+          <p class="rclone-empty-desc">添加一个云盘渠道开始备份</p>
+          <button class="btn btn-primary" @click="openNewChannelForm">+ 添加第一个渠道</button>
         </div>
 
         <!-- 选择渠道和路径 -->
-        <div class="form-grid-2" style="margin-top: 16px;">
+        <div v-if="rcloneRemotes.length > 0" class="form-grid-2" style="margin-top: 20px;">
           <div class="field">
-            <label class="field-label">选择渠道</label>
+            <label class="field-label">当前渠道</label>
             <NSelect
               v-model:value="selectedRemote"
               :options="rcloneRemotes.map(r => ({ label: r.name, value: r.name }))"
@@ -377,187 +383,186 @@ onBeforeUnmount(() => {})
           </div>
         </div>
 
-        <div class="rclone-actions">
-          <button class="btn-primary" @click="testRcloneConnection" :disabled="rcloneTesting || !selectedRemote">
+        <div v-if="rcloneRemotes.length > 0" class="card-actions">
+          <button class="btn btn-primary" @click="testRcloneConnection" :disabled="rcloneTesting || !selectedRemote">
             {{ rcloneTesting ? '测试中...' : '测试连接' }}
           </button>
-          <button class="btn-secondary" @click="loadRcloneRemotes">刷新列表</button>
+          <button class="btn btn-ghost" @click="loadRcloneRemotes">刷新列表</button>
         </div>
       </section>
 
       <!-- 渠道配置弹窗 -->
-      <div v-if="channelFormVisible" class="modal-overlay" @click.self="channelFormVisible = false">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3>{{ editingChannel ? '编辑渠道' : '添加渠道' }}</h3>
-            <button class="modal-close" @click="channelFormVisible = false">&times;</button>
-          </div>
-          <div class="modal-body">
-            <div class="form-grid-2">
-              <div class="field">
-                <label class="field-label">渠道名称 <span class="required">*</span></label>
-                <NInput
-                  v-model:value="channelForm.name"
-                  :disabled="!!editingChannel"
-                  placeholder="如 jianguoyun、onedrive"
-                  size="large"
-                />
-                <p class="field-hint">只能包含字母、数字、下划线和连字符</p>
-              </div>
-              <div class="field">
-                <label class="field-label">渠道类型 <span class="required">*</span></label>
-                <NSelect
-                  v-model:value="channelForm.type"
-                  :options="channelTypes"
-                  :disabled="!!editingChannel"
-                  size="large"
-                />
-              </div>
+      <Teleport to="body">
+        <div v-if="channelFormVisible" class="modal-overlay" @click.self="channelFormVisible = false">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3>{{ editingChannel ? '编辑渠道' : '添加渠道' }}</h3>
+              <button class="modal-close" @click="channelFormVisible = false">&times;</button>
             </div>
-
-            <!-- WebDAV 配置 -->
-            <template v-if="channelForm.type === 'webdav'">
-              <div class="form-section-title">WebDAV 配置</div>
+            <div class="modal-body">
               <div class="form-grid-2">
                 <div class="field">
-                  <label class="field-label">服务地址 <span class="required">*</span></label>
-                  <NInput v-model:value="channelForm.config.url" placeholder="https://dav.jianguoyun.com/dav/" size="large" />
+                  <label class="field-label">渠道名称 <span class="required">*</span></label>
+                  <NInput
+                    v-model:value="channelForm.name"
+                    :disabled="!!editingChannel"
+                    placeholder="如 jianguoyun、onedrive"
+                    size="large"
+                  />
+                  <p class="field-hint">只能包含字母、数字、下划线和连字符</p>
                 </div>
                 <div class="field">
-                  <label class="field-label">厂商</label>
-                  <NSelect v-model:value="channelForm.config.vendor" :options="webdavVendors" size="large" />
-                </div>
-                <div class="field">
-                  <label class="field-label">用户名 <span class="required">*</span></label>
-                  <NInput v-model:value="channelForm.config.user" placeholder="WebDAV 账号" size="large" />
-                </div>
-                <div class="field">
-                  <label class="field-label">密码 <span class="required">*</span></label>
-                  <NInput v-model:value="channelForm.config.pass" type="password" placeholder="WebDAV 密码" size="large" />
+                  <label class="field-label">渠道类型 <span class="required">*</span></label>
+                  <NSelect
+                    v-model:value="channelForm.type"
+                    :options="channelTypes"
+                    :disabled="!!editingChannel"
+                    size="large"
+                  />
                 </div>
               </div>
-            </template>
 
-            <!-- OneDrive 配置 -->
-            <template v-if="channelForm.type === 'onedrive'">
-              <div class="form-section-title">OneDrive 配置</div>
-              <div class="rclone-tip">
-                <p>💡 配置步骤：<br>
-                1. 先填写渠道名称（如 <code>onedrive</code>）并点击保存<br>
-                2. 打开终端，运行以下命令：<br>
-                <code>rclone config</code><br>
-                3. 按提示选择 <code>onedrive</code> → 完成 OAuth 授权<br>
-                4. 完成后运行 <code>rclone listremotes -v</code> 查看配置<br>
-                5. 或者直接运行 <code>rclone authorize onedrive</code> 获取 token<br>
-                6. 将 token 和 drive_id 填入下方</p>
-              </div>
-              <div class="form-grid-2" style="margin-top: 12px;">
-                <div class="field">
-                  <label class="field-label">账户类型</label>
-                  <NSelect v-model:value="channelForm.config.drive_type" :options="[
-                    { label: 'OneDrive 个人版', value: 'personal' },
-                    { label: 'OneDrive 商业版', value: 'business' },
-                    { label: 'SharePoint', value: 'sharepoint' },
-                  ]" size="large" />
+              <!-- WebDAV 配置 -->
+              <template v-if="channelForm.type === 'webdav'">
+                <div class="form-section-title">WebDAV 配置</div>
+                <div class="form-grid-2">
+                  <div class="field">
+                    <label class="field-label">服务地址 <span class="required">*</span></label>
+                    <NInput v-model:value="channelForm.config.url" placeholder="https://dav.jianguoyun.com/dav/" size="large" />
+                  </div>
+                  <div class="field">
+                    <label class="field-label">厂商</label>
+                    <NSelect v-model:value="channelForm.config.vendor" :options="webdavVendors" size="large" />
+                  </div>
+                  <div class="field">
+                    <label class="field-label">用户名 <span class="required">*</span></label>
+                    <NInput v-model:value="channelForm.config.user" placeholder="WebDAV 账号" size="large" />
+                  </div>
+                  <div class="field">
+                    <label class="field-label">密码 <span class="required">*</span></label>
+                    <NInput v-model:value="channelForm.config.pass" type="password" placeholder="WebDAV 密码" size="large" />
+                  </div>
                 </div>
-                <div class="field">
-                  <label class="field-label">Drive ID <span class="required">*</span></label>
-                  <NInput v-model:value="channelForm.config.drive_id" placeholder="你的 OneDrive drive_id" size="large" />
-                  <p class="field-hint">运行 <code>rclone listremotes -v</code> 可查看</p>
-                </div>
-              </div>
-              <div class="form-grid-2">
-                <div class="field">
-                  <label class="field-label">Client ID</label>
-                  <NInput v-model:value="channelForm.config.client_id" placeholder="可留空（使用 rclone 默认）" size="large" />
-                </div>
-                <div class="field">
-                  <label class="field-label">Client Secret</label>
-                  <NInput v-model:value="channelForm.config.client_secret" type="password" placeholder="可留空（使用 rclone 默认）" size="large" />
-                </div>
-              </div>
-              <div class="field" style="margin-top: 12px;">
-                <label class="field-label">Token（JSON）<span class="required">*</span></label>
-                <NInput v-model:value="channelForm.config.token" type="textarea" :rows="4" placeholder='粘贴 rclone authorize 输出的 JSON' size="large" />
-              </div>
-            </template>
+              </template>
 
-            <!-- Google Drive 配置 -->
-            <template v-if="channelForm.type === 'drive'">
-              <div class="form-section-title">Google Drive 配置</div>
-              <div class="rclone-tip">
-                <p>💡 配置步骤：<br>
-                1. 先填写渠道名称（如 <code>gdrive</code>）并点击保存<br>
-                2. 在终端运行以下命令获取 token：<br>
-                <code>rclone authorize drive</code><br>
-                3. 浏览器会自动打开 Google 登录页面，完成授权<br>
-                4. 终端会输出一段 JSON token，复制后粘贴到下方「Token」字段<br>
-                5. 再次点击保存</p>
-              </div>
-              <div class="form-grid-2" style="margin-top: 12px;">
-                <div class="field">
-                  <label class="field-label">Client ID</label>
-                  <NInput v-model:value="channelForm.config.client_id" placeholder="可留空" size="large" />
+              <!-- OneDrive 配置 -->
+              <template v-if="channelForm.type === 'onedrive'">
+                <div class="form-section-title">OneDrive 配置</div>
+                <div class="rclone-tip">
+                  <p>💡 配置步骤：<br>
+                  1. 先填写渠道名称（如 <code>onedrive</code>）并点击保存<br>
+                  2. 打开终端，运行 <code>rclone config</code><br>
+                  3. 按提示选择 <code>onedrive</code> → 完成 OAuth 授权<br>
+                  4. 完成后运行 <code>rclone listremotes -v</code> 查看配置<br>
+                  5. 将 token 和 drive_id 填入下方</p>
                 </div>
-                <div class="field">
-                  <label class="field-label">Client Secret</label>
-                  <NInput v-model:value="channelForm.config.client_secret" type="password" placeholder="可留空" size="large" />
+                <div class="form-grid-2" style="margin-top: 12px;">
+                  <div class="field">
+                    <label class="field-label">账户类型</label>
+                    <NSelect v-model:value="channelForm.config.drive_type" :options="[
+                      { label: 'OneDrive 个人版', value: 'personal' },
+                      { label: 'OneDrive 商业版', value: 'business' },
+                      { label: 'SharePoint', value: 'sharepoint' },
+                    ]" size="large" />
+                  </div>
+                  <div class="field">
+                    <label class="field-label">Drive ID <span class="required">*</span></label>
+                    <NInput v-model:value="channelForm.config.drive_id" placeholder="你的 OneDrive drive_id" size="large" />
+                    <p class="field-hint">运行 <code>rclone listremotes -v</code> 可查看</p>
+                  </div>
                 </div>
-              </div>
-              <div class="field" style="margin-top: 12px;">
-                <label class="field-label">Token（JSON）</label>
-                <NInput v-model:value="channelForm.config.token" type="textarea" :rows="3" placeholder='{"access_token":"..."}' size="large" />
-              </div>
-            </template>
+                <div class="form-grid-2">
+                  <div class="field">
+                    <label class="field-label">Client ID</label>
+                    <NInput v-model:value="channelForm.config.client_id" placeholder="可留空（使用 rclone 默认）" size="large" />
+                  </div>
+                  <div class="field">
+                    <label class="field-label">Client Secret</label>
+                    <NInput v-model:value="channelForm.config.client_secret" type="password" placeholder="可留空（使用 rclone 默认）" size="large" />
+                  </div>
+                </div>
+                <div class="field" style="margin-top: 12px;">
+                  <label class="field-label">Token（JSON）<span class="required">*</span></label>
+                  <NInput v-model:value="channelForm.config.token" type="textarea" :rows="4" placeholder='粘贴 rclone authorize 输出的 JSON' size="large" />
+                </div>
+              </template>
 
-            <!-- S3 配置 -->
-            <template v-if="channelForm.type === 's3'">
-              <div class="form-section-title">S3 兼容存储配置</div>
-              <div class="form-grid-2">
-                <div class="field">
-                  <label class="field-label">提供商</label>
-                  <NSelect v-model:value="channelForm.config.provider" :options="[
-                    { label: 'AWS', value: 'AWS' },
-                    { label: '阿里云 OSS', value: 'Alibaba' },
-                    { label: '腾讯云 COS', value: 'Tencent' },
-                    { label: 'MinIO', value: 'MinIO' },
-                  ]" size="large" />
+              <!-- Google Drive 配置 -->
+              <template v-if="channelForm.type === 'drive'">
+                <div class="form-section-title">Google Drive 配置</div>
+                <div class="rclone-tip">
+                  <p>💡 配置步骤：<br>
+                  1. 先填写渠道名称（如 <code>gdrive</code>）并点击保存<br>
+                  2. 在终端运行 <code>rclone authorize drive</code><br>
+                  3. 浏览器会自动打开 Google 登录页面，完成授权<br>
+                  4. 终端会输出一段 JSON token，复制后粘贴到下方<br>
+                  5. 再次点击保存</p>
                 </div>
-                <div class="field">
-                  <label class="field-label">区域</label>
-                  <NInput v-model:value="channelForm.config.region" placeholder="如 oss-cn-beijing" size="large" />
+                <div class="form-grid-2" style="margin-top: 12px;">
+                  <div class="field">
+                    <label class="field-label">Client ID</label>
+                    <NInput v-model:value="channelForm.config.client_id" placeholder="可留空" size="large" />
+                  </div>
+                  <div class="field">
+                    <label class="field-label">Client Secret</label>
+                    <NInput v-model:value="channelForm.config.client_secret" type="password" placeholder="可留空" size="large" />
+                  </div>
                 </div>
-                <div class="field">
-                  <label class="field-label">Access Key ID <span class="required">*</span></label>
-                  <NInput v-model:value="channelForm.config.access_key_id" size="large" />
+                <div class="field" style="margin-top: 12px;">
+                  <label class="field-label">Token（JSON）</label>
+                  <NInput v-model:value="channelForm.config.token" type="textarea" :rows="3" placeholder='{"access_token":"..."}' size="large" />
                 </div>
-                <div class="field">
-                  <label class="field-label">Secret Access Key <span class="required">*</span></label>
-                  <NInput v-model:value="channelForm.config.secret_access_key" type="password" size="large" />
+              </template>
+
+              <!-- S3 配置 -->
+              <template v-if="channelForm.type === 's3'">
+                <div class="form-section-title">S3 兼容存储配置</div>
+                <div class="form-grid-2">
+                  <div class="field">
+                    <label class="field-label">提供商</label>
+                    <NSelect v-model:value="channelForm.config.provider" :options="[
+                      { label: 'AWS', value: 'AWS' },
+                      { label: '阿里云 OSS', value: 'Alibaba' },
+                      { label: '腾讯云 COS', value: 'Tencent' },
+                      { label: 'MinIO', value: 'MinIO' },
+                    ]" size="large" />
+                  </div>
+                  <div class="field">
+                    <label class="field-label">区域</label>
+                    <NInput v-model:value="channelForm.config.region" placeholder="如 oss-cn-beijing" size="large" />
+                  </div>
+                  <div class="field">
+                    <label class="field-label">Access Key ID <span class="required">*</span></label>
+                    <NInput v-model:value="channelForm.config.access_key_id" size="large" />
+                  </div>
+                  <div class="field">
+                    <label class="field-label">Secret Access Key <span class="required">*</span></label>
+                    <NInput v-model:value="channelForm.config.secret_access_key" type="password" size="large" />
+                  </div>
+                  <div class="field" style="grid-column: span 2;">
+                    <label class="field-label">端点</label>
+                    <NInput v-model:value="channelForm.config.endpoint" placeholder="如 oss-cn-beijing.aliyuncs.com" size="large" />
+                  </div>
                 </div>
-                <div class="field" style="grid-column: span 2;">
-                  <label class="field-label">端点</label>
-                  <NInput v-model:value="channelForm.config.endpoint" placeholder="如 oss-cn-beijing.aliyuncs.com" size="large" />
-                </div>
-              </div>
-            </template>
-          </div>
-          <div class="modal-footer">
-            <button class="btn-secondary" @click="channelFormVisible = false">取消</button>
-            <button class="btn-primary" @click="saveChannelConfig" :disabled="channelSaving">
-              {{ channelSaving ? '保存中...' : '保存' }}
-            </button>
+              </template>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-ghost" @click="channelFormVisible = false">取消</button>
+              <button class="btn btn-primary" @click="saveChannelConfig" :disabled="channelSaving">
+                {{ channelSaving ? '保存中...' : '保存' }}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </Teleport>
 
       <!-- 备份操作 -->
       <section class="settings-card">
         <header class="card-head">
-          <div class="card-icon">🚀</div>
+          <div class="card-icon card-icon-orange">🚀</div>
           <div>
             <h3 class="card-title">备份操作</h3>
-            <p class="card-desc">点击下方按钮启动备份，实时显示运行日志</p>
+            <p class="card-desc">选择渠道和参数，点击按钮启动备份</p>
           </div>
         </header>
 
@@ -577,20 +582,20 @@ onBeforeUnmount(() => {})
 
         <div class="action-buttons">
           <button
-            class="btn-primary big"
+            class="btn btn-primary btn-large"
             :disabled="isRunning || !selectedRemote"
             @click="startBackup"
           >
+            <span v-if="isRunning" class="btn-spinner"></span>
             {{ isRunning ? '备份中...' : `开始备份 → ${selectedRemote || '未选择'}` }}
           </button>
           <button
-            class="btn-warning big"
+            class="btn btn-warning btn-large"
             :disabled="!isRunning"
             @click="stopBackup"
           >
             ⏸ 停止
           </button>
-          <button class="btn-secondary" :disabled="isRunning" @click="clearLogs">清空日志</button>
         </div>
 
         <div v-if="result" class="result-bar" :class="result.ok ? 'result-ok' : 'result-err'">
@@ -602,15 +607,19 @@ onBeforeUnmount(() => {})
       <!-- 实时日志 -->
       <section class="settings-card">
         <header class="card-head">
-          <div class="card-icon">📜</div>
+          <div class="card-icon card-icon-green">📜</div>
           <div>
             <h3 class="card-title">实时日志</h3>
-            <p class="card-desc">从子进程 stdout/stderr 实时流式输出</p>
+            <p class="card-desc">备份过程的实时输出</p>
           </div>
         </header>
 
         <div class="log-box">
-          <div v-if="logs.length === 0" class="log-empty">暂无日志，点击上方按钮启动</div>
+          <div v-if="logs.length === 0" class="log-empty">
+            <div class="log-empty-icon">📋</div>
+            <p>暂无日志</p>
+            <p class="log-empty-hint">点击上方「开始备份」按钮启动</p>
+          </div>
           <div
             v-for="(l, i) in logs"
             :key="i"
@@ -627,7 +636,7 @@ onBeforeUnmount(() => {})
 </template>
 
 <style scoped>
-.channel-page {
+.backup-page {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -637,47 +646,226 @@ onBeforeUnmount(() => {})
   padding-right: 25px;
 }
 
+/* ============== 卡片 ============== */
 .settings-card {
   background: var(--admin-card);
   border: 1px solid var(--admin-border);
   border-radius: var(--admin-radius-card);
   box-shadow: var(--admin-shadow-card);
   padding: 24px;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.settings-card:hover {
+  box-shadow: var(--admin-shadow-card-hover);
 }
 
 .card-head {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   margin-bottom: 20px;
 }
 
 .card-icon {
   width: 44px;
   height: 44px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #3478f6, #5b9bff);
+  border-radius: 14px;
+  background: var(--admin-gradient);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 1.3rem;
   flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(52, 120, 246, 0.25);
+  box-shadow: 0 6px 20px rgba(79, 140, 255, 0.28);
+  color: #FFFFFF;
+}
+.card-icon-orange {
+  background: linear-gradient(135deg, #f59e0b, #fb923c);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.28);
+}
+.card-icon-green {
+  background: linear-gradient(135deg, #3CB371, #2ecc71);
+  box-shadow: 0 6px 20px rgba(60, 179, 113, 0.28);
 }
 
 .card-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--admin-text);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
   margin: 0 0 2px;
 }
-
 .card-desc {
-  font-size: 13px;
-  color: var(--admin-text-2);
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
   margin: 0;
 }
 
+/* ============== 渠道卡片网格 ============== */
+.channel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.channel-card {
+  position: relative;
+  background: var(--color-card-soft);
+  border: 1px solid var(--admin-border);
+  border-radius: 18px;
+  padding: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.channel-card:hover {
+  border-color: rgba(79, 140, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(79, 140, 255, 0.08);
+  transform: translateY(-2px);
+}
+.channel-card.active {
+  background: linear-gradient(135deg, rgba(79, 140, 255, 0.06), rgba(140, 108, 255, 0.06));
+  border-color: rgba(79, 140, 255, 0.35);
+  box-shadow: 0 4px 24px rgba(79, 140, 255, 0.12);
+}
+
+.channel-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.channel-card-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  background: var(--admin-card);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.icon-webdav { background: linear-gradient(135deg, #e0f2fe, #bae6fd); }
+.icon-onedrive { background: linear-gradient(135deg, #dbeafe, #bfdbfe); }
+.icon-drive { background: linear-gradient(135deg, #dcfce7, #bbf7d0); }
+.icon-s3 { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+
+.channel-card-actions {
+  display: flex;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.channel-card:hover .channel-card-actions {
+  opacity: 1;
+}
+
+.btn-icon {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 5px 6px;
+  cursor: pointer;
+  color: var(--text-sec);
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-icon:hover {
+  background: var(--admin-card);
+  color: var(--color-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.btn-icon-danger:hover {
+  color: var(--color-error);
+}
+
+.channel-card-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+.channel-card-type {
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.channel-card-check {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(52, 120, 246, 0.3);
+}
+
+.channel-card-add {
+  border-style: dashed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 120px;
+}
+.channel-card-add:hover {
+  border-color: var(--color-primary);
+  background: rgba(52, 120, 246, 0.04);
+}
+.channel-card-add-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--admin-card);
+  border: 2px dashed var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--text-sec);
+  transition: all 0.2s ease;
+}
+.channel-card-add:hover .channel-card-add-icon {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: rgba(52, 120, 246, 0.08);
+}
+
+/* ============== 空状态 ============== */
+.rclone-empty {
+  text-align: center;
+  padding: 40px 20px;
+}
+.rclone-empty-icon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+  opacity: 0.6;
+}
+.rclone-empty-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0 0 4px;
+}
+.rclone-empty-desc {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  margin: 0 0 20px;
+}
+
+/* ============== 表单 ============== */
 .form-grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -694,120 +882,183 @@ onBeforeUnmount(() => {})
   gap: 6px;
 }
 .field-label {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--admin-text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-sec);
+}
+.field-hint {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin: 2px 0 0;
+}
+.field-hint code {
+  font-family: var(--font-mono);
+  background: var(--color-card-soft);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  color: var(--color-primary);
 }
 
-.rclone-actions,
-.action-buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: 12px;
-  flex-wrap: wrap;
-}
+.required { color: var(--color-error); }
 
-.btn-primary,
-.btn-secondary,
-.btn-warning {
-  padding: 8px 16px;
-  border-radius: 8px;
+/* ============== 按钮 ============== */
+.btn {
+  padding: 10px 20px;
+  border-radius: var(--admin-radius-btn);
   border: 0;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.18s ease;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
-.btn-primary {
-  background: linear-gradient(135deg, #3478f6 0%, #5b9bff 100%);
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(52, 120, 246, 0.3);
-}
-.btn-primary:hover:not(:disabled) {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(52, 120, 246, 0.4);
-}
-.btn-primary.big {
-  padding: 12px 28px;
-  font-size: 15px;
-}
-.btn-primary:disabled,
-.btn-secondary:disabled {
+.btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
-.btn-secondary {
-  background: #fff;
-  color: #3478f6;
-  border: 1px solid #3478f6;
+.btn-primary {
+  background: var(--admin-gradient);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(79, 140, 255, 0.3);
 }
-.btn-secondary:hover:not(:disabled) {
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(79, 140, 255, 0.4);
+}
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--color-primary);
+}
+.btn-ghost:hover:not(:disabled) {
   background: rgba(52, 120, 246, 0.08);
 }
 .btn-warning {
-  background: linear-gradient(135deg, #f59e0b 0%, #fb923c 100%);
+  background: linear-gradient(135deg, #f59e0b, #fb923c);
   color: #fff;
-  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
 }
 .btn-warning:hover:not(:disabled) {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+}
+.btn-large {
+  height: 48px;
+  padding: 0 32px;
+  font-size: 1rem;
 }
 
-.backup-params {
-  margin-bottom: 16px;
+.btn-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+/* ============== 代理状态 ============== */
 .proxy-bar {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 14px;
-  border-radius: 8px;
+  padding: 12px 16px;
+  border-radius: 12px;
   margin-bottom: 16px;
-  font-size: 14px;
+  font-size: 0.88rem;
   font-weight: 500;
 }
-.proxy-on { background: rgba(34, 197, 94, 0.1); color: #16a34a; }
-.proxy-off { background: rgba(234, 179, 8, 0.12); color: #ca8a04; }
-.proxy-icon { font-size: 18px; }
+.proxy-on {
+  background: rgba(60, 179, 113, 0.08);
+  color: #16a34a;
+}
+.proxy-off {
+  background: rgba(234, 179, 8, 0.1);
+  color: #ca8a04;
+}
+.proxy-icon { font-size: 1.1rem; }
 .proxy-label { flex: 1; }
 .proxy-link {
-  color: #3478f6;
+  color: var(--color-primary);
   text-decoration: none;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 0.82rem;
+  font-weight: 600;
 }
 .proxy-link:hover { text-decoration: underline; }
 
+/* ============== 结果条 ============== */
 .result-bar {
   margin-top: 16px;
-  padding: 10px 14px;
-  border-radius: 8px;
+  padding: 12px 16px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
-.result-ok { background: rgba(34, 197, 94, 0.1); color: #16a34a; }
-.result-err { background: rgba(239, 68, 68, 0.1); color: #dc2626; }
-.result-icon { font-weight: bold; }
+.result-ok {
+  background: rgba(60, 179, 113, 0.08);
+  color: #16a34a;
+}
+.result-err {
+  background: rgba(255, 107, 107, 0.08);
+  color: #dc2626;
+}
+.result-icon { font-weight: 700; }
 
+/* ============== 日志 ============== */
 .log-box {
   background: #1e1e1e;
   color: #d4d4d4;
-  border-radius: 8px;
-  padding: 12px 16px;
-  height: 480px;
+  border-radius: 14px;
+  padding: 16px 18px;
+  height: 420px;
   overflow-y: auto;
-  font-family: 'Consolas', 'Monaco', monospace;
+  font-family: var(--font-mono);
   font-size: 12.5px;
-  line-height: 1.55;
+  line-height: 1.6;
 }
 .log-empty {
-  color: #888;
+  color: #666;
   text-align: center;
-  padding: 40px 0;
+  padding: 60px 0;
+}
+.log-empty-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+.log-empty p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+}
+.log-empty-hint {
+  font-size: 0.8rem !important;
+  color: #555 !important;
 }
 .log-line {
   display: flex;
@@ -816,134 +1067,68 @@ onBeforeUnmount(() => {})
   word-break: break-all;
 }
 .log-time {
-  color: #6b7280;
+  color: #555;
   flex-shrink: 0;
+  font-size: 0.8em;
 }
 .log-text { flex: 1; }
 .log-log .log-text { color: #d4d4d4; }
 .log-err .log-text { color: #f87171; }
 .log-system .log-text { color: #5b9bff; font-weight: 500; }
 
-.log-box::-webkit-scrollbar { width: 8px; }
-.log-box::-webkit-scrollbar-track { background: #1e1e1e; }
-.log-box::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+.log-box::-webkit-scrollbar { width: 6px; }
+.log-box::-webkit-scrollbar-track { background: transparent; }
+.log-box::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
+.log-box::-webkit-scrollbar-thumb:hover { background: #555; }
 
-/* 渠道列表 */
-.channel-list {
-  border: 1px solid var(--admin-border);
-  border-radius: 8px;
-  overflow: hidden;
-}
-.channel-list-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 16px;
-  background: rgba(52, 120, 246, 0.05);
-  border-bottom: 1px solid var(--admin-border);
-}
-.channel-list-title {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--admin-text);
-}
-.channel-items {
-  display: flex;
-  flex-direction: column;
-}
-.channel-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--admin-border);
-  cursor: pointer;
-  transition: background 0.15s ease;
-}
-.channel-item:last-child { border-bottom: none; }
-.channel-item:hover { background: rgba(52, 120, 246, 0.05); }
-.channel-item.active {
-  background: rgba(52, 120, 246, 0.1);
-  border-left: 3px solid #3478f6;
-}
-.channel-item-icon { font-size: 24px; }
-.channel-item-info { flex: 1; }
-.channel-item-name {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--admin-text);
-}
-.channel-item-type {
-  font-size: 12px;
-  color: var(--admin-text-2);
-}
-.channel-item-actions {
-  display: flex;
-  gap: 4px;
-}
-.btn-icon {
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: 6px;
-  padding: 6px 8px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: all 0.15s ease;
-}
-.btn-icon:hover { background: rgba(52, 120, 246, 0.1); }
-.btn-icon.btn-danger:hover { background: rgba(239, 68, 68, 0.1); }
-.btn-primary.small {
-  padding: 6px 12px;
-  font-size: 13px;
-}
-
+/* ============== 提示框 ============== */
 .rclone-tip {
-  background: rgba(52, 120, 246, 0.08);
-  border: 1px solid rgba(52, 120, 246, 0.2);
-  border-radius: 8px;
-  padding: 12px 16px;
+  background: rgba(52, 120, 246, 0.06);
+  border: 1px solid rgba(52, 120, 246, 0.15);
+  border-radius: 12px;
+  padding: 14px 18px;
   margin-bottom: 16px;
-  font-size: 14px;
-  color: #3478f6;
+  font-size: 0.85rem;
+  color: var(--color-primary);
+  line-height: 1.7;
 }
 .rclone-tip p { margin: 0; }
 .rclone-tip code {
   background: rgba(52, 120, 246, 0.1);
   padding: 2px 6px;
   border-radius: 4px;
-  font-family: 'Consolas', 'Monaco', monospace;
-  font-size: 13px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
 }
 
-.rclone-empty {
-  text-align: center;
-  padding: 20px;
-  color: var(--admin-text-2);
-  font-size: 14px;
-}
-.rclone-empty p { margin: 4px 0 12px; }
-
-/* 弹窗 */
+/* ============== 弹窗 ============== */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  padding: 20px;
 }
 .modal-content {
   background: var(--admin-card);
-  border-radius: 12px;
-  width: 90%;
+  border-radius: var(--radius-lg);
+  width: 100%;
   max-width: 640px;
-  max-height: 90vh;
+  max-height: 85vh;
   overflow-y: auto;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.2);
+  animation: modalIn 0.2s ease;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.96) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
 }
 .modal-header {
   display: flex;
@@ -954,20 +1139,25 @@ onBeforeUnmount(() => {})
 }
 .modal-header h3 {
   margin: 0;
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--admin-text);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
 }
 .modal-close {
   background: transparent;
   border: 0;
-  font-size: 24px;
-  color: var(--admin-text-2);
+  font-size: 1.5rem;
+  color: var(--text-tertiary);
   cursor: pointer;
   padding: 4px 8px;
-  border-radius: 6px;
+  border-radius: 8px;
+  line-height: 1;
+  transition: all 0.15s ease;
 }
-.modal-close:hover { background: rgba(239, 68, 68, 0.1); color: #dc2626; }
+.modal-close:hover {
+  background: rgba(255, 107, 107, 0.1);
+  color: var(--color-error);
+}
 .modal-body {
   padding: 24px;
 }
@@ -978,18 +1168,28 @@ onBeforeUnmount(() => {})
   padding: 16px 24px;
   border-top: 1px solid var(--admin-border);
 }
+
 .form-section-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--admin-text);
-  margin: 16px 0 12px;
-  padding-bottom: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 20px 0 12px;
+  padding-bottom: 10px;
   border-bottom: 1px solid var(--admin-border);
 }
-.required { color: #dc2626; }
-.field-hint {
-  font-size: 12px;
-  color: var(--admin-text-2);
-  margin: 4px 0 0;
+
+/* ============== 备份参数 ============== */
+.backup-params {
+  margin-bottom: 16px;
+}
+
+/* ============== 响应式 ============== */
+@media (max-width: 768px) {
+  .backup-page { padding-left: 16px; padding-right: 16px; }
+  .settings-card { padding: 20px; border-radius: 20px; }
+  .channel-grid { grid-template-columns: 1fr 1fr; }
+  .modal-content { max-width: 100%; }
+  .action-buttons { flex-direction: column; }
+  .btn-large { width: 100%; }
 }
 </style>

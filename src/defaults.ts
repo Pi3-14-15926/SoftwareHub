@@ -8,6 +8,8 @@ export const DEFAULT_SETTINGS: Settings = {
   storageNote: '收藏精品软件',
   ghProxyEnabled: false,
   ghProxyUrl: 'https://gh.api.99988866.xyz/',
+  uploadTimeout: 600,
+  maxFileSizeMB: 500,
   iconCdnMode: 'jsdelivr',
   schedule: {
     syncEnabled: false,

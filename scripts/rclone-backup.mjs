@@ -36,6 +36,7 @@ const IS_CI = process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true'
 const GH_PROXY = (process.env.GH_PROXY && !IS_CI) ? process.env.GH_PROXY : ''
 const KEEP_VERSIONS = parseInt(process.env.KEEP_VERSIONS || '2', 10)
 const MAX_FILE_SIZE = parseInt(process.env.MAX_FILE_SIZE_MB || '500', 10) * 1024 * 1024
+const UPLOAD_TIMEOUT = parseInt(process.env.UPLOAD_TIMEOUT || '600', 10) * 1000
 
 let changed = false
 
@@ -377,9 +378,10 @@ async function remoteFileExists(remotePath) {
 /**
  * 使用 rclone copy 同步单个文件到远程存储
  * @param {string} localFilePath - 本地文件完整路径
- * @param {string} remotePath - 远程目标路径（如 /SoftwareHub/category/project/version/filename）
+ * @param {string} remotePath - 远程目标路径
+ * @param {number} timeoutMs - 超时时间（毫秒）
  */
-async function rcloneCopyFile(localFilePath, remotePath, onProgress) {
+async function rcloneCopyFile(localFilePath, remotePath, onProgress, timeoutMs = UPLOAD_TIMEOUT) {
   const rclone = getRclonePath()
   const remote = RCLONE_REMOTE.endsWith(':') ? RCLONE_REMOTE : `${RCLONE_REMOTE}:`
   const dest = `${remote}${remotePath}`
@@ -396,6 +398,17 @@ async function rcloneCopyFile(localFilePath, remotePath, onProgress) {
     })
 
     let stderr = ''
+    let killed = false
+
+    const timer = setTimeout(() => {
+      killed = true
+      try { proc.kill('SIGTERM') } catch { /* noop */ }
+      setTimeout(() => {
+        if (proc && !proc.killed) {
+          try { proc.kill('SIGKILL') } catch { /* noop */ }
+        }
+      }, 2000)
+    }, timeoutMs)
 
     proc.stdout.on('data', (data) => {
       const text = data.toString('utf-8')
@@ -413,7 +426,10 @@ async function rcloneCopyFile(localFilePath, remotePath, onProgress) {
     })
 
     proc.on('close', (code) => {
-      if (code === 0) {
+      clearTimeout(timer)
+      if (killed) {
+        resolve({ ok: false, message: '上传超时，已跳过' })
+      } else if (code === 0) {
         resolve({ ok: true })
       } else {
         resolve({ ok: false, message: stderr || `rclone 退出码: ${code}` })
@@ -421,6 +437,7 @@ async function rcloneCopyFile(localFilePath, remotePath, onProgress) {
     })
 
     proc.on('error', (err) => {
+      clearTimeout(timer)
       reject(new Error(`启动 rclone 失败: ${err.message}`))
     })
   })
@@ -537,7 +554,7 @@ async function main() {
         try {
           const url = GH_PROXY ? GH_PROXY.replace(/\/+$/, '') + '/' + dl.url : dl.url
           log(`    ↓ 下载 ${dl.filename} (${dl.size})`)
-          const resp = await fetchWithTimeout(url, 300000)
+          const resp = await fetchWithTimeout(url, UPLOAD_TIMEOUT)
           if (!resp.ok) throw new Error(`HTTP ${resp.status}`)
           const buffer = Buffer.from(await resp.arrayBuffer())
           fs.writeFileSync(localFilePath, buffer)

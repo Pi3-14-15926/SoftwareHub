@@ -368,6 +368,8 @@ export function localBackupPlugin(): Plugin {
         const ghToken = url.searchParams.get('ghToken') || ''
         const ghProxyEnabled = url.searchParams.get('ghProxyEnabled') === 'true'
         const ghProxyUrl = url.searchParams.get('ghProxyUrl') || ''
+        const uploadTimeout = url.searchParams.get('uploadTimeout') || '600'
+        const maxFileSizeMB = url.searchParams.get('maxFileSizeMB') || '500'
 
         if (!rcloneRemote) {
           send({ type: 'error', message: '请选择 rclone 远程存储' })
@@ -384,6 +386,8 @@ export function localBackupPlugin(): Plugin {
           RCLONE_PATH: rclonePath,
           KEEP_VERSIONS: keepVersions,
           GH_TOKEN: ghToken,
+          UPLOAD_TIMEOUT: uploadTimeout,
+          MAX_FILE_SIZE_MB: maxFileSizeMB,
           ...(ghProxyEnabled && ghProxyUrl ? { GH_PROXY: ghProxyUrl } : {}),
         }
 
@@ -437,6 +441,103 @@ export function localBackupPlugin(): Plugin {
             try { child.kill() } catch { /* noop */ }
           }
         })
+      })
+
+      /* 列出 rclone 远程存储中的备份文件 */
+      server.middlewares.use('/__rclone-files', async (req, res) => {
+        res.setHeader('Content-Type', 'application/json')
+        try {
+          const url = new URL(req.url || '/', 'http://localhost')
+          const remoteName = url.searchParams.get('remote') || ''
+          const remotePath = url.searchParams.get('path') || '/SoftwareHub'
+
+          if (!remoteName) {
+            res.end(JSON.stringify({ entries: [], error: '未选择渠道' }))
+            return
+          }
+
+          const rclone = getRclonePath()
+          const remote = remoteName.endsWith(':') ? remoteName : `${remoteName}:`
+          const fullPath = `${remote}${remotePath}`
+
+          // 使用 rclone lsf 递归列出所有文件（格式: path;size）
+          let output = ''
+          try {
+            output = execSync(`${rclone} lsf -R --files-only --format "ps" ${fullPath}`, {
+              encoding: 'utf-8',
+              timeout: 30000,
+              env: { ...process.env, ...getProxyEnv() },
+            })
+          } catch {
+            res.end(JSON.stringify({ entries: [] }))
+            return
+          }
+
+          // 解析 rclone lsf 输出
+          // 格式: path;size（分号分隔）
+          const lines = output.split('\n').filter(Boolean)
+          const entries: Array<{
+            category: string
+            project: string
+            versionDir: string
+            files: Array<{ name: string; size: number; url: string }>
+          }> = []
+
+          // 按 category/project/version 分组
+          const fileMap = new Map<string, Map<string, Map<string, Array<{ name: string; size: number }>>>>()
+
+          for (const line of lines) {
+            const sepIdx = line.lastIndexOf(';')
+            let filePath = line
+            let fileSize = 0
+            if (sepIdx > 0) {
+              filePath = line.substring(0, sepIdx)
+              fileSize = parseInt(line.substring(sepIdx + 1), 10) || 0
+            }
+
+            const parts = filePath.split('/')
+            if (parts.length < 4) continue // 至少 category/project/version/file
+
+            const category = parts[0]
+            const project = parts[1]
+            const versionDir = parts[2]
+            const filename = parts.slice(3).join('/')
+
+            if (!fileMap.has(category)) fileMap.set(category, new Map())
+            if (!fileMap.get(category)!.has(project)) fileMap.get(category)!.set(project, new Map())
+            if (!fileMap.get(category)!.get(project)!.has(versionDir)) {
+              fileMap.get(category)!.get(project)!.set(versionDir, [])
+            }
+            fileMap.get(category)!.get(project)!.get(versionDir)!.push({
+              name: filename,
+              size: fileSize,
+            })
+          }
+
+          // 转换为 entries 格式
+          for (const [category, projects] of fileMap) {
+            for (const [project, versions] of projects) {
+              for (const [versionDir, files] of versions) {
+                if (files.length > 0) {
+                  entries.push({
+                    category,
+                    project,
+                    versionDir,
+                    files: files.map(f => ({
+                      name: f.name,
+                      size: f.size,
+                      url: `${remotePath}/${category}/${project}/${versionDir}/${f.name}`,
+                    })),
+                  })
+                }
+              }
+            }
+          }
+
+          res.end(JSON.stringify({ entries }))
+        } catch (e: any) {
+          res.end(JSON.stringify({ entries: [], error: e.message }))
+        }
       })
     },
   }

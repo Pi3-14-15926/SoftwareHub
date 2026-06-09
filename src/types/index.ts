@@ -119,6 +119,9 @@ export interface Settings {
   ghProxyEnabled?: boolean
   ghProxyUrl?: string
   networkProxy?: string
+  uploadTimeout?: number
+  maxFileSizeMB?: number
+  defaultChannel?: string
   schedule?: ScheduleConfig
   webdav?: WebDAVConfig
   iconCdnMode?: IconCdnMode

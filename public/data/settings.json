@@ -8,6 +8,9 @@
   "storageNote": "收藏精品软件",
   "ghProxyEnabled": true,
   "ghProxyUrl": "https://js.qiyinqin.ccwu.cc/",
+  "uploadTimeout": 600,
+  "maxFileSizeMB": 500,
+  "defaultChannel": "123webdav",
   "iconCdnMode": "jsdelivr",
   "schedule": {
     "syncEnabled": true,

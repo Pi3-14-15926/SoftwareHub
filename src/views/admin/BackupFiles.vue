@@ -33,7 +33,7 @@ const loading = ref(false)
 const deletingPaths = ref<Set<string>>(new Set())
 const expandedProjects = ref<Set<string>>(new Set())
 const keyword = ref('')
-const dataSource = ref<'webdav' | 'manifest' | 'none'>('none')
+const dataSource = ref<'rclone' | 'webdav' | 'manifest' | 'none'>('none')
 const configMissing = ref(false)
 
 function formatSize(bytes: number): string {
@@ -73,6 +73,20 @@ async function loadFromWebdav(): Promise<BackupEntry[]> {
   }
 }
 
+async function loadFromRclone(): Promise<BackupEntry[]> {
+  try {
+    const remote = settings.settings.defaultChannel || ''
+    const path = '/SoftwareHub'
+    if (!remote) return []
+    const res = await fetch(`/__rclone-files?remote=${encodeURIComponent(remote)}&path=${encodeURIComponent(path)}`)
+    if (!res.ok) return []
+    const data = await res.json()
+    return data.entries || []
+  } catch {
+    return []
+  }
+}
+
 async function loadFromManifest(): Promise<BackupEntry[]> {
   try {
     const manifestUrl = import.meta.env.BASE_URL + 'data/backup-manifest.json'
@@ -90,9 +104,18 @@ async function loadFiles() {
   configMissing.value = false
   await settings.refresh()
 
-  const synced = await syncWebdavConfigToServer()
-
+  // 本地开发模式：优先从 rclone 渠道读取
   if (isDev) {
+    const rcloneList = await loadFromRclone()
+    if (rcloneList.length > 0) {
+      entries.value = rcloneList
+      dataSource.value = 'rclone'
+      loading.value = false
+      return
+    }
+
+    // 回退到 WebDAV
+    const synced = await syncWebdavConfigToServer()
     const list = await loadFromWebdav()
     if (list.length > 0) {
       entries.value = list
@@ -106,6 +129,7 @@ async function loadFiles() {
     }
   }
 
+  // 生产模式或回退：从 manifest 读取
   const manifestList = await loadFromManifest()
   if (manifestList.length > 0) {
     entries.value = manifestList
@@ -349,7 +373,8 @@ onMounted(() => { loadFiles() })
         <span class="source-dot" :class="`dot-${dataSource}`"></span>
         <span class="source-text">
           数据来源：
-          <strong v-if="dataSource === 'webdav'">WebDAV 实时（dev 端点）</strong>
+          <strong v-if="dataSource === 'rclone'">rclone 渠道实时读取</strong>
+          <strong v-else-if="dataSource === 'webdav'">WebDAV 实时（dev 端点）</strong>
           <strong v-else>静态 manifest（GitHub Action 生成）</strong>
         </span>
       </div>
@@ -384,6 +409,7 @@ onMounted(() => { loadFiles() })
         <h3 class="empty-title">
           <span v-if="keyword">没有匹配 "{{ keyword }}" 的备份文件</span>
           <span v-else-if="configMissing">WebDAV 尚未配置</span>
+          <span v-else-if="dataSource === 'rclone'">rclone 渠道已连接，暂无备份</span>
           <span v-else-if="dataSource === 'webdav'">WebDAV 已连接，暂无备份</span>
           <span v-else>暂无备份文件</span>
         </h3>
@@ -654,6 +680,7 @@ onMounted(() => { loadFiles() })
   align-self: flex-start;
 }
 .source-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.dot-rclone { background: #8C6CFF; box-shadow: 0 0 0 3px rgba(140, 108, 255, 0.18); animation: pulse 2s ease-in-out infinite; }
 .dot-webdav { background: #3CB371; box-shadow: 0 0 0 3px rgba(60, 179, 113, 0.18); animation: pulse 2s ease-in-out infinite; }
 .dot-manifest { background: var(--color-primary); box-shadow: 0 0 0 3px var(--color-primary-soft); }
 .source-text strong { color: var(--text-main); font-weight: 600; }

@@ -17,6 +17,25 @@ const keepOptions = [
   { label: '5 个版本', value: 5 },
 ]
 
+const uploadTimeout = ref(600)
+const timeoutOptions = [
+  { label: '5 分钟', value: 300 },
+  { label: '10 分钟（默认）', value: 600 },
+  { label: '20 分钟', value: 1200 },
+  { label: '30 分钟', value: 1800 },
+  { label: '60 分钟', value: 3600 },
+]
+
+const maxFileSizeMB = ref(500)
+const fileSizeOptions = [
+  { label: '100 MB', value: 100 },
+  { label: '200 MB', value: 200 },
+  { label: '500 MB（默认）', value: 500 },
+  { label: '1 GB', value: 1024 },
+  { label: '2 GB', value: 2048 },
+  { label: '不限制', value: 99999 },
+]
+
 /* 加速代理状态提示 */
 const proxyStatus = computed(() => {
   const enabled = !!store.settings.ghProxyEnabled
@@ -191,7 +210,14 @@ const result = ref<{ code: number | null; ok: boolean; msg: string } | null>(nul
 
 onMounted(async () => {
   store.refresh()
+  uploadTimeout.value = store.settings.uploadTimeout || 600
+  maxFileSizeMB.value = store.settings.maxFileSizeMB || 500
   await loadRcloneRemotes()
+  // 恢复上次选择的渠道
+  const saved = store.settings.defaultChannel
+  if (saved && rcloneRemotes.value.some(r => r.name === saved)) {
+    selectedRemote.value = saved
+  }
 })
 
 function pushLog(type: 'log' | 'err' | 'system', text: string) {
@@ -202,6 +228,21 @@ function pushLog(type: 'log' | 'err' | 'system', text: string) {
 function clearLogs() {
   logs.value = []
   result.value = null
+}
+
+function selectChannel(name: string) {
+  selectedRemote.value = name
+  const s = { ...store.settings }
+  s.defaultChannel = name
+  store.save(s)
+}
+
+function saveUploadSettings() {
+  const s = { ...store.settings }
+  s.uploadTimeout = uploadTimeout.value
+  s.maxFileSizeMB = maxFileSizeMB.value
+  store.save(s)
+  message.success('上传设置已保存')
 }
 
 /* ============== rclone 备份 ============== */
@@ -228,6 +269,8 @@ async function startBackup() {
       ghToken: token,
       ghProxyEnabled: String(!!store.settings.ghProxyEnabled),
       ghProxyUrl: store.settings.ghProxyUrl || '',
+      uploadTimeout: String(uploadTimeout.value),
+      maxFileSizeMB: String(maxFileSizeMB.value),
     })
     const res = await fetch(`/__rclone-backup?${params}`, { method: 'POST' })
     if (!res.ok || !res.body) {
@@ -316,6 +359,34 @@ onBeforeUnmount(() => {})
         </div>
       </div>
 
+      <!-- 上传设置 -->
+      <section class="settings-card">
+        <header class="card-head">
+          <div class="card-icon card-icon-purple">⚙️</div>
+          <div>
+            <h3 class="card-title">上传设置</h3>
+            <p class="card-desc">控制备份文件的超时和大小限制</p>
+          </div>
+        </header>
+
+        <div class="form-grid-2">
+          <div class="field">
+            <label class="field-label">文件超时时间</label>
+            <NSelect v-model:value="uploadTimeout" :options="timeoutOptions" size="large" />
+            <p class="field-hint">单个文件上传超过此时间将自动跳过，开始处理下一个文件</p>
+          </div>
+          <div class="field">
+            <label class="field-label">文件大小限制</label>
+            <NSelect v-model:value="maxFileSizeMB" :options="fileSizeOptions" size="large" />
+            <p class="field-hint">超过此大小的文件将自动跳过，不进行下载和上传</p>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <button class="btn btn-primary" @click="saveUploadSettings">保存设置</button>
+        </div>
+      </section>
+
       <!-- 渠道配置 -->
       <section class="settings-card">
         <header class="card-head">
@@ -333,7 +404,7 @@ onBeforeUnmount(() => {})
             :key="remote.name"
             class="channel-card"
             :class="{ active: selectedRemote === remote.name }"
-            @click="selectedRemote = remote.name"
+            @click="selectChannel(remote.name)"
           >
             <div class="channel-card-top">
               <div class="channel-card-icon" :class="`icon-${remote.type}`">
@@ -375,6 +446,7 @@ onBeforeUnmount(() => {})
               :options="rcloneRemotes.map(r => ({ label: r.name, value: r.name }))"
               placeholder="选择渠道"
               size="large"
+              @update:value="selectChannel"
             />
           </div>
           <div class="field">
@@ -686,6 +758,10 @@ onBeforeUnmount(() => {})
 .card-icon-green {
   background: linear-gradient(135deg, #3CB371, #2ecc71);
   box-shadow: 0 6px 20px rgba(60, 179, 113, 0.28);
+}
+.card-icon-purple {
+  background: linear-gradient(135deg, #8C6CFF, #a78bfa);
+  box-shadow: 0 6px 20px rgba(140, 108, 255, 0.28);
 }
 
 .card-title {

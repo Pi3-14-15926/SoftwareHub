@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 
 NUL
+
+# rclone 二进制文件和配置（由用户本地安装）
+scripts/bin/
+rclone.conf

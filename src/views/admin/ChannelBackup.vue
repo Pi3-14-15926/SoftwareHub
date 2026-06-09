@@ -3,39 +3,10 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { NInput, NInputNumber, NSelect, NSwitch, useMessage } from 'naive-ui'
 import AdminLayout from '../../components/admin/AdminLayout.vue'
 import { useSettingStore } from '../../store/settings'
-import { encryptSecret, decryptSecret, isEncrypted } from '../../utils/secretStore'
 import { getToken } from '../../utils/auth'
 
 const message = useMessage()
 const store = useSettingStore()
-
-/* ============== WebDAV 配置表单（与 FeatureSettings 共享 store） ============== */
-const webForm = ref({
-  url: '',
-  username: '',
-  password: '',
-  baseDir: '/SoftwareHub',
-  uploadTimeout: 300,
-  maxFileSize: 500,
-})
-const showPassword = ref(false)
-const isConfigured = ref(false)
-
-onMounted(async () => {
-  store.refresh()
-  const wd = store.settings.webdav
-  const storedPwd = wd?.password ?? ''
-  const plainPwd = isEncrypted(storedPwd) ? await decryptSecret(storedPwd) : storedPwd
-  webForm.value = {
-    url: wd?.url ?? '',
-    username: wd?.username ?? '',
-    password: plainPwd,
-    baseDir: wd?.baseDir ?? '/SoftwareHub',
-    uploadTimeout: wd?.uploadTimeout ?? 300,
-    maxFileSize: wd?.maxFileSize ?? 500,
-  }
-  await refreshStatus()
-})
 
 /* ============== 备份参数 ============== */
 const keepVersions = ref(2)
@@ -45,7 +16,6 @@ const keepOptions = [
   { label: '3 个版本', value: 3 },
   { label: '5 个版本', value: 5 },
 ]
-const includeRelease = ref(true)
 
 /* 加速代理状态提示 */
 const proxyStatus = computed(() => {
@@ -55,97 +25,177 @@ const proxyStatus = computed(() => {
   return { ok: false, label: 'GitHub 代理加速未开启（下载可能较慢）', url: '' }
 })
 
-/* ============== 状态 ============== */
-const isRunning = ref(false)
-const status = ref<{ configured: boolean; running: boolean }>({ configured: false, running: false })
-const logs = ref<Array<{ type: 'log' | 'err' | 'system'; text: string; ts: number }>>([])
-const result = ref<{ code: number | null; ok: boolean; msg: string } | null>(null)
-let eventSource: EventSource | null = null
+/* ============== rclone 相关状态 ============== */
+const rcloneRemotes = ref<Array<{ name: string; type: string; config?: Record<string, string> }>>([])
+const selectedRemote = ref('')
+const rclonePath = ref('/SoftwareHub')
+const rcloneTesting = ref(false)
+const rcloneConfigured = ref(false)
 
-async function refreshStatus() {
+/* rclone 渠道配置表单 */
+const channelTypes = [
+  { label: 'WebDAV（坚果云等）', value: 'webdav' },
+  { label: 'OneDrive', value: 'onedrive' },
+  { label: 'Google Drive', value: 'drive' },
+  { label: 'S3 兼容存储（阿里云OSS等）', value: 's3' },
+  { label: '其他 rclone 支持的类型', value: 'other' },
+]
+
+const channelFormVisible = ref(false)
+const channelForm = ref({
+  name: '',
+  type: 'webdav',
+  config: {} as Record<string, string>,
+})
+const channelSaving = ref(false)
+const editingChannel = ref<string | null>(null)
+
+const webdavVendors = [
+  { label: '其他（通用 WebDAV）', value: 'other' },
+  { label: '坚果云', value: '坚果云' },
+  { label: 'NextCloud', value: 'NextCloud' },
+  { label: 'ownCloud', value: 'ownCloud' },
+  { label: '123云盘', value: '123云盘' },
+]
+
+/* 加载 rclone 远程存储列表 */
+async function loadRcloneRemotes() {
   try {
-    const r = await fetch('/__local-backup-status')
-    const j = await r.json()
-    status.value = j
-    isConfigured.value = j.configured
+    const res = await fetch('/__rclone-config')
+    const j = await res.json()
+    if (j.ok) {
+      rcloneRemotes.value = j.remotes || []
+      if (rcloneRemotes.value.length > 0 && !selectedRemote.value) {
+        selectedRemote.value = rcloneRemotes.value[0].name
+      }
+    }
   } catch { /* noop */ }
 }
 
-async function saveConfig() {
-  const s = { ...store.settings }
-  s.webdav = {
-    ...(s.webdav || {}),
-    url: webForm.value.url,
-    username: webForm.value.username,
-    password: webForm.value.password ? await encryptSecret(webForm.value.password) : '',
-    baseDir: webForm.value.baseDir,
-    uploadTimeout: webForm.value.uploadTimeout,
-    maxFileSize: webForm.value.maxFileSize,
-  }
-  store.save(s)
-
-  /* 同步到 vite 中间件 */
-  const token = getToken() || ''
-  const cfgRes = await fetch('/__local-backup-config', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      url: webForm.value.url,
-      username: webForm.value.username,
-      password: webForm.value.password,
-      baseDir: webForm.value.baseDir,
-      maxFileSize: webForm.value.maxFileSize,
-      uploadTimeout: webForm.value.uploadTimeout,
-      ghToken: token,
-      /* 加速设置 → GitHub 代理：开启后下载 release 走代理加速 */
-      ghProxyEnabled: !!store.settings.ghProxyEnabled,
-      ghProxyUrl: store.settings.ghProxyUrl || '',
-    }),
-  })
-  const j = await cfgRes.json()
-  if (!j.ok) {
-    message.error('配置保存失败：' + (j.error || '未知错误'))
+/* 测试 rclone 连接 */
+async function testRcloneConnection() {
+  if (!selectedRemote.value) {
+    message.warning('请先选择渠道')
     return
   }
-  const proxyStatus = store.settings.ghProxyEnabled && store.settings.ghProxyUrl ? '（GitHub 代理已开启）' : '（GitHub 代理未开启）'
-  message.success('WebDAV 配置已保存并同步到本地备份服务 ' + proxyStatus)
-  await refreshStatus()
+  rcloneTesting.value = true
+  try {
+    const res = await fetch('/__rclone-test', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ remote: selectedRemote.value }),
+    })
+    const j = await res.json()
+    if (j.ok) {
+      message.success(j.message)
+      rcloneConfigured.value = true
+    } else {
+      message.error('连接失败：' + (j.error || '未知错误'))
+      rcloneConfigured.value = false
+    }
+  } catch (e: any) {
+    message.error('请求失败：' + e.message)
+    rcloneConfigured.value = false
+  } finally {
+    rcloneTesting.value = false
+  }
 }
 
-async function testConnection() {
-  if (!webForm.value.url || !webForm.value.username || !webForm.value.password) {
-    message.warning('请先填写完整的服务地址、用户名、密码')
+/* 打开新建渠道表单 */
+function openNewChannelForm() {
+  editingChannel.value = null
+  channelForm.value = {
+    name: '',
+    type: 'webdav',
+    config: {},
+  }
+  channelFormVisible.value = true
+}
+
+/* 编辑已有渠道 */
+function editChannel(name: string) {
+  const remote = rcloneRemotes.value.find(r => r.name === name)
+  if (!remote) return
+  editingChannel.value = name
+  channelForm.value = {
+    name: remote.name,
+    type: remote.type,
+    config: { ...(remote.config || {}) },
+  }
+  channelFormVisible.value = true
+}
+
+/* 保存渠道配置 */
+async function saveChannelConfig() {
+  if (!channelForm.value.name) {
+    message.warning('请填写渠道名称')
     return
   }
+  if (!/^[a-zA-Z0-9_-]+$/.test(channelForm.value.name)) {
+    message.warning('渠道名称只能包含字母、数字、下划线和连字符')
+    return
+  }
+  channelSaving.value = true
   try {
-    const token = getToken() || ''
-    const cfgRes = await fetch('/__local-backup-config', {
+    const res = await fetch('/__rclone-config', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        url: webForm.value.url,
-        username: webForm.value.username,
-        password: webForm.value.password,
-        baseDir: webForm.value.baseDir,
-        maxFileSize: webForm.value.maxFileSize,
-        uploadTimeout: webForm.value.uploadTimeout,
-        ghToken: token,
-        ghProxyEnabled: !!store.settings.ghProxyEnabled,
-        ghProxyUrl: store.settings.ghProxyUrl || '',
+        name: channelForm.value.name,
+        type: channelForm.value.type,
+        config: channelForm.value.config,
       }),
     })
-    const j = await cfgRes.json()
-    if (!j.ok) throw new Error(j.error)
-    message.success('配置已同步。点击「开始本地备份」实际测试上传')
-    await refreshStatus()
+    const j = await res.json()
+    if (j.ok) {
+      message.success(j.message)
+      channelFormVisible.value = false
+      await loadRcloneRemotes()
+      selectedRemote.value = channelForm.value.name
+    } else {
+      message.error('保存失败：' + (j.error || '未知错误'))
+    }
   } catch (e: any) {
-    message.error('配置失败：' + e.message)
+    message.error('请求失败：' + e.message)
+  } finally {
+    channelSaving.value = false
   }
 }
 
+/* 删除渠道 */
+async function deleteChannel(name: string) {
+  if (!confirm(`确定要删除渠道 "${name}" 吗？`)) return
+  try {
+    const res = await fetch('/__rclone-config', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name }),
+    })
+    const j = await res.json()
+    if (j.ok) {
+      message.success(j.message)
+      if (selectedRemote.value === name) selectedRemote.value = ''
+      await loadRcloneRemotes()
+    } else {
+      message.error('删除失败：' + (j.error || '未知错误'))
+    }
+  } catch (e: any) {
+    message.error('请求失败：' + e.message)
+  }
+}
+
+/* ============== 状态 ============== */
+const isRunning = ref(false)
+const logs = ref<Array<{ type: 'log' | 'err' | 'system'; text: string; ts: number }>>([])
+const result = ref<{ code: number | null; ok: boolean; msg: string } | null>(null)
+
+onMounted(async () => {
+  store.refresh()
+  await loadRcloneRemotes()
+})
+
 function pushLog(type: 'log' | 'err' | 'system', text: string) {
   logs.value.push({ type, text, ts: Date.now() })
-  /* 限制最多 1000 行 */
   if (logs.value.length > 1000) logs.value = logs.value.slice(-1000)
 }
 
@@ -154,23 +204,32 @@ function clearLogs() {
   result.value = null
 }
 
+/* ============== rclone 备份 ============== */
 async function startBackup() {
   if (isRunning.value) {
     message.warning('已有备份在运行中')
     return
   }
-  if (!isConfigured.value) {
-    message.error('请先保存 WebDAV 配置')
+  if (!selectedRemote.value) {
+    message.error('请先选择渠道')
     return
   }
   clearLogs()
   isRunning.value = true
   result.value = null
-  pushLog('system', `▶️ 启动本地备份（保留 ${keepVersions.value} 个版本）${includeRelease.value ? '（含同步 Release）' : '（仅备份）'}`)
+  pushLog('system', `▶️ 启动备份 → ${selectedRemote.value}:${rclonePath.value}`)
 
-  /* 使用 fetch 流式读取 */
   try {
-    const res = await fetch(`/__local-backup?keepVersions=${keepVersions.value}`, { method: 'POST' })
+    const token = getToken() || ''
+    const params = new URLSearchParams({
+      remote: selectedRemote.value,
+      path: rclonePath.value,
+      keepVersions: String(keepVersions.value),
+      ghToken: token,
+      ghProxyEnabled: String(!!store.settings.ghProxyEnabled),
+      ghProxyUrl: store.settings.ghProxyUrl || '',
+    })
+    const res = await fetch(`/__rclone-backup?${params}`, { method: 'POST' })
     if (!res.ok || !res.body) {
       const txt = await res.text()
       throw new Error(`HTTP ${res.status}: ${txt}`)
@@ -199,7 +258,6 @@ async function startBackup() {
     result.value = { code: null, ok: false, msg: e.message }
   } finally {
     isRunning.value = false
-    await refreshStatus()
   }
 }
 
@@ -216,7 +274,7 @@ function handleEvent(evt: any) {
       result.value = { code: 0, ok: true, msg: '备份完成' }
       message.success('备份完成')
     } else if (evt.signal === 'SIGTERM' || evt.code === null) {
-      pushLog('system', '⏸ 备份已停止（Windows 终止子进程）。再次开始会自动跳过已备份版本。')
+      pushLog('system', '⏸ 备份已停止')
       result.value = { code: evt.code, ok: false, msg: '已停止' }
       message.warning('备份已停止')
     } else {
@@ -245,10 +303,7 @@ async function stopBackup() {
   }
 }
 
-onBeforeUnmount(() => {
-  /* fetch ReadableStream 在组件卸载时由浏览器自动关闭 */
-  void eventSource
-})
+onBeforeUnmount(() => {})
 </script>
 
 <template>
@@ -257,75 +312,252 @@ onBeforeUnmount(() => {
       <div class="page-head">
         <div>
           <h2 class="page-title"><span class="page-title-emoji">📡</span>渠道备份</h2>
-          <p class="page-desc">在本地开发环境把数据直接备份到 WebDAV 云盘，复用 GitHub Actions 工作流</p>
+          <p class="page-desc">通过 rclone 将数据备份到云盘，支持 WebDAV、OneDrive、Google Drive 等</p>
         </div>
       </div>
 
-      <!-- WebDAV 配置 -->
+      <!-- 渠道配置 -->
       <section class="settings-card">
         <header class="card-head">
           <div class="card-icon">☁️</div>
           <div>
-            <h3 class="card-title">WebDAV 配置</h3>
-            <p class="card-desc">和「功能设置 → Web 备份」共享同一份配置，这里只是快速入口</p>
+            <h3 class="card-title">云盘渠道</h3>
+            <p class="card-desc">配置要备份到的云盘渠道</p>
           </div>
-          <span class="status-tag" :class="isConfigured ? 'status-ok' : 'status-miss'">
-            <span class="status-dot"></span>
-            {{ isConfigured ? '已配置' : '未配置' }}
-          </span>
         </header>
 
-        <div class="form-grid-2">
-          <div class="field">
-            <label class="field-label">服务地址</label>
-            <NInput v-model:value="webForm.url" placeholder="https://dav.jianguoyun.com/dav/" size="large" />
+        <!-- 已配置的渠道列表 -->
+        <div v-if="rcloneRemotes.length > 0" class="channel-list">
+          <div class="channel-list-header">
+            <span class="channel-list-title">已配置的渠道</span>
+            <button class="btn-primary small" @click="openNewChannelForm">+ 添加渠道</button>
           </div>
-          <div class="field">
-            <label class="field-label">基础目录</label>
-            <NInput v-model:value="webForm.baseDir" placeholder="/SoftwareHub" size="large" />
-          </div>
-          <div class="field">
-            <label class="field-label">用户名</label>
-            <NInput v-model:value="webForm.username" placeholder="WebDAV 账号" size="large" />
-          </div>
-          <div class="field">
-            <label class="field-label">密码</label>
-            <NInput
-              v-model:value="webForm.password"
-              :type="showPassword ? 'text' : 'password'"
-              placeholder="WebDAV 密码"
-              size="large"
+          <div class="channel-items">
+            <div
+              v-for="remote in rcloneRemotes"
+              :key="remote.name"
+              class="channel-item"
+              :class="{ active: selectedRemote === remote.name }"
+              @click="selectedRemote = remote.name"
             >
-              <template #suffix>
-                <button type="button" class="pwd-toggle" @click="showPassword = !showPassword">
-                  {{ showPassword ? '隐藏' : '显示' }}
-                </button>
-              </template>
-            </NInput>
-          </div>
-          <div class="field">
-            <label class="field-label">上传超时（秒）</label>
-            <NInputNumber v-model:value="webForm.uploadTimeout" :min="10" :max="1800" size="large" style="width: 100%;" />
-          </div>
-          <div class="field">
-            <label class="field-label">文件大小限制（MB）</label>
-            <NInputNumber v-model:value="webForm.maxFileSize" :min="1" :max="10000" size="large" style="width: 100%;" />
+              <div class="channel-item-icon">
+                {{ remote.type === 'webdav' ? '☁️' : remote.type === 'onedrive' ? '📁' : remote.type === 'drive' ? '📗' : '💾' }}
+              </div>
+              <div class="channel-item-info">
+                <div class="channel-item-name">{{ remote.name }}</div>
+                <div class="channel-item-type">{{ remote.type }}</div>
+              </div>
+              <div class="channel-item-actions">
+                <button class="btn-icon" @click.stop="editChannel(remote.name)" title="编辑">✏️</button>
+                <button class="btn-icon btn-danger" @click.stop="deleteChannel(remote.name)" title="删除">🗑️</button>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="webdav-actions">
-          <button class="btn-primary" @click="saveConfig">保存配置</button>
-          <button class="btn-secondary" @click="testConnection">同步到本地服务</button>
+        <div v-if="rcloneRemotes.length === 0" class="rclone-empty">
+          <p>还没有配置任何渠道</p>
+          <button class="btn-primary" @click="openNewChannelForm">+ 添加第一个渠道</button>
+        </div>
+
+        <!-- 选择渠道和路径 -->
+        <div class="form-grid-2" style="margin-top: 16px;">
+          <div class="field">
+            <label class="field-label">选择渠道</label>
+            <NSelect
+              v-model:value="selectedRemote"
+              :options="rcloneRemotes.map(r => ({ label: r.name, value: r.name }))"
+              placeholder="选择渠道"
+              size="large"
+            />
+          </div>
+          <div class="field">
+            <label class="field-label">远程路径</label>
+            <NInput v-model:value="rclonePath" placeholder="/SoftwareHub" size="large" />
+          </div>
+        </div>
+
+        <div class="rclone-actions">
+          <button class="btn-primary" @click="testRcloneConnection" :disabled="rcloneTesting || !selectedRemote">
+            {{ rcloneTesting ? '测试中...' : '测试连接' }}
+          </button>
+          <button class="btn-secondary" @click="loadRcloneRemotes">刷新列表</button>
         </div>
       </section>
+
+      <!-- 渠道配置弹窗 -->
+      <div v-if="channelFormVisible" class="modal-overlay" @click.self="channelFormVisible = false">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>{{ editingChannel ? '编辑渠道' : '添加渠道' }}</h3>
+            <button class="modal-close" @click="channelFormVisible = false">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="form-grid-2">
+              <div class="field">
+                <label class="field-label">渠道名称 <span class="required">*</span></label>
+                <NInput
+                  v-model:value="channelForm.name"
+                  :disabled="!!editingChannel"
+                  placeholder="如 jianguoyun、onedrive"
+                  size="large"
+                />
+                <p class="field-hint">只能包含字母、数字、下划线和连字符</p>
+              </div>
+              <div class="field">
+                <label class="field-label">渠道类型 <span class="required">*</span></label>
+                <NSelect
+                  v-model:value="channelForm.type"
+                  :options="channelTypes"
+                  :disabled="!!editingChannel"
+                  size="large"
+                />
+              </div>
+            </div>
+
+            <!-- WebDAV 配置 -->
+            <template v-if="channelForm.type === 'webdav'">
+              <div class="form-section-title">WebDAV 配置</div>
+              <div class="form-grid-2">
+                <div class="field">
+                  <label class="field-label">服务地址 <span class="required">*</span></label>
+                  <NInput v-model:value="channelForm.config.url" placeholder="https://dav.jianguoyun.com/dav/" size="large" />
+                </div>
+                <div class="field">
+                  <label class="field-label">厂商</label>
+                  <NSelect v-model:value="channelForm.config.vendor" :options="webdavVendors" size="large" />
+                </div>
+                <div class="field">
+                  <label class="field-label">用户名 <span class="required">*</span></label>
+                  <NInput v-model:value="channelForm.config.user" placeholder="WebDAV 账号" size="large" />
+                </div>
+                <div class="field">
+                  <label class="field-label">密码 <span class="required">*</span></label>
+                  <NInput v-model:value="channelForm.config.pass" type="password" placeholder="WebDAV 密码" size="large" />
+                </div>
+              </div>
+            </template>
+
+            <!-- OneDrive 配置 -->
+            <template v-if="channelForm.type === 'onedrive'">
+              <div class="form-section-title">OneDrive 配置</div>
+              <div class="rclone-tip">
+                <p>💡 配置步骤：<br>
+                1. 先填写渠道名称（如 <code>onedrive</code>）并点击保存<br>
+                2. 打开终端，运行以下命令：<br>
+                <code>rclone config</code><br>
+                3. 按提示选择 <code>onedrive</code> → 完成 OAuth 授权<br>
+                4. 完成后运行 <code>rclone listremotes -v</code> 查看配置<br>
+                5. 或者直接运行 <code>rclone authorize onedrive</code> 获取 token<br>
+                6. 将 token 和 drive_id 填入下方</p>
+              </div>
+              <div class="form-grid-2" style="margin-top: 12px;">
+                <div class="field">
+                  <label class="field-label">账户类型</label>
+                  <NSelect v-model:value="channelForm.config.drive_type" :options="[
+                    { label: 'OneDrive 个人版', value: 'personal' },
+                    { label: 'OneDrive 商业版', value: 'business' },
+                    { label: 'SharePoint', value: 'sharepoint' },
+                  ]" size="large" />
+                </div>
+                <div class="field">
+                  <label class="field-label">Drive ID <span class="required">*</span></label>
+                  <NInput v-model:value="channelForm.config.drive_id" placeholder="你的 OneDrive drive_id" size="large" />
+                  <p class="field-hint">运行 <code>rclone listremotes -v</code> 可查看</p>
+                </div>
+              </div>
+              <div class="form-grid-2">
+                <div class="field">
+                  <label class="field-label">Client ID</label>
+                  <NInput v-model:value="channelForm.config.client_id" placeholder="可留空（使用 rclone 默认）" size="large" />
+                </div>
+                <div class="field">
+                  <label class="field-label">Client Secret</label>
+                  <NInput v-model:value="channelForm.config.client_secret" type="password" placeholder="可留空（使用 rclone 默认）" size="large" />
+                </div>
+              </div>
+              <div class="field" style="margin-top: 12px;">
+                <label class="field-label">Token（JSON）<span class="required">*</span></label>
+                <NInput v-model:value="channelForm.config.token" type="textarea" :rows="4" placeholder='粘贴 rclone authorize 输出的 JSON' size="large" />
+              </div>
+            </template>
+
+            <!-- Google Drive 配置 -->
+            <template v-if="channelForm.type === 'drive'">
+              <div class="form-section-title">Google Drive 配置</div>
+              <div class="rclone-tip">
+                <p>💡 配置步骤：<br>
+                1. 先填写渠道名称（如 <code>gdrive</code>）并点击保存<br>
+                2. 在终端运行以下命令获取 token：<br>
+                <code>rclone authorize drive</code><br>
+                3. 浏览器会自动打开 Google 登录页面，完成授权<br>
+                4. 终端会输出一段 JSON token，复制后粘贴到下方「Token」字段<br>
+                5. 再次点击保存</p>
+              </div>
+              <div class="form-grid-2" style="margin-top: 12px;">
+                <div class="field">
+                  <label class="field-label">Client ID</label>
+                  <NInput v-model:value="channelForm.config.client_id" placeholder="可留空" size="large" />
+                </div>
+                <div class="field">
+                  <label class="field-label">Client Secret</label>
+                  <NInput v-model:value="channelForm.config.client_secret" type="password" placeholder="可留空" size="large" />
+                </div>
+              </div>
+              <div class="field" style="margin-top: 12px;">
+                <label class="field-label">Token（JSON）</label>
+                <NInput v-model:value="channelForm.config.token" type="textarea" :rows="3" placeholder='{"access_token":"..."}' size="large" />
+              </div>
+            </template>
+
+            <!-- S3 配置 -->
+            <template v-if="channelForm.type === 's3'">
+              <div class="form-section-title">S3 兼容存储配置</div>
+              <div class="form-grid-2">
+                <div class="field">
+                  <label class="field-label">提供商</label>
+                  <NSelect v-model:value="channelForm.config.provider" :options="[
+                    { label: 'AWS', value: 'AWS' },
+                    { label: '阿里云 OSS', value: 'Alibaba' },
+                    { label: '腾讯云 COS', value: 'Tencent' },
+                    { label: 'MinIO', value: 'MinIO' },
+                  ]" size="large" />
+                </div>
+                <div class="field">
+                  <label class="field-label">区域</label>
+                  <NInput v-model:value="channelForm.config.region" placeholder="如 oss-cn-beijing" size="large" />
+                </div>
+                <div class="field">
+                  <label class="field-label">Access Key ID <span class="required">*</span></label>
+                  <NInput v-model:value="channelForm.config.access_key_id" size="large" />
+                </div>
+                <div class="field">
+                  <label class="field-label">Secret Access Key <span class="required">*</span></label>
+                  <NInput v-model:value="channelForm.config.secret_access_key" type="password" size="large" />
+                </div>
+                <div class="field" style="grid-column: span 2;">
+                  <label class="field-label">端点</label>
+                  <NInput v-model:value="channelForm.config.endpoint" placeholder="如 oss-cn-beijing.aliyuncs.com" size="large" />
+                </div>
+              </div>
+            </template>
+          </div>
+          <div class="modal-footer">
+            <button class="btn-secondary" @click="channelFormVisible = false">取消</button>
+            <button class="btn-primary" @click="saveChannelConfig" :disabled="channelSaving">
+              {{ channelSaving ? '保存中...' : '保存' }}
+            </button>
+          </div>
+        </div>
+      </div>
 
       <!-- 备份操作 -->
       <section class="settings-card">
         <header class="card-head">
           <div class="card-icon">🚀</div>
           <div>
-            <h3 class="card-title">本地备份操作</h3>
-            <p class="card-desc">点击下方按钮启动本地备份脚本，实时显示运行日志</p>
+            <h3 class="card-title">备份操作</h3>
+            <p class="card-desc">点击下方按钮启动备份，实时显示运行日志</p>
           </div>
         </header>
 
@@ -344,13 +576,16 @@ onBeforeUnmount(() => {
         </div>
 
         <div class="action-buttons">
-          <button class="btn-primary big" :disabled="isRunning" @click="startBackup">
-            {{ isRunning ? '备份中...' : '开始本地备份' }}
+          <button
+            class="btn-primary big"
+            :disabled="isRunning || !selectedRemote"
+            @click="startBackup"
+          >
+            {{ isRunning ? '备份中...' : `开始备份 → ${selectedRemote || '未选择'}` }}
           </button>
           <button
             class="btn-warning big"
             :disabled="!isRunning"
-            :title="isRunning ? '停止当前备份（Windows 上实际为终止子进程，再次开始会自动跳过已备份版本）' : '请先开始备份'"
             @click="stopBackup"
           >
             ⏸ 停止
@@ -375,7 +610,7 @@ onBeforeUnmount(() => {
         </header>
 
         <div class="log-box">
-          <div v-if="logs.length === 0" class="log-empty">暂无日志，点击「开始本地备份」启动</div>
+          <div v-if="logs.length === 0" class="log-empty">暂无日志，点击上方按钮启动</div>
           <div
             v-for="(l, i) in logs"
             :key="i"
@@ -443,22 +678,6 @@ onBeforeUnmount(() => {
   margin: 0;
 }
 
-.status-tag {
-  margin-left: auto;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.status-ok { background: rgba(34, 197, 94, 0.12); color: #16a34a; }
-.status-miss { background: rgba(239, 68, 68, 0.12); color: #dc2626; }
-.status-dot { width: 6px; height: 6px; border-radius: 50%; }
-.status-ok .status-dot { background: #22c55e; }
-.status-miss .status-dot { background: #ef4444; }
-
 .form-grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -480,7 +699,7 @@ onBeforeUnmount(() => {
   color: var(--admin-text);
 }
 
-.webdav-actions,
+.rclone-actions,
 .action-buttons {
   display: flex;
   gap: 10px;
@@ -488,17 +707,9 @@ onBeforeUnmount(() => {
   flex-wrap: wrap;
 }
 
-.pwd-toggle {
-  background: transparent;
-  border: 0;
-  color: #3478f6;
-  font-size: 12px;
-  cursor: pointer;
-  padding: 0 4px;
-}
-
 .btn-primary,
-.btn-secondary {
+.btn-secondary,
+.btn-warning {
   padding: 8px 16px;
   border-radius: 8px;
   border: 0;
@@ -616,4 +827,169 @@ onBeforeUnmount(() => {
 .log-box::-webkit-scrollbar { width: 8px; }
 .log-box::-webkit-scrollbar-track { background: #1e1e1e; }
 .log-box::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+
+/* 渠道列表 */
+.channel-list {
+  border: 1px solid var(--admin-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.channel-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(52, 120, 246, 0.05);
+  border-bottom: 1px solid var(--admin-border);
+}
+.channel-list-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--admin-text);
+}
+.channel-items {
+  display: flex;
+  flex-direction: column;
+}
+.channel-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--admin-border);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.channel-item:last-child { border-bottom: none; }
+.channel-item:hover { background: rgba(52, 120, 246, 0.05); }
+.channel-item.active {
+  background: rgba(52, 120, 246, 0.1);
+  border-left: 3px solid #3478f6;
+}
+.channel-item-icon { font-size: 24px; }
+.channel-item-info { flex: 1; }
+.channel-item-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--admin-text);
+}
+.channel-item-type {
+  font-size: 12px;
+  color: var(--admin-text-2);
+}
+.channel-item-actions {
+  display: flex;
+  gap: 4px;
+}
+.btn-icon {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 6px 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.15s ease;
+}
+.btn-icon:hover { background: rgba(52, 120, 246, 0.1); }
+.btn-icon.btn-danger:hover { background: rgba(239, 68, 68, 0.1); }
+.btn-primary.small {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.rclone-tip {
+  background: rgba(52, 120, 246, 0.08);
+  border: 1px solid rgba(52, 120, 246, 0.2);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #3478f6;
+}
+.rclone-tip p { margin: 0; }
+.rclone-tip code {
+  background: rgba(52, 120, 246, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 13px;
+}
+
+.rclone-empty {
+  text-align: center;
+  padding: 20px;
+  color: var(--admin-text-2);
+  font-size: 14px;
+}
+.rclone-empty p { margin: 4px 0 12px; }
+
+/* 弹窗 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal-content {
+  background: var(--admin-card);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--admin-border);
+}
+.modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--admin-text);
+}
+.modal-close {
+  background: transparent;
+  border: 0;
+  font-size: 24px;
+  color: var(--admin-text-2);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+.modal-close:hover { background: rgba(239, 68, 68, 0.1); color: #dc2626; }
+.modal-body {
+  padding: 24px;
+}
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 24px;
+  border-top: 1px solid var(--admin-border);
+}
+.form-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--admin-text);
+  margin: 16px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--admin-border);
+}
+.required { color: #dc2626; }
+.field-hint {
+  font-size: 12px;
+  color: var(--admin-text-2);
+  margin: 4px 0 0;
+}
 </style>

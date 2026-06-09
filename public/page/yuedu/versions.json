@@ -120,6 +120,66 @@
     ]
   },
   {
+    "id": "mq5yrpo32p7jmv",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.13-beta.13",
+    "publishedAt": "2026-06-08T19:05:06Z",
+    "changelog": "## 不稳定！\r\n\r\n### [反馈群组](https://t.me/materado)\r\n\r\n**noR8 变体关闭了代码混淆与压缩，若有崩溃问题请使用它并收集和发送 Log，以便开发者定位问题代码。**\r\n\r\n### 更新内容\r\n\r\n* fix: ReadStyleContent切换Tab时高度跳变问题 (#1322) @fansangg \r\n* fix: 朗读相关问题\r\n* fix: 点击区域样式\r\n* fix: 阅读菜单书源名称点击事件\r\n* fix: 翻页开关\r\n* fix: 底栏显隐开关\r\n* fix: 电量显示卡住及阅读记录丢失\r\n* fix: 阅读背景等问题\r\n* fix: 数据丢失等问题",
+    "downloadIds": [
+      "mq5yrpo306ugow",
+      "mq5yrpo3v0fioi",
+      "mq5yrpo3hxcwnz",
+      "mq5yrpo37zk596",
+      "mq5yrpo3pz1ssd",
+      "mq5yrpo3ug2i0w"
+    ]
+  },
+  {
+    "id": "mq5yrpo38h3h8n",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.13-beta.12",
+    "publishedAt": "2026-06-08T06:01:53Z",
+    "changelog": "## 不稳定！\r\n[反馈群组](https://t.me/materado)\r\n**noR8 变体关闭了代码混淆与压缩，若有崩溃问题请使用它并收集和发送 Log，以便开发者定位问题代码。**\r\n\r\n### 更新内容\r\n\r\n* fix: 配置无响应问题\r\n* fix: 阅读界面日夜选项\r\n* fix: dataStore逻辑\r\n* fix: dataStore逻辑\r\n* refactor: AppConfig.themeMode 改为直接读取 ThemeConfig.themeMode\r\n* fix: dataStore逻辑\r\n* fix: 阅读界面切换亮暗色后 View 层立即生效\r\n* fix: dataStore逻辑\r\n* fix: 修复阅读界面切换亮暗色主题无效的问题\r\n* fix: dataStore逻辑",
+    "downloadIds": [
+      "mq5yrpo34515u8",
+      "mq5yrpo3sie3w1",
+      "mq5yrpo3dpyue0",
+      "mq5yrpo3hfs5ex",
+      "mq5yrpo39u50bo",
+      "mq5yrpo3bs6tj6"
+    ]
+  },
+  {
+    "id": "mq5yrpo3dstjwo",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.13-beta.11",
+    "publishedAt": "2026-06-07T18:49:26Z",
+    "changelog": "**及其不稳定，谨慎使用。**\r\n\r\n**noR8 变体关闭了代码混淆与压缩，若有崩溃问题请使用它并收集和发送 Log，以便开发者定位问题代码。**\r\n\r\n**是的孩子们，为了更方便的反馈bug与添加功能，tg频道已经建立[发布页](https://t.me/materado)**\r\n\r\n### 更新内容\r\n\r\n* feat: 更新readme与群组\r\n* refactor: 主要偏好设置切换至dataStore\r\n* fix:页面背景及类型更改时更新状态栏颜色\r\n* fix: 朗读配置面板无法标识当前引擎及切换引擎后状态不一致\r\n* fix: 修复 BgTextConfigSheet 中 Color.parseColor 崩溃问题\r\n* fix: DataStore迁移后主题配置丢失导致composeEngine重置\r\n* fix:修复菜单打开及切换配置时状态栏颜色未同步更新的问题 (#1310) @fansangg \r\n* 提醒使用noR8本版发日志 (#1303) @woruteyqi ",
+    "downloadIds": [
+      "mq5yrpo31hcam7",
+      "mq5yrpo3bzhbyf",
+      "mq5yrpo399jjkm",
+      "mq5yrpo3sf9di3",
+      "mq5yrpo3tcb8po",
+      "mq5yrpo3wwbor1"
+    ]
+  },
+  {
+    "id": "mq5yrpo3nsticm",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.13-beta.10",
+    "publishedAt": "2026-06-07T10:41:14Z",
+    "changelog": "**这是极其重大且关乎阅读体验的重写，请做好数据备份，谨慎使用此版本。**\r\n\r\n**noR8 变体关闭了代码混淆与压缩，若有崩溃问题请使用它并收集和发送 Log，以便开发者定位问题代码。**\r\n\r\n### 更新内容\r\n\r\n* feat(reader): 船新的基于 Compose 实现的阅读菜单界面与各项优化\r\n* feat(reader): 完整的文本高亮功能 来自 [Legado_Max](https://github.com/youfengknight/Legado_Max) @youfengknight\r\n\r\n* fix: 优化搜素逻辑\r\n* fix: 部分发现项无法同行显示\r\n* fix: 不再使用脆弱的反射进行备份与恢复\r\n* fix: 发现页首页筛选问题\r\n* fix: 多张封面导入问题\r\n* feat: 更新Ktor版本\r\n* fix: WebService 启动崩溃与关闭卡顿\r\n* 支持regex全文匹配 (#1292 ) @wyouflf ",
+    "downloadIds": [
+      "mq5yrpo3y8nyk9",
+      "mq5yrpo3rt0x5h",
+      "mq5yrpo32mijdt",
+      "mq5yrpo3i7wo85",
+      "mq5yrpo3ni4mum",
+      "mq5yrpo39qnk8m"
+    ]
+  },
+  {
     "id": "mq09gdgxjqukdv",
     "projectId": "mpwouieuddbq2d",
     "version": "3.26.13-beta.9",

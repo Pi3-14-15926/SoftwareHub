@@ -210,6 +210,198 @@
     "downloadCountSyncedAt": "2026-06-06T08:36:39.978Z"
   },
   {
+    "id": "mq5yrpo306ugow",
+    "versionId": "mq5yrpo32p7jmv",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.13-arm64-v8a.apk",
+    "size": "16.5 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.13/legado-3.26.13-beta.13-arm64-v8a.apk"
+  },
+  {
+    "id": "mq5yrpo3v0fioi",
+    "versionId": "mq5yrpo32p7jmv",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.13-armeabi-v7a.apk",
+    "size": "16.1 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.13/legado-3.26.13-beta.13-armeabi-v7a.apk"
+  },
+  {
+    "id": "mq5yrpo3hxcwnz",
+    "versionId": "mq5yrpo32p7jmv",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.13-noR8-arm64-v8a.apk",
+    "size": "42.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.13/legado-3.26.13-beta.13-noR8-arm64-v8a.apk"
+  },
+  {
+    "id": "mq5yrpo37zk596",
+    "versionId": "mq5yrpo32p7jmv",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.13-noR8-armeabi-v7a.apk",
+    "size": "42.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.13/legado-3.26.13-beta.13-noR8-armeabi-v7a.apk"
+  },
+  {
+    "id": "mq5yrpo3pz1ssd",
+    "versionId": "mq5yrpo32p7jmv",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.13-noR8.apk",
+    "size": "49.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.13/legado-3.26.13-beta.13-noR8.apk"
+  },
+  {
+    "id": "mq5yrpo3ug2i0w",
+    "versionId": "mq5yrpo32p7jmv",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.13.apk",
+    "size": "22.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.13/legado-3.26.13-beta.13.apk"
+  },
+  {
+    "id": "mq5yrpo34515u8",
+    "versionId": "mq5yrpo38h3h8n",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.12-arm64-v8a.apk",
+    "size": "16.5 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.12/legado-3.26.13-beta.12-arm64-v8a.apk"
+  },
+  {
+    "id": "mq5yrpo3sie3w1",
+    "versionId": "mq5yrpo38h3h8n",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.12-armeabi-v7a.apk",
+    "size": "16.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.12/legado-3.26.13-beta.12-armeabi-v7a.apk"
+  },
+  {
+    "id": "mq5yrpo3dpyue0",
+    "versionId": "mq5yrpo38h3h8n",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.12-noR8-arm64-v8a.apk",
+    "size": "42.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.12/legado-3.26.13-beta.12-noR8-arm64-v8a.apk"
+  },
+  {
+    "id": "mq5yrpo3hfs5ex",
+    "versionId": "mq5yrpo38h3h8n",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.12-noR8-armeabi-v7a.apk",
+    "size": "42.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.12/legado-3.26.13-beta.12-noR8-armeabi-v7a.apk"
+  },
+  {
+    "id": "mq5yrpo39u50bo",
+    "versionId": "mq5yrpo38h3h8n",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.12-noR8.apk",
+    "size": "49.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.12/legado-3.26.13-beta.12-noR8.apk"
+  },
+  {
+    "id": "mq5yrpo3bs6tj6",
+    "versionId": "mq5yrpo38h3h8n",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.12.apk",
+    "size": "22.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.12/legado-3.26.13-beta.12.apk"
+  },
+  {
+    "id": "mq5yrpo31hcam7",
+    "versionId": "mq5yrpo3dstjwo",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.11-arm64-v8a.apk",
+    "size": "16.5 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.11/legado-3.26.13-beta.11-arm64-v8a.apk"
+  },
+  {
+    "id": "mq5yrpo3bzhbyf",
+    "versionId": "mq5yrpo3dstjwo",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.11-armeabi-v7a.apk",
+    "size": "16.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.11/legado-3.26.13-beta.11-armeabi-v7a.apk"
+  },
+  {
+    "id": "mq5yrpo399jjkm",
+    "versionId": "mq5yrpo3dstjwo",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.11-noR8-arm64-v8a.apk",
+    "size": "42.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.11/legado-3.26.13-beta.11-noR8-arm64-v8a.apk"
+  },
+  {
+    "id": "mq5yrpo3sf9di3",
+    "versionId": "mq5yrpo3dstjwo",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.11-noR8-armeabi-v7a.apk",
+    "size": "42.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.11/legado-3.26.13-beta.11-noR8-armeabi-v7a.apk"
+  },
+  {
+    "id": "mq5yrpo3tcb8po",
+    "versionId": "mq5yrpo3dstjwo",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.11-noR8.apk",
+    "size": "49.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.11/legado-3.26.13-beta.11-noR8.apk"
+  },
+  {
+    "id": "mq5yrpo3wwbor1",
+    "versionId": "mq5yrpo3dstjwo",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.11.apk",
+    "size": "22.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.11/legado-3.26.13-beta.11.apk"
+  },
+  {
+    "id": "mq5yrpo3y8nyk9",
+    "versionId": "mq5yrpo3nsticm",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.10-arm64-v8a.apk",
+    "size": "16.5 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.10/legado-3.26.13-beta.10-arm64-v8a.apk"
+  },
+  {
+    "id": "mq5yrpo3rt0x5h",
+    "versionId": "mq5yrpo3nsticm",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.10-armeabi-v7a.apk",
+    "size": "16.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.10/legado-3.26.13-beta.10-armeabi-v7a.apk"
+  },
+  {
+    "id": "mq5yrpo32mijdt",
+    "versionId": "mq5yrpo3nsticm",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.10-noR8-arm64-v8a.apk",
+    "size": "42.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.10/legado-3.26.13-beta.10-noR8-arm64-v8a.apk"
+  },
+  {
+    "id": "mq5yrpo3i7wo85",
+    "versionId": "mq5yrpo3nsticm",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.10-noR8-armeabi-v7a.apk",
+    "size": "42.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.10/legado-3.26.13-beta.10-noR8-armeabi-v7a.apk"
+  },
+  {
+    "id": "mq5yrpo3ni4mum",
+    "versionId": "mq5yrpo3nsticm",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.10-noR8.apk",
+    "size": "49.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.10/legado-3.26.13-beta.10-noR8.apk"
+  },
+  {
+    "id": "mq5yrpo39qnk8m",
+    "versionId": "mq5yrpo3nsticm",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.10.apk",
+    "size": "22.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.10/legado-3.26.13-beta.10.apk"
+  },
+  {
     "id": "dl_fkf1yc0ydf",
     "versionId": "mq09gdgxjqukdv",
     "platform": "Android",

@@ -11,7 +11,8 @@ const message = useMessage()
 
 const form = ref({
   ghProxyEnabled: false,
-  ghProxyUrl: '',
+  ghProxyUrl: 'https://gh-proxy.com/',
+  ghProxyCustomUrl: '',
   iconCdnMode: 'jsdelivr' as IconCdnMode,
   iconCdnCustomBase: '',
 })
@@ -24,12 +25,23 @@ const iconCdnOptions = [
   { label: '不使用加速', value: 'none' },
 ]
 
+const ghProxyOptions = [
+  { label: 'gh-proxy.com（推荐，Cloudflare 全球加速）', value: 'https://gh-proxy.com/' },
+  { label: 'github.akams.cn（公益服务）', value: 'https://github.akams.cn/' },
+  { label: 'githubproxy.cc（免费，多节点）', value: 'https://githubproxy.cc/' },
+  { label: 'ghproxy.1888866.xyz（社区节点）', value: 'https://ghproxy.1888866.xyz/' },
+  { label: '自定义代理地址', value: 'custom' },
+]
+
 onMounted(() => {
   store.refresh()
   const s = store.settings
+  const proxyUrl = s.ghProxyUrl || ''
+  const matchedPreset = ghProxyOptions.find(o => o.value !== 'custom' && o.value === proxyUrl)
   form.value = {
     ghProxyEnabled: s.ghProxyEnabled ?? false,
-    ghProxyUrl: s.ghProxyUrl || '',
+    ghProxyUrl: matchedPreset ? proxyUrl : (proxyUrl ? 'custom' : 'https://gh-proxy.com/'),
+    ghProxyCustomUrl: matchedPreset ? '' : proxyUrl,
     iconCdnMode: s.iconCdnMode || 'jsdelivr',
     iconCdnCustomBase: s.iconCdnCustomBase || '',
   }
@@ -38,7 +50,12 @@ onMounted(() => {
 function doSave() {
   const s = { ...store.settings }
   s.ghProxyEnabled = form.value.ghProxyEnabled
-  s.ghProxyUrl = form.value.ghProxyUrl || undefined
+  const selected = form.value.ghProxyUrl
+  if (selected === 'custom') {
+    s.ghProxyUrl = form.value.ghProxyCustomUrl || undefined
+  } else {
+    s.ghProxyUrl = selected || undefined
+  }
   s.iconCdnMode = form.value.iconCdnMode
   s.iconCdnCustomBase = form.value.iconCdnCustomBase || undefined
   store.save(s)
@@ -75,12 +92,17 @@ function doSave() {
         </div>
 
         <div v-if="form.ghProxyEnabled" class="field" style="margin-top: 16px;">
-          <label class="field-label">加速代理地址</label>
-          <NInput v-model:value="form.ghProxyUrl" placeholder="https://gh.api.99988866.xyz/" size="large" />
+          <label class="field-label">加速代理</label>
+          <NSelect v-model:value="form.ghProxyUrl" :options="ghProxyOptions" size="large" />
+        </div>
+        <div v-if="form.ghProxyEnabled && form.ghProxyUrl === 'custom'" class="field" style="margin-top: 12px;">
+          <label class="field-label">自定义代理地址</label>
+          <NInput v-model:value="form.ghProxyCustomUrl" placeholder="https://your-proxy.example.com/" size="large" />
         </div>
 
         <p class="card-hint">
-          推荐使用 <a href="https://github.com/hunshcn/gh-proxy" target="_blank" rel="noopener">gh-proxy</a> 开源代理。
+          内置多个公益加速节点，也可以自行部署
+          <a href="https://github.com/hunshcn/gh-proxy" target="_blank" rel="noopener">gh-proxy</a>。
           配置后所有 <code>github.com</code> 下载链接会自动通过代理转发。
         </p>
       </section>

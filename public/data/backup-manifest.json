@@ -522,37 +522,17 @@
     {
       "category": "阅读",
       "project": "阅读_MD3",
-      "versionDir": "2026-06-07_3.26.13-beta.11",
+      "versionDir": "2026-06-08_3.26.13-beta.12",
       "files": [
         {
-          "name": "legado-3.26.13-beta.11-arm64-v8a.apk",
-          "size": 17283961,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-06-07_3.26.13-beta.11/legado-3.26.13-beta.11-arm64-v8a.apk"
+          "name": "legado-3.26.13-beta.12-arm64-v8a.apk",
+          "size": 17283979,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-06-08_3.26.13-beta.12/legado-3.26.13-beta.12-arm64-v8a.apk"
         },
         {
-          "name": "legado-3.26.13-beta.11-armeabi-v7a.apk",
-          "size": 16823797,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-06-07_3.26.13-beta.11/legado-3.26.13-beta.11-armeabi-v7a.apk"
-        },
-        {
-          "name": "legado-3.26.13-beta.11-noR8-arm64-v8a.apk",
-          "size": 44828532,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-06-07_3.26.13-beta.11/legado-3.26.13-beta.11-noR8-arm64-v8a.apk"
-        },
-        {
-          "name": "legado-3.26.13-beta.11-noR8-armeabi-v7a.apk",
-          "size": 44368347,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-06-07_3.26.13-beta.11/legado-3.26.13-beta.11-noR8-armeabi-v7a.apk"
-        },
-        {
-          "name": "legado-3.26.13-beta.11-noR8.apk",
-          "size": 51401012,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-06-07_3.26.13-beta.11/legado-3.26.13-beta.11-noR8.apk"
-        },
-        {
-          "name": "legado-3.26.13-beta.11.apk",
-          "size": 23856481,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-06-07_3.26.13-beta.11/legado-3.26.13-beta.11.apk"
+          "name": "legado-3.26.13-beta.12-armeabi-v7a.apk",
+          "size": 16823802,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-06-08_3.26.13-beta.12/legado-3.26.13-beta.12-armeabi-v7a.apk"
         }
       ]
     },
@@ -630,5 +610,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-06-08T20:24:35.689Z"
+  "updatedAt": "2026-06-09T03:52:30.139Z"
 }

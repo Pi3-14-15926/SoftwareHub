@@ -488,13 +488,14 @@ async function remoteFileExists(remotePath) {
   })
 }
 
-/** 测试 rclone 连接 */
+/** 测试 rclone 连接（只需验证能访问远程存储，不要求目录已存在） */
 async function testRcloneConnection() {
   const rclone = getRclonePath()
   const remote = `${BACKUP_CHANNEL}:`
 
   return new Promise((resolve) => {
-    const args = ['lsf', `${remote}${WEBDAV_BASE_DIR}/`, '--max-depth', '0']
+    // 只列出根目录，验证连接和认证是否正确
+    const args = ['lsf', remote, '--max-depth', '0']
     const proc = spawn(rclone, args, { stdio: ['ignore', 'pipe', 'pipe'] })
     let stderr = ''
     proc.stderr.on('data', (d) => { stderr += d.toString() })

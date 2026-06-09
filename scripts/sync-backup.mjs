@@ -438,27 +438,28 @@ async function rcloneCopyFile(localFilePath, remotePath, timeoutMs = UPLOAD_TIME
   const dest = `${remote}${remotePath}`
 
   return new Promise((resolve, reject) => {
-    const args = [
-      'copyto', localFilePath, dest,
-      '--no-traverse',
-      '--checksum',
-      // 超时与重试参数，应对跨境链路不稳定
-      '--http-timeout', '300s',
-      '--connect-timeout', '30s',
-      '--low-level-retries', '3',
-      '--retries', '2',
-      '--retries-sleep', '5s',
-      // 模拟浏览器请求头，避免 123 云盘风控
+    // 全局参数必须放在 copyto 前面
+    const globalArgs = [
+      '--timeout', '300s',              // IO 空闲超时 5 分钟
+      '--contimeout', '30s',            // TCP 连接超时 30 秒
+      '--retries', '2',                 // 整体重试 2 次
+      '--retries-sleep', '5s',          // 重试间隔 5 秒
       '--header', 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36',
       '--header', 'Accept: */*',
       '--header', 'Accept-Language: zh-CN,zh;q=0.9,en;q=0.8',
       '--header', 'Accept-Encoding: gzip, deflate, br',
       '--header', 'Connection: keep-alive',
     ]
-    // 上传代理
     if (UPLOAD_PROXY) {
-      args.push('--http-proxy', UPLOAD_PROXY)
+      globalArgs.push('--http-proxy', UPLOAD_PROXY)
     }
+    // 子命令参数放在 copyto 后面
+    const args = [
+      ...globalArgs,
+      'copyto', localFilePath, dest,
+      '--no-traverse',
+      '--checksum',
+    ]
 
     const proc = spawn(rclone, args, {
       stdio: ['ignore', 'pipe', 'pipe'],
@@ -506,10 +507,11 @@ async function remoteFileExists(remotePath) {
   const fullPath = `${remote}${remotePath}`
 
   return new Promise((resolve) => {
-    const args = ['lsf', fullPath, '--max-depth', '0']
+    const args = []
     if (UPLOAD_PROXY) {
       args.push('--http-proxy', UPLOAD_PROXY)
     }
+    args.push('lsf', fullPath, '--max-depth', '0')
     const proc = spawn(rclone, args, { stdio: ['ignore', 'pipe', 'pipe'] })
     let stdout = ''
     proc.stdout.on('data', (d) => { stdout += d.toString() })
@@ -527,10 +529,11 @@ async function testRcloneConnection() {
 
   return new Promise((resolve) => {
     // lsd 只列目录，比 lsf 更快更可靠
-    const args = ['lsd', remote]
+    const args = []
     if (UPLOAD_PROXY) {
       args.push('--http-proxy', UPLOAD_PROXY)
     }
+    args.push('lsd', remote)
     const proc = spawn(rclone, args, { stdio: ['ignore', 'pipe', 'pipe'] })
     let stderr = ''
     proc.stderr.on('data', (d) => { stderr += d.toString() })
@@ -557,10 +560,11 @@ async function cleanupOldVersions(projectDir) {
   const fullPath = `${remote}${projectDir}/`
 
   return new Promise((resolve) => {
-    const args = ['lsf', fullPath, '--max-depth', '1', '--dirs-only']
+    const args = []
     if (UPLOAD_PROXY) {
       args.push('--http-proxy', UPLOAD_PROXY)
     }
+    args.push('lsf', fullPath, '--max-depth', '1', '--dirs-only')
     const proc = spawn(rclone, args, { stdio: ['ignore', 'pipe', 'pipe'] })
     let stdout = ''
     proc.stdout.on('data', (d) => { stdout += d.toString() })

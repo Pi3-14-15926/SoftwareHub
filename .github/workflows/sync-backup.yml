@@ -27,20 +27,32 @@ jobs:
           node-version: 20
           cache: 'npm'
 
+      - name: Install rclone
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y rclone
+          rclone version
+
       - name: Install dependencies
         run: npm ci
 
-      - name: Sync GitHub releases & backup to WebDAV
+      - name: Sync GitHub releases & backup via rclone
         run: node scripts/sync-backup.mjs
         env:
+          # 默认备份渠道: webdav / onedrive / gdrive
+          BACKUP_CHANNEL: ${{ secrets.BACKUP_CHANNEL || 'webdav' }}
+          # GitHub
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_PROXY: ${{ secrets.GH_PROXY }}
+          KEEP_VERSIONS: ${{ vars.KEEP_VERSIONS || '2' }}
+          MAX_FILE_SIZE_MB: ${{ vars.MAX_FILE_SIZE_MB || '500' }}
+          UPLOAD_TIMEOUT: ${{ vars.UPLOAD_TIMEOUT || '600' }}
+          # WebDAV 渠道
           WEBDAV_URL: ${{ secrets.WEBDAV_URL }}
           WEBDAV_USERNAME: ${{ secrets.WEBDAV_USERNAME }}
           WEBDAV_PASSWORD: ${{ secrets.WEBDAV_PASSWORD }}
           WEBDAV_BASE_DIR: ${{ secrets.WEBDAV_BASE_DIR || '/SoftwareHub' }}
-          GH_PROXY: ${{ secrets.GH_PROXY }}
-          KEEP_VERSIONS: ${{ vars.KEEP_VERSIONS || '2' }}
-          WEBDAV_UPLOAD_TIMEOUT: ${{ vars.WEBDAV_UPLOAD_TIMEOUT || '600000' }}
-          WEBDAV_QUERY_TIMEOUT: ${{ vars.WEBDAV_QUERY_TIMEOUT || '30000' }}
-          WEBDAV_RETRIES: ${{ vars.WEBDAV_RETRIES || '3' }}
-          MAX_FILE_SIZE_MB: ${{ vars.MAX_FILE_SIZE_MB || '500' }}
+          # OneDrive 渠道（token JSON）
+          ONEDRIVE_TOKEN: ${{ secrets.ONEDRIVE_TOKEN }}
+          # Google Drive 渠道（token JSON）
+          GDRIVE_TOKEN: ${{ secrets.GDRIVE_TOKEN }}

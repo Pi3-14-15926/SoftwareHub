@@ -181,6 +181,17 @@ const publishing = ref(false)
 const commitUrl = ref('')
 const currentRepo = ref('')
 
+// ===== GitHub 上传设置 =====
+const uploadSettings = ref({
+  syncEnabled: settingStore.settings.schedule?.syncEnabled ?? false,
+  syncIntervalHours: settingStore.settings.schedule?.syncIntervalHours ?? 6,
+  backupEnabled: settingStore.settings.schedule?.backupEnabled ?? false,
+  backupIntervalHours: settingStore.settings.schedule?.backupIntervalHours ?? 24,
+  uploadTimeout: settingStore.settings.uploadTimeout ?? 600,
+  maxFileSizeMB: settingStore.settings.maxFileSizeMB ?? 500,
+})
+const uploadSettingsSaving = ref(false)
+
 onMounted(() => {
   const r = getRepoInfo()
   currentRepo.value = `${r.owner}/${r.repo}`
@@ -350,6 +361,26 @@ function fmtDateTime(d: Date | null): string {
   const pad = (n: number) => n.toString().padStart(2, '0')
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`
 }
+
+function saveUploadSettings() {
+  uploadSettingsSaving.value = true
+  try {
+    const s = settingStore.settings
+    s.schedule = {
+      syncEnabled: uploadSettings.value.syncEnabled,
+      syncIntervalHours: uploadSettings.value.syncIntervalHours,
+      backupEnabled: uploadSettings.value.backupEnabled,
+      backupIntervalHours: uploadSettings.value.backupIntervalHours,
+    }
+    s.uploadTimeout = uploadSettings.value.uploadTimeout
+    s.maxFileSizeMB = uploadSettings.value.maxFileSizeMB
+    settingStore.save(s)
+    message.success('上传设置已保存')
+  } catch (e: any) {
+    message.error('保存失败: ' + e.message)
+  }
+  uploadSettingsSaving.value = false
+}
 </script>
 
 <template>
@@ -463,6 +494,130 @@ function fmtDateTime(d: Date | null): string {
           </div>
         </div>
       </div>
+
+      <!-- GitHub 上传设置 -->
+      <section class="settings-card upload-settings-card">
+        <header class="card-head">
+          <div class="card-icon upload">
+            <span class="icon-ring"></span>
+            ⚙️
+          </div>
+          <div>
+            <h3 class="card-title">GitHub 上传设置</h3>
+            <p class="card-desc">配置定时同步备份策略、上传超时和文件大小限制</p>
+          </div>
+        </header>
+
+        <div class="upload-grid">
+          <!-- 定时同步 -->
+          <div class="upload-group">
+            <div class="group-header">
+              <div class="group-icon">🕐</div>
+              <span class="group-title">定时同步</span>
+            </div>
+            <div class="setting-row">
+              <label class="setting-label">启用同步</label>
+              <div class="toggle-wrap">
+                <input id="sync-toggle" v-model="uploadSettings.syncEnabled" type="checkbox" class="toggle-input" />
+                <label for="sync-toggle" class="toggle-slider"></label>
+              </div>
+            </div>
+            <div class="setting-row" :class="{ disabled: !uploadSettings.syncEnabled }">
+              <label class="setting-label">同步间隔</label>
+              <div class="input-group">
+                <input
+                  v-model.number="uploadSettings.syncIntervalHours"
+                  type="number"
+                  min="1"
+                  max="72"
+                  class="setting-input"
+                  :disabled="!uploadSettings.syncEnabled"
+                />
+                <span class="input-suffix">小时</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 定时备份 -->
+          <div class="upload-group">
+            <div class="group-header">
+              <div class="group-icon">☁️</div>
+              <span class="group-title">定时备份</span>
+            </div>
+            <div class="setting-row">
+              <label class="setting-label">启用备份</label>
+              <div class="toggle-wrap">
+                <input id="backup-toggle" v-model="uploadSettings.backupEnabled" type="checkbox" class="toggle-input" />
+                <label for="backup-toggle" class="toggle-slider"></label>
+              </div>
+            </div>
+            <div class="setting-row" :class="{ disabled: !uploadSettings.backupEnabled }">
+              <label class="setting-label">备份间隔</label>
+              <div class="input-group">
+                <input
+                  v-model.number="uploadSettings.backupIntervalHours"
+                  type="number"
+                  min="1"
+                  max="168"
+                  class="setting-input"
+                  :disabled="!uploadSettings.backupEnabled"
+                />
+                <span class="input-suffix">小时</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 上传超时 -->
+          <div class="upload-group">
+            <div class="group-header">
+              <div class="group-icon timeout">⏱️</div>
+              <span class="group-title">文件超时</span>
+            </div>
+            <div class="setting-row">
+              <label class="setting-label">超时时间</label>
+              <div class="input-group">
+                <input
+                  v-model.number="uploadSettings.uploadTimeout"
+                  type="number"
+                  min="60"
+                  max="3600"
+                  class="setting-input"
+                />
+                <span class="input-suffix">秒</span>
+              </div>
+            </div>
+            <p class="setting-hint">超时后自动跳过当前文件，开始处理下一个</p>
+          </div>
+
+          <!-- 文件大小限制 -->
+          <div class="upload-group">
+            <div class="group-header">
+              <div class="group-icon size">📦</div>
+              <span class="group-title">文件大小限制</span>
+            </div>
+            <div class="setting-row">
+              <label class="setting-label">最大文件</label>
+              <div class="input-group">
+                <input
+                  v-model.number="uploadSettings.maxFileSizeMB"
+                  type="number"
+                  min="10"
+                  max="10240"
+                  class="setting-input"
+                />
+                <span class="input-suffix">MB</span>
+              </div>
+            </div>
+            <p class="setting-hint">超过此大小的文件自动跳过，不上传到云盘</p>
+          </div>
+        </div>
+
+        <div class="upload-actions">
+          <button class="btn-primary" :disabled="uploadSettingsSaving" @click="saveUploadSettings">
+            {{ uploadSettingsSaving ? '保存中...' : '保存设置' }}
+          </button>
+        </div>
+      </section>
 
       <!-- 导入导出 -->
       <section class="settings-card">
@@ -764,6 +919,13 @@ function fmtDateTime(d: Date | null): string {
   padding: 24px;
   transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
+.upload-settings-card {
+  border: 1px solid rgba(79, 140, 255, 0.18);
+  background: linear-gradient(135deg, rgba(79, 140, 255, 0.03) 0%, rgba(140, 108, 255, 0.03) 100%);
+}
+.upload-settings-card:hover {
+  box-shadow: 0 8px 30px rgba(79, 140, 255, 0.1);
+}
 .card-head {
   display: flex;
   align-items: center;
@@ -996,5 +1158,173 @@ function fmtDateTime(d: Date | null): string {
   .error-item { padding: 10px 12px; }
   .error-link { font-size: 0.8rem; }
   .error-msg { font-size: 0.74rem; }
+  .upload-grid { grid-template-columns: 1fr; }
+}
+
+/* === GitHub 上传设置卡片 === */
+.upload-settings-card .card-icon.upload {
+  background: linear-gradient(135deg, rgba(79, 140, 255, 0.15) 0%, rgba(140, 108, 255, 0.15) 100%);
+  position: relative;
+}
+.upload-settings-card .card-icon.upload .icon-ring {
+  position: absolute;
+  inset: -2px;
+  border-radius: 14px;
+  border: 2px solid rgba(79, 140, 255, 0.2);
+  animation: pulse-ring 3s ease-in-out infinite;
+}
+@keyframes pulse-ring {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+.upload-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.upload-group {
+  background: var(--color-card-soft);
+  border: 1px solid var(--admin-border);
+  border-radius: 16px;
+  padding: 18px 20px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.upload-group:hover {
+  border-color: rgba(79, 140, 255, 0.25);
+  box-shadow: 0 4px 16px rgba(79, 140, 255, 0.06);
+}
+
+.group-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--admin-border);
+}
+.group-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--admin-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(79, 140, 255, 0.2);
+}
+.group-icon.timeout {
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+}
+.group-icon.size {
+  background: linear-gradient(135deg, #8b5cf6, #a855f7);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
+}
+.group-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.setting-row:last-child { margin-bottom: 0; }
+.setting-row.disabled { opacity: 0.45; pointer-events: none; }
+
+.setting-label {
+  font-size: 0.84rem;
+  color: var(--text-sec);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.setting-hint {
+  font-size: 0.74rem;
+  color: var(--text-tertiary);
+  margin: 6px 0 0;
+  line-height: 1.4;
+}
+
+/* Toggle 开关 */
+.toggle-wrap { position: relative; flex-shrink: 0; }
+.toggle-input { display: none; }
+.toggle-slider {
+  display: block;
+  width: 42px;
+  height: 24px;
+  background: #d1d5db;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.25s;
+  position: relative;
+}
+.toggle-slider::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  transition: transform 0.25s;
+}
+.toggle-input:checked + .toggle-slider {
+  background: linear-gradient(135deg, #3478f6, #8b5cf6);
+}
+.toggle-input:checked + .toggle-slider::after {
+  transform: translateX(18px);
+}
+
+/* 数字输入框 */
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.setting-input {
+  width: 72px;
+  height: 34px;
+  border: 1px solid var(--admin-border);
+  border-radius: 10px;
+  background: var(--admin-card);
+  color: var(--text-main);
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  text-align: center;
+  padding: 0 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.setting-input:focus {
+  border-color: #3478f6;
+  box-shadow: 0 0 0 3px rgba(52, 120, 246, 0.12);
+}
+.setting-input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.input-suffix {
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.upload-actions {
+  margin-top: 18px;
+  display: flex;
+  justify-content: flex-end;
 }
 </style>

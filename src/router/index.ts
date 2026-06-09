@@ -100,12 +100,6 @@ const routes: RouteRecordRaw[] = [
     meta: { requiresAuth: true, title: '加速设置' },
   },
   {
-    path: '/admin/features',
-    name: 'AdminFeatures',
-    component: () => import('../views/admin/FeatureSettings.vue'),
-    meta: { requiresAuth: true, title: '功能设置' },
-  },
-  {
     path: '/admin/channel-backup',
     name: 'AdminChannelBackup',
     component: () => import('../views/admin/ChannelBackup.vue'),

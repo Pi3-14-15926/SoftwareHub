@@ -95,21 +95,12 @@ async function commitFilesBatch(files: { path: string; content: string }[], mess
   const commitData = await commitRes.json()
   const baseTreeSha = commitData.tree.sha
 
-  // 2. 获取所有现有文件的 blob SHA（用于更新）
-  const existingTreeRes = await fetch(`${API_BASE}/repos/${owner}/${repo}/git/trees/${baseTreeSha}?recursive=1`, { headers: h })
-  const existingTree = existingTreeRes.ok ? await existingTreeRes.json() : { tree: [] }
-  const shaMap = new Map<string, string>()
-  for (const item of existingTree.tree) {
-    shaMap.set(item.path, item.sha)
-  }
-
-  // 3. 创建新 tree（批量添加/更新文件）
+  // 2. 创建新 tree（批量添加/更新文件，只传 content，不传 sha）
   const treeItems = files.map(f => ({
     path: f.path,
     mode: '100644',
     type: 'blob',
     content: f.content,
-    ...(shaMap.has(f.path) ? { sha: shaMap.get(f.path) } : {}),
   }))
 
   const treeRes = await fetch(`${API_BASE}/repos/${owner}/${repo}/git/trees`, {

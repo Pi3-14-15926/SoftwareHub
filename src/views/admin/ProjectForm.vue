@@ -127,6 +127,10 @@ async function doSave() {
     error.value = '名称和 Slug 不能为空'
     return
   }
+  if (!form.value.categorySlug) {
+    msg.warning('软件未选所属页面，将无法备份软件！')
+    return
+  }
   saving.value = true
   if (isEdit.value) {
     const p = existingProject.value

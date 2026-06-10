@@ -234,6 +234,14 @@ onMounted(() => {
       <transition name="bulk-bar">
         <div v-if="selectedIds.size > 0" class="bulk-bar">
           <div class="bulk-info">
+            <NCheckbox
+              :checked="allSelected"
+              :indeterminate="someSelected"
+              @update:checked="toggleSelectAll()"
+            >
+              <span class="select-all-label">全选当前页</span>
+            </NCheckbox>
+            <span class="bulk-divider"></span>
             <span class="bulk-count">{{ selectedIds.size }}</span>
             <span>个页面已选中</span>
           </div>
@@ -484,7 +492,9 @@ onMounted(() => {
   border-radius: 18px;
   box-shadow: 0 4px 20px rgba(79, 140, 255, 0.08);
 }
-.bulk-info { display: flex; align-items: center; gap: 6px; font-size: 0.9rem; color: var(--text-sec); }
+.bulk-info { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--text-sec); }
+.select-all-label { font-size: 0.85rem; font-weight: 600; color: var(--text-sec); white-space: nowrap; }
+.bulk-divider { width: 1px; height: 18px; background: rgba(79, 140, 255, 0.2); flex-shrink: 0; }
 .bulk-count {
   display: inline-flex;
   align-items: center;

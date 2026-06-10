@@ -79,40 +79,75 @@ function headers() {
   return h
 }
 
-/** 获取文件当前 SHA（用于更新已有文件） */
-async function getFileSha(path: string): Promise<string | null> {
+/** 通过 Git Trees API 批量提交所有文件（单次 commit） */
+async function commitFilesBatch(files: { path: string; content: string }[], message: string): Promise<void> {
   const { owner, repo } = getRepoInfo()
-  try {
-    const res = await fetch(`${API_BASE}/repos/${owner}/${repo}/contents/${path}`, {
-      headers: headers(),
-    })
-    if (!res.ok) return null
-    const data = await res.json()
-    return data.sha || null
-  } catch {
-    return null
-  }
-}
+  const h = headers()
 
-/** 提交单个文件到仓库 */
-async function commitFile(path: string, content: string, message: string): Promise<void> {
-  const { owner, repo } = getRepoInfo()
-  const sha = await getFileSha(path)
-  const body: Record<string, any> = {
-    message,
-    content: btoa(unescape(encodeURIComponent(content))),
-    branch: 'main',
-  }
-  if (sha) body.sha = sha
+  // 1. 获取当前 main 分支的 commit SHA 和 tree SHA
+  const refRes = await fetch(`${API_BASE}/repos/${owner}/${repo}/git/refs/heads/main`, { headers: h })
+  if (!refRes.ok) throw new Error('获取分支引用失败')
+  const refData = await refRes.json()
+  const currentCommitSha = refData.object.sha
 
-  const res = await fetch(`${API_BASE}/repos/${owner}/${repo}/contents/${path}`, {
-    method: 'PUT',
-    headers: headers(),
-    body: JSON.stringify(body),
+  const commitRes = await fetch(`${API_BASE}/repos/${owner}/${repo}/git/commits/${currentCommitSha}`, { headers: h })
+  if (!commitRes.ok) throw new Error('获取 commit 失败')
+  const commitData = await commitRes.json()
+  const baseTreeSha = commitData.tree.sha
+
+  // 2. 获取所有现有文件的 blob SHA（用于更新）
+  const existingTreeRes = await fetch(`${API_BASE}/repos/${owner}/${repo}/git/trees/${baseTreeSha}?recursive=1`, { headers: h })
+  const existingTree = existingTreeRes.ok ? await existingTreeRes.json() : { tree: [] }
+  const shaMap = new Map<string, string>()
+  for (const item of existingTree.tree) {
+    shaMap.set(item.path, item.sha)
+  }
+
+  // 3. 创建新 tree（批量添加/更新文件）
+  const treeItems = files.map(f => ({
+    path: f.path,
+    mode: '100644',
+    type: 'blob',
+    content: f.content,
+    ...(shaMap.has(f.path) ? { sha: shaMap.get(f.path) } : {}),
+  }))
+
+  const treeRes = await fetch(`${API_BASE}/repos/${owner}/${repo}/git/trees`, {
+    method: 'POST',
+    headers: h,
+    body: JSON.stringify({ base_tree: baseTreeSha, tree: treeItems }),
   })
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({ message: `HTTP ${res.status}` }))
-    throw new Error(err.message || '提交失败')
+  if (!treeRes.ok) {
+    const err = await treeRes.json().catch(() => ({ message: `HTTP ${treeRes.status}` }))
+    throw new Error(err.message || '创建 tree 失败')
+  }
+  const newTreeSha = (await treeRes.json()).sha
+
+  // 4. 创建 commit（指向新 tree）
+  const newCommitRes = await fetch(`${API_BASE}/repos/${owner}/${repo}/git/commits`, {
+    method: 'POST',
+    headers: h,
+    body: JSON.stringify({
+      message,
+      tree: newTreeSha,
+      parents: [currentCommitSha],
+    }),
+  })
+  if (!newCommitRes.ok) {
+    const err = await newCommitRes.json().catch(() => ({ message: `HTTP ${newCommitRes.status}` }))
+    throw new Error(err.message || '创建 commit 失败')
+  }
+  const newCommitSha = (await newCommitRes.json()).sha
+
+  // 5. 更新 main 分支引用
+  const updateRes = await fetch(`${API_BASE}/repos/${owner}/${repo}/git/refs/heads/main`, {
+    method: 'PATCH',
+    headers: h,
+    body: JSON.stringify({ sha: newCommitSha, force: false }),
+  })
+  if (!updateRes.ok) {
+    const err = await updateRes.json().catch(() => ({ message: `HTTP ${updateRes.status}` }))
+    throw new Error(err.message || '更新分支失败')
   }
 }
 
@@ -200,9 +235,7 @@ export async function commitAllData(): Promise<{ files: number; repo: string }> 
   }
 
   const files = [...globalFiles, ...pageFiles]
-  for (const file of files) {
-    await commitFile(file.path, file.content, message)
-  }
+  await commitFilesBatch(files, message)
 
   const { owner, repo } = getRepoInfo()
   return { files: files.length, repo: `${owner}/${repo}` }

@@ -15,7 +15,7 @@
     "syncEnabled": true,
     "syncIntervalHours": 24,
     "backupEnabled": true,
-    "backupIntervalHours": 24
+    "backupIntervalHours": 4
   },
   "defaultChannel": "123webdav",
   "webdav": {

@@ -123,11 +123,12 @@ export function getCategorySoftware(slug: string): Software[] {
 
 export function saveSoftware(s: Software): void {
   const d = loadAppData()
+  // 先从所有 slug 中移除该 ID 的旧条目（防止改分类后残留重复）
+  for (const slug of Object.keys(d.software)) {
+    d.software[slug] = d.software[slug].filter((x) => x.id !== s.id)
+  }
   if (!d.software[s.categorySlug]) d.software[s.categorySlug] = []
-  const list = d.software[s.categorySlug]
-  const idx = list.findIndex((x) => x.id === s.id)
-  if (idx >= 0) list[idx] = s
-  else list.push(s)
+  d.software[s.categorySlug].push(s)
   rebuildIndexInPlace(d)
   saveAppData(d)
 }

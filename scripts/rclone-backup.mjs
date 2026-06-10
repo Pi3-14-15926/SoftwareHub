@@ -616,7 +616,7 @@ async function main() {
     try {
       execSync('git config user.name "github-actions[bot]"', { stdio: 'pipe' })
       execSync('git config user.email "github-actions[bot]@users.noreply.github.com"', { stdio: 'pipe' })
-      execSync('git add public/data/', { stdio: 'pipe' })
+      execSync('git add public/data/ public/page/', { stdio: 'pipe' })
       const diff = execSync('git diff --cached --stat', { encoding: 'utf-8' })
       if (diff.trim()) {
         execSync('git commit -m "chore(data): rclone 备份同步 [skip ci]"', { stdio: 'pipe' })

@@ -7,7 +7,7 @@
   "footer": "Powered by Software Hub",
   "storageNote": "收藏精品软件",
   "ghProxyEnabled": true,
-  "ghProxyUrl": "https://js.qiyinqin.ccwu.cc/",
+  "ghProxyUrl": "https://gh-proxy.com/",
   "uploadTimeout": 600,
   "maxFileSizeMB": 500,
   "iconCdnMode": "jsdelivr",
@@ -15,13 +15,15 @@
     "syncEnabled": true,
     "syncIntervalHours": 24,
     "backupEnabled": true,
-    "backupIntervalHours": 4
+    "backupIntervalHours": 48
   },
-  "defaultChannel": "123webdav",
   "webdav": {
     "url": "https://webdav.123pan.cn/webdav/Webdav/资源/",
     "username": "13249599730",
-    "password": "2mi1ft82",
-    "baseDir": "/SoftwareHub"
-  }
+    "password": "MHnM+YgyUUS/HEAMiPrytE0XDt9G1cxBk4hlyLrueyieyopP",
+    "baseDir": "/SoftwareHub",
+    "uploadTimeout": 300,
+    "maxFileSize": 500
+  },
+  "defaultChannel": "123webdav"
 }

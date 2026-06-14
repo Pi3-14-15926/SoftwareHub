@@ -2,7 +2,7 @@
   {
     "id": "mpwplwvrfti2db",
     "name": "阅读",
-    "slug": "yuedu",
+    "slug": "book",
     "sortOrder": 0,
     "icon": "📖",
     "description": "阅读软件"
@@ -18,7 +18,7 @@
   {
     "id": "mpzijdnwrchrgw",
     "name": "动漫",
-    "slug": "dongman",
+    "slug": "anime",
     "icon": "📺",
     "description": "动漫软件",
     "sortOrder": 2

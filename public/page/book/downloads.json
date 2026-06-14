@@ -3190,5 +3190,4861 @@
     "filename": "legado_plus_3.25.11162230_releaseS.apk",
     "size": "19.3 MB",
     "url": "https://github.com/Luoyacheng/legado/releases/download/3.25.111622/legado_plus_3.25.11162230_releaseS.apk"
+  },
+  {
+    "id": "mqe091p80t12ro",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/latest.json"
+  },
+  {
+    "id": "mqe091pkciu7av",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Linux",
+    "filename": "Readest-0.11.4-1.aarch64.rpm",
+    "size": "36.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest-0.11.4-1.aarch64.rpm"
+  },
+  {
+    "id": "mqe091pv3xa3gu",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Linux",
+    "filename": "Readest-0.11.4-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest-0.11.4-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mqe091q6uj2kyh",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Other",
+    "filename": "Readest-0.11.4-1.koplugin.zip",
+    "size": "0.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest-0.11.4-1.koplugin.zip"
+  },
+  {
+    "id": "mqe091qh5k2xsh",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Linux",
+    "filename": "Readest-0.11.4-1.x86_64.rpm",
+    "size": "36.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest-0.11.4-1.x86_64.rpm"
+  },
+  {
+    "id": "mqe091qtvegyiy",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Linux",
+    "filename": "Readest-0.11.4-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest-0.11.4-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mqe091r5d8zugi",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Linux",
+    "filename": "Readest_0.11.4_aarch64.AppImage",
+    "size": "136.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_0.11.4_aarch64.AppImage"
+  },
+  {
+    "id": "mqe091rgnk2ayi",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Linux",
+    "filename": "Readest_0.11.4_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_0.11.4_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mqe091rrbcmga0",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Linux",
+    "filename": "Readest_0.11.4_amd64.AppImage",
+    "size": "144.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_0.11.4_amd64.AppImage"
+  },
+  {
+    "id": "mqe091s2cpl4lr",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Linux",
+    "filename": "Readest_0.11.4_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_0.11.4_amd64.AppImage.sig"
+  },
+  {
+    "id": "mqe091scaorqa4",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Linux",
+    "filename": "Readest_0.11.4_amd64.deb",
+    "size": "36.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_0.11.4_amd64.deb"
+  },
+  {
+    "id": "mqe091smv9osu2",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Linux",
+    "filename": "Readest_0.11.4_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_0.11.4_amd64.deb.sig"
+  },
+  {
+    "id": "mqe091sx3jqyv2",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Windows",
+    "filename": "Readest_0.11.4_arm64-portable.exe",
+    "size": "52.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_0.11.4_arm64-portable.exe"
+  },
+  {
+    "id": "mqe091t9v02m49",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Windows",
+    "filename": "Readest_0.11.4_arm64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_0.11.4_arm64-portable.exe.sig"
+  },
+  {
+    "id": "mqe091tk49ekbd",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Windows",
+    "filename": "Readest_0.11.4_arm64-setup.exe",
+    "size": "29.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_0.11.4_arm64-setup.exe"
+  },
+  {
+    "id": "mqe091tw4cdmnl",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Windows",
+    "filename": "Readest_0.11.4_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_0.11.4_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mqe091u60v3ngc",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Android",
+    "filename": "Readest_0.11.4_arm64.apk",
+    "size": "62.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_0.11.4_arm64.apk"
+  },
+  {
+    "id": "mqe091ui0dewdn",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Android",
+    "filename": "Readest_0.11.4_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_0.11.4_arm64.apk.sig"
+  },
+  {
+    "id": "mqe091uu943jcd",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Linux",
+    "filename": "Readest_0.11.4_arm64.deb",
+    "size": "36.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_0.11.4_arm64.deb"
+  },
+  {
+    "id": "mqe091vcdppbqk",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Linux",
+    "filename": "Readest_0.11.4_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_0.11.4_arm64.deb.sig"
+  },
+  {
+    "id": "mqe091vqtudnys",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Android",
+    "filename": "Readest_0.11.4_universal.apk",
+    "size": "226.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_0.11.4_universal.apk"
+  },
+  {
+    "id": "mqe091w6kp2grg",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Android",
+    "filename": "Readest_0.11.4_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_0.11.4_universal.apk.sig"
+  },
+  {
+    "id": "mqe091wsq09srz",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "MacOS",
+    "filename": "Readest_0.11.4_universal.dmg",
+    "size": "69.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_0.11.4_universal.dmg"
+  },
+  {
+    "id": "mqe091x3lilpo5",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Windows",
+    "filename": "Readest_0.11.4_x64-portable.exe",
+    "size": "60.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_0.11.4_x64-portable.exe"
+  },
+  {
+    "id": "mqe091xgwc08np",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Windows",
+    "filename": "Readest_0.11.4_x64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_0.11.4_x64-portable.exe.sig"
+  },
+  {
+    "id": "mqe091xw0cacj3",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Windows",
+    "filename": "Readest_0.11.4_x64-setup.exe",
+    "size": "30.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_0.11.4_x64-setup.exe"
+  },
+  {
+    "id": "mqe091yb1d9y8q",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Windows",
+    "filename": "Readest_0.11.4_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_0.11.4_x64-setup.exe.sig"
+  },
+  {
+    "id": "mqe091yoytf0xx",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz",
+    "size": "69.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_universal.app.tar.gz"
+  },
+  {
+    "id": "mqe091z1g9xxrs",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/Readest_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mqe091zec5ydle",
+    "versionId": "mqe091oy68ayfy",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.4/release-notes.json"
+  },
+  {
+    "id": "mqe092076fgly0",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/latest.json"
+  },
+  {
+    "id": "mqe0920lc0b10g",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Linux",
+    "filename": "Readest-0.11.2-1.aarch64.rpm",
+    "size": "35.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest-0.11.2-1.aarch64.rpm"
+  },
+  {
+    "id": "mqe09211oawp6j",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Linux",
+    "filename": "Readest-0.11.2-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest-0.11.2-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mqe0921fjww84v",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Other",
+    "filename": "Readest-0.11.2-1.koplugin.zip",
+    "size": "0.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest-0.11.2-1.koplugin.zip"
+  },
+  {
+    "id": "mqe0921wm6s3ul",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Linux",
+    "filename": "Readest-0.11.2-1.x86_64.rpm",
+    "size": "35.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest-0.11.2-1.x86_64.rpm"
+  },
+  {
+    "id": "mqe0922bx9s7eo",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Linux",
+    "filename": "Readest-0.11.2-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest-0.11.2-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mqe0922s4x76vk",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Linux",
+    "filename": "Readest_0.11.2_aarch64.AppImage",
+    "size": "149.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_0.11.2_aarch64.AppImage"
+  },
+  {
+    "id": "mqe092354lsyrs",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Linux",
+    "filename": "Readest_0.11.2_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_0.11.2_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mqe0923jb8uh9d",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Linux",
+    "filename": "Readest_0.11.2_amd64.AppImage",
+    "size": "143.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_0.11.2_amd64.AppImage"
+  },
+  {
+    "id": "mqe0923xngg7u7",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Linux",
+    "filename": "Readest_0.11.2_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_0.11.2_amd64.AppImage.sig"
+  },
+  {
+    "id": "mqe0924ftjszvy",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Linux",
+    "filename": "Readest_0.11.2_amd64.deb",
+    "size": "35.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_0.11.2_amd64.deb"
+  },
+  {
+    "id": "mqe0924shmuswf",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Linux",
+    "filename": "Readest_0.11.2_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_0.11.2_amd64.deb.sig"
+  },
+  {
+    "id": "mqe0925aus5ve7",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Windows",
+    "filename": "Readest_0.11.2_arm64-portable.exe",
+    "size": "52.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_0.11.2_arm64-portable.exe"
+  },
+  {
+    "id": "mqe0925qrnaelg",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Windows",
+    "filename": "Readest_0.11.2_arm64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_0.11.2_arm64-portable.exe.sig"
+  },
+  {
+    "id": "mqe092666m7v29",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Windows",
+    "filename": "Readest_0.11.2_arm64-setup.exe",
+    "size": "28.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_0.11.2_arm64-setup.exe"
+  },
+  {
+    "id": "mqe0926jnaf1w3",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Windows",
+    "filename": "Readest_0.11.2_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_0.11.2_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mqe0926xw32ika",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Android",
+    "filename": "Readest_0.11.2_arm64.apk",
+    "size": "61.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_0.11.2_arm64.apk"
+  },
+  {
+    "id": "mqe0927clsxask",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Android",
+    "filename": "Readest_0.11.2_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_0.11.2_arm64.apk.sig"
+  },
+  {
+    "id": "mqe0927tfn1wvq",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Linux",
+    "filename": "Readest_0.11.2_arm64.deb",
+    "size": "35.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_0.11.2_arm64.deb"
+  },
+  {
+    "id": "mqe0928cmp4h2u",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Linux",
+    "filename": "Readest_0.11.2_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_0.11.2_arm64.deb.sig"
+  },
+  {
+    "id": "mqe0928ri1kgjx",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Android",
+    "filename": "Readest_0.11.2_universal.apk",
+    "size": "224.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_0.11.2_universal.apk"
+  },
+  {
+    "id": "mqe0929ir3oilq",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Android",
+    "filename": "Readest_0.11.2_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_0.11.2_universal.apk.sig"
+  },
+  {
+    "id": "mqe0929xwj0lvm",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "MacOS",
+    "filename": "Readest_0.11.2_universal.dmg",
+    "size": "68.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_0.11.2_universal.dmg"
+  },
+  {
+    "id": "mqe092ab3qcx6h",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Windows",
+    "filename": "Readest_0.11.2_x64-portable.exe",
+    "size": "59.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_0.11.2_x64-portable.exe"
+  },
+  {
+    "id": "mqe092apwanhmd",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Windows",
+    "filename": "Readest_0.11.2_x64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_0.11.2_x64-portable.exe.sig"
+  },
+  {
+    "id": "mqe092b20y6fat",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Windows",
+    "filename": "Readest_0.11.2_x64-setup.exe",
+    "size": "29.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_0.11.2_x64-setup.exe"
+  },
+  {
+    "id": "mqe092bgbubvif",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Windows",
+    "filename": "Readest_0.11.2_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_0.11.2_x64-setup.exe.sig"
+  },
+  {
+    "id": "mqe092bvr26z3x",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz",
+    "size": "67.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_universal.app.tar.gz"
+  },
+  {
+    "id": "mqe092c86js2zp",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/Readest_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mqe092clc75fhh",
+    "versionId": "mqe091zuc4fz9b",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.2/release-notes.json"
+  },
+  {
+    "id": "mqe092dietrpgs",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/latest.json"
+  },
+  {
+    "id": "mqe092dyegbdfc",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Linux",
+    "filename": "Readest-0.11.1-1.aarch64.rpm",
+    "size": "34.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest-0.11.1-1.aarch64.rpm"
+  },
+  {
+    "id": "mqe092egpp3ihd",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Linux",
+    "filename": "Readest-0.11.1-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest-0.11.1-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mqe092eyvsz44n",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Other",
+    "filename": "Readest-0.11.1-1.koplugin.zip",
+    "size": "0.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest-0.11.1-1.koplugin.zip"
+  },
+  {
+    "id": "mqe092fdp020j5",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Linux",
+    "filename": "Readest-0.11.1-1.x86_64.rpm",
+    "size": "34.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest-0.11.1-1.x86_64.rpm"
+  },
+  {
+    "id": "mqe092fubud9j8",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Linux",
+    "filename": "Readest-0.11.1-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest-0.11.1-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mqe092g96rhqmp",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Linux",
+    "filename": "Readest_0.11.1_aarch64.AppImage",
+    "size": "104.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_0.11.1_aarch64.AppImage"
+  },
+  {
+    "id": "mqe092gpnpmgbx",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Linux",
+    "filename": "Readest_0.11.1_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_0.11.1_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mqe092h7u4of63",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Linux",
+    "filename": "Readest_0.11.1_amd64.AppImage",
+    "size": "106.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_0.11.1_amd64.AppImage"
+  },
+  {
+    "id": "mqe092hqvknp8k",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Linux",
+    "filename": "Readest_0.11.1_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_0.11.1_amd64.AppImage.sig"
+  },
+  {
+    "id": "mqe092i62ahldd",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Linux",
+    "filename": "Readest_0.11.1_amd64.deb",
+    "size": "34.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_0.11.1_amd64.deb"
+  },
+  {
+    "id": "mqe092in8a5y0z",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Linux",
+    "filename": "Readest_0.11.1_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_0.11.1_amd64.deb.sig"
+  },
+  {
+    "id": "mqe092j3fszqps",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Windows",
+    "filename": "Readest_0.11.1_arm64-portable.exe",
+    "size": "50.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_0.11.1_arm64-portable.exe"
+  },
+  {
+    "id": "mqe092jjbik9xi",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Windows",
+    "filename": "Readest_0.11.1_arm64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_0.11.1_arm64-portable.exe.sig"
+  },
+  {
+    "id": "mqe092jz828n3w",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Windows",
+    "filename": "Readest_0.11.1_arm64-setup.exe",
+    "size": "27.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_0.11.1_arm64-setup.exe"
+  },
+  {
+    "id": "mqe092ke80ijqu",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Windows",
+    "filename": "Readest_0.11.1_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_0.11.1_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mqe092kug2uqm7",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Android",
+    "filename": "Readest_0.11.1_arm64.apk",
+    "size": "60.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_0.11.1_arm64.apk"
+  },
+  {
+    "id": "mqe092lb2hi78o",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Android",
+    "filename": "Readest_0.11.1_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_0.11.1_arm64.apk.sig"
+  },
+  {
+    "id": "mqe092lvn0iduy",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Linux",
+    "filename": "Readest_0.11.1_arm64.deb",
+    "size": "34.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_0.11.1_arm64.deb"
+  },
+  {
+    "id": "mqe092mao58h0s",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Linux",
+    "filename": "Readest_0.11.1_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_0.11.1_arm64.deb.sig"
+  },
+  {
+    "id": "mqe092mqawuxwu",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Android",
+    "filename": "Readest_0.11.1_universal.apk",
+    "size": "219.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_0.11.1_universal.apk"
+  },
+  {
+    "id": "mqe092n8xbditw",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Android",
+    "filename": "Readest_0.11.1_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_0.11.1_universal.apk.sig"
+  },
+  {
+    "id": "mqe092nplymdvh",
+    "versionId": "mqe092czsw02kz",
+    "platform": "MacOS",
+    "filename": "Readest_0.11.1_universal.dmg",
+    "size": "65.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_0.11.1_universal.dmg"
+  },
+  {
+    "id": "mqe092o5lnfz71",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Windows",
+    "filename": "Readest_0.11.1_x64-portable.exe",
+    "size": "57.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_0.11.1_x64-portable.exe"
+  },
+  {
+    "id": "mqe092ojzgt85f",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Windows",
+    "filename": "Readest_0.11.1_x64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_0.11.1_x64-portable.exe.sig"
+  },
+  {
+    "id": "mqe092ozcg9ngc",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Windows",
+    "filename": "Readest_0.11.1_x64-setup.exe",
+    "size": "28.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_0.11.1_x64-setup.exe"
+  },
+  {
+    "id": "mqe092pg7io341",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Windows",
+    "filename": "Readest_0.11.1_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_0.11.1_x64-setup.exe.sig"
+  },
+  {
+    "id": "mqe092pzgp59q0",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz",
+    "size": "65.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_universal.app.tar.gz"
+  },
+  {
+    "id": "mqe092qe0gyqrf",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/Readest_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mqe092quxqqwcf",
+    "versionId": "mqe092czsw02kz",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.1/release-notes.json"
+  },
+  {
+    "id": "mqe092rskbtkns",
+    "versionId": "mqe092raoweo68",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/latest.json"
+  },
+  {
+    "id": "mqe092s9u0y0fu",
+    "versionId": "mqe092raoweo68",
+    "platform": "Linux",
+    "filename": "Readest-0.10.6-1.aarch64.rpm",
+    "size": "27.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest-0.10.6-1.aarch64.rpm"
+  },
+  {
+    "id": "mqe092spmhmhj3",
+    "versionId": "mqe092raoweo68",
+    "platform": "Linux",
+    "filename": "Readest-0.10.6-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest-0.10.6-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mqe092t5h4ociy",
+    "versionId": "mqe092raoweo68",
+    "platform": "Other",
+    "filename": "Readest-0.10.6-1.koplugin.zip",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest-0.10.6-1.koplugin.zip"
+  },
+  {
+    "id": "mqe092tn08obb8",
+    "versionId": "mqe092raoweo68",
+    "platform": "Linux",
+    "filename": "Readest-0.10.6-1.x86_64.rpm",
+    "size": "27.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest-0.10.6-1.x86_64.rpm"
+  },
+  {
+    "id": "mqe092u901bw91",
+    "versionId": "mqe092raoweo68",
+    "platform": "Linux",
+    "filename": "Readest-0.10.6-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest-0.10.6-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mqe092uoflbq0n",
+    "versionId": "mqe092raoweo68",
+    "platform": "Linux",
+    "filename": "Readest_0.10.6_aarch64.AppImage",
+    "size": "97.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_0.10.6_aarch64.AppImage"
+  },
+  {
+    "id": "mqe092v4r22xwn",
+    "versionId": "mqe092raoweo68",
+    "platform": "Linux",
+    "filename": "Readest_0.10.6_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_0.10.6_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mqe092vjt50go8",
+    "versionId": "mqe092raoweo68",
+    "platform": "Linux",
+    "filename": "Readest_0.10.6_amd64.AppImage",
+    "size": "99.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_0.10.6_amd64.AppImage"
+  },
+  {
+    "id": "mqe092vyg9xwvt",
+    "versionId": "mqe092raoweo68",
+    "platform": "Linux",
+    "filename": "Readest_0.10.6_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_0.10.6_amd64.AppImage.sig"
+  },
+  {
+    "id": "mqe092wevnpmiq",
+    "versionId": "mqe092raoweo68",
+    "platform": "Linux",
+    "filename": "Readest_0.10.6_amd64.deb",
+    "size": "27.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_0.10.6_amd64.deb"
+  },
+  {
+    "id": "mqe092wt80ql1p",
+    "versionId": "mqe092raoweo68",
+    "platform": "Linux",
+    "filename": "Readest_0.10.6_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_0.10.6_amd64.deb.sig"
+  },
+  {
+    "id": "mqe092x841dn9j",
+    "versionId": "mqe092raoweo68",
+    "platform": "Windows",
+    "filename": "Readest_0.10.6_arm64-portable.exe",
+    "size": "43.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_0.10.6_arm64-portable.exe"
+  },
+  {
+    "id": "mqe092xpb5p88y",
+    "versionId": "mqe092raoweo68",
+    "platform": "Windows",
+    "filename": "Readest_0.10.6_arm64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_0.10.6_arm64-portable.exe.sig"
+  },
+  {
+    "id": "mqe092ybleyafy",
+    "versionId": "mqe092raoweo68",
+    "platform": "Windows",
+    "filename": "Readest_0.10.6_arm64-setup.exe",
+    "size": "21.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_0.10.6_arm64-setup.exe"
+  },
+  {
+    "id": "mqe092yvjkq5od",
+    "versionId": "mqe092raoweo68",
+    "platform": "Windows",
+    "filename": "Readest_0.10.6_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_0.10.6_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mqe092zckt5gbv",
+    "versionId": "mqe092raoweo68",
+    "platform": "Android",
+    "filename": "Readest_0.10.6_arm64.apk",
+    "size": "53.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_0.10.6_arm64.apk"
+  },
+  {
+    "id": "mqe092ztlur3b5",
+    "versionId": "mqe092raoweo68",
+    "platform": "Android",
+    "filename": "Readest_0.10.6_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_0.10.6_arm64.apk.sig"
+  },
+  {
+    "id": "mqe0930a6kzufx",
+    "versionId": "mqe092raoweo68",
+    "platform": "Linux",
+    "filename": "Readest_0.10.6_arm64.deb",
+    "size": "27.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_0.10.6_arm64.deb"
+  },
+  {
+    "id": "mqe0930t689ocn",
+    "versionId": "mqe092raoweo68",
+    "platform": "Linux",
+    "filename": "Readest_0.10.6_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_0.10.6_arm64.deb.sig"
+  },
+  {
+    "id": "mqe09319usj0fz",
+    "versionId": "mqe092raoweo68",
+    "platform": "Android",
+    "filename": "Readest_0.10.6_universal.apk",
+    "size": "191.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_0.10.6_universal.apk"
+  },
+  {
+    "id": "mqe0931rl1ec9l",
+    "versionId": "mqe092raoweo68",
+    "platform": "Android",
+    "filename": "Readest_0.10.6_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_0.10.6_universal.apk.sig"
+  },
+  {
+    "id": "mqe093297w9p7p",
+    "versionId": "mqe092raoweo68",
+    "platform": "MacOS",
+    "filename": "Readest_0.10.6_universal.dmg",
+    "size": "52.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_0.10.6_universal.dmg"
+  },
+  {
+    "id": "mqe0932v59lr1p",
+    "versionId": "mqe092raoweo68",
+    "platform": "Windows",
+    "filename": "Readest_0.10.6_x64-portable.exe",
+    "size": "50.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_0.10.6_x64-portable.exe"
+  },
+  {
+    "id": "mqe0933a3qtjon",
+    "versionId": "mqe092raoweo68",
+    "platform": "Windows",
+    "filename": "Readest_0.10.6_x64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_0.10.6_x64-portable.exe.sig"
+  },
+  {
+    "id": "mqe0933r3xakif",
+    "versionId": "mqe092raoweo68",
+    "platform": "Windows",
+    "filename": "Readest_0.10.6_x64-setup.exe",
+    "size": "22.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_0.10.6_x64-setup.exe"
+  },
+  {
+    "id": "mqe09348a04jk3",
+    "versionId": "mqe092raoweo68",
+    "platform": "Windows",
+    "filename": "Readest_0.10.6_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_0.10.6_x64-setup.exe.sig"
+  },
+  {
+    "id": "mqe0934p9g6s8s",
+    "versionId": "mqe092raoweo68",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz",
+    "size": "52.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_universal.app.tar.gz"
+  },
+  {
+    "id": "mqe09355ddatgh",
+    "versionId": "mqe092raoweo68",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/Readest_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mqe0935ldmqohf",
+    "versionId": "mqe092raoweo68",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.6/release-notes.json"
+  },
+  {
+    "id": "mqe0936ga4pp7t",
+    "versionId": "mqe093606yb979",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/latest.json"
+  },
+  {
+    "id": "mqe093707e6ek1",
+    "versionId": "mqe093606yb979",
+    "platform": "Linux",
+    "filename": "Readest-0.10.4-1.aarch64.rpm",
+    "size": "27.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest-0.10.4-1.aarch64.rpm"
+  },
+  {
+    "id": "mqe0937ixwvye0",
+    "versionId": "mqe093606yb979",
+    "platform": "Linux",
+    "filename": "Readest-0.10.4-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest-0.10.4-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mqe09380hfbyfr",
+    "versionId": "mqe093606yb979",
+    "platform": "Other",
+    "filename": "Readest-0.10.4-1.koplugin.zip",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest-0.10.4-1.koplugin.zip"
+  },
+  {
+    "id": "mqe0938fnrgitp",
+    "versionId": "mqe093606yb979",
+    "platform": "Linux",
+    "filename": "Readest-0.10.4-1.x86_64.rpm",
+    "size": "27.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest-0.10.4-1.x86_64.rpm"
+  },
+  {
+    "id": "mqe0938vdo7txn",
+    "versionId": "mqe093606yb979",
+    "platform": "Linux",
+    "filename": "Readest-0.10.4-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest-0.10.4-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mqe0939aj3spk8",
+    "versionId": "mqe093606yb979",
+    "platform": "Linux",
+    "filename": "Readest_0.10.4_aarch64.AppImage",
+    "size": "97.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_0.10.4_aarch64.AppImage"
+  },
+  {
+    "id": "mqe0939qpkdguj",
+    "versionId": "mqe093606yb979",
+    "platform": "Linux",
+    "filename": "Readest_0.10.4_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_0.10.4_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mqe093a7es3k0y",
+    "versionId": "mqe093606yb979",
+    "platform": "Linux",
+    "filename": "Readest_0.10.4_amd64.AppImage",
+    "size": "99.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_0.10.4_amd64.AppImage"
+  },
+  {
+    "id": "mqe093ao03iq7n",
+    "versionId": "mqe093606yb979",
+    "platform": "Linux",
+    "filename": "Readest_0.10.4_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_0.10.4_amd64.AppImage.sig"
+  },
+  {
+    "id": "mqe093b74dmiav",
+    "versionId": "mqe093606yb979",
+    "platform": "Linux",
+    "filename": "Readest_0.10.4_amd64.deb",
+    "size": "27.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_0.10.4_amd64.deb"
+  },
+  {
+    "id": "mqe093bmb0eygp",
+    "versionId": "mqe093606yb979",
+    "platform": "Linux",
+    "filename": "Readest_0.10.4_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_0.10.4_amd64.deb.sig"
+  },
+  {
+    "id": "mqe093c37uutng",
+    "versionId": "mqe093606yb979",
+    "platform": "Windows",
+    "filename": "Readest_0.10.4_arm64-portable.exe",
+    "size": "43.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_0.10.4_arm64-portable.exe"
+  },
+  {
+    "id": "mqe093ci9tdzf8",
+    "versionId": "mqe093606yb979",
+    "platform": "Windows",
+    "filename": "Readest_0.10.4_arm64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_0.10.4_arm64-portable.exe.sig"
+  },
+  {
+    "id": "mqe093cyxmi2c7",
+    "versionId": "mqe093606yb979",
+    "platform": "Windows",
+    "filename": "Readest_0.10.4_arm64-setup.exe",
+    "size": "21.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_0.10.4_arm64-setup.exe"
+  },
+  {
+    "id": "mqe093dej053oi",
+    "versionId": "mqe093606yb979",
+    "platform": "Windows",
+    "filename": "Readest_0.10.4_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_0.10.4_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mqe093dtvtfcfj",
+    "versionId": "mqe093606yb979",
+    "platform": "Android",
+    "filename": "Readest_0.10.4_arm64.apk",
+    "size": "52.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_0.10.4_arm64.apk"
+  },
+  {
+    "id": "mqe093e9flqjqp",
+    "versionId": "mqe093606yb979",
+    "platform": "Android",
+    "filename": "Readest_0.10.4_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_0.10.4_arm64.apk.sig"
+  },
+  {
+    "id": "mqe093etgc0zcq",
+    "versionId": "mqe093606yb979",
+    "platform": "Linux",
+    "filename": "Readest_0.10.4_arm64.deb",
+    "size": "27.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_0.10.4_arm64.deb"
+  },
+  {
+    "id": "mqe093fh7de89m",
+    "versionId": "mqe093606yb979",
+    "platform": "Linux",
+    "filename": "Readest_0.10.4_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_0.10.4_arm64.deb.sig"
+  },
+  {
+    "id": "mqe093fxtrviyf",
+    "versionId": "mqe093606yb979",
+    "platform": "Android",
+    "filename": "Readest_0.10.4_universal.apk",
+    "size": "190.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_0.10.4_universal.apk"
+  },
+  {
+    "id": "mqe093gd0hra19",
+    "versionId": "mqe093606yb979",
+    "platform": "Android",
+    "filename": "Readest_0.10.4_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_0.10.4_universal.apk.sig"
+  },
+  {
+    "id": "mqe093guu2bebv",
+    "versionId": "mqe093606yb979",
+    "platform": "MacOS",
+    "filename": "Readest_0.10.4_universal.dmg",
+    "size": "52.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_0.10.4_universal.dmg"
+  },
+  {
+    "id": "mqe093h9x3vacy",
+    "versionId": "mqe093606yb979",
+    "platform": "Windows",
+    "filename": "Readest_0.10.4_x64-portable.exe",
+    "size": "50.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_0.10.4_x64-portable.exe"
+  },
+  {
+    "id": "mqe093hpram920",
+    "versionId": "mqe093606yb979",
+    "platform": "Windows",
+    "filename": "Readest_0.10.4_x64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_0.10.4_x64-portable.exe.sig"
+  },
+  {
+    "id": "mqe093i53jhkt2",
+    "versionId": "mqe093606yb979",
+    "platform": "Windows",
+    "filename": "Readest_0.10.4_x64-setup.exe",
+    "size": "22.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_0.10.4_x64-setup.exe"
+  },
+  {
+    "id": "mqe093ilseeb63",
+    "versionId": "mqe093606yb979",
+    "platform": "Windows",
+    "filename": "Readest_0.10.4_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_0.10.4_x64-setup.exe.sig"
+  },
+  {
+    "id": "mqe093j1r506j0",
+    "versionId": "mqe093606yb979",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz",
+    "size": "52.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_universal.app.tar.gz"
+  },
+  {
+    "id": "mqe093jhxapnst",
+    "versionId": "mqe093606yb979",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/Readest_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mqe093jx8mteaf",
+    "versionId": "mqe093606yb979",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.4/release-notes.json"
+  },
+  {
+    "id": "mqe093kt5067rs",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/latest.json"
+  },
+  {
+    "id": "mqe093l9myzu87",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Linux",
+    "filename": "Readest-0.10.2-1.aarch64.rpm",
+    "size": "27.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest-0.10.2-1.aarch64.rpm"
+  },
+  {
+    "id": "mqe093lrxmtnds",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Linux",
+    "filename": "Readest-0.10.2-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest-0.10.2-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mqe093mcge1jmh",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Other",
+    "filename": "Readest-0.10.2-1.koplugin.zip",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest-0.10.2-1.koplugin.zip"
+  },
+  {
+    "id": "mqe093msx2orjq",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Linux",
+    "filename": "Readest-0.10.2-1.x86_64.rpm",
+    "size": "27.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest-0.10.2-1.x86_64.rpm"
+  },
+  {
+    "id": "mqe093n9apyam6",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Linux",
+    "filename": "Readest-0.10.2-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest-0.10.2-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mqe093no086qxp",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Linux",
+    "filename": "Readest_0.10.2_aarch64.AppImage",
+    "size": "97.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_0.10.2_aarch64.AppImage"
+  },
+  {
+    "id": "mqe093o3yqpgqw",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Linux",
+    "filename": "Readest_0.10.2_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_0.10.2_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mqe093ok10nuew",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Linux",
+    "filename": "Readest_0.10.2_amd64.AppImage",
+    "size": "99.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_0.10.2_amd64.AppImage"
+  },
+  {
+    "id": "mqe093p1vgh6m0",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Linux",
+    "filename": "Readest_0.10.2_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_0.10.2_amd64.AppImage.sig"
+  },
+  {
+    "id": "mqe093pglkxiwt",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Linux",
+    "filename": "Readest_0.10.2_amd64.deb",
+    "size": "27.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_0.10.2_amd64.deb"
+  },
+  {
+    "id": "mqe093pxwppqig",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Linux",
+    "filename": "Readest_0.10.2_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_0.10.2_amd64.deb.sig"
+  },
+  {
+    "id": "mqe093qdfg0t2k",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Windows",
+    "filename": "Readest_0.10.2_arm64-portable.exe",
+    "size": "43.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_0.10.2_arm64-portable.exe"
+  },
+  {
+    "id": "mqe093qty8k6cr",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Windows",
+    "filename": "Readest_0.10.2_arm64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_0.10.2_arm64-portable.exe.sig"
+  },
+  {
+    "id": "mqe093r92b9mtv",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Windows",
+    "filename": "Readest_0.10.2_arm64-setup.exe",
+    "size": "21.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_0.10.2_arm64-setup.exe"
+  },
+  {
+    "id": "mqe093rqobtmq7",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Windows",
+    "filename": "Readest_0.10.2_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_0.10.2_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mqe093s6fewszq",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Android",
+    "filename": "Readest_0.10.2_arm64.apk",
+    "size": "52.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_0.10.2_arm64.apk"
+  },
+  {
+    "id": "mqe093sm2wgnye",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Android",
+    "filename": "Readest_0.10.2_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_0.10.2_arm64.apk.sig"
+  },
+  {
+    "id": "mqe093t9ejhcmy",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Linux",
+    "filename": "Readest_0.10.2_arm64.deb",
+    "size": "27.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_0.10.2_arm64.deb"
+  },
+  {
+    "id": "mqe093tpem5lix",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Linux",
+    "filename": "Readest_0.10.2_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_0.10.2_arm64.deb.sig"
+  },
+  {
+    "id": "mqe093u5iyvzhq",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Android",
+    "filename": "Readest_0.10.2_universal.apk",
+    "size": "190.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_0.10.2_universal.apk"
+  },
+  {
+    "id": "mqe093umwxtlpe",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Android",
+    "filename": "Readest_0.10.2_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_0.10.2_universal.apk.sig"
+  },
+  {
+    "id": "mqe093v1306ekl",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "MacOS",
+    "filename": "Readest_0.10.2_universal.dmg",
+    "size": "52.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_0.10.2_universal.dmg"
+  },
+  {
+    "id": "mqe093vjg4db0t",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Windows",
+    "filename": "Readest_0.10.2_x64-portable.exe",
+    "size": "50.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_0.10.2_x64-portable.exe"
+  },
+  {
+    "id": "mqe093vy8yi2mx",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Windows",
+    "filename": "Readest_0.10.2_x64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_0.10.2_x64-portable.exe.sig"
+  },
+  {
+    "id": "mqe093wd4dm7j1",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Windows",
+    "filename": "Readest_0.10.2_x64-setup.exe",
+    "size": "22.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_0.10.2_x64-setup.exe"
+  },
+  {
+    "id": "mqe093wtn9zuim",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Windows",
+    "filename": "Readest_0.10.2_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_0.10.2_x64-setup.exe.sig"
+  },
+  {
+    "id": "mqe093x9memdoi",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz",
+    "size": "52.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_universal.app.tar.gz"
+  },
+  {
+    "id": "mqe093xpdwpbt0",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/Readest_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mqe093y3jr9vvc",
+    "versionId": "mqe093kef4fr9v",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.2/release-notes.json"
+  },
+  {
+    "id": "mqe093z1360z68",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/latest.json"
+  },
+  {
+    "id": "mqe093zil2zm6u",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Linux",
+    "filename": "Readest-0.10.1-1.aarch64.rpm",
+    "size": "27.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest-0.10.1-1.aarch64.rpm"
+  },
+  {
+    "id": "mqe09405xz2vbo",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Linux",
+    "filename": "Readest-0.10.1-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest-0.10.1-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mqe0940ll3nmda",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Other",
+    "filename": "Readest-0.10.1-1.koplugin.zip",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest-0.10.1-1.koplugin.zip"
+  },
+  {
+    "id": "mqe09411if8zgo",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Linux",
+    "filename": "Readest-0.10.1-1.x86_64.rpm",
+    "size": "27.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest-0.10.1-1.x86_64.rpm"
+  },
+  {
+    "id": "mqe0941gahoj74",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Linux",
+    "filename": "Readest-0.10.1-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest-0.10.1-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mqe0941wyajbt6",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Linux",
+    "filename": "Readest_0.10.1_aarch64.AppImage",
+    "size": "98.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_0.10.1_aarch64.AppImage"
+  },
+  {
+    "id": "mqe0942fxdqqrg",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Linux",
+    "filename": "Readest_0.10.1_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_0.10.1_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mqe0942ur1zjye",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Linux",
+    "filename": "Readest_0.10.1_amd64.AppImage",
+    "size": "99.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_0.10.1_amd64.AppImage"
+  },
+  {
+    "id": "mqe0943ak0h7wb",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Linux",
+    "filename": "Readest_0.10.1_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_0.10.1_amd64.AppImage.sig"
+  },
+  {
+    "id": "mqe0943qwv8jjl",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Linux",
+    "filename": "Readest_0.10.1_amd64.deb",
+    "size": "27.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_0.10.1_amd64.deb"
+  },
+  {
+    "id": "mqe09446kq3cfg",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Linux",
+    "filename": "Readest_0.10.1_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_0.10.1_amd64.deb.sig"
+  },
+  {
+    "id": "mqe0944nd62waj",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Windows",
+    "filename": "Readest_0.10.1_arm64-portable.exe",
+    "size": "43.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_0.10.1_arm64-portable.exe"
+  },
+  {
+    "id": "mqe0945219nozs",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Windows",
+    "filename": "Readest_0.10.1_arm64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_0.10.1_arm64-portable.exe.sig"
+  },
+  {
+    "id": "mqe0945iag1scu",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Windows",
+    "filename": "Readest_0.10.1_arm64-setup.exe",
+    "size": "21.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_0.10.1_arm64-setup.exe"
+  },
+  {
+    "id": "mqe0945z9zsein",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Windows",
+    "filename": "Readest_0.10.1_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_0.10.1_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mqe0946fc3vyw6",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Android",
+    "filename": "Readest_0.10.1_arm64.apk",
+    "size": "53.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_0.10.1_arm64.apk"
+  },
+  {
+    "id": "mqe09471nfhj9n",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Android",
+    "filename": "Readest_0.10.1_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_0.10.1_arm64.apk.sig"
+  },
+  {
+    "id": "mqe0947iv1xv9l",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Linux",
+    "filename": "Readest_0.10.1_arm64.deb",
+    "size": "27.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_0.10.1_arm64.deb"
+  },
+  {
+    "id": "mqe0947yira765",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Linux",
+    "filename": "Readest_0.10.1_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_0.10.1_arm64.deb.sig"
+  },
+  {
+    "id": "mqe0948eiwq0ep",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Android",
+    "filename": "Readest_0.10.1_universal.apk",
+    "size": "191.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_0.10.1_universal.apk"
+  },
+  {
+    "id": "mqe0948u2cp20j",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Android",
+    "filename": "Readest_0.10.1_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_0.10.1_universal.apk.sig"
+  },
+  {
+    "id": "mqe0949b4h9j95",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "MacOS",
+    "filename": "Readest_0.10.1_universal.dmg",
+    "size": "53.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_0.10.1_universal.dmg"
+  },
+  {
+    "id": "mqe0949qz6pc6y",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Windows",
+    "filename": "Readest_0.10.1_x64-portable.exe",
+    "size": "50.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_0.10.1_x64-portable.exe"
+  },
+  {
+    "id": "mqe094a5kbxo5r",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Windows",
+    "filename": "Readest_0.10.1_x64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_0.10.1_x64-portable.exe.sig"
+  },
+  {
+    "id": "mqe094amw8mooz",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Windows",
+    "filename": "Readest_0.10.1_x64-setup.exe",
+    "size": "22.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_0.10.1_x64-setup.exe"
+  },
+  {
+    "id": "mqe094b2yru1rq",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Windows",
+    "filename": "Readest_0.10.1_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_0.10.1_x64-setup.exe.sig"
+  },
+  {
+    "id": "mqe094bi7he5m3",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz",
+    "size": "52.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_universal.app.tar.gz"
+  },
+  {
+    "id": "mqe094bz4s1bye",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/Readest_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mqe094cfa23mfv",
+    "versionId": "mqe093yk5k4aik",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.10.1/release-notes.json"
+  },
+  {
+    "id": "mqe094de6lcw0e",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/latest.json"
+  },
+  {
+    "id": "mqe094dv28andk",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Linux",
+    "filename": "Readest-0.9.101-1.aarch64.rpm",
+    "size": "27.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest-0.9.101-1.aarch64.rpm"
+  },
+  {
+    "id": "mqe094eewvza2p",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Linux",
+    "filename": "Readest-0.9.101-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest-0.9.101-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mqe094f2yw2yf9",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Other",
+    "filename": "Readest-0.9.101-1.koplugin.zip",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest-0.9.101-1.koplugin.zip"
+  },
+  {
+    "id": "mqe094fjd84oid",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Linux",
+    "filename": "Readest-0.9.101-1.x86_64.rpm",
+    "size": "27.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest-0.9.101-1.x86_64.rpm"
+  },
+  {
+    "id": "mqe094g0kvrtnk",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Linux",
+    "filename": "Readest-0.9.101-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest-0.9.101-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mqe094giafz9zu",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Linux",
+    "filename": "Readest_0.9.101_aarch64.AppImage",
+    "size": "98.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_aarch64.AppImage"
+  },
+  {
+    "id": "mqe094gy5bsmgp",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Linux",
+    "filename": "Readest_0.9.101_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mqe094hdfpyb3i",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Linux",
+    "filename": "Readest_0.9.101_amd64.AppImage",
+    "size": "99.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_amd64.AppImage"
+  },
+  {
+    "id": "mqe094hu20qwzf",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Linux",
+    "filename": "Readest_0.9.101_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_amd64.AppImage.sig"
+  },
+  {
+    "id": "mqe094iahnndxa",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Linux",
+    "filename": "Readest_0.9.101_amd64.deb",
+    "size": "27.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_amd64.deb"
+  },
+  {
+    "id": "mqe094iqqk4f4l",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Linux",
+    "filename": "Readest_0.9.101_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_amd64.deb.sig"
+  },
+  {
+    "id": "mqe094j64ch7cp",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Windows",
+    "filename": "Readest_0.9.101_arm64-portable.exe",
+    "size": "43.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_arm64-portable.exe"
+  },
+  {
+    "id": "mqe094jnyowxnq",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Windows",
+    "filename": "Readest_0.9.101_arm64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_arm64-portable.exe.sig"
+  },
+  {
+    "id": "mqe094k32r6vj3",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Windows",
+    "filename": "Readest_0.9.101_arm64-setup.exe",
+    "size": "21.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_arm64-setup.exe"
+  },
+  {
+    "id": "mqe094kj1uqje0",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Windows",
+    "filename": "Readest_0.9.101_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mqe094kzy2lce2",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Android",
+    "filename": "Readest_0.9.101_arm64.apk",
+    "size": "53.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_arm64.apk"
+  },
+  {
+    "id": "mqe094lktlsh6t",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Android",
+    "filename": "Readest_0.9.101_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_arm64.apk.sig"
+  },
+  {
+    "id": "mqe094m2wpdj0t",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Linux",
+    "filename": "Readest_0.9.101_arm64.deb",
+    "size": "27.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_arm64.deb"
+  },
+  {
+    "id": "mqe094mi3q7s74",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Linux",
+    "filename": "Readest_0.9.101_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_arm64.deb.sig"
+  },
+  {
+    "id": "mqe094mys572pl",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Linux",
+    "filename": "Readest_0.9.101_armhf.deb",
+    "size": "18.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_armhf.deb"
+  },
+  {
+    "id": "mqe094nfat3cfb",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Linux",
+    "filename": "Readest_0.9.101_armhf.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_armhf.deb.sig"
+  },
+  {
+    "id": "mqe094nw61vmyo",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Android",
+    "filename": "Readest_0.9.101_universal.apk",
+    "size": "191.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_universal.apk"
+  },
+  {
+    "id": "mqe094odsw258w",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Android",
+    "filename": "Readest_0.9.101_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_universal.apk.sig"
+  },
+  {
+    "id": "mqe094osatzfpr",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "MacOS",
+    "filename": "Readest_0.9.101_universal.dmg",
+    "size": "36.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_universal.dmg"
+  },
+  {
+    "id": "mqe094p7zgkbti",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Windows",
+    "filename": "Readest_0.9.101_x64-portable.exe",
+    "size": "50.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_x64-portable.exe"
+  },
+  {
+    "id": "mqe094pokvqhm6",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Windows",
+    "filename": "Readest_0.9.101_x64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_x64-portable.exe.sig"
+  },
+  {
+    "id": "mqe094q5ma9ghh",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Windows",
+    "filename": "Readest_0.9.101_x64-setup.exe",
+    "size": "22.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_x64-setup.exe"
+  },
+  {
+    "id": "mqe094qmnhduln",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Windows",
+    "filename": "Readest_0.9.101_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_0.9.101_x64-setup.exe.sig"
+  },
+  {
+    "id": "mqe094r3h378iq",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz",
+    "size": "36.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_universal.app.tar.gz"
+  },
+  {
+    "id": "mqe094rkprtytn",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/Readest_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mqe094s5fs4t3g",
+    "versionId": "mqe094cuovqc7f",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.101/release-notes.json"
+  },
+  {
+    "id": "mqe094t53ommg4",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/latest.json"
+  },
+  {
+    "id": "mqe094tlmabda9",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Linux",
+    "filename": "Readest-0.9.100-1.aarch64.rpm",
+    "size": "18.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest-0.9.100-1.aarch64.rpm"
+  },
+  {
+    "id": "mqe094u1a3m0g1",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Linux",
+    "filename": "Readest-0.9.100-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest-0.9.100-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mqe094uhpyap3l",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Other",
+    "filename": "Readest-0.9.100-1.koplugin.zip",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest-0.9.100-1.koplugin.zip"
+  },
+  {
+    "id": "mqe094uydf8ysk",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Linux",
+    "filename": "Readest-0.9.100-1.x86_64.rpm",
+    "size": "18.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest-0.9.100-1.x86_64.rpm"
+  },
+  {
+    "id": "mqe094vg2dr1v1",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Linux",
+    "filename": "Readest-0.9.100-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest-0.9.100-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mqe094vy78x1ox",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Linux",
+    "filename": "Readest_0.9.100_aarch64.AppImage",
+    "size": "89.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_aarch64.AppImage"
+  },
+  {
+    "id": "mqe094wdwmhm4p",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Linux",
+    "filename": "Readest_0.9.100_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mqe094wt38hb8i",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Linux",
+    "filename": "Readest_0.9.100_amd64.AppImage",
+    "size": "91.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_amd64.AppImage"
+  },
+  {
+    "id": "mqe094xazuahv9",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Linux",
+    "filename": "Readest_0.9.100_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_amd64.AppImage.sig"
+  },
+  {
+    "id": "mqe094xqlc0koy",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Linux",
+    "filename": "Readest_0.9.100_amd64.deb",
+    "size": "18.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_amd64.deb"
+  },
+  {
+    "id": "mqe094y7s7m1rg",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Linux",
+    "filename": "Readest_0.9.100_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_amd64.deb.sig"
+  },
+  {
+    "id": "mqe094yt786ve1",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Windows",
+    "filename": "Readest_0.9.100_arm64-portable.exe",
+    "size": "27.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_arm64-portable.exe"
+  },
+  {
+    "id": "mqe094z9gpwl08",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Windows",
+    "filename": "Readest_0.9.100_arm64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_arm64-portable.exe.sig"
+  },
+  {
+    "id": "mqe094zqo4zwy0",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Windows",
+    "filename": "Readest_0.9.100_arm64-setup.exe",
+    "size": "15.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_arm64-setup.exe"
+  },
+  {
+    "id": "mqe09506a4luvh",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Windows",
+    "filename": "Readest_0.9.100_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mqe0950nzxjk8c",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Android",
+    "filename": "Readest_0.9.100_arm64.apk",
+    "size": "34.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_arm64.apk"
+  },
+  {
+    "id": "mqe09515aksc3b",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Android",
+    "filename": "Readest_0.9.100_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_arm64.apk.sig"
+  },
+  {
+    "id": "mqe0951mb8xyp1",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Linux",
+    "filename": "Readest_0.9.100_arm64.deb",
+    "size": "18.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_arm64.deb"
+  },
+  {
+    "id": "mqe09523ml10vo",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Linux",
+    "filename": "Readest_0.9.100_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_arm64.deb.sig"
+  },
+  {
+    "id": "mqe0952jeellmv",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Linux",
+    "filename": "Readest_0.9.100_armhf.deb",
+    "size": "18.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_armhf.deb"
+  },
+  {
+    "id": "mqe0952yzo3bu7",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Linux",
+    "filename": "Readest_0.9.100_armhf.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_armhf.deb.sig"
+  },
+  {
+    "id": "mqe0953fvctf61",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Android",
+    "filename": "Readest_0.9.100_universal.apk",
+    "size": "117.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_universal.apk"
+  },
+  {
+    "id": "mqe0953xbwxocf",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Android",
+    "filename": "Readest_0.9.100_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_universal.apk.sig"
+  },
+  {
+    "id": "mqe0954ewkxtt3",
+    "versionId": "mqe094sntlagyz",
+    "platform": "MacOS",
+    "filename": "Readest_0.9.100_universal.dmg",
+    "size": "36.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_universal.dmg"
+  },
+  {
+    "id": "mqe0954ufo9r6s",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Windows",
+    "filename": "Readest_0.9.100_x64-portable.exe",
+    "size": "31.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_x64-portable.exe"
+  },
+  {
+    "id": "mqe0955f1t5eq8",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Windows",
+    "filename": "Readest_0.9.100_x64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_x64-portable.exe.sig"
+  },
+  {
+    "id": "mqe0955vz3za98",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Windows",
+    "filename": "Readest_0.9.100_x64-setup.exe",
+    "size": "16.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_x64-setup.exe"
+  },
+  {
+    "id": "mqe0956awx0szi",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Windows",
+    "filename": "Readest_0.9.100_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_0.9.100_x64-setup.exe.sig"
+  },
+  {
+    "id": "mqe0956q53ewkm",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz",
+    "size": "35.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_universal.app.tar.gz"
+  },
+  {
+    "id": "mqe095772076fc",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/Readest_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mqe0957pyj087x",
+    "versionId": "mqe094sntlagyz",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.100/release-notes.json"
+  },
+  {
+    "id": "mqe0958ozgoga5",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/latest.json"
+  },
+  {
+    "id": "mqe095956cc2uu",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Linux",
+    "filename": "Readest-0.9.99-1.aarch64.rpm",
+    "size": "18.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest-0.9.99-1.aarch64.rpm"
+  },
+  {
+    "id": "mqe0959l07qoo7",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Linux",
+    "filename": "Readest-0.9.99-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest-0.9.99-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mqe095a2tl1qt5",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Other",
+    "filename": "Readest-0.9.99-1.koplugin.zip",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest-0.9.99-1.koplugin.zip"
+  },
+  {
+    "id": "mqe095ajg8hrhx",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Linux",
+    "filename": "Readest-0.9.99-1.x86_64.rpm",
+    "size": "18.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest-0.9.99-1.x86_64.rpm"
+  },
+  {
+    "id": "mqe095b075yd4g",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Linux",
+    "filename": "Readest-0.9.99-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest-0.9.99-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mqe095bii2juha",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Linux",
+    "filename": "Readest_0.9.99_aarch64.AppImage",
+    "size": "89.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_aarch64.AppImage"
+  },
+  {
+    "id": "mqe095c534tsrn",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Linux",
+    "filename": "Readest_0.9.99_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mqe095cm61rnl1",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Linux",
+    "filename": "Readest_0.9.99_amd64.AppImage",
+    "size": "91.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_amd64.AppImage"
+  },
+  {
+    "id": "mqe095d31sbqsn",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Linux",
+    "filename": "Readest_0.9.99_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_amd64.AppImage.sig"
+  },
+  {
+    "id": "mqe095dlml3p6h",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Linux",
+    "filename": "Readest_0.9.99_amd64.deb",
+    "size": "18.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_amd64.deb"
+  },
+  {
+    "id": "mqe095e7e3wg79",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Linux",
+    "filename": "Readest_0.9.99_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_amd64.deb.sig"
+  },
+  {
+    "id": "mqe095eyf70r2r",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Windows",
+    "filename": "Readest_0.9.99_arm64-portable.exe",
+    "size": "27.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_arm64-portable.exe"
+  },
+  {
+    "id": "mqe095ffea3vlt",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Windows",
+    "filename": "Readest_0.9.99_arm64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_arm64-portable.exe.sig"
+  },
+  {
+    "id": "mqe095fxm25gop",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Windows",
+    "filename": "Readest_0.9.99_arm64-setup.exe",
+    "size": "15.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_arm64-setup.exe"
+  },
+  {
+    "id": "mqe095gelc8dmf",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Windows",
+    "filename": "Readest_0.9.99_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mqe095gxs129bd",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Android",
+    "filename": "Readest_0.9.99_arm64.apk",
+    "size": "34.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_arm64.apk"
+  },
+  {
+    "id": "mqe095he99geok",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Android",
+    "filename": "Readest_0.9.99_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_arm64.apk.sig"
+  },
+  {
+    "id": "mqe095hv03k6ao",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Linux",
+    "filename": "Readest_0.9.99_arm64.deb",
+    "size": "18.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_arm64.deb"
+  },
+  {
+    "id": "mqe095ibcp8yg8",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Linux",
+    "filename": "Readest_0.9.99_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_arm64.deb.sig"
+  },
+  {
+    "id": "mqe095iragq2a4",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Linux",
+    "filename": "Readest_0.9.99_armhf.deb",
+    "size": "18.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_armhf.deb"
+  },
+  {
+    "id": "mqe095j7nathh9",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Linux",
+    "filename": "Readest_0.9.99_armhf.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_armhf.deb.sig"
+  },
+  {
+    "id": "mqe095jmmi8b72",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Android",
+    "filename": "Readest_0.9.99_universal.apk",
+    "size": "116.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_universal.apk"
+  },
+  {
+    "id": "mqe095k2e4vncz",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Android",
+    "filename": "Readest_0.9.99_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_universal.apk.sig"
+  },
+  {
+    "id": "mqe095kjei37zc",
+    "versionId": "mqe09586bz2kox",
+    "platform": "MacOS",
+    "filename": "Readest_0.9.99_universal.dmg",
+    "size": "36.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_universal.dmg"
+  },
+  {
+    "id": "mqe095kzbbip0s",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Windows",
+    "filename": "Readest_0.9.99_x64-portable.exe",
+    "size": "31.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_x64-portable.exe"
+  },
+  {
+    "id": "mqe095lly1j4sd",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Windows",
+    "filename": "Readest_0.9.99_x64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_x64-portable.exe.sig"
+  },
+  {
+    "id": "mqe095m3whs4cm",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Windows",
+    "filename": "Readest_0.9.99_x64-setup.exe",
+    "size": "16.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_x64-setup.exe"
+  },
+  {
+    "id": "mqe095mkvdefnb",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Windows",
+    "filename": "Readest_0.9.99_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_0.9.99_x64-setup.exe.sig"
+  },
+  {
+    "id": "mqe095n0zy0ipa",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz",
+    "size": "35.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_universal.app.tar.gz"
+  },
+  {
+    "id": "mqe095nhc6rsj7",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/Readest_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mqe095nyw36uao",
+    "versionId": "mqe09586bz2kox",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.99/release-notes.json"
+  },
+  {
+    "id": "mqe095ox5j6cvn",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/latest.json"
+  },
+  {
+    "id": "mqe095peiw90t6",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Linux",
+    "filename": "Readest-0.9.98-1.aarch64.rpm",
+    "size": "16.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest-0.9.98-1.aarch64.rpm"
+  },
+  {
+    "id": "mqe095pwhliind",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Linux",
+    "filename": "Readest-0.9.98-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest-0.9.98-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mqe095qemqvrus",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Other",
+    "filename": "Readest-0.9.98-1.koplugin.zip",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest-0.9.98-1.koplugin.zip"
+  },
+  {
+    "id": "mqe095qvn2uv6r",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Linux",
+    "filename": "Readest-0.9.98-1.x86_64.rpm",
+    "size": "16.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest-0.9.98-1.x86_64.rpm"
+  },
+  {
+    "id": "mqe095rbn8j53j",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Linux",
+    "filename": "Readest-0.9.98-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest-0.9.98-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mqe095rt81s8j2",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Linux",
+    "filename": "Readest_0.9.98_aarch64.AppImage",
+    "size": "88.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_aarch64.AppImage"
+  },
+  {
+    "id": "mqe095sf8ad0la",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Linux",
+    "filename": "Readest_0.9.98_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mqe095sx305yoo",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Linux",
+    "filename": "Readest_0.9.98_amd64.AppImage",
+    "size": "90.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_amd64.AppImage"
+  },
+  {
+    "id": "mqe095tdd5yyio",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Linux",
+    "filename": "Readest_0.9.98_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_amd64.AppImage.sig"
+  },
+  {
+    "id": "mqe095tup16cce",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Linux",
+    "filename": "Readest_0.9.98_amd64.deb",
+    "size": "16.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_amd64.deb"
+  },
+  {
+    "id": "mqe095ua53ygcv",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Linux",
+    "filename": "Readest_0.9.98_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_amd64.deb.sig"
+  },
+  {
+    "id": "mqe095urhjlh7r",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Windows",
+    "filename": "Readest_0.9.98_arm64-portable.exe",
+    "size": "26.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_arm64-portable.exe"
+  },
+  {
+    "id": "mqe095v7q03t9b",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Windows",
+    "filename": "Readest_0.9.98_arm64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_arm64-portable.exe.sig"
+  },
+  {
+    "id": "mqe095voifotkf",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Windows",
+    "filename": "Readest_0.9.98_arm64-setup.exe",
+    "size": "14.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_arm64-setup.exe"
+  },
+  {
+    "id": "mqe095w6dq6c9o",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Windows",
+    "filename": "Readest_0.9.98_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mqe095woc1prvt",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Android",
+    "filename": "Readest_0.9.98_arm64.apk",
+    "size": "32.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_arm64.apk"
+  },
+  {
+    "id": "mqe095x4wn4nq1",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Android",
+    "filename": "Readest_0.9.98_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_arm64.apk.sig"
+  },
+  {
+    "id": "mqe095xlwpt1zp",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Linux",
+    "filename": "Readest_0.9.98_arm64.deb",
+    "size": "16.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_arm64.deb"
+  },
+  {
+    "id": "mqe095y2nsas3w",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Linux",
+    "filename": "Readest_0.9.98_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_arm64.deb.sig"
+  },
+  {
+    "id": "mqe095yj4nhrwm",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Linux",
+    "filename": "Readest_0.9.98_armhf.deb",
+    "size": "16.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_armhf.deb"
+  },
+  {
+    "id": "mqe095z5j1vech",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Linux",
+    "filename": "Readest_0.9.98_armhf.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_armhf.deb.sig"
+  },
+  {
+    "id": "mqe095znfv4xts",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Android",
+    "filename": "Readest_0.9.98_universal.apk",
+    "size": "111.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_universal.apk"
+  },
+  {
+    "id": "mqe096055tp7dh",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Android",
+    "filename": "Readest_0.9.98_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_universal.apk.sig"
+  },
+  {
+    "id": "mqe0960mfaqwsg",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "MacOS",
+    "filename": "Readest_0.9.98_universal.dmg",
+    "size": "33.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_universal.dmg"
+  },
+  {
+    "id": "mqe09615x8rsas",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Windows",
+    "filename": "Readest_0.9.98_x64-portable.exe",
+    "size": "30.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_x64-portable.exe"
+  },
+  {
+    "id": "mqe0961ofmwsta",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Windows",
+    "filename": "Readest_0.9.98_x64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_x64-portable.exe.sig"
+  },
+  {
+    "id": "mqe09624oi9l2o",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Windows",
+    "filename": "Readest_0.9.98_x64-setup.exe",
+    "size": "14.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_x64-setup.exe"
+  },
+  {
+    "id": "mqe0962m36d390",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Windows",
+    "filename": "Readest_0.9.98_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_0.9.98_x64-setup.exe.sig"
+  },
+  {
+    "id": "mqe09632wjgbj8",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz",
+    "size": "32.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_universal.app.tar.gz"
+  },
+  {
+    "id": "mqe0963kfdd7yv",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/Readest_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mqe096424lyw9t",
+    "versionId": "mqe095ogq16kh2",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.98/release-notes.json"
+  },
+  {
+    "id": "mqe09651khqeya",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/latest.json"
+  },
+  {
+    "id": "mqe0965ieuw3sq",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Linux",
+    "filename": "Readest-0.9.97-1.aarch64.rpm",
+    "size": "16.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest-0.9.97-1.aarch64.rpm"
+  },
+  {
+    "id": "mqe09663alaeg6",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Linux",
+    "filename": "Readest-0.9.97-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest-0.9.97-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mqe0966k1qxuoh",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Other",
+    "filename": "Readest-0.9.97-1.koplugin.zip",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest-0.9.97-1.koplugin.zip"
+  },
+  {
+    "id": "mqe09671xxiyi3",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Linux",
+    "filename": "Readest-0.9.97-1.x86_64.rpm",
+    "size": "16.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest-0.9.97-1.x86_64.rpm"
+  },
+  {
+    "id": "mqe0967hh4tlxq",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Linux",
+    "filename": "Readest-0.9.97-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest-0.9.97-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mqe0967x19pxj4",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Android",
+    "filename": "Readest_0.9.97-fix-fonts_arm64.apk",
+    "size": "32.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97-fix-fonts_arm64.apk"
+  },
+  {
+    "id": "mqe0968e2r5yv1",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Android",
+    "filename": "Readest_0.9.97-opds-cbz-fix_arm64.apk",
+    "size": "32.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97-opds-cbz-fix_arm64.apk"
+  },
+  {
+    "id": "mqe0968xu65u5p",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Linux",
+    "filename": "Readest_0.9.97_aarch64.AppImage",
+    "size": "88.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97_aarch64.AppImage"
+  },
+  {
+    "id": "mqe0969fo4yt00",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Linux",
+    "filename": "Readest_0.9.97_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mqe0969xf740sq",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Linux",
+    "filename": "Readest_0.9.97_amd64.AppImage",
+    "size": "90.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97_amd64.AppImage"
+  },
+  {
+    "id": "mqe096af7yan6p",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Linux",
+    "filename": "Readest_0.9.97_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97_amd64.AppImage.sig"
+  },
+  {
+    "id": "mqe096awpzrp90",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Linux",
+    "filename": "Readest_0.9.97_amd64.deb",
+    "size": "16.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97_amd64.deb"
+  },
+  {
+    "id": "mqe096bbofi597",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Linux",
+    "filename": "Readest_0.9.97_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97_amd64.deb.sig"
+  },
+  {
+    "id": "mqe096bs476fvc",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Windows",
+    "filename": "Readest_0.9.97_arm64-portable.exe",
+    "size": "25.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97_arm64-portable.exe"
+  },
+  {
+    "id": "mqe096ca7b3xc9",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Windows",
+    "filename": "Readest_0.9.97_arm64-setup.exe",
+    "size": "14.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97_arm64-setup.exe"
+  },
+  {
+    "id": "mqe096cwpjg4ib",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Windows",
+    "filename": "Readest_0.9.97_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mqe096dgjsjnrs",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Android",
+    "filename": "Readest_0.9.97_arm64.apk",
+    "size": "32.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97_arm64.apk"
+  },
+  {
+    "id": "mqe096e5mhle2a",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Android",
+    "filename": "Readest_0.9.97_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97_arm64.apk.sig"
+  },
+  {
+    "id": "mqe096eme1ip9o",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Linux",
+    "filename": "Readest_0.9.97_arm64.deb",
+    "size": "16.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97_arm64.deb"
+  },
+  {
+    "id": "mqe096f32qf8i7",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Linux",
+    "filename": "Readest_0.9.97_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97_arm64.deb.sig"
+  },
+  {
+    "id": "mqe096fkydfec3",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Linux",
+    "filename": "Readest_0.9.97_armhf.deb",
+    "size": "16.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97_armhf.deb"
+  },
+  {
+    "id": "mqe096g2ma0b5w",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Linux",
+    "filename": "Readest_0.9.97_armhf.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97_armhf.deb.sig"
+  },
+  {
+    "id": "mqe096gkiwlat8",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Android",
+    "filename": "Readest_0.9.97_universal.apk",
+    "size": "110.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97_universal.apk"
+  },
+  {
+    "id": "mqe096h16lj6gp",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Android",
+    "filename": "Readest_0.9.97_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97_universal.apk.sig"
+  },
+  {
+    "id": "mqe096hhqiajzu",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "MacOS",
+    "filename": "Readest_0.9.97_universal.dmg",
+    "size": "33.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97_universal.dmg"
+  },
+  {
+    "id": "mqe096hyc1yokw",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Windows",
+    "filename": "Readest_0.9.97_x64-portable.exe",
+    "size": "29.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97_x64-portable.exe"
+  },
+  {
+    "id": "mqe096ifjpx8bv",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Windows",
+    "filename": "Readest_0.9.97_x64-setup.exe",
+    "size": "14.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97_x64-setup.exe"
+  },
+  {
+    "id": "mqe096iwc3qtd6",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Windows",
+    "filename": "Readest_0.9.97_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_0.9.97_x64-setup.exe.sig"
+  },
+  {
+    "id": "mqe096jejj4ufz",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz",
+    "size": "32.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_universal.app.tar.gz"
+  },
+  {
+    "id": "mqe096juqzucun",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/Readest_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mqe096kdjh0u1e",
+    "versionId": "mqe0964kvjpqdd",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.97/release-notes.json"
+  },
+  {
+    "id": "mqe096lb7b0dnj",
+    "versionId": "mqe096kurx294a",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/latest.json"
+  },
+  {
+    "id": "mqe096ltzdp7f5",
+    "versionId": "mqe096kurx294a",
+    "platform": "Linux",
+    "filename": "Readest-0.9.96-1.aarch64.rpm",
+    "size": "16.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest-0.9.96-1.aarch64.rpm"
+  },
+  {
+    "id": "mqe096m99l5wnh",
+    "versionId": "mqe096kurx294a",
+    "platform": "Linux",
+    "filename": "Readest-0.9.96-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest-0.9.96-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mqe096mp9ro5g0",
+    "versionId": "mqe096kurx294a",
+    "platform": "Other",
+    "filename": "Readest-0.9.96-1.koplugin.zip",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest-0.9.96-1.koplugin.zip"
+  },
+  {
+    "id": "mqe096n4b6rxa1",
+    "versionId": "mqe096kurx294a",
+    "platform": "Linux",
+    "filename": "Readest-0.9.96-1.x86_64.rpm",
+    "size": "16.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest-0.9.96-1.x86_64.rpm"
+  },
+  {
+    "id": "mqe096nlv69yq1",
+    "versionId": "mqe096kurx294a",
+    "platform": "Linux",
+    "filename": "Readest-0.9.96-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest-0.9.96-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mqe096o1gdvo81",
+    "versionId": "mqe096kurx294a",
+    "platform": "Android",
+    "filename": "Readest_0.9.96-opentype_vert_arm64.apk",
+    "size": "32.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96-opentype_vert_arm64.apk"
+  },
+  {
+    "id": "mqe096okdenkof",
+    "versionId": "mqe096kurx294a",
+    "platform": "Linux",
+    "filename": "Readest_0.9.96_aarch64.AppImage",
+    "size": "88.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96_aarch64.AppImage"
+  },
+  {
+    "id": "mqe096p1etoble",
+    "versionId": "mqe096kurx294a",
+    "platform": "Linux",
+    "filename": "Readest_0.9.96_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mqe096piwxjgri",
+    "versionId": "mqe096kurx294a",
+    "platform": "Linux",
+    "filename": "Readest_0.9.96_amd64.AppImage",
+    "size": "89.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96_amd64.AppImage"
+  },
+  {
+    "id": "mqe096pz9kzqhq",
+    "versionId": "mqe096kurx294a",
+    "platform": "Linux",
+    "filename": "Readest_0.9.96_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96_amd64.AppImage.sig"
+  },
+  {
+    "id": "mqe096qlldm2id",
+    "versionId": "mqe096kurx294a",
+    "platform": "Linux",
+    "filename": "Readest_0.9.96_amd64.deb",
+    "size": "16.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96_amd64.deb"
+  },
+  {
+    "id": "mqe096r2vyvuf2",
+    "versionId": "mqe096kurx294a",
+    "platform": "Linux",
+    "filename": "Readest_0.9.96_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96_amd64.deb.sig"
+  },
+  {
+    "id": "mqe096rj5fyd7f",
+    "versionId": "mqe096kurx294a",
+    "platform": "Windows",
+    "filename": "Readest_0.9.96_arm64-portable.exe",
+    "size": "25.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96_arm64-portable.exe"
+  },
+  {
+    "id": "mqe096s0j9didh",
+    "versionId": "mqe096kurx294a",
+    "platform": "Windows",
+    "filename": "Readest_0.9.96_arm64-setup.exe",
+    "size": "13.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96_arm64-setup.exe"
+  },
+  {
+    "id": "mqe096sh4wwd0z",
+    "versionId": "mqe096kurx294a",
+    "platform": "Windows",
+    "filename": "Readest_0.9.96_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mqe096t0j2td3q",
+    "versionId": "mqe096kurx294a",
+    "platform": "Android",
+    "filename": "Readest_0.9.96_arm64.apk",
+    "size": "32.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96_arm64.apk"
+  },
+  {
+    "id": "mqe096tgoljxzw",
+    "versionId": "mqe096kurx294a",
+    "platform": "Android",
+    "filename": "Readest_0.9.96_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96_arm64.apk.sig"
+  },
+  {
+    "id": "mqe096ty91mo0i",
+    "versionId": "mqe096kurx294a",
+    "platform": "Linux",
+    "filename": "Readest_0.9.96_arm64.deb",
+    "size": "16.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96_arm64.deb"
+  },
+  {
+    "id": "mqe096uek1q0d7",
+    "versionId": "mqe096kurx294a",
+    "platform": "Linux",
+    "filename": "Readest_0.9.96_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96_arm64.deb.sig"
+  },
+  {
+    "id": "mqe096ux4yi1s3",
+    "versionId": "mqe096kurx294a",
+    "platform": "Linux",
+    "filename": "Readest_0.9.96_armhf.deb",
+    "size": "16.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96_armhf.deb"
+  },
+  {
+    "id": "mqe096vg43cd3w",
+    "versionId": "mqe096kurx294a",
+    "platform": "Linux",
+    "filename": "Readest_0.9.96_armhf.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96_armhf.deb.sig"
+  },
+  {
+    "id": "mqe096vwueytme",
+    "versionId": "mqe096kurx294a",
+    "platform": "Android",
+    "filename": "Readest_0.9.96_universal.apk",
+    "size": "110.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96_universal.apk"
+  },
+  {
+    "id": "mqe096wdk43jzh",
+    "versionId": "mqe096kurx294a",
+    "platform": "Android",
+    "filename": "Readest_0.9.96_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96_universal.apk.sig"
+  },
+  {
+    "id": "mqe096wz2nf90f",
+    "versionId": "mqe096kurx294a",
+    "platform": "MacOS",
+    "filename": "Readest_0.9.96_universal.dmg",
+    "size": "33.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96_universal.dmg"
+  },
+  {
+    "id": "mqe096xje7ndx2",
+    "versionId": "mqe096kurx294a",
+    "platform": "Windows",
+    "filename": "Readest_0.9.96_x64-portable.exe",
+    "size": "29.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96_x64-portable.exe"
+  },
+  {
+    "id": "mqe096y1otnhjt",
+    "versionId": "mqe096kurx294a",
+    "platform": "Windows",
+    "filename": "Readest_0.9.96_x64-setup.exe",
+    "size": "14.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96_x64-setup.exe"
+  },
+  {
+    "id": "mqe096yi5dy6w8",
+    "versionId": "mqe096kurx294a",
+    "platform": "Windows",
+    "filename": "Readest_0.9.96_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_0.9.96_x64-setup.exe.sig"
+  },
+  {
+    "id": "mqe096yz45dyx0",
+    "versionId": "mqe096kurx294a",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz",
+    "size": "32.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_universal.app.tar.gz"
+  },
+  {
+    "id": "mqe096zg1rw7tr",
+    "versionId": "mqe096kurx294a",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/Readest_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mqe096zy3po5ty",
+    "versionId": "mqe096kurx294a",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.96/release-notes.json"
+  },
+  {
+    "id": "mqe0970wejzdfv",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/latest.json"
+  },
+  {
+    "id": "mqe0971dcxy0r9",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Linux",
+    "filename": "Readest-0.9.95-1.aarch64.rpm",
+    "size": "16.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest-0.9.95-1.aarch64.rpm"
+  },
+  {
+    "id": "mqe0971v7ccbci",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Linux",
+    "filename": "Readest-0.9.95-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest-0.9.95-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mqe0972dlc6305",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Other",
+    "filename": "Readest-0.9.95-1.koplugin.zip",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest-0.9.95-1.koplugin.zip"
+  },
+  {
+    "id": "mqe0972v4fg9xf",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Linux",
+    "filename": "Readest-0.9.95-1.x86_64.rpm",
+    "size": "16.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest-0.9.95-1.x86_64.rpm"
+  },
+  {
+    "id": "mqe0973hyiboi7",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Linux",
+    "filename": "Readest-0.9.95-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest-0.9.95-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mqe0973znzrxz0",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Android",
+    "filename": "Readest_0.9.95-toc-shortcut_arm64.apk",
+    "size": "32.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95-toc-shortcut_arm64.apk"
+  },
+  {
+    "id": "mqe0974gf3htrk",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Linux",
+    "filename": "Readest_0.9.95_aarch64.AppImage",
+    "size": "87.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95_aarch64.AppImage"
+  },
+  {
+    "id": "mqe0974x1eyq5j",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Linux",
+    "filename": "Readest_0.9.95_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mqe0975e32le63",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Linux",
+    "filename": "Readest_0.9.95_amd64.AppImage",
+    "size": "89.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95_amd64.AppImage"
+  },
+  {
+    "id": "mqe0975unkhc66",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Linux",
+    "filename": "Readest_0.9.95_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95_amd64.AppImage.sig"
+  },
+  {
+    "id": "mqe0976bmq94iy",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Linux",
+    "filename": "Readest_0.9.95_amd64.deb",
+    "size": "16.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95_amd64.deb"
+  },
+  {
+    "id": "mqe0976r7qs35a",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Linux",
+    "filename": "Readest_0.9.95_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95_amd64.deb.sig"
+  },
+  {
+    "id": "mqe09777zmghpm",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Windows",
+    "filename": "Readest_0.9.95_arm64-portable.exe",
+    "size": "25.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95_arm64-portable.exe"
+  },
+  {
+    "id": "mqe0977oe6h4ur",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Windows",
+    "filename": "Readest_0.9.95_arm64-setup.exe",
+    "size": "13.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95_arm64-setup.exe"
+  },
+  {
+    "id": "mqe09785p2nw74",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Windows",
+    "filename": "Readest_0.9.95_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mqe0978ldsnn6y",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Android",
+    "filename": "Readest_0.9.95_arm64.apk",
+    "size": "31.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95_arm64.apk"
+  },
+  {
+    "id": "mqe097916h63bt",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Android",
+    "filename": "Readest_0.9.95_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95_arm64.apk.sig"
+  },
+  {
+    "id": "mqe0979ooa6ygg",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Linux",
+    "filename": "Readest_0.9.95_arm64.deb",
+    "size": "16.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95_arm64.deb"
+  },
+  {
+    "id": "mqe097a6epdwub",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Linux",
+    "filename": "Readest_0.9.95_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95_arm64.deb.sig"
+  },
+  {
+    "id": "mqe097ao46fp7g",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Linux",
+    "filename": "Readest_0.9.95_armhf.deb",
+    "size": "16.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95_armhf.deb"
+  },
+  {
+    "id": "mqe097b6zncok0",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Linux",
+    "filename": "Readest_0.9.95_armhf.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95_armhf.deb.sig"
+  },
+  {
+    "id": "mqe097bsg4ynw6",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Android",
+    "filename": "Readest_0.9.95_universal.apk",
+    "size": "107.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95_universal.apk"
+  },
+  {
+    "id": "mqe097cimm7gl2",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Android",
+    "filename": "Readest_0.9.95_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95_universal.apk.sig"
+  },
+  {
+    "id": "mqe097cznt5yao",
+    "versionId": "mqe0970gde81rs",
+    "platform": "MacOS",
+    "filename": "Readest_0.9.95_universal.dmg",
+    "size": "32.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95_universal.dmg"
+  },
+  {
+    "id": "mqe097dgabr5jy",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Windows",
+    "filename": "Readest_0.9.95_x64-portable.exe",
+    "size": "29.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95_x64-portable.exe"
+  },
+  {
+    "id": "mqe097dx3zsui1",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Windows",
+    "filename": "Readest_0.9.95_x64-setup.exe",
+    "size": "14.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95_x64-setup.exe"
+  },
+  {
+    "id": "mqe097edqf2gyw",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Windows",
+    "filename": "Readest_0.9.95_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_0.9.95_x64-setup.exe.sig"
+  },
+  {
+    "id": "mqe097evc9q3mz",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz",
+    "size": "31.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_universal.app.tar.gz"
+  },
+  {
+    "id": "mqe097fbk7a2vs",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/Readest_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mqe097fteyw51t",
+    "versionId": "mqe0970gde81rs",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.95/release-notes.json"
+  },
+  {
+    "id": "mqe097gux32hbn",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/latest.json"
+  },
+  {
+    "id": "mqe097hbxb5o91",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Linux",
+    "filename": "Readest-0.9.94-1.aarch64.rpm",
+    "size": "16.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest-0.9.94-1.aarch64.rpm"
+  },
+  {
+    "id": "mqe097hsjz9u1n",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Linux",
+    "filename": "Readest-0.9.94-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest-0.9.94-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mqe097i9zqasaq",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Other",
+    "filename": "Readest-0.9.94-1.koplugin.zip",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest-0.9.94-1.koplugin.zip"
+  },
+  {
+    "id": "mqe097iww07jbn",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Linux",
+    "filename": "Readest-0.9.94-1.x86_64.rpm",
+    "size": "16.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest-0.9.94-1.x86_64.rpm"
+  },
+  {
+    "id": "mqe097je2adm9t",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Linux",
+    "filename": "Readest-0.9.94-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest-0.9.94-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mqe097jvqo07z9",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Android",
+    "filename": "Readest_0.9.94-back-button_arm64.apk",
+    "size": "32.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94-back-button_arm64.apk"
+  },
+  {
+    "id": "mqe097kdspesqm",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Linux",
+    "filename": "Readest_0.9.94_aarch64.AppImage",
+    "size": "87.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94_aarch64.AppImage"
+  },
+  {
+    "id": "mqe097kvu6tsyr",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Linux",
+    "filename": "Readest_0.9.94_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mqe097lddf9g8s",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Linux",
+    "filename": "Readest_0.9.94_amd64.AppImage",
+    "size": "89.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94_amd64.AppImage"
+  },
+  {
+    "id": "mqe097lwerr2ng",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Linux",
+    "filename": "Readest_0.9.94_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94_amd64.AppImage.sig"
+  },
+  {
+    "id": "mqe097mg44gz9e",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Linux",
+    "filename": "Readest_0.9.94_amd64.deb",
+    "size": "16.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94_amd64.deb"
+  },
+  {
+    "id": "mqe097my438l7d",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Linux",
+    "filename": "Readest_0.9.94_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94_amd64.deb.sig"
+  },
+  {
+    "id": "mqe097nfaq07e9",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Windows",
+    "filename": "Readest_0.9.94_arm64-portable.exe",
+    "size": "25.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94_arm64-portable.exe"
+  },
+  {
+    "id": "mqe097nxtduid1",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Windows",
+    "filename": "Readest_0.9.94_arm64-setup.exe",
+    "size": "13.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94_arm64-setup.exe"
+  },
+  {
+    "id": "mqe097oek9ijjl",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Windows",
+    "filename": "Readest_0.9.94_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mqe097ou80e1vl",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Android",
+    "filename": "Readest_0.9.94_arm64.apk",
+    "size": "31.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94_arm64.apk"
+  },
+  {
+    "id": "mqe097pghawhvm",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Android",
+    "filename": "Readest_0.9.94_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94_arm64.apk.sig"
+  },
+  {
+    "id": "mqe097pywkhcol",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Linux",
+    "filename": "Readest_0.9.94_arm64.deb",
+    "size": "16.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94_arm64.deb"
+  },
+  {
+    "id": "mqe097qgksr77j",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Linux",
+    "filename": "Readest_0.9.94_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94_arm64.deb.sig"
+  },
+  {
+    "id": "mqe097qz68owc6",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Linux",
+    "filename": "Readest_0.9.94_armhf.deb",
+    "size": "16.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94_armhf.deb"
+  },
+  {
+    "id": "mqe097rim74x45",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Linux",
+    "filename": "Readest_0.9.94_armhf.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94_armhf.deb.sig"
+  },
+  {
+    "id": "mqe097s0fpkkik",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Android",
+    "filename": "Readest_0.9.94_universal.apk",
+    "size": "107.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94_universal.apk"
+  },
+  {
+    "id": "mqe097skc1qmqb",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Android",
+    "filename": "Readest_0.9.94_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94_universal.apk.sig"
+  },
+  {
+    "id": "mqe097t1sljhaf",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "MacOS",
+    "filename": "Readest_0.9.94_universal.dmg",
+    "size": "32.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94_universal.dmg"
+  },
+  {
+    "id": "mqe097tg58yryd",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Windows",
+    "filename": "Readest_0.9.94_x64-portable.exe",
+    "size": "29.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94_x64-portable.exe"
+  },
+  {
+    "id": "mqe097txzkhckr",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Windows",
+    "filename": "Readest_0.9.94_x64-setup.exe",
+    "size": "14.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94_x64-setup.exe"
+  },
+  {
+    "id": "mqe097udcf5e9s",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Windows",
+    "filename": "Readest_0.9.94_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_0.9.94_x64-setup.exe.sig"
+  },
+  {
+    "id": "mqe097uutm979k",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz",
+    "size": "31.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_universal.app.tar.gz"
+  },
+  {
+    "id": "mqe097vd5res0i",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/Readest_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mqe097w27crf8i",
+    "versionId": "mqe097gasn7ax7",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.94/release-notes.json"
+  },
+  {
+    "id": "mqe097x25n6ezc",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/latest.json"
+  },
+  {
+    "id": "mqe097xlv26ivv",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Linux",
+    "filename": "Readest-0.9.93-1.aarch64.rpm",
+    "size": "15.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest-0.9.93-1.aarch64.rpm"
+  },
+  {
+    "id": "mqe097y3vmce2l",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Linux",
+    "filename": "Readest-0.9.93-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest-0.9.93-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mqe097ynalhjru",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Other",
+    "filename": "Readest-0.9.93-1.koplugin.zip",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest-0.9.93-1.koplugin.zip"
+  },
+  {
+    "id": "mqe097z4aojs4o",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Linux",
+    "filename": "Readest-0.9.93-1.x86_64.rpm",
+    "size": "15.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest-0.9.93-1.x86_64.rpm"
+  },
+  {
+    "id": "mqe097zlgxemwl",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Linux",
+    "filename": "Readest-0.9.93-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest-0.9.93-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mqe09804enbnsm",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Android",
+    "filename": "Readest_0.9.93-fixed-annotator_arm64.apk",
+    "size": "32.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93-fixed-annotator_arm64.apk"
+  },
+  {
+    "id": "mqe0980o95cupv",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Linux",
+    "filename": "Readest_0.9.93_aarch64.AppImage",
+    "size": "85.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93_aarch64.AppImage"
+  },
+  {
+    "id": "mqe09817d8cv78",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Linux",
+    "filename": "Readest_0.9.93_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mqe0981pmdv3ge",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Linux",
+    "filename": "Readest_0.9.93_amd64.AppImage",
+    "size": "87.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93_amd64.AppImage"
+  },
+  {
+    "id": "mqe09828ywjxwb",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Linux",
+    "filename": "Readest_0.9.93_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93_amd64.AppImage.sig"
+  },
+  {
+    "id": "mqe0982tpniaue",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Linux",
+    "filename": "Readest_0.9.93_amd64.deb",
+    "size": "15.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93_amd64.deb"
+  },
+  {
+    "id": "mqe0983aezuwai",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Linux",
+    "filename": "Readest_0.9.93_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93_amd64.deb.sig"
+  },
+  {
+    "id": "mqe0983s7smgaq",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Windows",
+    "filename": "Readest_0.9.93_arm64-portable.exe",
+    "size": "24.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93_arm64-portable.exe"
+  },
+  {
+    "id": "mqe09849ihym76",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Windows",
+    "filename": "Readest_0.9.93_arm64-setup.exe",
+    "size": "12.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93_arm64-setup.exe"
+  },
+  {
+    "id": "mqe0984rkrz9vy",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Windows",
+    "filename": "Readest_0.9.93_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mqe0985amzjspw",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Android",
+    "filename": "Readest_0.9.93_arm64.apk",
+    "size": "30.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93_arm64.apk"
+  },
+  {
+    "id": "mqe0985rewnzqw",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Android",
+    "filename": "Readest_0.9.93_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93_arm64.apk.sig"
+  },
+  {
+    "id": "mqe098681d2ywd",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Linux",
+    "filename": "Readest_0.9.93_arm64.deb",
+    "size": "15.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93_arm64.deb"
+  },
+  {
+    "id": "mqe0986qwswufi",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Linux",
+    "filename": "Readest_0.9.93_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93_arm64.deb.sig"
+  },
+  {
+    "id": "mqe09878fyunxv",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Linux",
+    "filename": "Readest_0.9.93_armhf.deb",
+    "size": "15.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93_armhf.deb"
+  },
+  {
+    "id": "mqe0987r4t0lzj",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Linux",
+    "filename": "Readest_0.9.93_armhf.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93_armhf.deb.sig"
+  },
+  {
+    "id": "mqe0988abny1o8",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Android",
+    "filename": "Readest_0.9.93_universal.apk",
+    "size": "103.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93_universal.apk"
+  },
+  {
+    "id": "mqe0988tvyulrn",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Android",
+    "filename": "Readest_0.9.93_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93_universal.apk.sig"
+  },
+  {
+    "id": "mqe0989hp6g4en",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "MacOS",
+    "filename": "Readest_0.9.93_universal.dmg",
+    "size": "30.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93_universal.dmg"
+  },
+  {
+    "id": "mqe098a10sqbac",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Windows",
+    "filename": "Readest_0.9.93_x64-portable.exe",
+    "size": "28.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93_x64-portable.exe"
+  },
+  {
+    "id": "mqe098aky3glhm",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Windows",
+    "filename": "Readest_0.9.93_x64-setup.exe",
+    "size": "12.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93_x64-setup.exe"
+  },
+  {
+    "id": "mqe098b9sp34kd",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Windows",
+    "filename": "Readest_0.9.93_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_0.9.93_x64-setup.exe.sig"
+  },
+  {
+    "id": "mqe098c0fxe9go",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz",
+    "size": "29.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_universal.app.tar.gz"
+  },
+  {
+    "id": "mqe098cjmuvq13",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/Readest_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mqe098d264fblr",
+    "versionId": "mqe097wkfqlv5i",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.93/release-notes.json"
+  },
+  {
+    "id": "mqe098e44qr5q9",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/latest.json"
+  },
+  {
+    "id": "mqe098eo3kin9h",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Linux",
+    "filename": "Readest-0.9.92-1.aarch64.rpm",
+    "size": "15.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest-0.9.92-1.aarch64.rpm"
+  },
+  {
+    "id": "mqe098f7n2aps9",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Linux",
+    "filename": "Readest-0.9.92-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest-0.9.92-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mqe098fs5zhcwg",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Other",
+    "filename": "Readest-0.9.92-1.koplugin.zip",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest-0.9.92-1.koplugin.zip"
+  },
+  {
+    "id": "mqe098gcmo1ugw",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Linux",
+    "filename": "Readest-0.9.92-1.x86_64.rpm",
+    "size": "15.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest-0.9.92-1.x86_64.rpm"
+  },
+  {
+    "id": "mqe098gvh60qcu",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Linux",
+    "filename": "Readest-0.9.92-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest-0.9.92-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mqe098hec5a12x",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Linux",
+    "filename": "Readest_0.9.92_aarch64.AppImage",
+    "size": "85.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_0.9.92_aarch64.AppImage"
+  },
+  {
+    "id": "mqe098hwdxyjmr",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Linux",
+    "filename": "Readest_0.9.92_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_0.9.92_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mqe098ierp4brw",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Linux",
+    "filename": "Readest_0.9.92_amd64.AppImage",
+    "size": "87.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_0.9.92_amd64.AppImage"
+  },
+  {
+    "id": "mqe098j3mfuwis",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Linux",
+    "filename": "Readest_0.9.92_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_0.9.92_amd64.AppImage.sig"
+  },
+  {
+    "id": "mqe098jnzsbnp9",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Linux",
+    "filename": "Readest_0.9.92_amd64.deb",
+    "size": "15.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_0.9.92_amd64.deb"
+  },
+  {
+    "id": "mqe098k75bn7z9",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Linux",
+    "filename": "Readest_0.9.92_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_0.9.92_amd64.deb.sig"
+  },
+  {
+    "id": "mqe098kqofm1g6",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Windows",
+    "filename": "Readest_0.9.92_arm64-portable.exe",
+    "size": "24.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_0.9.92_arm64-portable.exe"
+  },
+  {
+    "id": "mqe098l91ah9uc",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Windows",
+    "filename": "Readest_0.9.92_arm64-setup.exe",
+    "size": "12.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_0.9.92_arm64-setup.exe"
+  },
+  {
+    "id": "mqe098lr62x1fo",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Windows",
+    "filename": "Readest_0.9.92_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_0.9.92_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mqe098m8ion23h",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Android",
+    "filename": "Readest_0.9.92_arm64.apk",
+    "size": "30.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_0.9.92_arm64.apk"
+  },
+  {
+    "id": "mqe098mqi6vqfu",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Android",
+    "filename": "Readest_0.9.92_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_0.9.92_arm64.apk.sig"
+  },
+  {
+    "id": "mqe098nb09c21b",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Linux",
+    "filename": "Readest_0.9.92_arm64.deb",
+    "size": "15.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_0.9.92_arm64.deb"
+  },
+  {
+    "id": "mqe098nscrewyz",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Linux",
+    "filename": "Readest_0.9.92_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_0.9.92_arm64.deb.sig"
+  },
+  {
+    "id": "mqe098oan2bq2i",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Linux",
+    "filename": "Readest_0.9.92_armhf.deb",
+    "size": "15.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_0.9.92_armhf.deb"
+  },
+  {
+    "id": "mqe098ouzyh84s",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Linux",
+    "filename": "Readest_0.9.92_armhf.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_0.9.92_armhf.deb.sig"
+  },
+  {
+    "id": "mqe098pcqngm72",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Android",
+    "filename": "Readest_0.9.92_universal.apk",
+    "size": "103.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_0.9.92_universal.apk"
+  },
+  {
+    "id": "mqe098q1qxaj1l",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Android",
+    "filename": "Readest_0.9.92_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_0.9.92_universal.apk.sig"
+  },
+  {
+    "id": "mqe098qobfj6l4",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "MacOS",
+    "filename": "Readest_0.9.92_universal.dmg",
+    "size": "30.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_0.9.92_universal.dmg"
+  },
+  {
+    "id": "mqe098r8cumfyv",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Windows",
+    "filename": "Readest_0.9.92_x64-portable.exe",
+    "size": "28.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_0.9.92_x64-portable.exe"
+  },
+  {
+    "id": "mqe098rskmvbs2",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Windows",
+    "filename": "Readest_0.9.92_x64-setup.exe",
+    "size": "12.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_0.9.92_x64-setup.exe"
+  },
+  {
+    "id": "mqe098s9p5gat6",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Windows",
+    "filename": "Readest_0.9.92_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_0.9.92_x64-setup.exe.sig"
+  },
+  {
+    "id": "mqe098srxc7ncg",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz",
+    "size": "29.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_universal.app.tar.gz"
+  },
+  {
+    "id": "mqe098t9gsnx3f",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/Readest_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mqe098ts1u3yy3",
+    "versionId": "mqe098dl0d1ub5",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.92/release-notes.json"
+  },
+  {
+    "id": "mqe098uq6ggb4z",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/latest.json"
+  },
+  {
+    "id": "mqe098v9vnnrv3",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Linux",
+    "filename": "Readest-0.9.91-1.aarch64_linux.rpm",
+    "size": "15.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest-0.9.91-1.aarch64_linux.rpm"
+  },
+  {
+    "id": "mqe098vrdspvxh",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Linux",
+    "filename": "Readest-0.9.91-1.aarch64_linux.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest-0.9.91-1.aarch64_linux.rpm.sig"
+  },
+  {
+    "id": "mqe098w8e31jqk",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Other",
+    "filename": "Readest-0.9.91-1.koplugin.zip",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest-0.9.91-1.koplugin.zip"
+  },
+  {
+    "id": "mqe098wuupb4ay",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Linux",
+    "filename": "Readest-0.9.91-1.x86_64_linux.rpm",
+    "size": "15.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest-0.9.91-1.x86_64_linux.rpm"
+  },
+  {
+    "id": "mqe098xe61ps6r",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Linux",
+    "filename": "Readest-0.9.91-1.x86_64_linux.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest-0.9.91-1.x86_64_linux.rpm.sig"
+  },
+  {
+    "id": "mqe098xv8zpgbz",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Linux",
+    "filename": "Readest_0.9.91_aarch64_linux.AppImage",
+    "size": "85.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_0.9.91_aarch64_linux.AppImage"
+  },
+  {
+    "id": "mqe098ycnt0flq",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Linux",
+    "filename": "Readest_0.9.91_aarch64_linux.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_0.9.91_aarch64_linux.AppImage.sig"
+  },
+  {
+    "id": "mqe098yvxx3dm4",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Linux",
+    "filename": "Readest_0.9.91_amd64_linux.AppImage",
+    "size": "87.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_0.9.91_amd64_linux.AppImage"
+  },
+  {
+    "id": "mqe098zfe6qnhi",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Linux",
+    "filename": "Readest_0.9.91_amd64_linux.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_0.9.91_amd64_linux.AppImage.sig"
+  },
+  {
+    "id": "mqe098zybavyxc",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Linux",
+    "filename": "Readest_0.9.91_amd64_linux.deb",
+    "size": "15.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_0.9.91_amd64_linux.deb"
+  },
+  {
+    "id": "mqe0990hlllqon",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Linux",
+    "filename": "Readest_0.9.91_amd64_linux.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_0.9.91_amd64_linux.deb.sig"
+  },
+  {
+    "id": "mqe0990ygywjfq",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Windows",
+    "filename": "Readest_0.9.91_arm64-portable.exe",
+    "size": "24.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_0.9.91_arm64-portable.exe"
+  },
+  {
+    "id": "mqe0991ff3jm6y",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Windows",
+    "filename": "Readest_0.9.91_arm64-setup_windows.exe",
+    "size": "12.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_0.9.91_arm64-setup_windows.exe"
+  },
+  {
+    "id": "mqe0991xmn19nc",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Windows",
+    "filename": "Readest_0.9.91_arm64-setup_windows.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_0.9.91_arm64-setup_windows.exe.sig"
+  },
+  {
+    "id": "mqe0992fggksfp",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Android",
+    "filename": "Readest_0.9.91_arm64.apk",
+    "size": "30.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_0.9.91_arm64.apk"
+  },
+  {
+    "id": "mqe0992wwdf419",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Android",
+    "filename": "Readest_0.9.91_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_0.9.91_arm64.apk.sig"
+  },
+  {
+    "id": "mqe0993ko3qsbi",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Linux",
+    "filename": "Readest_0.9.91_arm64_linux.deb",
+    "size": "15.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_0.9.91_arm64_linux.deb"
+  },
+  {
+    "id": "mqe099432oki6z",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Linux",
+    "filename": "Readest_0.9.91_arm64_linux.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_0.9.91_arm64_linux.deb.sig"
+  },
+  {
+    "id": "mqe0994nk1c8rr",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Linux",
+    "filename": "Readest_0.9.91_armhf_linux.deb",
+    "size": "15.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_0.9.91_armhf_linux.deb"
+  },
+  {
+    "id": "mqe09954vx13os",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Linux",
+    "filename": "Readest_0.9.91_armhf_linux.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_0.9.91_armhf_linux.deb.sig"
+  },
+  {
+    "id": "mqe0995miumekq",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Android",
+    "filename": "Readest_0.9.91_universal.apk",
+    "size": "104.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_0.9.91_universal.apk"
+  },
+  {
+    "id": "mqe09964hh0zw7",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Android",
+    "filename": "Readest_0.9.91_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_0.9.91_universal.apk.sig"
+  },
+  {
+    "id": "mqe0996mtqis8o",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Windows",
+    "filename": "Readest_0.9.91_universal_darwin.dmg",
+    "size": "30.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_0.9.91_universal_darwin.dmg"
+  },
+  {
+    "id": "mqe09974urfxvs",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Windows",
+    "filename": "Readest_0.9.91_x64-portable.exe",
+    "size": "28.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_0.9.91_x64-portable.exe"
+  },
+  {
+    "id": "mqe0997l1fd27n",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Windows",
+    "filename": "Readest_0.9.91_x64-setup_windows.exe",
+    "size": "12.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_0.9.91_x64-setup_windows.exe"
+  },
+  {
+    "id": "mqe09983h248xj",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Windows",
+    "filename": "Readest_0.9.91_x64-setup_windows.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_0.9.91_x64-setup_windows.exe.sig"
+  },
+  {
+    "id": "mqe0998leh9g4y",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Windows",
+    "filename": "Readest_darwin_universal.app.tar.gz",
+    "size": "29.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_darwin_universal.app.tar.gz"
+  },
+  {
+    "id": "mqe09994e6ww3y",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Windows",
+    "filename": "Readest_darwin_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/Readest_darwin_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mqe0999mvfq1nd",
+    "versionId": "mqe098u9ynwj0s",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.91/release-notes.json"
+  },
+  {
+    "id": "mqe099arj00tkf",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/latest.json"
+  },
+  {
+    "id": "mqe099bg0q7j1v",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Linux",
+    "filename": "Readest-0.9.90-1.aarch64_linux.rpm",
+    "size": "15.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest-0.9.90-1.aarch64_linux.rpm"
+  },
+  {
+    "id": "mqe099c5tjbd0o",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Linux",
+    "filename": "Readest-0.9.90-1.aarch64_linux.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest-0.9.90-1.aarch64_linux.rpm.sig"
+  },
+  {
+    "id": "mqe099cnve6qn1",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Other",
+    "filename": "Readest-0.9.90-1.koplugin.zip",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest-0.9.90-1.koplugin.zip"
+  },
+  {
+    "id": "mqe099d42appay",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Linux",
+    "filename": "Readest-0.9.90-1.x86_64_linux.rpm",
+    "size": "15.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest-0.9.90-1.x86_64_linux.rpm"
+  },
+  {
+    "id": "mqe099dnd8b0rq",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Linux",
+    "filename": "Readest-0.9.90-1.x86_64_linux.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest-0.9.90-1.x86_64_linux.rpm.sig"
+  },
+  {
+    "id": "mqe099e6mshcge",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Linux",
+    "filename": "Readest_0.9.90_aarch64_linux.AppImage",
+    "size": "85.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest_0.9.90_aarch64_linux.AppImage"
+  },
+  {
+    "id": "mqe099ept47yp2",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Linux",
+    "filename": "Readest_0.9.90_aarch64_linux.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest_0.9.90_aarch64_linux.AppImage.sig"
+  },
+  {
+    "id": "mqe099f7rko977",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Linux",
+    "filename": "Readest_0.9.90_amd64_linux.AppImage",
+    "size": "87.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest_0.9.90_amd64_linux.AppImage"
+  },
+  {
+    "id": "mqe099fs5iv2z5",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Linux",
+    "filename": "Readest_0.9.90_amd64_linux.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest_0.9.90_amd64_linux.AppImage.sig"
+  },
+  {
+    "id": "mqe099gbzgpuc1",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Linux",
+    "filename": "Readest_0.9.90_amd64_linux.deb",
+    "size": "15.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest_0.9.90_amd64_linux.deb"
+  },
+  {
+    "id": "mqe099gtzyoctq",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Linux",
+    "filename": "Readest_0.9.90_amd64_linux.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest_0.9.90_amd64_linux.deb.sig"
+  },
+  {
+    "id": "mqe099hbw13x5n",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Windows",
+    "filename": "Readest_0.9.90_arm64-portable.exe",
+    "size": "24.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest_0.9.90_arm64-portable.exe"
+  },
+  {
+    "id": "mqe099huku4s5i",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Windows",
+    "filename": "Readest_0.9.90_arm64-setup_windows.exe",
+    "size": "12.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest_0.9.90_arm64-setup_windows.exe"
+  },
+  {
+    "id": "mqe099ibjqmcb0",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Windows",
+    "filename": "Readest_0.9.90_arm64-setup_windows.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest_0.9.90_arm64-setup_windows.exe.sig"
+  },
+  {
+    "id": "mqe099iz86o4ry",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Android",
+    "filename": "Readest_0.9.90_arm64.apk",
+    "size": "35.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest_0.9.90_arm64.apk"
+  },
+  {
+    "id": "mqe099jhhhymo3",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Linux",
+    "filename": "Readest_0.9.90_arm64_linux.deb",
+    "size": "15.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest_0.9.90_arm64_linux.deb"
+  },
+  {
+    "id": "mqe099k14fjs1f",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Linux",
+    "filename": "Readest_0.9.90_arm64_linux.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest_0.9.90_arm64_linux.deb.sig"
+  },
+  {
+    "id": "mqe099kl2jkewo",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Linux",
+    "filename": "Readest_0.9.90_armhf_linux.deb",
+    "size": "15.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest_0.9.90_armhf_linux.deb"
+  },
+  {
+    "id": "mqe099l4o5eloe",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Linux",
+    "filename": "Readest_0.9.90_armhf_linux.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest_0.9.90_armhf_linux.deb.sig"
+  },
+  {
+    "id": "mqe099lmx62urv",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Android",
+    "filename": "Readest_0.9.90_universal.apk",
+    "size": "108.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest_0.9.90_universal.apk"
+  },
+  {
+    "id": "mqe099m9du9pya",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Windows",
+    "filename": "Readest_0.9.90_universal_darwin.dmg",
+    "size": "30.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest_0.9.90_universal_darwin.dmg"
+  },
+  {
+    "id": "mqe099mtypbya7",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Windows",
+    "filename": "Readest_0.9.90_x64-portable.exe",
+    "size": "28.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest_0.9.90_x64-portable.exe"
+  },
+  {
+    "id": "mqe099ncpxxcj4",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Windows",
+    "filename": "Readest_0.9.90_x64-setup_windows.exe",
+    "size": "12.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest_0.9.90_x64-setup_windows.exe"
+  },
+  {
+    "id": "mqe099ntjrhn4f",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Windows",
+    "filename": "Readest_0.9.90_x64-setup_windows.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest_0.9.90_x64-setup_windows.exe.sig"
+  },
+  {
+    "id": "mqe099od7hws0k",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Windows",
+    "filename": "Readest_darwin_universal.app.tar.gz",
+    "size": "29.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest_darwin_universal.app.tar.gz"
+  },
+  {
+    "id": "mqe099ox7uooav",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Windows",
+    "filename": "Readest_darwin_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/Readest_darwin_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mqe099phckn9v6",
+    "versionId": "mqe099a9u6mvfz",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.90/release-notes.json"
+  },
+  {
+    "id": "mqe099qo7smuak",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/latest.json"
+  },
+  {
+    "id": "mqe099r8573210",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Linux",
+    "filename": "Readest-0.9.88-1.aarch64.rpm",
+    "size": "15.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest-0.9.88-1.aarch64.rpm"
+  },
+  {
+    "id": "mqe099rsuby47q",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Other",
+    "filename": "Readest-0.9.88-1.koplugin.zip",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest-0.9.88-1.koplugin.zip"
+  },
+  {
+    "id": "mqe099sd901bd9",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Linux",
+    "filename": "Readest-0.9.88-1.x86_64.rpm",
+    "size": "15.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest-0.9.88-1.x86_64.rpm"
+  },
+  {
+    "id": "mqe099t1cemcun",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Linux",
+    "filename": "Readest_0.9.88_aarch64.AppImage",
+    "size": "85.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest_0.9.88_aarch64.AppImage"
+  },
+  {
+    "id": "mqe099tjsa2o0c",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Linux",
+    "filename": "Readest_0.9.88_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest_0.9.88_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mqe099u2c4ay52",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Linux",
+    "filename": "Readest_0.9.88_amd64.AppImage",
+    "size": "87.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest_0.9.88_amd64.AppImage"
+  },
+  {
+    "id": "mqe099ul5tsf2z",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Linux",
+    "filename": "Readest_0.9.88_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest_0.9.88_amd64.AppImage.sig"
+  },
+  {
+    "id": "mqe099v5c3xcwn",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Linux",
+    "filename": "Readest_0.9.88_amd64.deb",
+    "size": "15.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest_0.9.88_amd64.deb"
+  },
+  {
+    "id": "mqe099vnj48bxn",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Windows",
+    "filename": "Readest_0.9.88_arm64-portable.exe",
+    "size": "24.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest_0.9.88_arm64-portable.exe"
+  },
+  {
+    "id": "mqe099w5tn0irc",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Windows",
+    "filename": "Readest_0.9.88_arm64-setup.exe",
+    "size": "12.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest_0.9.88_arm64-setup.exe"
+  },
+  {
+    "id": "mqe099wvzjqdyd",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Windows",
+    "filename": "Readest_0.9.88_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest_0.9.88_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mqe099xdkr1v48",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Android",
+    "filename": "Readest_0.9.88_arm64.apk",
+    "size": "34.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest_0.9.88_arm64.apk"
+  },
+  {
+    "id": "mqe099xuyxya3z",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Android",
+    "filename": "Readest_0.9.88_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest_0.9.88_arm64.apk.sig"
+  },
+  {
+    "id": "mqe099yc116522",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Linux",
+    "filename": "Readest_0.9.88_arm64.deb",
+    "size": "15.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest_0.9.88_arm64.deb"
+  },
+  {
+    "id": "mqe099ywjzulbp",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Linux",
+    "filename": "Readest_0.9.88_armhf.deb",
+    "size": "15.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest_0.9.88_armhf.deb"
+  },
+  {
+    "id": "mqe099zfwopuim",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Android",
+    "filename": "Readest_0.9.88_universal.apk",
+    "size": "107.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest_0.9.88_universal.apk"
+  },
+  {
+    "id": "mqe099zxwsh7sv",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Android",
+    "filename": "Readest_0.9.88_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest_0.9.88_universal.apk.sig"
+  },
+  {
+    "id": "mqe09a0ftkkd4m",
+    "versionId": "mqe099q50edkdy",
+    "platform": "MacOS",
+    "filename": "Readest_0.9.88_universal.dmg",
+    "size": "30.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest_0.9.88_universal.dmg"
+  },
+  {
+    "id": "mqe09a0z9r6kel",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Windows",
+    "filename": "Readest_0.9.88_x64-portable.exe",
+    "size": "28.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest_0.9.88_x64-portable.exe"
+  },
+  {
+    "id": "mqe09a1gquqjx9",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Windows",
+    "filename": "Readest_0.9.88_x64-setup.exe",
+    "size": "12.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest_0.9.88_x64-setup.exe"
+  },
+  {
+    "id": "mqe09a1z4o2i51",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Windows",
+    "filename": "Readest_0.9.88_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest_0.9.88_x64-setup.exe.sig"
+  },
+  {
+    "id": "mqe09a2igmkij4",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz",
+    "size": "29.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest_universal.app.tar.gz"
+  },
+  {
+    "id": "mqe09a365kxv2n",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/Readest_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mqe09a3quhvsta",
+    "versionId": "mqe099q50edkdy",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.9.88/release-notes.json"
   }
 ]

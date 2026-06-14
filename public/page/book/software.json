@@ -146,5 +146,21 @@
     "latestVersionId": "mqdzxdaw5dxjry",
     "latestUpdateTime": "2025-11-16T14:19:20Z",
     "categorySlug": "book"
+  },
+  {
+    "id": "mqe091nl2j14ej",
+    "slug": "readest",
+    "sourceType": "github",
+    "name": "Readest",
+    "description": "Readest是一款现代、功能丰富的电子书阅读器,专为狂热读者设计,提供无缝的跨平台访问、强大的工具和直观的界面,提升您的阅读体验。",
+    "logo": "https://avatars.githubusercontent.com/u/190965649?v=4",
+    "categorySlug": "book",
+    "featured": false,
+    "githubRepo": "readest/readest",
+    "githubUrl": "https://github.com/readest/readest",
+    "latestUpdateTime": "2025-10-17T16:06:48Z",
+    "stars": 21444,
+    "forks": 1263,
+    "latestVersionId": "mqe099q50edkdy"
   }
 ]

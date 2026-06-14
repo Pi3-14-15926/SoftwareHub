@@ -109,25 +109,6 @@
     "categorySlug": "book"
   },
   {
-    "id": "mpwomjebv153ry",
-    "slug": "sigma",
-    "sourceType": "github",
-    "name": "阅读Sigma",
-    "description": "阅读Sigma是gedoor/legado的一个分支版本，在原有基础上增加更多功能，为书源带来更多可能性。",
-    "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/阅读Sigma.webp",
-    "featured": false,
-    "githubRepo": "Luoyacheng/legado",
-    "githubUrl": "https://github.com/Luoyacheng/legado",
-    "stars": 1743,
-    "forks": 276,
-    "platforms": [
-      "Android"
-    ],
-    "latestVersionId": "mpwomcwxfes2c9",
-    "latestUpdateTime": "2026-03-21T14:12:43Z",
-    "categorySlug": "book"
-  },
-  {
     "id": "mpwoyw5uynpmko",
     "slug": "tauri",
     "sourceType": "github",
@@ -145,6 +126,25 @@
     ],
     "latestVersionId": "mpwoxp6fccaoac",
     "latestUpdateTime": "2026-05-28T16:44:14Z",
+    "categorySlug": "book"
+  },
+  {
+    "id": "mpwomjebv153ry",
+    "slug": "sigma",
+    "sourceType": "github",
+    "name": "阅读 Sigma",
+    "description": "阅读Sigma是gedoor/legado的一个分支版本，在原有基础上增加更多功能，为书源带来更多可能性。",
+    "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/阅读Sigma.webp",
+    "featured": false,
+    "githubRepo": "Luoyacheng/legado",
+    "githubUrl": "https://github.com/Luoyacheng/legado",
+    "stars": 1743,
+    "forks": 276,
+    "platforms": [
+      "Android"
+    ],
+    "latestVersionId": "mpwomcwxfes2c9",
+    "latestUpdateTime": "2026-03-21T14:12:43Z",
     "categorySlug": "book"
   }
 ]

@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useProjectStore } from '../store/project'
 import { useCategoryStore } from '../store/category'
+import { useSettingStore } from '../store/settings'
 import { fmtDate, relTime, fmtCompact } from '../utils'
 import { useIconUrl } from '../composables/useIconUrl'
 import { getSoftwareVersions, getVersionDownloads } from '../utils/api'
@@ -15,8 +16,25 @@ const route = useRoute()
 const router = useRouter()
 const projects = useProjectStore()
 const categories = useCategoryStore()
+const settings = useSettingStore()
 const { resolveProject } = useIconUrl()
 const { isProjectEnabled } = useEnabled()
+
+const GH_PROXY_KEY = 'sh_use_gh_proxy'
+const useGhProxy = ref(JSON.parse(localStorage.getItem(GH_PROXY_KEY) ?? 'true'))
+function toggleGhProxy() {
+  useGhProxy.value = !useGhProxy.value
+  localStorage.setItem(GH_PROXY_KEY, JSON.stringify(useGhProxy.value))
+}
+const ghProxyEnabled = computed(() => !!settings.settings.ghProxyEnabled && !!settings.settings.ghProxyUrl)
+const ghProxyUrl = computed(() => {
+  const url = settings.settings.ghProxyUrl || ''
+  return url.endsWith('/') ? url : url + '/'
+})
+function proxyUrl(url: string): string {
+  if (!useGhProxy.value || !ghProxyEnabled.value) return url
+  return ghProxyUrl.value + url
+}
 
 const project = computed(() => {
   const p = projects.bySlug(route.params.slug as string)
@@ -140,6 +158,20 @@ function toggleHistoryDownloads(v: Version) {
         </div>
       </div>
 
+      <!-- 下载加速开关 -->
+      <div v-if="ghProxyEnabled" class="proxy-bar" @click="toggleGhProxy">
+        <div class="proxy-info">
+          <span class="proxy-icon">🚀</span>
+          <div class="proxy-text">
+            <span class="proxy-label">下载加速</span>
+            <span class="proxy-desc">开启后所有 GitHub Release 下载链接将通过代理服务加速下载</span>
+          </div>
+        </div>
+        <div :class="['proxy-toggle', { on: useGhProxy }]">
+          <div class="proxy-knob"></div>
+        </div>
+      </div>
+
       <!-- 最新版本 -->
       <div v-if="latestVer" class="detail-card">
         <div class="card-head">
@@ -165,7 +197,7 @@ function toggleHistoryDownloads(v: Version) {
           <a
             v-for="dl in visibleDownloads"
             :key="dl.id"
-            :href="dl.url"
+            :href="proxyUrl(dl.url)"
             target="_blank"
             rel="noopener noreferrer"
             class="download-btn"
@@ -216,7 +248,7 @@ function toggleHistoryDownloads(v: Version) {
               <a
                 v-for="dl in visibleHistoryDownloads(v)"
                 :key="dl.id"
-                :href="dl.url"
+                :href="proxyUrl(dl.url)"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="download-btn download-btn-sm"
@@ -330,6 +362,80 @@ function toggleHistoryDownloads(v: Version) {
   gap: 6px;
 }
 .github-link { text-decoration: none; }
+
+/* === 下载加速开关 === */
+.proxy-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--color-card);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  user-select: none;
+  animation: riseFade 0.4s ease both;
+  animation-delay: 0.05s;
+}
+.proxy-bar:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+.proxy-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.proxy-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.proxy-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.proxy-label {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+.proxy-desc {
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+}
+.proxy-toggle {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  background: var(--border-color);
+  flex-shrink: 0;
+  transition: background 0.25s ease;
+}
+.proxy-toggle.on {
+  background: var(--gradient-primary);
+}
+.proxy-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease;
+}
+.proxy-toggle.on .proxy-knob {
+  transform: translateX(20px);
+}
 
 /* === 详情卡片 === */
 .detail-card {

@@ -9,13 +9,13 @@
     "featured": false,
     "githubRepo": "Rimchars/legado",
     "githubUrl": "https://github.com/Rimchars/legado",
-    "stars": 252,
+    "stars": 254,
     "forks": 12,
     "platforms": [
       "Android"
     ],
-    "latestVersionId": "mq3cjsmukwodkw",
-    "latestUpdateTime": "2026-06-05T19:10:35Z",
+    "latestVersionId": "mqdzx80hhogwvh",
+    "latestUpdateTime": "2026-05-07T05:24:16Z",
     "categorySlug": "book"
   },
   {
@@ -30,9 +30,9 @@
     "githubRepo": "anxcye/anx-reader",
     "githubUrl": "https://github.com/anxcye/anx-reader",
     "latestUpdateTime": "2025-11-01T13:17:04Z",
-    "stars": 8327,
-    "forks": 562,
-    "latestVersionId": "mqdorga9viv7sn"
+    "stars": 8329,
+    "forks": 563,
+    "latestVersionId": "mqdzx94ic2xzm0"
   },
   {
     "id": "mpwowqbvn123ig",
@@ -45,11 +45,11 @@
     "githubRepo": "skybbk1001/legadoT",
     "githubUrl": "https://github.com/skybbk1001/legadoT",
     "stars": 43,
-    "forks": 11,
+    "forks": 13,
     "platforms": [
       "Android"
     ],
-    "latestVersionId": "mq3c9y4cw379jl",
+    "latestVersionId": "mqdzx9wjw77iny",
     "latestUpdateTime": "2026-06-06T13:27:18Z",
     "categorySlug": "book"
   },
@@ -63,13 +63,13 @@
     "featured": false,
     "githubRepo": "HapeLee/legado-with-MD3",
     "githubUrl": "https://github.com/HapeLee/legado-with-MD3",
-    "stars": 4479,
-    "forks": 453,
+    "stars": 4498,
+    "forks": 460,
     "platforms": [
       "Android"
     ],
-    "latestVersionId": "mq7f2a3wsw8rzb",
-    "latestUpdateTime": "2026-06-13T16:49:48Z",
+    "latestVersionId": "mqdzxbdokth5o5",
+    "latestUpdateTime": "2026-05-27T16:37:37Z",
     "latestVersion": "3.26.13-beta.22",
     "categorySlug": "book"
   },
@@ -83,13 +83,13 @@
     "featured": false,
     "githubRepo": "youfengknight/Legado_Max",
     "githubUrl": "https://github.com/youfengknight/Legado_Max",
-    "stars": 179,
-    "forks": 19,
+    "stars": 185,
+    "forks": 29,
     "platforms": [
       "Android"
     ],
-    "latestVersionId": "mq3c9y53ys6ev6",
-    "latestUpdateTime": "2026-06-05T14:32:41Z",
+    "latestVersionId": "mqdzxbsj4f5axz",
+    "latestUpdateTime": "2026-06-04T15:18:17Z",
     "categorySlug": "book"
   },
   {
@@ -118,14 +118,14 @@
     "featured": false,
     "githubRepo": "LegadoTeam/Legado-Tauri-Release",
     "githubUrl": "https://github.com/LegadoTeam/Legado-Tauri-Release",
-    "stars": 180,
-    "forks": 14,
+    "stars": 179,
+    "forks": 15,
     "platforms": [
       "Windows",
       "Android"
     ],
-    "latestVersionId": "mpwoxp6fccaoac",
-    "latestUpdateTime": "2026-05-28T16:44:14Z",
+    "latestVersionId": "mqdzxd02ytw8go",
+    "latestUpdateTime": "2026-05-27T15:09:57Z",
     "categorySlug": "book"
   },
   {
@@ -138,13 +138,13 @@
     "featured": false,
     "githubRepo": "Luoyacheng/legado",
     "githubUrl": "https://github.com/Luoyacheng/legado",
-    "stars": 1743,
-    "forks": 276,
+    "stars": 1746,
+    "forks": 278,
     "platforms": [
       "Android"
     ],
-    "latestVersionId": "mpwomcwxfes2c9",
-    "latestUpdateTime": "2026-03-21T14:12:43Z",
+    "latestVersionId": "mqdzxdaw5dxjry",
+    "latestUpdateTime": "2025-11-16T14:19:20Z",
     "categorySlug": "book"
   }
 ]

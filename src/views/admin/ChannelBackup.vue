@@ -1009,11 +1009,12 @@ onBeforeUnmount(() => {})
   transform: translateY(0);
 }
 .btn-ghost {
-  background: transparent;
-  color: var(--color-primary);
+  background: var(--color-card-soft);
+  color: var(--text-main);
+  border: 1px solid var(--border-strong);
 }
 .btn-ghost:hover:not(:disabled) {
-  background: rgba(52, 120, 246, 0.08);
+  background: var(--color-bg);
 }
 .btn-warning {
   background: linear-gradient(135deg, #f59e0b, #fb923c);
@@ -1053,8 +1054,8 @@ onBeforeUnmount(() => {})
   display: flex;
   gap: 12px;
   margin-top: 4px;
-  flex-wrap: wrap;
 }
+.action-buttons .btn { flex: 1; min-width: 0; }
 
 /* ============== 代理状态 ============== */
 .proxy-bar {

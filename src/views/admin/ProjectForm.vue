@@ -48,6 +48,24 @@ const error = ref('')
 function slugify(text: string): string {
   return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 }
+
+function skipToManual() {
+  form.value = {
+    slug: '',
+    name: '',
+    description: '',
+    logo: '',
+    sourceType: 'custom',
+    categorySlug: form.value.categorySlug,
+    githubRepo: '',
+    website: '',
+    featured: false,
+  }
+  fetchedVersions.value = []
+  fetchedStars.value = 0
+  fetchedForks.value = 0
+  step.value = 'review'
+}
 function parseRepo(input: string): string {
   const match = input.match(/github\.com\/([^/]+\/[^/]+?)(?:\/|$)/) || input.match(/^([\w.-]+\/[\w.-]+)/)
   return match ? match[1].replace(/\.git$/, '') : input.trim()
@@ -159,7 +177,9 @@ async function doSave() {
     router.push(catId ? `/admin/categories/${catId}/projects` : '/admin/projects')
     return
   }
-  const p = projects.createGitHub(form.value.slug.trim(), form.value.name.trim(), form.value.githubRepo.trim(), form.value.categorySlug)
+  const p = form.value.sourceType === 'custom'
+    ? projects.createCustom(form.value.slug.trim(), form.value.name.trim(), form.value.categorySlug)
+    : projects.createGitHub(form.value.slug.trim(), form.value.name.trim(), form.value.githubRepo.trim(), form.value.categorySlug)
   if (!p) {
     saving.value = false
     error.value = '创建项目失败，slug 可能已存在'
@@ -360,7 +380,7 @@ watch(() => route.params.id, refreshDownloads)
       <!-- 第一步 -->
       <div v-if="!isEdit && step === 'input'" class="form-card">
         <div class="form">
-          <h3 class="form-section-title">第一步 · 输入 GitHub 仓库</h3>
+          <h3 class="form-section-title">第一步 · 输入仓库地址（可选）</h3>
           <div class="field">
             <label>GitHub 仓库地址</label>
             <NInput
@@ -368,13 +388,14 @@ watch(() => route.params.id, refreshDownloads)
               placeholder="例如: gedoor/legado  或  https://github.com/gedoor/legado"
               size="large"
             />
-            <p class="field-hint">输入 GitHub 仓库地址或 owner/repo，系统将自动获取软件信息</p>
+            <p class="field-hint">输入 GitHub 仓库地址或 owner/repo，系统将自动获取软件信息；也可跳过手动填写</p>
           </div>
           <NAlert v-if="fetchError" type="error" :show-icon="false" closable>{{ fetchError }}</NAlert>
           <div class="form-actions">
             <button class="btn-primary" :disabled="fetching" @click="doFetch">
               {{ fetching ? '获取中...' : '获取信息' }}
             </button>
+            <button class="btn-secondary" @click="skipToManual">手动填写</button>
             <button class="btn-secondary" @click="router.push(route.query.categoryId ? `/admin/categories/${route.query.categoryId}/projects` : '/admin/projects')">取消</button>
           </div>
         </div>
@@ -520,7 +541,8 @@ watch(() => route.params.id, refreshDownloads)
             <button class="btn-primary" :disabled="saving" @click="doSave">
               {{ isEdit ? '保存修改' : '创建项目' }}
             </button>
-            <button v-if="!isEdit" class="btn-secondary" @click="step = 'input'">返回修改仓库地址</button>
+            <button v-if="!isEdit && form.sourceType === 'github'" class="btn-secondary" @click="step = 'input'">返回修改仓库地址</button>
+            <button v-if="!isEdit && form.sourceType === 'custom'" class="btn-secondary" @click="step = 'input'">返回</button>
             <button class="btn-ghost" @click="router.push(route.query.categoryId ? `/admin/categories/${route.query.categoryId}/projects` : '/admin/projects')">取消</button>
           </div>
         </div>
@@ -561,7 +583,7 @@ watch(() => route.params.id, refreshDownloads)
 </template>
 
 <style scoped>
-.form-page { display: flex; flex-direction: column; gap: 16px; max-width: 760px; }
+.form-page { display: flex; flex-direction: column; gap: 16px; max-width: 760px; padding-left: 25px; margin-right: -3px; }
 .page-title { margin: 0; font-size: 1.4rem; font-weight: 700; color: var(--text-main); }
 .error-alert { background: rgba(255, 107, 107, 0.08) !important; border-color: rgba(255, 107, 107, 0.2) !important; color: var(--color-error) !important; }
 
@@ -661,7 +683,8 @@ watch(() => route.params.id, refreshDownloads)
   border-top: 1px dashed var(--border-soft);
 }
 
-.form-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.form-actions { display: flex; gap: 10px; }
+.form-actions .btn-primary, .form-actions .btn-secondary, .form-actions .btn-ghost { flex: 1; min-width: 0; }
 
 /* === Logo 字段 === */
 .logo-field {
@@ -801,5 +824,7 @@ watch(() => route.params.id, refreshDownloads)
   .logo-field { flex-direction: column; }
   .picker-panel { max-height: 90vh; }
   .picker-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); }
+  .form-actions { flex-wrap: nowrap; }
+  .form-actions .btn-primary, .form-actions .btn-secondary, .form-actions .btn-ghost { font-size: 0.85rem; padding: 10px 12px; white-space: nowrap; }
 }
 </style>

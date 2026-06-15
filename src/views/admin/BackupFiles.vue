@@ -844,7 +844,10 @@ onMounted(() => { loadFiles() })
   font-size: 0.8rem;
   font-weight: 600;
   font-family: var(--font-mono);
-  flex-shrink: 0;
+  max-width: 60%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   box-shadow: 0 3px 10px rgba(79, 140, 255, 0.25);
 }
 .version-meta {

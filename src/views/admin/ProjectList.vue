@@ -206,7 +206,10 @@ function bulkToggleEnabled(enable: boolean) {
   message.success(enable ? `已启用 ${selectedIds.value.size} 个软件` : `已禁用 ${selectedIds.value.size} 个软件`)
 }
 
-function goEdit(id: string) { router.push(`/admin/projects/${id}/edit`) }
+function goEdit(id: string) {
+  const q = categoryId.value ? `?categoryId=${categoryId.value}` : ''
+  router.push(`/admin/projects/${id}/edit${q}`)
+}
 function goVersions(id: string) { router.push(`/admin/projects/${id}/versions`) }
 function goNew() {
   const q = categoryId.value ? `?categoryId=${categoryId.value}` : ''

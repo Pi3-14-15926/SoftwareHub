@@ -1419,5 +1419,29 @@
       "mqdzxpceprcg38",
       "mqdzxpcrmiwmms"
     ]
+  },
+  {
+    "id": "mqf31apkdolugn",
+    "projectId": "mqf2wp9ruusxo6",
+    "version": "V1.1.61",
+    "publishedAt": "2026-04-29T00:00:00.000Z",
+    "changelog": "",
+    "downloadIds": [
+      "mqf32bki5lkqfm",
+      "mqf32bl3swqhoc",
+      "mqf32blnj0w33p"
+    ]
+  },
+  {
+    "id": "mqf2n9y000y2vp",
+    "projectId": "mqf2hvi0ero5r0",
+    "version": "1.0.0.8",
+    "publishedAt": "2026-06-15T00:00:00.000Z",
+    "changelog": "",
+    "downloadIds": [
+      "mqf35zcvme9aji",
+      "mqf35zdkbo0uuo",
+      "mqf35ze4gqo3ow"
+    ]
   }
 ]

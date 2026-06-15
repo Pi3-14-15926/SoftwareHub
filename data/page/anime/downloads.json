@@ -7046,5 +7046,53 @@
     "filename": "ani-5.3.1.ipa.sha1",
     "size": "0.0 MB",
     "url": "https://github.com/open-ani/animeko/releases/download/v5.3.1/ani-5.3.1.ipa.sha1"
+  },
+  {
+    "id": "mqf32bki5lkqfm",
+    "versionId": "mqf31apkdolugn",
+    "platform": "Android",
+    "filename": "Android V1.1.61",
+    "size": "120.4 MB",
+    "url": "https://omofuns.lanzouv.com/iRXdy3obh7ib"
+  },
+  {
+    "id": "mqf32bl3swqhoc",
+    "versionId": "mqf31apkdolugn",
+    "platform": "Windows",
+    "filename": "Windows V2.0.1",
+    "size": "112.1 MB",
+    "url": "https://omofuns.lanzouv.com/tp/iJkDu3ovdpeb?webtp=BDUGZglsA2ZWNVA0B2Jda1E_bBDBQc1dnBDsDMF0yATYCNQdhDmoDZgUvCm5RNwU2VSECNlA8ADoCK1RmXDNRfgQxBmAJKAM2VmVQYAcxXThRMgQ3UDdXYAQ0A2FdZwFjAjIHZg5mA2IFagpkUWAFMFU6AjVQOQAwAj1UZVxlUWUEMwZgCW0DK1Yw"
+  },
+  {
+    "id": "mqf32blnj0w33p",
+    "versionId": "mqf31apkdolugn",
+    "platform": "iOS",
+    "filename": "IOS V1.1.63",
+    "size": "65.5 MB",
+    "url": "https://omofuns.lanzouv.com/ijSzx3qqw5dg"
+  },
+  {
+    "id": "mqf35zcvme9aji",
+    "versionId": "mqf2n9y000y2vp",
+    "platform": "Android",
+    "filename": "动漫共和国 (Android版)",
+    "size": "78 MB",
+    "url": "https://static.yximgs.com/bs2/ad-app/YWQtYXBwOmFkX2RzcF9hcHA6MzAyMTk0NTYyMTpNRVJDSEFOVDpbQkA3MGVkMDQwZToxNzQwNzIxNDk3OTYyMQ%3D%3D.apk"
+  },
+  {
+    "id": "mqf35zdkbo0uuo",
+    "versionId": "mqf2n9y000y2vp",
+    "platform": "Windows",
+    "filename": "Windows概念版",
+    "size": "27.1 MB",
+    "url": "https://autoglm-agent.aminer.cn/auto_fly/5f5758c5-e6e9-4d44-9431-226574cac401/dmghg-1.4.4.zip"
+  },
+  {
+    "id": "mqf35ze4gqo3ow",
+    "versionId": "mqf2n9y000y2vp",
+    "platform": "iOS",
+    "filename": "iOS版 (Demo)",
+    "size": "35.5 MB",
+    "url": "https://vfiles.gtimg.cn/wuji_open/demo.ipa"
   }
 ]

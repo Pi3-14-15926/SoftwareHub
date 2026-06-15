@@ -235,36 +235,6 @@
     "forks": 1955
   },
   {
-    "id": "mqdz5tn7va86j4",
-    "name": "MusicFree 桌面版",
-    "slug": "musicfreedesktop",
-    "categorySlug": "music",
-    "description": "插件化、定制化、无广告的免费音乐播放器",
-    "logo": "https://avatars.githubusercontent.com/u/31655147?v=4",
-    "featured": false,
-    "latestVersionId": "mqdz5twauyyawp",
-    "latestUpdateTime": "2023-07-23T14:37:10Z",
-    "githubRepo": "maotoumao/MusicFreeDesktop",
-    "githubUrl": "https://github.com/maotoumao/MusicFreeDesktop",
-    "stars": 8459,
-    "forks": 805
-  },
-  {
-    "id": "mqdz4vlw18enkx",
-    "name": "MusicFree 移动版",
-    "slug": "musicfree",
-    "categorySlug": "music",
-    "description": "插件化、定制化、无广告的免费音乐播放器",
-    "logo": "https://avatars.githubusercontent.com/u/31655147?v=4",
-    "featured": false,
-    "latestVersionId": "mqdz4vvp4x6d5o",
-    "latestUpdateTime": "2023-03-26T15:46:45Z",
-    "githubRepo": "maotoumao/MusicFree",
-    "githubUrl": "https://github.com/maotoumao/MusicFree",
-    "stars": 25188,
-    "forks": 1764
-  },
-  {
     "id": "mqdzae23et9isy",
     "name": "SaltPlayer 椒盐音乐",
     "slug": "saltplayersource",
@@ -280,18 +250,48 @@
     "forks": 201
   },
   {
+    "id": "mqdz4vlw18enkx",
+    "name": "MusicFree 移动版",
+    "slug": "musicfree",
+    "categorySlug": "music",
+    "description": "插件化、定制化、无广告的免费音乐播放器",
+    "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/MusicFree-移动版.webp",
+    "featured": false,
+    "latestVersionId": "mqdz4vvp4x6d5o",
+    "latestUpdateTime": "2023-03-26T15:46:45Z",
+    "githubRepo": "maotoumao/MusicFree",
+    "githubUrl": "https://github.com/maotoumao/MusicFree",
+    "stars": 25188,
+    "forks": 1764
+  },
+  {
+    "id": "mqdz5tn7va86j4",
+    "name": "MusicFree 桌面版",
+    "slug": "musicfreedesktop",
+    "categorySlug": "music",
+    "description": "插件化、定制化、无广告的免费音乐播放器",
+    "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/MusicFree-桌面版.webp",
+    "featured": false,
+    "latestVersionId": "mqdz5twauyyawp",
+    "latestUpdateTime": "2023-07-23T14:37:10Z",
+    "githubRepo": "maotoumao/MusicFreeDesktop",
+    "githubUrl": "https://github.com/maotoumao/MusicFreeDesktop",
+    "stars": 8459,
+    "forks": 805
+  },
+  {
     "id": "mqdzbe8bbd2xu8",
     "name": "QingMusic 青听音乐",
     "slug": "qingmusic",
     "categorySlug": "music",
     "description": "青听音乐-一款免费无广告的本地音乐播放器。",
-    "logo": "https://avatars.githubusercontent.com/u/59428088?v=4",
+    "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/QingMusic-青听音乐.webp",
     "featured": false,
     "latestVersionId": "mqdzbefc3z1ebn",
     "latestUpdateTime": "2025-04-26T08:38:19Z",
     "githubRepo": "kejichangqing/QingMusic",
     "githubUrl": "https://github.com/kejichangqing/QingMusic",
-    "stars": 1271,
+    "stars": 1275,
     "forks": 59
   }
 ]

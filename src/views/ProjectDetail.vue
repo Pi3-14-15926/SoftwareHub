@@ -751,7 +751,11 @@ function toggleHistoryDownloads(v: Version) {
   .project-name { font-size: 1.4rem; }
 }
 @media (max-width: 480px) {
-  .download-btn { padding: 10px 12px; }
-  .apk-name { font-size: 0.82rem; }
+  .download-btn { padding: 8px 10px; flex-wrap: wrap; font-size: 0.82rem; gap: 6px; }
+  .download-btn .plat-tag { width: 100%; font-size: 0.72rem; height: 20px; padding: 0 6px; }
+  .apk-name { font-size: 0.78rem; width: 100%; white-space: normal; word-break: break-all; }
+  .apk-size, .apk-dl { font-size: 0.7rem; padding: 1px 6px; flex-shrink: 0; }
+  .download-btn-sm { padding: 6px 8px; flex-wrap: wrap; font-size: 0.78rem; gap: 5px; }
+  .download-btn-sm .plat-tag-sm { width: 100%; font-size: 0.65rem; height: 18px; padding: 0 5px; }
 }
 </style>

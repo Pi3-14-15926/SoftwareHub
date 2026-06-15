@@ -221,7 +221,7 @@ onMounted(() => {
 /* 监听项目是否存在：被删后自动返回列表 */
 watch(software, (sw) => {
   if (!sw && projectId.value) {
-    router.replace('/admin/projects')
+    router.replace(route.query.categoryId ? `/admin/categories/${route.query.categoryId}/projects` : '/admin/projects')
   }
 })
 </script>
@@ -235,7 +235,7 @@ watch(software, (sw) => {
           <p v-if="software" class="page-desc">项目: {{ software.name }} · 最新版本: {{ latestVersionText(software) || '—' }}</p>
         </div>
         <div class="header-actions">
-          <button class="btn-secondary" @click="router.push('/admin/projects')">返回列表</button>
+          <button class="btn-secondary" @click="router.push(route.query.categoryId ? `/admin/categories/${route.query.categoryId}/projects` : '/admin/projects')">返回列表</button>
           <button class="btn-primary" @click="openNew">➕ 新增版本</button>
         </div>
       </div>

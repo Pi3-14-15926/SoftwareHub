@@ -210,7 +210,10 @@ function goEdit(id: string) {
   const q = categoryId.value ? `?categoryId=${categoryId.value}` : ''
   router.push(`/admin/projects/${id}/edit${q}`)
 }
-function goVersions(id: string) { router.push(`/admin/projects/${id}/versions`) }
+function goVersions(id: string) {
+  const q = categoryId.value ? `?categoryId=${categoryId.value}` : ''
+  router.push(`/admin/projects/${id}/versions${q}`)
+}
 function goNew() {
   const q = categoryId.value ? `?categoryId=${categoryId.value}` : ''
   router.push(`/admin/projects/new${q}`)
@@ -386,7 +389,7 @@ watch(sortBy, () => { page.value = 1 })
               :title="p.sourceType === 'github' ? '在 GitHub 打开' : '打开官网'"
             >
               <span class="src-dot"></span>
-              {{ p.sourceType === 'github' ? 'GitHub' : '自定义' }}
+              {{ p.sourceType === 'github' ? 'GitHub' : '官网' }}
               <svg class="src-ext" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                 <polyline points="15 3 21 3 21 9"/>
@@ -398,7 +401,7 @@ watch(sortBy, () => { page.value = 1 })
               :class="['src-tag', p.sourceType === 'github' ? 'src-github' : 'src-custom']"
             >
               <span class="src-dot"></span>
-              {{ p.sourceType === 'github' ? 'GitHub' : '自定义' }}
+              {{ p.sourceType === 'github' ? 'GitHub' : '官网' }}
             </span>
             <button
               v-if="!isEnabled(p.id)"
@@ -1247,7 +1250,10 @@ watch(sortBy, () => { page.value = 1 })
   .sort-btn { flex: 1; justify-content: center; height: 40px; }
   .btn-add { flex: 1; }
   .project-grid { grid-template-columns: 1fr; }
-  .pc-actions { justify-content: flex-end; }
+  .pc-actions { justify-content: flex-end; flex-wrap: nowrap; gap: 4px; }
+  .pc-actions .pc-btn { height: 26px; padding: 0 6px; font-size: 0; gap: 0; min-width: 26px; justify-content: center; }
+  .pc-actions .pc-btn svg { width: 13px; height: 13px; }
+  .pc-actions .pc-btn:hover { transform: none; }
   .pc-foot { flex-direction: column; align-items: flex-start; gap: 10px; }
   .pc-status { width: 100%; justify-content: space-between; }
   .pagination { justify-content: flex-start; }

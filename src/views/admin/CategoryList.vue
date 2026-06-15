@@ -683,24 +683,28 @@ onMounted(() => {
 /* 操作按钮 */
 .pc-actions {
   display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 4px;
 }
 .pc-btn {
+  flex: 1 1 0;
+  min-width: 0;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  height: 32px;
-  padding: 0 10px;
+  justify-content: center;
+  gap: 3px;
+  height: 28px;
+  padding: 0 6px;
   background: var(--color-card-soft);
   color: var(--text-sec);
   border: 1px solid var(--admin-border);
-  border-radius: 10px;
-  font-size: 0.78rem;
+  border-radius: 8px;
+  font-size: 0.72rem;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.18s, color 0.18s, transform 0.18s, border-color 0.18s;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .pc-btn:hover {
   background: var(--color-primary-soft);
@@ -812,7 +816,10 @@ onMounted(() => {
   .head-actions { width: 100%; }
   .btn-add { flex: 1; }
   .page-grid { grid-template-columns: 1fr; }
-  .pc-actions { justify-content: flex-end; }
+  .pc-actions { gap: 4px; }
+  .pc-actions .pc-btn { height: 26px; padding: 0 6px; font-size: 0; gap: 0; min-width: 0; justify-content: center; }
+  .pc-actions .pc-btn svg { width: 13px; height: 13px; }
+  .pc-actions .pc-btn:hover { transform: none; }
   .pc-foot { flex-direction: column; align-items: flex-start; gap: 8px; }
   .pc-status { width: 100%; justify-content: space-between; }
   .emoji-picker-grid { grid-template-columns: repeat(6, 1fr); }

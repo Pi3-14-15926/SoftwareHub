@@ -1,0 +1,66 @@
+[
+  {
+    "id": "mqa2ifsduzlphs",
+    "slug": "anich",
+    "sourceType": "github",
+    "name": "AniCh",
+    "description": "一个支持超分辨率的在线动漫弹幕APP。多平台，多番剧源，多弹幕，高清无广告。追番看番必备软件。",
+    "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/AniCh.webp",
+    "featured": false,
+    "githubRepo": "Sle2p/AniCh",
+    "githubUrl": "https://github.com/Sle2p/AniCh",
+    "latestUpdateTime": "2025-07-01T00:27:48Z",
+    "stars": 5066,
+    "forks": 111,
+    "latestVersionId": "mqdzxfsmu9z0ao",
+    "categorySlug": "anime"
+  },
+  {
+    "id": "mpzjkpvzeuh3zl",
+    "slug": "kazumi",
+    "sourceType": "github",
+    "name": "Kazumi",
+    "description": "基于自定义规则的番剧采集APP，支持流媒体在线观看，支持弹幕，支持实时超分辨率。",
+    "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/Kazumi.webp",
+    "featured": false,
+    "githubRepo": "Predidit/Kazumi",
+    "githubUrl": "https://github.com/Predidit/Kazumi",
+    "stars": 26507,
+    "forks": 761,
+    "platforms": [
+      "Android",
+      "Other",
+      "Linux",
+      "MacOS",
+      "Windows"
+    ],
+    "latestVersionId": "mqdzxh79ry0b02",
+    "latestUpdateTime": "2025-12-11T08:52:35Z",
+    "latestVersion": "2.1.5",
+    "categorySlug": "anime"
+  },
+  {
+    "id": "mpzjjzg2ylm14p",
+    "slug": "animeko",
+    "sourceType": "github",
+    "name": "Animeko",
+    "description": "集找番、追番、看番的一站式弹幕追番平台，云收藏同步 (Bangumi)，离线缓存，BitTorrent，弹幕云过滤。100% Kotlin/Compose Multiplatform",
+    "logo": "https://avatars.githubusercontent.com/u/166622089?v=4",
+    "featured": true,
+    "githubRepo": "open-ani/animeko",
+    "githubUrl": "https://github.com/open-ani/animeko",
+    "stars": 18345,
+    "forks": 492,
+    "platforms": [
+      "Android",
+      "Linux",
+      "MacOS",
+      "Windows",
+      "Other"
+    ],
+    "latestVersionId": "mqdzxp2g45cekb",
+    "latestUpdateTime": "2026-02-07T16:43:26Z",
+    "latestVersion": "v5.7.0-alpha01",
+    "categorySlug": "anime"
+  }
+]

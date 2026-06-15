@@ -1,0 +1,166 @@
+[
+  {
+    "id": "mpwoxcif3y72eu",
+    "slug": "archive",
+    "sourceType": "github",
+    "name": "阅读 Archive",
+    "description": "阅读Archive继承自 Lyc 维护的 Legado 分支，增强界面、AI、EPUB、漫画、视频和主题能力。",
+    "logo": "https://raw.githubusercontent.com/Rimchars/legado/main/docs/archive_icon.svg",
+    "featured": false,
+    "githubRepo": "Rimchars/legado",
+    "githubUrl": "https://github.com/Rimchars/legado",
+    "stars": 254,
+    "forks": 12,
+    "platforms": [
+      "Android"
+    ],
+    "latestVersionId": "mqdzx80hhogwvh",
+    "latestUpdateTime": "2026-05-07T05:24:16Z",
+    "categorySlug": "book"
+  },
+  {
+    "id": "mqdordihsc5rxn",
+    "slug": "Anxreader",
+    "sourceType": "github",
+    "name": "Anx-reader",
+    "description": "它拥有强大的AI功能,支持多种电子书格式,让阅读变得更智能、更专注。",
+    "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/anx-reader.webp",
+    "categorySlug": "book",
+    "featured": false,
+    "githubRepo": "anxcye/anx-reader",
+    "githubUrl": "https://github.com/anxcye/anx-reader",
+    "latestUpdateTime": "2025-11-01T13:17:04Z",
+    "stars": 8329,
+    "forks": 563,
+    "latestVersionId": "mqdzx94ic2xzm0"
+  },
+  {
+    "id": "mpwowqbvn123ig",
+    "slug": "readert",
+    "sourceType": "github",
+    "name": "阅读 T",
+    "description": "开源阅读修改版，添加基于cron的定时任务支持。",
+    "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/阅读-T.webp",
+    "featured": false,
+    "githubRepo": "skybbk1001/legadoT",
+    "githubUrl": "https://github.com/skybbk1001/legadoT",
+    "stars": 43,
+    "forks": 13,
+    "platforms": [
+      "Android"
+    ],
+    "latestVersionId": "mqdzx9wjw77iny",
+    "latestUpdateTime": "2026-06-06T13:27:18Z",
+    "categorySlug": "book"
+  },
+  {
+    "id": "mpwouieuddbq2d",
+    "slug": "md3",
+    "sourceType": "github",
+    "name": "阅读 MD3",
+    "description": "使用 Material Design 3 全新设计的阅读 3.0",
+    "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/阅读-MD3.webp",
+    "featured": false,
+    "githubRepo": "HapeLee/legado-with-MD3",
+    "githubUrl": "https://github.com/HapeLee/legado-with-MD3",
+    "stars": 4498,
+    "forks": 460,
+    "platforms": [
+      "Android"
+    ],
+    "latestVersionId": "mqdzxbdokth5o5",
+    "latestUpdateTime": "2026-05-27T16:37:37Z",
+    "latestVersion": "3.26.13-beta.22",
+    "categorySlug": "book"
+  },
+  {
+    "id": "mpwp1hvpsn5ffl",
+    "slug": "max",
+    "sourceType": "github",
+    "name": "阅读 Max",
+    "description": "阅读继承自阅读Sigma，在其基础上新增更多实用和强大功能。",
+    "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/阅读-Max.webp",
+    "featured": false,
+    "githubRepo": "youfengknight/Legado_Max",
+    "githubUrl": "https://github.com/youfengknight/Legado_Max",
+    "stars": 185,
+    "forks": 29,
+    "platforms": [
+      "Android"
+    ],
+    "latestVersionId": "mqdzxbsj4f5axz",
+    "latestUpdateTime": "2026-06-04T15:18:17Z",
+    "categorySlug": "book"
+  },
+  {
+    "id": "mq1yoxoecx1loi",
+    "slug": "legado",
+    "sourceType": "github",
+    "name": "Legado",
+    "description": "阅读3.0, 阅读是一款可以自定义来源阅读网络内容的工具，为广大网络文学爱好者提供一种方便、快捷舒适的试读体验。",
+    "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/Legado.webp",
+    "featured": true,
+    "githubRepo": "gedoor/legado",
+    "githubUrl": "https://github.com/gedoor/legado",
+    "latestUpdateTime": "2026-05-24T00:00:00.000Z",
+    "stars": 46893,
+    "forks": 5717,
+    "latestVersionId": "mq1zlwkh40byby",
+    "categorySlug": "book"
+  },
+  {
+    "id": "mpwoyw5uynpmko",
+    "slug": "tauri",
+    "sourceType": "github",
+    "name": "阅读 Tauri",
+    "description": "",
+    "logo": "https://avatars.githubusercontent.com/u/223791923?v=4",
+    "featured": false,
+    "githubRepo": "LegadoTeam/Legado-Tauri-Release",
+    "githubUrl": "https://github.com/LegadoTeam/Legado-Tauri-Release",
+    "stars": 179,
+    "forks": 15,
+    "platforms": [
+      "Windows",
+      "Android"
+    ],
+    "latestVersionId": "mqdzxd02ytw8go",
+    "latestUpdateTime": "2026-05-27T15:09:57Z",
+    "categorySlug": "book"
+  },
+  {
+    "id": "mpwomjebv153ry",
+    "slug": "sigma",
+    "sourceType": "github",
+    "name": "阅读 Sigma",
+    "description": "阅读Sigma是gedoor/legado的一个分支版本，在原有基础上增加更多功能，为书源带来更多可能性。",
+    "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/阅读Sigma.webp",
+    "featured": false,
+    "githubRepo": "Luoyacheng/legado",
+    "githubUrl": "https://github.com/Luoyacheng/legado",
+    "stars": 1746,
+    "forks": 278,
+    "platforms": [
+      "Android"
+    ],
+    "latestVersionId": "mqdzxdaw5dxjry",
+    "latestUpdateTime": "2025-11-16T14:19:20Z",
+    "categorySlug": "book"
+  },
+  {
+    "id": "mqe091nl2j14ej",
+    "slug": "readest",
+    "sourceType": "github",
+    "name": "Readest",
+    "description": "Readest是一款现代、功能丰富的电子书阅读器,专为狂热读者设计,提供无缝的跨平台访问、强大的工具和直观的界面,提升您的阅读体验。",
+    "logo": "https://avatars.githubusercontent.com/u/190965649?v=4",
+    "categorySlug": "book",
+    "featured": false,
+    "githubRepo": "readest/readest",
+    "githubUrl": "https://github.com/readest/readest",
+    "latestUpdateTime": "2025-10-17T16:06:48Z",
+    "stars": 21444,
+    "forks": 1263,
+    "latestVersionId": "mqe099q50edkdy"
+  }
+]

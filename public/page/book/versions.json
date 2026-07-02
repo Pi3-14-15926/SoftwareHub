@@ -1,5 +1,15 @@
 [
   {
+    "id": "mr3karw5wjijrx",
+    "projectId": "mpwoxcif3y72eu",
+    "version": "archive-v3-3.26.07012317",
+    "publishedAt": "2026-07-01T15:52:35Z",
+    "changelog": "新增与调整：\n- 底栏管理支持调整入口顺序，并可隐藏发现、订阅、统计等可选入口。\n- 关于页面新增内测版更新设置，可配置内测密钥和地址后参与内测更新检测。\n- 封面图集支持长按图片删除。\n- 正文标题支持解析 `dp:` 段评气泡格式。\n- 搜索、发现、分类/tag 等普通书籍列表统一为 Compose 列表实现。\n- 普通列表高度统一，简介统一显示两行，并补充分类、最新章节等信息展示。\n\n修复：\n- 修复应用主题保存后，关联的界面主题、顶栏、底栏等配置没有及时重新应用的问题。\n- 修复更换主题背景后，部分主界面仍显示旧背景的问题。\n- 修复 RED 应用主题导入时底栏图标包识别不完整的问题。\n- 修复底栏壁纸在主题打包和导入后可能丢失的问题。\n- 修复悬浮底栏从玻璃材质切换到常规材质后，不透明度 100 仍偏透明的问题。\n- 修复详情页换源弹窗关闭后仍收到列表更新，可能触发崩溃的问题。\n- 修复本地 EPUB 文件损坏或非标准 zip 时可能直接崩溃的问题。\n- 修复搜索、发现、分类/tag 普通列表简介被挤压、只显示一行或显示不一致的问题。\n- 修复 useWeb / useHtml / Markdown 简介在列表中没有提取主要文字的问题。\n- 修复发现列表更新时部分书籍字段没有同步刷新的问题。\n- 修复快速滑动条点击误触、拖动不跟手、触发区域偏小和部分场景卡顿的问题。\n- 修复目录加载在部分低性能设备上过慢或短暂显示无目录的问题。\n- 修复正文日夜间切换后，部分已加载页面字体颜色没有同步变化的问题。\n- 修复透明封面在阴影和圆角裁剪下出现脏边、边框异常的问题。\n- 修复书籍预览卡片收回动画出现白色遮罩的问题。\n- 修复详情页等位置封面比例不正确时没有按书封比例裁剪的问题。\n- 修复气泡管理等设置页面在系统字体较大时，部分按钮文字下半部分被裁剪的问题。\n- 修复部分设置按钮没有正确跟随界面主题字体的问题。\n",
+    "downloadIds": [
+      "mr3karw534rq6c"
+    ]
+  },
+  {
     "id": "mr0q542mmxy3yu",
     "projectId": "mpwoxcif3y72eu",
     "version": "archive-v3-3.26.06301304",
@@ -716,6 +726,32 @@
     "changelog": "## 近期更新：\r\n1.Material Design 3 视觉改版，大量组件使用md3风格，更多圆角，更多色彩风格\r\n2.主题设置新增沉浸式操作栏开关，开启后顶栏和底栏透明并沉浸\r\n3.增加高亮功能，支持多种样式组合、批注式高亮和规则高亮(正则/关键词)\r\n4.书架管理支持批量定时更新\r\n",
     "downloadIds": [
       "mqdzx9wsjzdo0s"
+    ]
+  },
+  {
+    "id": "mr3katabhxov4w",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.13-beta.40",
+    "publishedAt": "2026-07-01T16:07:17Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\n### [发布页](https://t.me/materado)\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\n\n### 更新内容\n\n* chore(deps): update dependencies and adapt Miuix 0.9.2\n* fix: 颜色\n* fix(search): avoid restarting completed search\n* fix(read): 修复阅读菜单与高亮规则功能\n* refactor(bookshelf): simplify scroll-to-top handling\n* fix: AppLogSheet show=false 时不加载日志",
+    "downloadIds": [
+      "mr3katabnfgdv4",
+      "mr3katabuwqo4k",
+      "mr3katab752un4",
+      "mr3katab0odc7i"
+    ]
+  },
+  {
+    "id": "mr3katab63xwbf",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.13-beta.39",
+    "publishedAt": "2026-07-01T15:47:57Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\n### [发布页](https://t.me/materado)\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\n\n### 更新内容\n\n* fix:开了折叠应用栏后下拉刷新的问题 (#1629)\n* fix:背景图片选择器用GetContent以支持浏览选项 (#1630)\n* fix:阅读界面软键盘弹起后导致重新排版的问题 (#1632)\n* perf: 冷却判断挪到onResume以减少传感器注册 (#1633)",
+    "downloadIds": [
+      "mr3katab91kjl0",
+      "mr3katab2insf1",
+      "mr3katab94tl27",
+      "mr3katabrxfyei"
     ]
   },
   {

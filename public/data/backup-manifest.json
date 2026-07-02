@@ -3,29 +3,24 @@
     {
       "category": "阅读",
       "project": "阅读_Archive",
-      "versionDir": "阅读/阅读_Archive/2026-06-30_archive-v3-3.26.06301304",
+      "versionDir": "阅读/阅读_Archive/2026-07-01_archive-v3-3.26.07012317",
       "files": [
         {
-          "name": "legado-arm64-v8a_app_3.26.06301304_29713264.apk",
-          "size": 38902169.6,
-          "url": "/SoftwareHub/阅读/阅读_Archive/2026-06-30_archive-v3-3.26.06301304/legado-arm64-v8a_app_3.26.06301304_29713264.apk"
+          "name": "legado-arm64-v8a_app_3.26.07012317_29715317.apk",
+          "size": 39426457.6,
+          "url": "/SoftwareHub/阅读/阅读_Archive/2026-07-01_archive-v3-3.26.07012317/legado-arm64-v8a_app_3.26.07012317_29715317.apk"
         }
       ]
     },
     {
       "category": "阅读",
       "project": "阅读_Archive",
-      "versionDir": "阅读/阅读_Archive/2026-06-26_archive-v3-3.26.06262133",
+      "versionDir": "阅读/阅读_Archive/2026-06-30_archive-v3-3.26.06301304",
       "files": [
         {
-          "name": "legado-arm64-v8a_app_3.26.06262133_29708013.apk",
+          "name": "legado-arm64-v8a_app_3.26.06301304_29713264.apk",
           "size": 38902169.6,
-          "url": "/SoftwareHub/阅读/阅读_Archive/2026-06-26_archive-v3-3.26.06262133/legado-arm64-v8a_app_3.26.06262133_29708013.apk"
-        },
-        {
-          "name": "legado-armeabi-v7a_app_3.26.06262133_29708013.apk",
-          "size": 38797312,
-          "url": "/SoftwareHub/阅读/阅读_Archive/2026-06-26_archive-v3-3.26.06262133/legado-armeabi-v7a_app_3.26.06262133_29708013.apk"
+          "url": "/SoftwareHub/阅读/阅读_Archive/2026-06-30_archive-v3-3.26.06301304/legado-arm64-v8a_app_3.26.06301304_29713264.apk"
         }
       ]
     },
@@ -118,54 +113,54 @@
     {
       "category": "阅读",
       "project": "阅读_MD3",
-      "versionDir": "阅读/阅读_MD3/2026-06-30_3.26.13-beta.38",
+      "versionDir": "阅读/阅读_MD3/2026-07-01_3.26.13-beta.40",
       "files": [
         {
-          "name": "legado-3.26.13-beta.38-arm64-v8a.apk",
-          "size": 17825792,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-06-30_3.26.13-beta.38/legado-3.26.13-beta.38-arm64-v8a.apk"
+          "name": "legado-3.26.13-beta.40-arm64-v8a.apk",
+          "size": 17930649.6,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-01_3.26.13-beta.40/legado-3.26.13-beta.40-arm64-v8a.apk"
         },
         {
-          "name": "legado-3.26.13-beta.38-armeabi-v7a.apk",
-          "size": 17406361.6,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-06-30_3.26.13-beta.38/legado-3.26.13-beta.38-armeabi-v7a.apk"
+          "name": "legado-3.26.13-beta.40-armeabi-v7a.apk",
+          "size": 17511219.2,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-01_3.26.13-beta.40/legado-3.26.13-beta.40-armeabi-v7a.apk"
         },
         {
-          "name": "legado-3.26.13-beta.38.apk",
-          "size": 24431820.8,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-06-30_3.26.13-beta.38/legado-3.26.13-beta.38.apk"
+          "name": "legado-3.26.13-beta.40.apk",
+          "size": 24536678.4,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-01_3.26.13-beta.40/legado-3.26.13-beta.40.apk"
         },
         {
           "name": "mapping.txt",
-          "size": 225024409.6,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-06-30_3.26.13-beta.38/mapping.txt"
+          "size": 225863270.4,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-01_3.26.13-beta.40/mapping.txt"
         }
       ]
     },
     {
       "category": "阅读",
       "project": "阅读_MD3",
-      "versionDir": "阅读/阅读_MD3/2026-06-30_3.26.13-beta.37",
+      "versionDir": "阅读/阅读_MD3/2026-07-01_3.26.13-beta.39",
       "files": [
         {
-          "name": "legado-3.26.13-beta.37-arm64-v8a.apk",
+          "name": "legado-3.26.13-beta.39-arm64-v8a.apk",
           "size": 17825792,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-06-30_3.26.13-beta.37/legado-3.26.13-beta.37-arm64-v8a.apk"
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-01_3.26.13-beta.39/legado-3.26.13-beta.39-arm64-v8a.apk"
         },
         {
-          "name": "legado-3.26.13-beta.37-armeabi-v7a.apk",
-          "size": 17301504,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-06-30_3.26.13-beta.37/legado-3.26.13-beta.37-armeabi-v7a.apk"
+          "name": "legado-3.26.13-beta.39-armeabi-v7a.apk",
+          "size": 17406361.6,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-01_3.26.13-beta.39/legado-3.26.13-beta.39-armeabi-v7a.apk"
         },
         {
-          "name": "legado-3.26.13-beta.37.apk",
-          "size": 24326963.2,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-06-30_3.26.13-beta.37/legado-3.26.13-beta.37.apk"
+          "name": "legado-3.26.13-beta.39.apk",
+          "size": 24431820.8,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-01_3.26.13-beta.39/legado-3.26.13-beta.39.apk"
         },
         {
           "name": "mapping.txt",
-          "size": 224080691.2,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-06-30_3.26.13-beta.37/mapping.txt"
+          "size": 225129267.2,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-01_3.26.13-beta.39/mapping.txt"
         }
       ]
     },
@@ -1836,6 +1831,23 @@
     {
       "category": "游戏",
       "project": "GameNative_游戏模拟器",
+      "versionDir": "游戏/GameNative_游戏模拟器/2026-07-01_v1.1.0",
+      "files": [
+        {
+          "name": "gamenative-v1.1.0-xr.apk",
+          "size": 562351308.8,
+          "url": "/SoftwareHub/游戏/GameNative_游戏模拟器/2026-07-01_v1.1.0/gamenative-v1.1.0-xr.apk"
+        },
+        {
+          "name": "gamenative-v1.1.0.apk",
+          "size": 562351308.8,
+          "url": "/SoftwareHub/游戏/GameNative_游戏模拟器/2026-07-01_v1.1.0/gamenative-v1.1.0.apk"
+        }
+      ]
+    },
+    {
+      "category": "游戏",
+      "project": "GameNative_游戏模拟器",
       "versionDir": "游戏/GameNative_游戏模拟器/2026-06-23_v1.1.0-prerelease",
       "files": [
         {
@@ -1849,19 +1861,7 @@
           "url": "/SoftwareHub/游戏/GameNative_游戏模拟器/2026-06-23_v1.1.0-prerelease/gamenative-v1.1.0-prerelease.apk"
         }
       ]
-    },
-    {
-      "category": "游戏",
-      "project": "GameNative_游戏模拟器",
-      "versionDir": "游戏/GameNative_游戏模拟器/2026-06-06_v1.0.0",
-      "files": [
-        {
-          "name": "gamenative-v1.0.0.apk",
-          "size": 561093017.6,
-          "url": "/SoftwareHub/游戏/GameNative_游戏模拟器/2026-06-06_v1.0.0/gamenative-v1.0.0.apk"
-        }
-      ]
     }
   ],
-  "updatedAt": "2026-07-01T18:22:38.327Z"
+  "updatedAt": "2026-07-02T17:24:01.842Z"
 }

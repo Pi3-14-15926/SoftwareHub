@@ -729,6 +729,19 @@
     ]
   },
   {
+    "id": "mr4zv9i1vnissm",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.13-beta.41",
+    "publishedAt": "2026-07-02T15:50:30Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\n### [发布页](https://t.me/materado)\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\n\n### 更新内容\n\n* fix: 主页模块加载进搜索书籍数据库\n* fix: 主题相关\n* fix: 优化书籍详情封面主题与背景\n* fix(rules): reset edit sheets between additions\n* fix bookshelf scroll-to-top request handling\n* fix(read): 修复阅读设置状态与规则操作",
+    "downloadIds": [
+      "mr4zv9i1hnbfvc",
+      "mr4zv9i1wlgxe3",
+      "mr4zv9i1q5c90e",
+      "mr4zv9i2g5csm9"
+    ]
+  },
+  {
     "id": "mr3katabhxov4w",
     "projectId": "mpwouieuddbq2d",
     "version": "3.26.13-beta.40",

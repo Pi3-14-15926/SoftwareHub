@@ -422,6 +422,24 @@
     ]
   },
   {
+    "id": "mr4zvg3fyeafaj",
+    "projectId": "mpzjkpvzeuh3zl",
+    "version": "2.1.8",
+    "publishedAt": "2026-07-02T13:54:11Z",
+    "changelog": "- 新增 4:3 画面比例模式 (#2240) (@Predidit)\r\n- 桌面端播放器现在会记忆音量与静音状态 (#1599 #2046) (@liangyuR)\r\n- 长按倍速现在会跟随默认方向键/长按倍速设置 (#2248) (@UzawaReisaQwQ)\r\n- 改进特殊集数的识别与切集体验 (@liangyuR)\r\n- 改进弹幕时间偏移设置与相关底部面板 (@Predidit)\r\n- 调整 Android 默认硬件解码器为 MediaCodec，并升级播放组件 (@Predidit)\r\n- 修复部分地区Github规则镜像不生效的问题 (@Predidit)\r\n- 修复特定情况下多次快进可能导致弹幕冻结的问题 (@Predidit)\r\n- 优化项目文档 (@ChouChiu)",
+    "downloadIds": [
+      "mr4zvg3fydg5pb",
+      "mr4zvg3fu9mcwc",
+      "mr4zvg3f1nsh12",
+      "mr4zvg3f5umlve",
+      "mr4zvg3fd3b483",
+      "mr4zvg3f42jeoj",
+      "mr4zvg3fi4m5ao",
+      "mr4zvg3fpnhvj8",
+      "mr4zvg3flh6zc2"
+    ]
+  },
+  {
     "id": "mqtlel4p8nmql7",
     "projectId": "mpzjkpvzeuh3zl",
     "version": "2.1.7",

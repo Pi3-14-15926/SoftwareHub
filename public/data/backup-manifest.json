@@ -1202,34 +1202,24 @@
     {
       "category": "音乐",
       "project": "SaltPlayer_椒盐音乐",
-      "versionDir": "音乐/SaltPlayer_椒盐音乐/2026-06-28_12.1.0-beta01",
+      "versionDir": "音乐/SaltPlayer_椒盐音乐/2026-07-03_12.1.0",
       "files": [
         {
-          "name": "12.1.0-beta01-2026062801-official-arm64-v8a.apk",
+          "name": "12.1.0-2026070208-official-arm64-v8a.apk",
           "size": 12163481.6,
-          "url": "/SoftwareHub/音乐/SaltPlayer_椒盐音乐/2026-06-28_12.1.0-beta01/12.1.0-beta01-2026062801-official-arm64-v8a.apk"
+          "url": "/SoftwareHub/音乐/SaltPlayer_椒盐音乐/2026-07-03_12.1.0/12.1.0-2026070208-official-arm64-v8a.apk"
         }
       ]
     },
     {
       "category": "音乐",
       "project": "SaltPlayer_椒盐音乐",
-      "versionDir": "音乐/SaltPlayer_椒盐音乐/2026-06-18_12.0.0",
+      "versionDir": "音乐/SaltPlayer_椒盐音乐/2026-06-28_12.1.0-beta01",
       "files": [
         {
-          "name": "12.0.0-2026061801-moriafly-arm64-v8a.apk",
-          "size": 11639193.6,
-          "url": "/SoftwareHub/音乐/SaltPlayer_椒盐音乐/2026-06-18_12.0.0/12.0.0-2026061801-moriafly-arm64-v8a.apk"
-        },
-        {
-          "name": "12.0.0-2026061801-moriafly-armeabi-v7a.apk",
-          "size": 12268339.2,
-          "url": "/SoftwareHub/音乐/SaltPlayer_椒盐音乐/2026-06-18_12.0.0/12.0.0-2026061801-moriafly-armeabi-v7a.apk"
-        },
-        {
-          "name": "12.0.0-2026061801-official-arm64-v8a.apk",
-          "size": 11219763.2,
-          "url": "/SoftwareHub/音乐/SaltPlayer_椒盐音乐/2026-06-18_12.0.0/12.0.0-2026061801-official-arm64-v8a.apk"
+          "name": "12.1.0-beta01-2026062801-official-arm64-v8a.apk",
+          "size": 12163481.6,
+          "url": "/SoftwareHub/音乐/SaltPlayer_椒盐音乐/2026-06-28_12.1.0-beta01/12.1.0-beta01-2026062801-official-arm64-v8a.apk"
         }
       ]
     },
@@ -1863,5 +1853,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-07-03T18:32:51.130Z"
+  "updatedAt": "2026-07-04T17:10:14.674Z"
 }

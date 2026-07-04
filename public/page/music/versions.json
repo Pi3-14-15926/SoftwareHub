@@ -1603,6 +1603,16 @@
     ]
   },
   {
+    "id": "mr6dy68cj9kty5",
+    "projectId": "mqdzae23et9isy",
+    "version": "12.1.0",
+    "publishedAt": "2026-07-03T15:19:57Z",
+    "changelog": "*对比 12.0.0-release-2026061801\r\n新增 Audiophile Pack 拓展包（独立购买）\r\n新增 USB 独占模式，支持 DAC 硬件音量控制、采样率兼容回退、多声道下混 / 直通切换、实时源位深检测与诊断反馈（Audiophile Pack 解锁）\r\n新增无间隙播放支持（支持 AudioTrack / OpenSL ES / AAudio / USB 独占模式，不支持 Direct）\r\n新增悬浮窗状态栏歌词支持逐字动画\r\n新增悬浮窗状态栏歌词文本描边功能（默认开启）\r\n优化悬浮窗状态栏歌词上下位置范围最大到 200 像素\r\n优化对 EAC3、AC4 的 Codec 信息、比特率读取\r\n优化动态流光性能，减少闪烁的感觉\r\n优化一些界面的手势滚动体验\r\n优化一些 UI 组件、导航\r\n修复意外的删除音乐崩溃的问题\r\n修复一些存在内存泄露问题\r\n修复一些其他问题",
+    "downloadIds": [
+      "mr6dy68c2aa2th"
+    ]
+  },
+  {
     "id": "mr0q5cdhn070sx",
     "projectId": "mqdzae23et9isy",
     "version": "12.1.0-beta01",

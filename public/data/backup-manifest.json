@@ -3,24 +3,24 @@
     {
       "category": "阅读",
       "project": "阅读_Archive",
-      "versionDir": "阅读/阅读_Archive/2026-07-01_archive-v3-3.26.07012317",
+      "versionDir": "阅读/阅读_Archive/2026-07-04_archive-v3-3.26.07050004",
       "files": [
         {
-          "name": "legado-arm64-v8a_app_3.26.07012317_29715317.apk",
-          "size": 39426457.6,
-          "url": "/SoftwareHub/阅读/阅读_Archive/2026-07-01_archive-v3-3.26.07012317/legado-arm64-v8a_app_3.26.07012317_29715317.apk"
+          "name": "legado-arm64-v8a_app_3.26.07050004_29719684.apk",
+          "size": 39636172.8,
+          "url": "/SoftwareHub/阅读/阅读_Archive/2026-07-04_archive-v3-3.26.07050004/legado-arm64-v8a_app_3.26.07050004_29719684.apk"
         }
       ]
     },
     {
       "category": "阅读",
       "project": "阅读_Archive",
-      "versionDir": "阅读/阅读_Archive/2026-06-30_archive-v3-3.26.06301304",
+      "versionDir": "阅读/阅读_Archive/2026-07-01_archive-v3-3.26.07012317",
       "files": [
         {
-          "name": "legado-arm64-v8a_app_3.26.06301304_29713264.apk",
-          "size": 38902169.6,
-          "url": "/SoftwareHub/阅读/阅读_Archive/2026-06-30_archive-v3-3.26.06301304/legado-arm64-v8a_app_3.26.06301304_29713264.apk"
+          "name": "legado-arm64-v8a_app_3.26.07012317_29715317.apk",
+          "size": 39426457.6,
+          "url": "/SoftwareHub/阅读/阅读_Archive/2026-07-01_archive-v3-3.26.07012317/legado-arm64-v8a_app_3.26.07012317_29715317.apk"
         }
       ]
     },
@@ -113,6 +113,33 @@
     {
       "category": "阅读",
       "project": "阅读_MD3",
+      "versionDir": "阅读/阅读_MD3/2026-07-04_3.26.13-beta.42",
+      "files": [
+        {
+          "name": "legado-3.26.13-beta.42-arm64-v8a.apk",
+          "size": 18035507.2,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-04_3.26.13-beta.42/legado-3.26.13-beta.42-arm64-v8a.apk"
+        },
+        {
+          "name": "legado-3.26.13-beta.42-armeabi-v7a.apk",
+          "size": 17616076.8,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-04_3.26.13-beta.42/legado-3.26.13-beta.42-armeabi-v7a.apk"
+        },
+        {
+          "name": "legado-3.26.13-beta.42.apk",
+          "size": 24641536,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-04_3.26.13-beta.42/legado-3.26.13-beta.42.apk"
+        },
+        {
+          "name": "mapping.txt",
+          "size": 228589568,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-04_3.26.13-beta.42/mapping.txt"
+        }
+      ]
+    },
+    {
+      "category": "阅读",
+      "project": "阅读_MD3",
       "versionDir": "阅读/阅读_MD3/2026-07-02_3.26.13-beta.41",
       "files": [
         {
@@ -134,33 +161,6 @@
           "name": "mapping.txt",
           "size": 226177843.2,
           "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-02_3.26.13-beta.41/mapping.txt"
-        }
-      ]
-    },
-    {
-      "category": "阅读",
-      "project": "阅读_MD3",
-      "versionDir": "阅读/阅读_MD3/2026-07-01_3.26.13-beta.40",
-      "files": [
-        {
-          "name": "legado-3.26.13-beta.40-arm64-v8a.apk",
-          "size": 17930649.6,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-01_3.26.13-beta.40/legado-3.26.13-beta.40-arm64-v8a.apk"
-        },
-        {
-          "name": "legado-3.26.13-beta.40-armeabi-v7a.apk",
-          "size": 17511219.2,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-01_3.26.13-beta.40/legado-3.26.13-beta.40-armeabi-v7a.apk"
-        },
-        {
-          "name": "legado-3.26.13-beta.40.apk",
-          "size": 24536678.4,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-01_3.26.13-beta.40/legado-3.26.13-beta.40.apk"
-        },
-        {
-          "name": "mapping.txt",
-          "size": 225863270.4,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-01_3.26.13-beta.40/mapping.txt"
         }
       ]
     },
@@ -1202,24 +1202,24 @@
     {
       "category": "音乐",
       "project": "SaltPlayer_椒盐音乐",
-      "versionDir": "音乐/SaltPlayer_椒盐音乐/2026-07-03_12.1.0",
+      "versionDir": "音乐/SaltPlayer_椒盐音乐/2026-07-05_12.1.1",
       "files": [
         {
-          "name": "12.1.0-2026070208-official-arm64-v8a.apk",
+          "name": "12.1.1-2026070502-official-arm64-v8a.apk",
           "size": 12163481.6,
-          "url": "/SoftwareHub/音乐/SaltPlayer_椒盐音乐/2026-07-03_12.1.0/12.1.0-2026070208-official-arm64-v8a.apk"
+          "url": "/SoftwareHub/音乐/SaltPlayer_椒盐音乐/2026-07-05_12.1.1/12.1.1-2026070502-official-arm64-v8a.apk"
         }
       ]
     },
     {
       "category": "音乐",
       "project": "SaltPlayer_椒盐音乐",
-      "versionDir": "音乐/SaltPlayer_椒盐音乐/2026-06-28_12.1.0-beta01",
+      "versionDir": "音乐/SaltPlayer_椒盐音乐/2026-07-03_12.1.0",
       "files": [
         {
-          "name": "12.1.0-beta01-2026062801-official-arm64-v8a.apk",
+          "name": "12.1.0-2026070208-official-arm64-v8a.apk",
           "size": 12163481.6,
-          "url": "/SoftwareHub/音乐/SaltPlayer_椒盐音乐/2026-06-28_12.1.0-beta01/12.1.0-beta01-2026062801-official-arm64-v8a.apk"
+          "url": "/SoftwareHub/音乐/SaltPlayer_椒盐音乐/2026-07-03_12.1.0/12.1.0-2026070208-official-arm64-v8a.apk"
         }
       ]
     },
@@ -1853,5 +1853,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-07-04T17:10:14.674Z"
+  "updatedAt": "2026-07-05T17:22:54.444Z"
 }

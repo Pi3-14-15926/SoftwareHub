@@ -1,5 +1,15 @@
 [
   {
+    "id": "mr7tmighecfxz2",
+    "projectId": "mpwoxcif3y72eu",
+    "version": "archive-v3-3.26.07050004",
+    "publishedAt": "2026-07-04T16:37:02Z",
+    "changelog": "阅读 Archive 摘录分享与段评气泡优化更新\n\n本次更新集中优化正文摘录分享、段评气泡、发现页加载、详情页快捷操作、缓存管理和部分稳定性问题。\n\n新增与调整：\n- 兼容 Reeden 分享模板，并新增正文摘录分享图片功能，支持模板管理、模板切换、预览、保存到相册和系统分享。\n- 新增段评气泡强制使用软件样式开关，可在正文菜单和气泡管理中控制。\n- 段评气泡模板新增 `displayText`、`displayColor` 字段支持。\n- 段评气泡模板占位符兼容 `$num`、`${num}`、`{{num}}`，颜色兼容 `$color`、`${color}`、`{{color}}`。\n- 新增缓存管理排序能力，支持按最后阅读等维度排序。\n- 详情页沉浸式快捷操作支持自定义部分按钮。\n- 优化发现页加载体验，优先展示缓存内容，减少进入发现页时的等待感。\n- 优化套件发现编辑页标签加载方式，减少一次性加载大量书源标签导致的卡顿。\n\n修复：\n- 修复数据库 Flow 在生命周期取消后可能抛异常的问题。\n- 修复搜索结果书籍类型缓存异常问题。\n- 修复发现、搜索、分类等普通列表信息展示不一致的问题。\n- 修复快速滑动条触摸区域和列表控件冲突的问题。\n- 修复换源弹窗背景过透明、可视性不足的问题，并恢复主题圆角表现。\n- 修复段评气泡首次显示为 `0`，刷新后才正常的问题。\n- 修复部分书源通过 JS 动态生成段评 SVG 时，无法正确提取数量的问题。\n- 修复部分番茄类书源段评无法被强制覆盖的问题。\n- 修复气泡模板替换时特殊字符可能导致生成异常的问题。\n- 修复部分界面主题启动和样式应用时的显示异常。\n",
+    "downloadIds": [
+      "mr7tmigha0usl1"
+    ]
+  },
+  {
     "id": "mr3karw5wjijrx",
     "projectId": "mpwoxcif3y72eu",
     "version": "archive-v3-3.26.07012317",
@@ -726,6 +736,19 @@
     "changelog": "## 近期更新：\r\n1.Material Design 3 视觉改版，大量组件使用md3风格，更多圆角，更多色彩风格\r\n2.主题设置新增沉浸式操作栏开关，开启后顶栏和底栏透明并沉浸\r\n3.增加高亮功能，支持多种样式组合、批注式高亮和规则高亮(正则/关键词)\r\n4.书架管理支持批量定时更新\r\n",
     "downloadIds": [
       "mqdzx9wsjzdo0s"
+    ]
+  },
+  {
+    "id": "mr7tmjyifgq7g0",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.13-beta.42",
+    "publishedAt": "2026-07-04T17:24:48Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\r\n### [发布页](https://t.me/materado)\r\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\r\n\r\n### 更新内容\r\n\r\n* refactor: 优化TXT目录规则预览页面\r\n* feat: AI总结和AI替换\r\n* fix: 修复规则预览中的 Toast 消息显示，优化规则列表索引\r\n* feat(ai): 添加AI对话、供应商、模型的删除功能\r\n* 增强所有界面无障碍体验\r\n* fix: 完善书籍详情封面背景与共享缓存\r\n* fix: 避免共享元素动画闪现默认封面文字\r\n* fix: 修复换源并增加书架冲突提示\r\n* feat(toc): 添加文本目录规则预览功能\r\n* refactor: 优化自动切换深浅色提醒功能\r\n* fix(rss): unify start pages with reader browser\r\n* perf: 解码图片指定colorspace为srgb\r\n\r\n## What's Changed\r\n* perf: 解码图片指定colorspace为srgb by @fansangg in https://github.com/HapeLee/legado-with-MD3/pull/1654\r\n* refactor: 优化自动切换深浅色提醒功能 by @fansangg in https://github.com/HapeLee/legado-with-MD3/pull/1659\r\n* feat(toc): 添加TXT目录规则预览功能 by @52fisher in https://github.com/HapeLee/legado-with-MD3/pull/1662\r\n* Enhance accessibility across all interfaces by @a328929 in https://github.com/HapeLee/legado-with-MD3/pull/1663\r\n\r\n## New Contributors\r\n* @52fisher made their first contribution in https://github.com/HapeLee/legado-with-MD3/pull/1662\r\n* @a328929 made their first contribution in https://github.com/HapeLee/legado-with-MD3/pull/1663\r\n\r\n**Full Changelog**: https://github.com/HapeLee/legado-with-MD3/compare/3.26.13-beta.41...3.26.13-beta.42",
+    "downloadIds": [
+      "mr7tmjyjgl8g2h",
+      "mr7tmjyjzjphkb",
+      "mr7tmjyjyp5t8f",
+      "mr7tmjyjvujyqd"
     ]
   },
   {

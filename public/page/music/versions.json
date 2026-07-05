@@ -1603,6 +1603,16 @@
     ]
   },
   {
+    "id": "mr7tmpaav4d6tu",
+    "projectId": "mqdzae23et9isy",
+    "version": "12.1.1",
+    "publishedAt": "2026-07-05T07:31:34Z",
+    "changelog": "优化 USB 独占后台稳定性\r\n修复 USB 独占模式下单曲循环在某些情况下可能卡住的问题\r\n修复音频信息对话框中 FLAC 格式编码显示异常的问题",
+    "downloadIds": [
+      "mr7tmpaaqkqf6r"
+    ]
+  },
+  {
     "id": "mr6dy68cj9kty5",
     "projectId": "mqdzae23et9isy",
     "version": "12.1.0",

@@ -1,5 +1,15 @@
 [
   {
+    "id": "mr9dcuvsabzczq",
+    "projectId": "mpwoxcif3y72eu",
+    "version": "archive-v3-3.26.07060213",
+    "publishedAt": "2026-07-05T18:45:39Z",
+    "changelog": "本次更新主要修复应用主题日夜配置、详情页简介显示、套件绑定、缓存目录、界面主题显示和部分正文图片兼容问题，并同步 luoyacheng 上游代码调整。\n\n新增与调整：\n- 界面主题新增“界面字体颜色”和“标题字体颜色”配置，方便统一控制页面文字显示。\n- 应用主题支持更完整地绑定界面主题、顶栏、底栏、封面等套件配置。\n- 手动应用顶栏、底栏、封面等套件后，会同步更新当前应用主题绑定关系。\n- 书架布局支持设置 0 行简介。\n- 封面设置新增是否显示书籍封面阴影开关，并加入设置搜索索引。\n- 气泡文件支持快速分享 zip 文件，并支持直链分享入口。\n- 段评气泡模板字段兼容性增强，支持 `displayText`、`displayColor`，并兼容 `$num`、`${num}`、`{{num}}`、`$color`、`${color}`、`{{color}}` 等写法。\n\n同步上游 luoyacheng：\n- 同步正文图片兼容处理，改善 JS 动态图片、DataURL 图片等场景的识别与加载。\n- 同步默认订阅源“源仓库”配置，更新发布页解析选择器。\n- 同步“源仓库”默认字段配置，包括缓存、Cookie、WebView 加载、预加载、日志等相关字段。\n- 同步默认订阅源“导入”地址调整。\n- 同步 WebDAV 阅读进度处理修正，避免同步进度时被单个条目提前中断。\n- 同步默认预下载章节数调整，默认值由 10 调整为 2。\n\n修复：\n- 修复导入应用主题后，修改日间界面主题可能影响夜间界面主题的问题。\n- 修复同名日间/夜间界面主题被错误覆盖的问题。\n- 修复应用主题应用时会改变当前日夜模式的问题。\n- 修复应用主题切换后，底栏、顶栏、封面等套件绑定不同步的问题。\n- 修复详情页普通简介在横屏切换后顶部出现异常空白的问题。\n- 修复缓存目录包含卷标时，目录读取和章节跳转可能异常的问题。\n- 修复从朗读页返回书架后，部分机型朗读可能被系统中断的问题。\n- 修复换源弹窗、跳转链接弹窗等部分弹窗背景过透明、可视性不足的问题。\n- 修复部分弹窗没有正确跟随主题圆角和背景样式的问题。\n- 修复书源管理等页面顶栏没有正确跟随界面主题字体的问题。\n- 修复部分页面文字颜色、标题颜色没有正确接入界面主题的问题。\n- 修复书籍预览卡片半透明背景下出现层叠亮块的问题。\n- 修复缓存管理等页面未统一使用书籍封面控件的问题。\n- 修复网格布局部分文字没有正确跟随主题字体颜色的问题。\n- 修复部分段评气泡首次显示数量为 0，刷新后才正常的问题。\n- 修复部分书源段评无法被强制覆盖的问题。",
+    "downloadIds": [
+      "mr9dcuvtehw6s2"
+    ]
+  },
+  {
     "id": "mr7tmighecfxz2",
     "projectId": "mpwoxcif3y72eu",
     "version": "archive-v3-3.26.07050004",
@@ -736,6 +746,19 @@
     "changelog": "## 近期更新：\r\n1.Material Design 3 视觉改版，大量组件使用md3风格，更多圆角，更多色彩风格\r\n2.主题设置新增沉浸式操作栏开关，开启后顶栏和底栏透明并沉浸\r\n3.增加高亮功能，支持多种样式组合、批注式高亮和规则高亮(正则/关键词)\r\n4.书架管理支持批量定时更新\r\n",
     "downloadIds": [
       "mqdzx9wsjzdo0s"
+    ]
+  },
+  {
+    "id": "mr9dcw9vatcmeg",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.13-beta.43",
+    "publishedAt": "2026-07-05T16:13:59Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\r\n### [发布页](https://t.me/materado)\r\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\r\n\r\n### 更新内容\r\n\r\n* fix: 修复备份恢复逻辑，补充遗漏实体的备份恢复\r\n* refactor: 阅读页面自定义样式直接同时显示背景颜色和背景图片选项\r\n* fix:一些UI问题修复\r\n* refactor: apply code review feedback for performance and deprecated API\r\n* 更新内容\r\n\r\n## What's Changed\r\n* 修复： 高亮规则使用：“[\\s\\S]*?”，对于分段了的句子，不能正确性适配，只能适配部分换行前的 by @a328929 in https://github.com/HapeLee/legado-with-MD3/pull/1667\r\n* fix:一些UI问题修复 by @fansangg in https://github.com/HapeLee/legado-with-MD3/pull/1670\r\n\r\n\r\n**Full Changelog**: https://github.com/HapeLee/legado-with-MD3/compare/3.26.13-beta.42...3.26.13-beta.43",
+    "downloadIds": [
+      "mr9dcw9voy8rwq",
+      "mr9dcw9vz6d83a",
+      "mr9dcw9vk3nabv",
+      "mr9dcw9vwuxc1f"
     ]
   },
   {

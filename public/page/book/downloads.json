@@ -1,5 +1,21 @@
 [
   {
+    "id": "mraqnxvh5ou2bf",
+    "versionId": "mraqnxvh617142",
+    "platform": "Android",
+    "filename": "legado-arm64-v8a_app_3.26.07071245_29723325.apk",
+    "size": "37.8 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.07071245/legado-arm64-v8a_app_3.26.07071245_29723325.apk"
+  },
+  {
+    "id": "mraqnxvhj27x78",
+    "versionId": "mraqnxvhin86l8",
+    "platform": "Android",
+    "filename": "legado-arm64-v8a_app_3.26.07062303_29722503.apk",
+    "size": "37.8 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.07062303/legado-arm64-v8a_app_3.26.07062303_29722503.apk"
+  },
+  {
     "id": "mr9dcuvtehw6s2",
     "versionId": "mr9dcuvsabzczq",
     "platform": "Android",

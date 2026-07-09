@@ -1365,6 +1365,58 @@
     {
       "category": "动漫",
       "project": "Kazumi",
+      "versionDir": "动漫/Kazumi/2026-07-09_2.2.0",
+      "files": [
+        {
+          "name": "Kazumi_android_2.2.0.apk",
+          "size": 31037849.6,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-07-09_2.2.0/Kazumi_android_2.2.0.apk"
+        },
+        {
+          "name": "Kazumi_ios_2.2.0_no_sign.ipa",
+          "size": 28101836.8,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-07-09_2.2.0/Kazumi_ios_2.2.0_no_sign.ipa"
+        },
+        {
+          "name": "Kazumi_linux_2.2.0_amd64.deb",
+          "size": 25165824,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-07-09_2.2.0/Kazumi_linux_2.2.0_amd64.deb"
+        },
+        {
+          "name": "Kazumi_linux_2.2.0_amd64.tar.gz",
+          "size": 29989273.6,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-07-09_2.2.0/Kazumi_linux_2.2.0_amd64.tar.gz"
+        },
+        {
+          "name": "Kazumi_linux_2.2.0_arm64.deb",
+          "size": 24431820.8,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-07-09_2.2.0/Kazumi_linux_2.2.0_arm64.deb"
+        },
+        {
+          "name": "Kazumi_linux_2.2.0_arm64.tar.gz",
+          "size": 29150412.8,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-07-09_2.2.0/Kazumi_linux_2.2.0_arm64.tar.gz"
+        },
+        {
+          "name": "Kazumi_macos_2.2.0.dmg",
+          "size": 53372518.4,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-07-09_2.2.0/Kazumi_macos_2.2.0.dmg"
+        },
+        {
+          "name": "Kazumi_windows_2.2.0.msix",
+          "size": 46661632,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-07-09_2.2.0/Kazumi_windows_2.2.0.msix"
+        },
+        {
+          "name": "Kazumi_windows_2.2.0.zip",
+          "size": 41733324.8,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-07-09_2.2.0/Kazumi_windows_2.2.0.zip"
+        }
+      ]
+    },
+    {
+      "category": "动漫",
+      "project": "Kazumi",
       "versionDir": "动漫/Kazumi/2026-07-02_2.1.8",
       "files": [
         {
@@ -1416,53 +1468,138 @@
     },
     {
       "category": "动漫",
-      "project": "Kazumi",
-      "versionDir": "动漫/Kazumi/2026-06-25_2.1.7",
+      "project": "Animeko",
+      "versionDir": "动漫/Animeko/2026-07-09_v5.7.1",
       "files": [
         {
-          "name": "Kazumi_android_2.1.7.apk",
-          "size": 30932992,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-06-25_2.1.7/Kazumi_android_2.1.7.apk"
+          "name": "ani-5.7.1-arm64-v8a.apk",
+          "size": 23802675.2,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1-arm64-v8a.apk"
         },
         {
-          "name": "Kazumi_ios_2.1.7_no_sign.ipa",
-          "size": 28311552,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-06-25_2.1.7/Kazumi_ios_2.1.7_no_sign.ipa"
+          "name": "ani-5.7.1-arm64-v8a.apk.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1-arm64-v8a.apk.sha1"
         },
         {
-          "name": "Kazumi_linux_2.1.7_amd64.deb",
-          "size": 25060966.4,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-06-25_2.1.7/Kazumi_linux_2.1.7_amd64.deb"
+          "name": "ani-5.7.1-armeabi-v7a.apk",
+          "size": 23278387.2,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1-armeabi-v7a.apk"
         },
         {
-          "name": "Kazumi_linux_2.1.7_amd64.tar.gz",
-          "size": 29884416,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-06-25_2.1.7/Kazumi_linux_2.1.7_amd64.tar.gz"
+          "name": "ani-5.7.1-armeabi-v7a.apk.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1-armeabi-v7a.apk.sha1"
         },
         {
-          "name": "Kazumi_linux_2.1.7_arm64.deb",
-          "size": 24326963.2,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-06-25_2.1.7/Kazumi_linux_2.1.7_arm64.deb"
+          "name": "ani-5.7.1-linux-x86_64.appimage",
+          "size": 266757734.4,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1-linux-x86_64.appimage"
         },
         {
-          "name": "Kazumi_linux_2.1.7_arm64.tar.gz",
-          "size": 29045555.2,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-06-25_2.1.7/Kazumi_linux_2.1.7_arm64.tar.gz"
+          "name": "ani-5.7.1-linux-x86_64.appimage.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1-linux-x86_64.appimage.sha1"
         },
         {
-          "name": "Kazumi_macos_2.1.7.dmg",
-          "size": 53162803.2,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-06-25_2.1.7/Kazumi_macos_2.1.7.dmg"
+          "name": "ani-5.7.1-macos-aarch64.dmg",
+          "size": 308176486.4,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1-macos-aarch64.dmg"
         },
         {
-          "name": "Kazumi_windows_2.1.7.msix",
-          "size": 46451916.8,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-06-25_2.1.7/Kazumi_windows_2.1.7.msix"
+          "name": "ani-5.7.1-macos-aarch64.dmg.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1-macos-aarch64.dmg.sha1"
         },
         {
-          "name": "Kazumi_windows_2.1.7.zip",
-          "size": 41628467.2,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-06-25_2.1.7/Kazumi_windows_2.1.7.zip"
+          "name": "ani-5.7.1-macos-x86_64.zip",
+          "size": 305345331.2,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1-macos-x86_64.zip"
+        },
+        {
+          "name": "ani-5.7.1-macos-x86_64.zip.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1-macos-x86_64.zip.sha1"
+        },
+        {
+          "name": "ani-5.7.1-universal.apk",
+          "size": 35651584,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1-universal.apk"
+        },
+        {
+          "name": "ani-5.7.1-universal.apk.cloudflare.qrcode.png",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1-universal.apk.cloudflare.qrcode.png"
+        },
+        {
+          "name": "ani-5.7.1-universal.apk.cloudflare.qrcode.png.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1-universal.apk.cloudflare.qrcode.png.sha1"
+        },
+        {
+          "name": "ani-5.7.1-universal.apk.github.qrcode.png",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1-universal.apk.github.qrcode.png"
+        },
+        {
+          "name": "ani-5.7.1-universal.apk.github.qrcode.png.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1-universal.apk.github.qrcode.png.sha1"
+        },
+        {
+          "name": "ani-5.7.1-universal.apk.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1-universal.apk.sha1"
+        },
+        {
+          "name": "ani-5.7.1-windows-x86_64.zip",
+          "size": 334390886.4,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1-windows-x86_64.zip"
+        },
+        {
+          "name": "ani-5.7.1-windows-x86_64.zip.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1-windows-x86_64.zip.sha1"
+        },
+        {
+          "name": "ani-5.7.1-x86_64.apk",
+          "size": 23907532.8,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1-x86_64.apk"
+        },
+        {
+          "name": "ani-5.7.1-x86_64.apk.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1-x86_64.apk.sha1"
+        },
+        {
+          "name": "ani-5.7.1.ipa",
+          "size": 30513561.6,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1.ipa"
+        },
+        {
+          "name": "ani-5.7.1.ipa.cloudflare.qrcode.png",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1.ipa.cloudflare.qrcode.png"
+        },
+        {
+          "name": "ani-5.7.1.ipa.cloudflare.qrcode.png.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1.ipa.cloudflare.qrcode.png.sha1"
+        },
+        {
+          "name": "ani-5.7.1.ipa.github.qrcode.png",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1.ipa.github.qrcode.png"
+        },
+        {
+          "name": "ani-5.7.1.ipa.github.qrcode.png.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1.ipa.github.qrcode.png.sha1"
+        },
+        {
+          "name": "ani-5.7.1.ipa.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-07-09_v5.7.1/ani-5.7.1.ipa.sha1"
         }
       ]
     },
@@ -1604,143 +1741,6 @@
       ]
     },
     {
-      "category": "动漫",
-      "project": "Animeko",
-      "versionDir": "动漫/Animeko/2026-06-21_v5.7.0-beta02",
-      "files": [
-        {
-          "name": "ani-5.7.0-beta02-arm64-v8a.apk",
-          "size": 23802675.2,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02-arm64-v8a.apk"
-        },
-        {
-          "name": "ani-5.7.0-beta02-arm64-v8a.apk.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02-arm64-v8a.apk.sha1"
-        },
-        {
-          "name": "ani-5.7.0-beta02-armeabi-v7a.apk",
-          "size": 23278387.2,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02-armeabi-v7a.apk"
-        },
-        {
-          "name": "ani-5.7.0-beta02-armeabi-v7a.apk.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02-armeabi-v7a.apk.sha1"
-        },
-        {
-          "name": "ani-5.7.0-beta02-linux-x86_64.appimage",
-          "size": 266757734.4,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02-linux-x86_64.appimage"
-        },
-        {
-          "name": "ani-5.7.0-beta02-linux-x86_64.appimage.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02-linux-x86_64.appimage.sha1"
-        },
-        {
-          "name": "ani-5.7.0-beta02-macos-aarch64.dmg",
-          "size": 308176486.4,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02-macos-aarch64.dmg"
-        },
-        {
-          "name": "ani-5.7.0-beta02-macos-aarch64.dmg.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02-macos-aarch64.dmg.sha1"
-        },
-        {
-          "name": "ani-5.7.0-beta02-macos-x86_64.zip",
-          "size": 305345331.2,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02-macos-x86_64.zip"
-        },
-        {
-          "name": "ani-5.7.0-beta02-macos-x86_64.zip.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02-macos-x86_64.zip.sha1"
-        },
-        {
-          "name": "ani-5.7.0-beta02-universal.apk",
-          "size": 35651584,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02-universal.apk"
-        },
-        {
-          "name": "ani-5.7.0-beta02-universal.apk.cloudflare.qrcode.png",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02-universal.apk.cloudflare.qrcode.png"
-        },
-        {
-          "name": "ani-5.7.0-beta02-universal.apk.cloudflare.qrcode.png.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02-universal.apk.cloudflare.qrcode.png.sha1"
-        },
-        {
-          "name": "ani-5.7.0-beta02-universal.apk.github.qrcode.png",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02-universal.apk.github.qrcode.png"
-        },
-        {
-          "name": "ani-5.7.0-beta02-universal.apk.github.qrcode.png.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02-universal.apk.github.qrcode.png.sha1"
-        },
-        {
-          "name": "ani-5.7.0-beta02-universal.apk.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02-universal.apk.sha1"
-        },
-        {
-          "name": "ani-5.7.0-beta02-windows-x86_64.zip",
-          "size": 334390886.4,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02-windows-x86_64.zip"
-        },
-        {
-          "name": "ani-5.7.0-beta02-windows-x86_64.zip.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02-windows-x86_64.zip.sha1"
-        },
-        {
-          "name": "ani-5.7.0-beta02-x86_64.apk",
-          "size": 23907532.8,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02-x86_64.apk"
-        },
-        {
-          "name": "ani-5.7.0-beta02-x86_64.apk.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02-x86_64.apk.sha1"
-        },
-        {
-          "name": "ani-5.7.0-beta02.ipa",
-          "size": 30513561.6,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02.ipa"
-        },
-        {
-          "name": "ani-5.7.0-beta02.ipa.cloudflare.qrcode.png",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02.ipa.cloudflare.qrcode.png"
-        },
-        {
-          "name": "ani-5.7.0-beta02.ipa.cloudflare.qrcode.png.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02.ipa.cloudflare.qrcode.png.sha1"
-        },
-        {
-          "name": "ani-5.7.0-beta02.ipa.github.qrcode.png",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02.ipa.github.qrcode.png"
-        },
-        {
-          "name": "ani-5.7.0-beta02.ipa.github.qrcode.png.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02.ipa.github.qrcode.png.sha1"
-        },
-        {
-          "name": "ani-5.7.0-beta02.ipa.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-06-21_v5.7.0-beta02/ani-5.7.0-beta02.ipa.sha1"
-        }
-      ]
-    },
-    {
       "category": "游戏",
       "project": "SteamTools",
       "versionDir": "游戏/SteamTools/2026-03-11_3.1.0",
@@ -1858,5 +1858,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-07-08T18:45:33.020Z"
+  "updatedAt": "2026-07-09T18:42:51.655Z"
 }

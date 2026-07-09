@@ -2306,6 +2306,78 @@
     "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
   },
   {
+    "id": "mrdmhd988hxkiq",
+    "versionId": "mrdmhd98wanini",
+    "platform": "Android",
+    "filename": "Kazumi_android_2.2.0.apk",
+    "size": "29.6 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.0/Kazumi_android_2.2.0.apk"
+  },
+  {
+    "id": "mrdmhd989d5dji",
+    "versionId": "mrdmhd98wanini",
+    "platform": "Other",
+    "filename": "Kazumi_ios_2.2.0_no_sign.ipa",
+    "size": "26.8 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.0/Kazumi_ios_2.2.0_no_sign.ipa"
+  },
+  {
+    "id": "mrdmhd98ljkk97",
+    "versionId": "mrdmhd98wanini",
+    "platform": "Linux",
+    "filename": "Kazumi_linux_2.2.0_amd64.deb",
+    "size": "24.0 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.0/Kazumi_linux_2.2.0_amd64.deb"
+  },
+  {
+    "id": "mrdmhd98wnhhvq",
+    "versionId": "mrdmhd98wanini",
+    "platform": "Linux",
+    "filename": "Kazumi_linux_2.2.0_amd64.tar.gz",
+    "size": "28.6 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.0/Kazumi_linux_2.2.0_amd64.tar.gz"
+  },
+  {
+    "id": "mrdmhd98mgf92y",
+    "versionId": "mrdmhd98wanini",
+    "platform": "Linux",
+    "filename": "Kazumi_linux_2.2.0_arm64.deb",
+    "size": "23.3 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.0/Kazumi_linux_2.2.0_arm64.deb"
+  },
+  {
+    "id": "mrdmhd98pwdouk",
+    "versionId": "mrdmhd98wanini",
+    "platform": "Linux",
+    "filename": "Kazumi_linux_2.2.0_arm64.tar.gz",
+    "size": "27.8 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.0/Kazumi_linux_2.2.0_arm64.tar.gz"
+  },
+  {
+    "id": "mrdmhd980agoxa",
+    "versionId": "mrdmhd98wanini",
+    "platform": "MacOS",
+    "filename": "Kazumi_macos_2.2.0.dmg",
+    "size": "50.9 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.0/Kazumi_macos_2.2.0.dmg"
+  },
+  {
+    "id": "mrdmhd98jby0x8",
+    "versionId": "mrdmhd98wanini",
+    "platform": "Windows",
+    "filename": "Kazumi_windows_2.2.0.msix",
+    "size": "44.5 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.0/Kazumi_windows_2.2.0.msix"
+  },
+  {
+    "id": "mrdmhd98co8r9m",
+    "versionId": "mrdmhd98wanini",
+    "platform": "Windows",
+    "filename": "Kazumi_windows_2.2.0.zip",
+    "size": "39.8 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.0/Kazumi_windows_2.2.0.zip"
+  },
+  {
     "id": "mr4zvg3fydg5pb",
     "versionId": "mr4zvg3fyeafaj",
     "platform": "Android",
@@ -3920,6 +3992,214 @@
     "url": "https://github.com/Predidit/Kazumi/releases/download/1.9.3/Kazumi_windows_1.9.3.zip",
     "downloadCount": 27401,
     "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
+  },
+  {
+    "id": "mrdmhe15v2dhlf",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Android",
+    "filename": "ani-5.7.1-arm64-v8a.apk",
+    "size": "22.7 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1-arm64-v8a.apk"
+  },
+  {
+    "id": "mrdmhe1548b3ij",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Android",
+    "filename": "ani-5.7.1-arm64-v8a.apk.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1-arm64-v8a.apk.sha1"
+  },
+  {
+    "id": "mrdmhe15jhqm7i",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Android",
+    "filename": "ani-5.7.1-armeabi-v7a.apk",
+    "size": "22.2 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrdmhe15lxx520",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Android",
+    "filename": "ani-5.7.1-armeabi-v7a.apk.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1-armeabi-v7a.apk.sha1"
+  },
+  {
+    "id": "mrdmhe15t4xu19",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Linux",
+    "filename": "ani-5.7.1-linux-x86_64.appimage",
+    "size": "254.4 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1-linux-x86_64.appimage"
+  },
+  {
+    "id": "mrdmhe1517zg5y",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Linux",
+    "filename": "ani-5.7.1-linux-x86_64.appimage.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1-linux-x86_64.appimage.sha1"
+  },
+  {
+    "id": "mrdmhe15czzwlu",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "MacOS",
+    "filename": "ani-5.7.1-macos-aarch64.dmg",
+    "size": "293.9 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1-macos-aarch64.dmg"
+  },
+  {
+    "id": "mrdmhe15qz4538",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "MacOS",
+    "filename": "ani-5.7.1-macos-aarch64.dmg.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1-macos-aarch64.dmg.sha1"
+  },
+  {
+    "id": "mrdmhe15khwrpp",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "MacOS",
+    "filename": "ani-5.7.1-macos-x86_64.zip",
+    "size": "291.2 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1-macos-x86_64.zip"
+  },
+  {
+    "id": "mrdmhe1562tq9n",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "MacOS",
+    "filename": "ani-5.7.1-macos-x86_64.zip.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1-macos-x86_64.zip.sha1"
+  },
+  {
+    "id": "mrdmhe15qwehy2",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Android",
+    "filename": "ani-5.7.1-universal.apk",
+    "size": "34.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1-universal.apk"
+  },
+  {
+    "id": "mrdmhe158gl6yg",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Android",
+    "filename": "ani-5.7.1-universal.apk.cloudflare.qrcode.png",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1-universal.apk.cloudflare.qrcode.png"
+  },
+  {
+    "id": "mrdmhe15l8d6wv",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Android",
+    "filename": "ani-5.7.1-universal.apk.cloudflare.qrcode.png.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1-universal.apk.cloudflare.qrcode.png.sha1"
+  },
+  {
+    "id": "mrdmhe15byoj50",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Android",
+    "filename": "ani-5.7.1-universal.apk.github.qrcode.png",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1-universal.apk.github.qrcode.png"
+  },
+  {
+    "id": "mrdmhe15xzhugh",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Android",
+    "filename": "ani-5.7.1-universal.apk.github.qrcode.png.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1-universal.apk.github.qrcode.png.sha1"
+  },
+  {
+    "id": "mrdmhe15a8evwl",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Android",
+    "filename": "ani-5.7.1-universal.apk.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1-universal.apk.sha1"
+  },
+  {
+    "id": "mrdmhe153s1665",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Windows",
+    "filename": "ani-5.7.1-windows-x86_64.zip",
+    "size": "318.9 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1-windows-x86_64.zip"
+  },
+  {
+    "id": "mrdmhe1559vcfk",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Windows",
+    "filename": "ani-5.7.1-windows-x86_64.zip.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1-windows-x86_64.zip.sha1"
+  },
+  {
+    "id": "mrdmhe15py6n12",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Android",
+    "filename": "ani-5.7.1-x86_64.apk",
+    "size": "22.8 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1-x86_64.apk"
+  },
+  {
+    "id": "mrdmhe15a52kln",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Android",
+    "filename": "ani-5.7.1-x86_64.apk.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1-x86_64.apk.sha1"
+  },
+  {
+    "id": "mrdmhe15ed2nje",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Other",
+    "filename": "ani-5.7.1.ipa",
+    "size": "29.1 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1.ipa"
+  },
+  {
+    "id": "mrdmhe1513q3we",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Other",
+    "filename": "ani-5.7.1.ipa.cloudflare.qrcode.png",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1.ipa.cloudflare.qrcode.png"
+  },
+  {
+    "id": "mrdmhe15tz4nqh",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Other",
+    "filename": "ani-5.7.1.ipa.cloudflare.qrcode.png.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1.ipa.cloudflare.qrcode.png.sha1"
+  },
+  {
+    "id": "mrdmhe15gw1m4o",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Other",
+    "filename": "ani-5.7.1.ipa.github.qrcode.png",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1.ipa.github.qrcode.png"
+  },
+  {
+    "id": "mrdmhe15ngowio",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Other",
+    "filename": "ani-5.7.1.ipa.github.qrcode.png.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1.ipa.github.qrcode.png.sha1"
+  },
+  {
+    "id": "mrdmhe15tgpavd",
+    "versionId": "mrdmhe15nwtfry",
+    "platform": "Other",
+    "filename": "ani-5.7.1.ipa.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v5.7.1/ani-5.7.1.ipa.sha1"
   },
   {
     "id": "mr0q5ejvfi46u0",

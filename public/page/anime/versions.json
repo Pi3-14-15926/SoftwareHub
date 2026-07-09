@@ -422,6 +422,24 @@
     ]
   },
   {
+    "id": "mrdmhd98wanini",
+    "projectId": "mpzjkpvzeuh3zl",
+    "version": "2.2.0",
+    "publishedAt": "2026-07-09T14:36:25Z",
+    "changelog": "- 新增API规则支持 (@Predidit)\r\n- 新增 Windows 平台系统代理支持 (@Predidit)\r\n- 修复历史记录较多时应用启动卡顿的问题 (#2293) (#2233) (@Predidit)\r\n- 修复已经已完播剧集重复观看从结尾处开始的问题 (#2222) (@Predidit)\r\n- 修复部分 Android 设备硬件解码不生效的问题 (@Predidit)\r\n- 修复特定情况下播放器控制面板不会自动隐藏的问题 (@liangyuR)\r\n- 修复部分地区规则仓库镜像不可用的问题 (@Predidit)\r\n- 修复HTTP站点不可用的问题 (#2292) (@Predidit)\r\n- 更多的播放器控制面板动效 (@LiggMax)\r\n- 其他代码结构调整 (@Predidit)",
+    "downloadIds": [
+      "mrdmhd988hxkiq",
+      "mrdmhd989d5dji",
+      "mrdmhd98ljkk97",
+      "mrdmhd98wnhhvq",
+      "mrdmhd98mgf92y",
+      "mrdmhd98pwdouk",
+      "mrdmhd980agoxa",
+      "mrdmhd98jby0x8",
+      "mrdmhd98co8r9m"
+    ]
+  },
+  {
     "id": "mr4zvg3fyeafaj",
     "projectId": "mpzjkpvzeuh3zl",
     "version": "2.1.8",
@@ -793,6 +811,41 @@
       "mqdzxh87pvokj8",
       "mqdzxh8f3kewep",
       "mqdzxh8nfz3k2q"
+    ]
+  },
+  {
+    "id": "mrdmhe15nwtfry",
+    "projectId": "mpzjjzg2ylm14p",
+    "version": "v5.7.1",
+    "publishedAt": "2026-07-09T01:17:21Z",
+    "changelog": "- 修复集合列表海报不显示的问题 (#3123 by @proffitteoy)\r\n\r\n----\r\n\r\n**Full Changelog**: https://github.com/open-ani/animeko/compare/v5.7.0...v5.7.1\r\n\r\n[//]: # (ANI-SERVER-MAGIC-SEPARATOR)\r\n\r\n[//]: # (注意: api server 依赖这个特殊分隔符)\r\n\r\n[//]: # (对于所有可用的变量列表, 参考 CI release.yml 的 step release-notes)\r\n\r\n[github-win-x64]: https://github.com/open-ani/ani/releases/download/v5.7.1/ani-5.7.1-windows-x86_64.zip\r\n\r\n[github-mac-x64]: https://github.com/open-ani/ani/releases/download/v5.7.1/ani-5.7.1-macos-x86_64.dmg\r\n\r\n[github-mac-aarch64]: https://github.com/open-ani/ani/releases/download/v5.7.1/ani-5.7.1-macos-aarch64.dmg\r\n\r\n[github-android]: https://github.com/open-ani/ani/releases/download/v5.7.1/ani-5.7.1-universal.apk\r\n\r\n[github-android-arm64-v8a]: https://github.com/open-ani/ani/releases/download/v5.7.1/ani-5.7.1-arm64-v8a.apk\r\n\r\n[github-android-armeabi-v7a]: https://github.com/open-ani/ani/releases/download/v5.7.1/ani-5.7.1-armeabi-v7a.apk\r\n\r\n[github-android-x86_64]: https://github.com/open-ani/ani/releases/download/v5.7.1/ani-5.7.1-x86_64.apk\r\n\r\n[cf-win-x64]: https://d.myani.org/v5.7.1/ani-5.7.1-windows-x86_64.zip\r\n\r\n[cf-linux-x64]: https://d.myani.org/v5.7.1/ani-5.7.1-linux-x86_64.appimage\r\n\r\n[cf-mac-x64]: https://d.myani.org/v5.7.1/ani-5.7.1-macos-x86_64.zip\r\n\r\n[cf-mac-aarch64]: https://d.myani.org/v5.7.1/ani-5.7.1-macos-aarch64.dmg\r\n\r\n[cf-ios]: https://d.myani.org/v5.7.1/ani-5.7.1.ipa\r\n\r\n[cf-android]: https://d.myani.org/v5.7.1/ani-5.7.1-universal.apk\r\n\r\n[cf-android-arm64-v8a]: https://d.myani.org/v5.7.1/ani-5.7.1-arm64-v8a.apk\r\n\r\n[cf-android-armeabi-v7a]: https://d.myani.org/v5.7.1/ani-5.7.1-armeabi-v7a.apk\r\n\r\n[cf-android-x86_64]: https://d.myani.org/v5.7.1/ani-5.7.1-x86_64.apk\r\n\r\n[ghproxy-win-x64]: https://ghfast.top/?q=https%3A%2F%2Fgithub.com%2Fopen-ani%2Fani%2Freleases%2Fdownload%2Fv5.7.1%2Fani-5.7.1-windows-x86_64.zip\r\n\r\n[ghproxy-mac-x64]: https://ghfast.top/?q=https%3A%2F%2Fgithub.com%2Fopen-ani%2Fani%2Freleases%2Fdownload%2Fv5.7.1%2Fani-5.7.1-macos-x86_64.zip\r\n\r\n[ghproxy-linux-x64]: https://ghfast.top/?q=https%3A%2F%2Fgithub.com%2Fopen-ani%2Fani%2Freleases%2Fdownload%2Fv5.7.1%2Fani-5.7.1-linux-x86_64.appimage\r\n\r\n[ghproxy-mac-aarch64]: https://ghfast.top/?q=https%3A%2F%2Fgithub.com%2Fopen-ani%2Fani%2Freleases%2Fdownload%2Fv5.7.1%2Fani-5.7.1-macos-aarch64.dmg\r\n\r\n[ghproxy-ios]: https://ghfast.top/?q=https%3A%2F%2Fgithub.com%2Fopen-ani%2Fani%2Freleases%2Fdownload%2Fv5.7.1%2Fani-5.7.1.ios\r\n\r\n[ghproxy-android]: https://ghfast.top/?q=https%3A%2F%2Fgithub.com%2Fopen-ani%2Fani%2Freleases%2Fdownload%2Fv5.7.1%2Fani-5.7.1-universal.apk\r\n\r\n[ghproxy-android-arm64-v8a]: https://ghfast.top/?q=https%3A%2F%2Fgithub.com%2Fopen-ani%2Fani%2Freleases%2Fdownload%2Fv5.7.1%2Fani-5.7.1-arm64-v8a.apk\r\n\r\n[ghproxy-android-armeabi-v7a]: https://ghfast.top/?q=https%3A%2F%2Fgithub.com%2Fopen-ani%2Fani%2Freleases%2Fdownload%2Fv5.7.1%2Fani-5.7.1-armeabi-v7a.apk\r\n\r\n[ghproxy-android-x86_64]: https://ghfast.top/?q=https%3A%2F%2Fgithub.com%2Fopen-ani%2Fani%2Freleases%2Fdownload%2Fv5.7.1%2Fani-5.7.1-x86_64.apk\r\n\r\n[macOS 无法打开解决方案]: https://myani.org/wiki/macos-unable-to-open\r\n\r\n[Windows下字体与背景颜色异常解决方案]: https://myani.org/wiki/windows-font-bg-color-issue\r\n\r\n[Linux 安装说明]: https://myani.org/wiki/linux-install\r\n\r\n[macOS Intel芯片版本安装教程]: https://myani.org/wiki/macos-intel-install\r\n\r\n[macos-intel-issue]: https://github.com/open-ani/animeko/issues/1345\r\n\r\n[linux-issue]: https://github.com/open-ani/animeko/issues/944\r\n\r\n[iOS 自签]: https://myani.org/wiki/ios-install\r\n\r\n|                  | 下载                                               | 常见问题                                        |\r\n|------------------|--------------------------------------------------|---------------------------------------------|\r\n| 安卓 手机/平板         | [主线][cf-android] / [备线][ghproxy-android]         |                                             |\r\n| 安卓 电视            | 仍在开发中                                            | 现在可以使用平板版接鼠标使用                              |\r\n| iOS              | [主线][cf-ios] / [备线][ghproxy-ios]                 | 需要[自签][iOS 自签]                                  |\r\n| Windows          | [主线][cf-win-x64] / [备线][ghproxy-win-x64]         | 1. 目录不要有中文或者空格 <br/> 2. [显示异常][Windows下字体与背景颜色异常解决方案] |\r\n| macOS (M 系列芯片)   | [主线][cf-mac-aarch64] / [备线][ghproxy-mac-aarch64] | ⚠️ [安装后打不开][macOS 无法打开解决方案]                      |\r\n| macOS (Intel 芯片) | [主线][cf-mac-x64] / [备线][ghproxy-mac-x64]         | ⚠️ [安装教程][macOS Intel芯片版本安装教程]                    |\r\n| Linux AppImage   | [主线][cf-linux-x64] / [备线][ghproxy-linux-x64]     | ⚠️ [安装教程][Linux 安装说明]                        |\r\n\r\n[github-android-qr]: https://github.com/open-ani/ani/releases/download/v5.7.1/ani-5.7.1-universal.apk.github.qrcode.png\r\n\r\n[cf-android-qr]: https://d.myani.org/v5.7.1/ani-5.7.1-universal.apk.cloudflare.qrcode.png\r\n\r\n[cf-ios-qr]: https://d.myani.org/v5.7.1/ani-5.7.1.ipa.cloudflare.qrcode.png\r\n\r\n| 安卓 手机/平板                     | iOS IPA (需要[自签][iOS 自签])     | \r\n|------------------------------|--------------------------|\r\n| ![Cloudflare][cf-android-qr] | ![Cloudflare][cf-ios-qr] |\r\n\r\n\r\n<details>\r\n<summary> Android 细分架构下载 </summary>\r\n\r\n[//]: # (@formatter:off  因为\"版本\"前面不能换行)\r\n\r\n如果不知道自己是什么架构，建议下载 `universal` 版本。\r\n\r\n[//]: # (@formatter:on)\r\n\r\n| 处理器架构              | 适用于             | 下载                                                                                                      |\r\n|--------------------|-----------------|---------------------------------------------------------------------------------------------------------|\r\n| universal (推荐)     | 所有设备            | [主线][cf-android] / [备线][ghproxy-android] / [GitHub][github-android]                                     |\r\n| arm64-v8a (64 位)   | 几乎所有手机和平板       | [主线][cf-android-arm64-v8a] / [备线][ghproxy-android-arm64-v8a] / [GitHub][github-android-arm64-v8a]       |\r\n| armeabi-v7a (32 位) | 旧手机             | [主线][cf-android-armeabi-v7a] / [备线][ghproxy-android-armeabi-v7a] / [GitHub][github-android-armeabi-v7a] |\r\n| x86_64             | Chromebook 及模拟器 | [主线][cf-android-x86_64] / [备线][ghproxy-android-x86_64] / [GitHub][github-android-x86_64]                |\r\n\r\n</details>",
+    "downloadIds": [
+      "mrdmhe15v2dhlf",
+      "mrdmhe1548b3ij",
+      "mrdmhe15jhqm7i",
+      "mrdmhe15lxx520",
+      "mrdmhe15t4xu19",
+      "mrdmhe1517zg5y",
+      "mrdmhe15czzwlu",
+      "mrdmhe15qz4538",
+      "mrdmhe15khwrpp",
+      "mrdmhe1562tq9n",
+      "mrdmhe15qwehy2",
+      "mrdmhe158gl6yg",
+      "mrdmhe15l8d6wv",
+      "mrdmhe15byoj50",
+      "mrdmhe15xzhugh",
+      "mrdmhe15a8evwl",
+      "mrdmhe153s1665",
+      "mrdmhe1559vcfk",
+      "mrdmhe15py6n12",
+      "mrdmhe15a52kln",
+      "mrdmhe15ed2nje",
+      "mrdmhe1513q3we",
+      "mrdmhe15tz4nqh",
+      "mrdmhe15gw1m4o",
+      "mrdmhe15ngowio",
+      "mrdmhe15tgpavd"
     ]
   },
   {

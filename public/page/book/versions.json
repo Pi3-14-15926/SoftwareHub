@@ -769,6 +769,19 @@
     ]
   },
   {
+    "id": "mrgdshqczivatf",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.13-beta.45",
+    "publishedAt": "2026-07-10T17:09:11Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\r\n### [发布页](https://t.me/materado)\r\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\r\n\r\n### 更新内容\r\n\r\n* feat: 主页模块布局配置支持自定义列数\r\n* fix: 正文登录时登陆界面错误\r\n* fix: 修复漫画阅读器退出逻辑编译错误\r\n* fix: 恢复漫画退出时的加入书架确认\r\n* fix(read): correct spacing values and translation state\r\n* fix: 修复换源并发配置读取\r\n* fix: 修复开启“自定义导出”时，TXT 格式被错误导出为 EPUB 的问题\r\n* refactor:重构文字选择菜单为Compose实现，并支持菜单管理\r\n* feat:字典弹窗内容支持滑动切换\r\n* fix(tts): 修复后台 TTS 听书时未记录阅读时长的问题\r\n\r\n## What's Changed\r\n* fix: 恢复漫画退出时的加入书架确认 by @a328929 in https://github.com/HapeLee/legado-with-MD3/pull/1724\r\n* Fixes #1720。修复开启“自定义导出”时，TXT 格式被错误导出为 EPUB 的问题 by @a328929 in https://github.com/HapeLee/legado-with-MD3/pull/1722\r\n* refactor:重构文字选择菜单为Compose实现，并支持菜单管理 by @fansangg in https://github.com/HapeLee/legado-with-MD3/pull/1712\r\n* fix(tts): 修复后台 TTS 听书时未记录阅读时长的问题 by @ISuuuu in https://github.com/HapeLee/legado-with-MD3/pull/1708\r\n* feat:字典弹窗内容支持滑动切换 by @fansangg in https://github.com/HapeLee/legado-with-MD3/pull/1707\r\n\r\n\r\n**Full Changelog**: https://github.com/HapeLee/legado-with-MD3/compare/3.26.13-beta.44...3.26.13-beta.45",
+    "downloadIds": [
+      "mrgdshqcjq27i2",
+      "mrgdshqcmtiw0d",
+      "mrgdshqc5vgwx1",
+      "mrgdshqc1qj1wn"
+    ]
+  },
+  {
     "id": "mrc51pe7rv5ju1",
     "projectId": "mpwouieuddbq2d",
     "version": "3.26.13-beta.44",

@@ -1,5 +1,47 @@
 [
   {
+    "id": "mrjbdwigjjrukf",
+    "projectId": "mqa2ifsduzlphs",
+    "version": "1.5.20",
+    "publishedAt": "2026-07-13T04:35:19Z",
+    "changelog": "- 修复1.5.19版本标签页跳转错误的问题\r\n- 修复一些错误\r\n- 修复本地观看记录有时无法记录进度的问题\r\n- 优化部分UI\r\n- 更改列表卡片的样式\r\n- 番剧、剧集卡片显示本地观看进度\r\n- 重构每日放送组件\r\n- 适配TV端",
+    "downloadIds": [
+      "mrjbdwigqur2eu",
+      "mrjbdwigjfi8mz",
+      "mrjbdwig0kk3w0",
+      "mrjbdwigotxcbq",
+      "mrjbdwig5n3t09",
+      "mrjbdwigj66t2y",
+      "mrjbdwigc8smps",
+      "mrjbdwigcg3fhz",
+      "mrjbdwigg3oz93",
+      "mrjbdwigec9j3n",
+      "mrjbdwigsjo9yc",
+      "mrjbdwig5dmy5h"
+    ]
+  },
+  {
+    "id": "mrjbdwig2o3s2t",
+    "projectId": "mqa2ifsduzlphs",
+    "version": "1.5.19",
+    "publishedAt": "2026-07-13T03:27:35Z",
+    "changelog": "- 修复一些错误\r\n- 修复本地观看记录有时无法记录进度的问题\r\n- 优化部分UI\r\n- 更改列表卡片的样式\r\n- 番剧、剧集卡片显示本地观看进度\r\n- 重构每日放送组件\r\n- 适配TV端",
+    "downloadIds": [
+      "mrjbdwig0lbv7s",
+      "mrjbdwig940jxp",
+      "mrjbdwigvib06b",
+      "mrjbdwig1evv43",
+      "mrjbdwigf6wjj2",
+      "mrjbdwigu94wk5",
+      "mrjbdwig6aln5b",
+      "mrjbdwighx63d6",
+      "mrjbdwig8kvn6m",
+      "mrjbdwigeay6ch",
+      "mrjbdwig9tmuc9",
+      "mrjbdwiglqf00y"
+    ]
+  },
+  {
     "id": "mqjmld5ndf7kvj",
     "projectId": "mqa2ifsduzlphs",
     "version": "1.5.18",

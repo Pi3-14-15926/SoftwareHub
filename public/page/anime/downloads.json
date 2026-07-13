@@ -1,5 +1,197 @@
 [
   {
+    "id": "mrjbdwigqur2eu",
+    "versionId": "mrjbdwigjjrukf",
+    "platform": "Android",
+    "filename": "anich-android-arm64-v8a-1.5.20.apk",
+    "size": "24.2 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.20/anich-android-arm64-v8a-1.5.20.apk"
+  },
+  {
+    "id": "mrjbdwigjfi8mz",
+    "versionId": "mrjbdwigjjrukf",
+    "platform": "Android",
+    "filename": "anich-android-armeabi-v7a-1.5.20.apk",
+    "size": "22.8 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.20/anich-android-armeabi-v7a-1.5.20.apk"
+  },
+  {
+    "id": "mrjbdwig0kk3w0",
+    "versionId": "mrjbdwigjjrukf",
+    "platform": "Android",
+    "filename": "anich-android-universal-1.5.20.apk",
+    "size": "67.4 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.20/anich-android-universal-1.5.20.apk"
+  },
+  {
+    "id": "mrjbdwigotxcbq",
+    "versionId": "mrjbdwigjjrukf",
+    "platform": "Android",
+    "filename": "anich-android-x86_64-1.5.20.apk",
+    "size": "24.6 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.20/anich-android-x86_64-1.5.20.apk"
+  },
+  {
+    "id": "mrjbdwig5n3t09",
+    "versionId": "mrjbdwigjjrukf",
+    "platform": "Other",
+    "filename": "anich-ios-no_sign-1.5.20.ipa",
+    "size": "39.3 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.20/anich-ios-no_sign-1.5.20.ipa"
+  },
+  {
+    "id": "mrjbdwigj66t2y",
+    "versionId": "mrjbdwigjjrukf",
+    "platform": "Linux",
+    "filename": "anich-linux-1.5.20.deb",
+    "size": "21.4 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.20/anich-linux-1.5.20.deb"
+  },
+  {
+    "id": "mrjbdwigc8smps",
+    "versionId": "mrjbdwigjjrukf",
+    "platform": "Linux",
+    "filename": "anich-linux-1.5.20.zip",
+    "size": "28.6 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.20/anich-linux-1.5.20.zip"
+  },
+  {
+    "id": "mrjbdwigcg3fhz",
+    "versionId": "mrjbdwigjjrukf",
+    "platform": "MacOS",
+    "filename": "anich-macos-1.5.20.dmg",
+    "size": "53.5 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.20/anich-macos-1.5.20.dmg"
+  },
+  {
+    "id": "mrjbdwigg3oz93",
+    "versionId": "mrjbdwigjjrukf",
+    "platform": "MacOS",
+    "filename": "anich-macos-1.5.20.zip",
+    "size": "52.2 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.20/anich-macos-1.5.20.zip"
+  },
+  {
+    "id": "mrjbdwigec9j3n",
+    "versionId": "mrjbdwigjjrukf",
+    "platform": "Other",
+    "filename": "anich-ohos-unsigned-1.5.20.hap",
+    "size": "67.8 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.20/anich-ohos-unsigned-1.5.20.hap"
+  },
+  {
+    "id": "mrjbdwigsjo9yc",
+    "versionId": "mrjbdwigjjrukf",
+    "platform": "Windows",
+    "filename": "anich-windows-1.5.20.zip",
+    "size": "47.9 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.20/anich-windows-1.5.20.zip"
+  },
+  {
+    "id": "mrjbdwig5dmy5h",
+    "versionId": "mrjbdwigjjrukf",
+    "platform": "Windows",
+    "filename": "anich-windows-installer-1.5.20.exe",
+    "size": "36.2 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.20/anich-windows-installer-1.5.20.exe"
+  },
+  {
+    "id": "mrjbdwig0lbv7s",
+    "versionId": "mrjbdwig2o3s2t",
+    "platform": "Android",
+    "filename": "anich-android-arm64-v8a-1.5.19.apk",
+    "size": "24.2 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.19/anich-android-arm64-v8a-1.5.19.apk"
+  },
+  {
+    "id": "mrjbdwig940jxp",
+    "versionId": "mrjbdwig2o3s2t",
+    "platform": "Android",
+    "filename": "anich-android-armeabi-v7a-1.5.19.apk",
+    "size": "22.8 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.19/anich-android-armeabi-v7a-1.5.19.apk"
+  },
+  {
+    "id": "mrjbdwigvib06b",
+    "versionId": "mrjbdwig2o3s2t",
+    "platform": "Android",
+    "filename": "anich-android-universal-1.5.19.apk",
+    "size": "67.4 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.19/anich-android-universal-1.5.19.apk"
+  },
+  {
+    "id": "mrjbdwig1evv43",
+    "versionId": "mrjbdwig2o3s2t",
+    "platform": "Android",
+    "filename": "anich-android-x86_64-1.5.19.apk",
+    "size": "24.6 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.19/anich-android-x86_64-1.5.19.apk"
+  },
+  {
+    "id": "mrjbdwigf6wjj2",
+    "versionId": "mrjbdwig2o3s2t",
+    "platform": "Other",
+    "filename": "anich-ios-no_sign-1.5.19.ipa",
+    "size": "39.3 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.19/anich-ios-no_sign-1.5.19.ipa"
+  },
+  {
+    "id": "mrjbdwigu94wk5",
+    "versionId": "mrjbdwig2o3s2t",
+    "platform": "Linux",
+    "filename": "anich-linux-1.5.19.deb",
+    "size": "21.4 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.19/anich-linux-1.5.19.deb"
+  },
+  {
+    "id": "mrjbdwig6aln5b",
+    "versionId": "mrjbdwig2o3s2t",
+    "platform": "Linux",
+    "filename": "anich-linux-1.5.19.zip",
+    "size": "28.6 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.19/anich-linux-1.5.19.zip"
+  },
+  {
+    "id": "mrjbdwighx63d6",
+    "versionId": "mrjbdwig2o3s2t",
+    "platform": "MacOS",
+    "filename": "anich-macos-1.5.19.dmg",
+    "size": "53.5 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.19/anich-macos-1.5.19.dmg"
+  },
+  {
+    "id": "mrjbdwig8kvn6m",
+    "versionId": "mrjbdwig2o3s2t",
+    "platform": "MacOS",
+    "filename": "anich-macos-1.5.19.zip",
+    "size": "52.2 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.19/anich-macos-1.5.19.zip"
+  },
+  {
+    "id": "mrjbdwigeay6ch",
+    "versionId": "mrjbdwig2o3s2t",
+    "platform": "Other",
+    "filename": "anich-ohos-unsigned-1.5.19.hap",
+    "size": "67.8 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.19/anich-ohos-unsigned-1.5.19.hap"
+  },
+  {
+    "id": "mrjbdwig9tmuc9",
+    "versionId": "mrjbdwig2o3s2t",
+    "platform": "Windows",
+    "filename": "anich-windows-1.5.19.zip",
+    "size": "47.9 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.19/anich-windows-1.5.19.zip"
+  },
+  {
+    "id": "mrjbdwiglqf00y",
+    "versionId": "mrjbdwig2o3s2t",
+    "platform": "Windows",
+    "filename": "anich-windows-installer-1.5.19.exe",
+    "size": "36.2 MB",
+    "url": "https://github.com/Sle2p/AniCh/releases/download/1.5.19/anich-windows-installer-1.5.19.exe"
+  },
+  {
     "id": "mqjmld5n0bg3ww",
     "versionId": "mqjmld5ndf7kvj",
     "platform": "Android",

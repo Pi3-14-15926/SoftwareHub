@@ -780,6 +780,32 @@
     ]
   },
   {
+    "id": "mrm47q5cg3h83g",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.13-beta.50",
+    "publishedAt": "2026-07-14T17:23:17Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\n### [发布页](https://t.me/materado)\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\n\n### 更新内容\n\n* fix: 在首页时点击首页展开切换书源集菜单\n* fix: 漫画重叠问题\n* fix: 编辑书籍偶发崩溃\n* fix: 首页模块相同名称时冲突问题\n* fix(theme): 输入法未指定颜色时回退到引擎默认色\n* fix(theme): 移除 MiuixThemeWrapper 内全局嵌套的 MaterialTheme\n* fix: 阅读搜素和菜单部分问题，长按替换净化按钮打开列表\n* fix: 阅读搜素和菜单部分问题\n* fix: 阅读菜单取色",
+    "downloadIds": [
+      "mrm47q5ckf8kpa",
+      "mrm47q5cj050ay",
+      "mrm47q5czqjurq",
+      "mrm47q5czih436"
+    ]
+  },
+  {
+    "id": "mrm47q5ccxbmg1",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.13-beta.49",
+    "publishedAt": "2026-07-14T14:13:57Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\n### [发布页](https://t.me/materado)\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\n\n### 更新内容\n\n* fix: 书架问题",
+    "downloadIds": [
+      "mrm47q5cs20c8g",
+      "mrm47q5cg8jitu",
+      "mrm47q5cqr92tk",
+      "mrm47q5cw3td4c"
+    ]
+  },
+  {
     "id": "mrkotzlyd775h1",
     "projectId": "mpwouieuddbq2d",
     "version": "3.26.13-beta.48",

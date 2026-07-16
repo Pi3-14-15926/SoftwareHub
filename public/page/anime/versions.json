@@ -464,6 +464,24 @@
     ]
   },
   {
+    "id": "mrnk5pcg5j9dqk",
+    "projectId": "mpzjkpvzeuh3zl",
+    "version": "2.2.1",
+    "publishedAt": "2026-07-16T06:29:26Z",
+    "changelog": "- 重新设计启动向导及多个页面 (@Predidit)\r\n- 新增 windows/macOS 平台缓存目录自定义功能 (#2237) (@NanoShiki @0Chencc)\r\n- 修复 android 平台动态取色不稳定的问题 (@Predidit)\r\n- 增强一起看功能可靠性 (#1710 #1850 #1992) (@ChEnylnti)\r\n- 增强桌面平台播放器快捷键的可靠性 (@Predidit)\r\n- 现在 Linux 平台支持外部播放器功能 (@Predidit)\r\n- 增强规则更新可靠性 (@Predidit)\r\n- 修复调试模式下热重载不可用的问题 (@Predidit)",
+    "downloadIds": [
+      "mrnk5pcgzvhe5p",
+      "mrnk5pcgn4dn0b",
+      "mrnk5pcg73rk54",
+      "mrnk5pcgn97xff",
+      "mrnk5pcgr02yl7",
+      "mrnk5pcgxaupi6",
+      "mrnk5pcgdn1lms",
+      "mrnk5pcgbpjlyi",
+      "mrnk5pcg17qn6k"
+    ]
+  },
+  {
     "id": "mrdmhd98wanini",
     "projectId": "mpzjkpvzeuh3zl",
     "version": "2.2.0",

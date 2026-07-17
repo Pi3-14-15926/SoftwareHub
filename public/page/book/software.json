@@ -9,7 +9,7 @@
     "featured": false,
     "githubRepo": "Rimchars/legado",
     "githubUrl": "https://github.com/Rimchars/legado",
-    "stars": 373,
+    "stars": 376,
     "forks": 16,
     "platforms": [
       "Android"
@@ -43,7 +43,7 @@
     "featured": false,
     "githubRepo": "skybbk1001/legadoT",
     "githubUrl": "https://github.com/skybbk1001/legadoT",
-    "stars": 75,
+    "stars": 76,
     "forks": 14,
     "platforms": [
       "Android"
@@ -62,14 +62,14 @@
     "featured": false,
     "githubRepo": "HapeLee/legado-with-MD3",
     "githubUrl": "https://github.com/HapeLee/legado-with-MD3",
-    "stars": 5069,
-    "forks": 562,
+    "stars": 5089,
+    "forks": 565,
     "platforms": [
       "Android"
     ],
     "latestVersionId": "mqdzxbdokth5o5",
-    "latestUpdateTime": "2026-07-15T19:24:18Z",
-    "latestVersion": "3.26.13"
+    "latestUpdateTime": "2026-07-16T17:33:51Z",
+    "latestVersion": "3.26.14"
   },
   {
     "id": "mpwp1hvpsn5ffl",
@@ -115,7 +115,7 @@
     "featured": false,
     "githubRepo": "LegadoTeam/Legado-Tauri-Release",
     "githubUrl": "https://github.com/LegadoTeam/Legado-Tauri-Release",
-    "stars": 182,
+    "stars": 183,
     "forks": 15,
     "platforms": [
       "Windows",
@@ -134,8 +134,8 @@
     "featured": false,
     "githubRepo": "Luoyacheng/legado",
     "githubUrl": "https://github.com/Luoyacheng/legado",
-    "stars": 2060,
-    "forks": 460,
+    "stars": 2067,
+    "forks": 462,
     "platforms": [
       "Android"
     ],
@@ -154,8 +154,8 @@
     "githubRepo": "readest/readest",
     "githubUrl": "https://github.com/readest/readest",
     "latestUpdateTime": "2026-07-07T18:20:29Z",
-    "stars": 22410,
-    "forks": 1376,
+    "stars": 22445,
+    "forks": 1381,
     "latestVersionId": "mqe099q50edkdy",
     "latestVersion": "v0.11.18"
   }

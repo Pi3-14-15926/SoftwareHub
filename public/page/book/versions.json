@@ -780,6 +780,19 @@
     ]
   },
   {
+    "id": "mroysb5rjro8rw",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.14",
+    "publishedAt": "2026-07-16T17:33:51Z",
+    "changelog": "### 更新内容\r\n\r\n修了一些.13的问题\r\n\r\n* fix: 优化了一下阅读菜单\r\n* fix: 同步窗口背景色与 Compose 主题背景色，优化背景色更新逻辑\r\n* fix: 提供旧主题迁移，保存书架卡片日间、夜间背景色\r\n* fix: sigma的一些特性 @luoyacheng\r\n* fix: 同步窗口背景色与 Compose 主题背景色\r\n* 修复: 优化动态配色逻辑，确保缺失图片时回退到种子色\r\n* 修复: 切换主题时支持无重启更新，优化配置管理\r\n* [修复] 切换自定义主题不再需要重启\r\n* fix: 漫画刷新问题\r\n* Fix accessibility issues and synchronize reading progress (#1790)\r\n* 修复朗读错误重置，朗读进度强调与实际不同步的问题 (#1787)\r\n\r\n## What's Changed\r\n* 修复朗读错误重置，朗读进度强调与实际不同步的问题 by @a328929 in https://github.com/HapeLee/legado-with-MD3/pull/1787\r\n* Fix accessibility issues and synchronize reading progress by @a328929 in https://github.com/HapeLee/legado-with-MD3/pull/1790\r\n* 外观设置界面的一些优化 by @5151561 in https://github.com/HapeLee/legado-with-MD3/pull/1793\r\n* fix: 同步窗口背景色与 Compose 主题背景色 by @5151561 in https://github.com/HapeLee/legado-with-MD3/pull/1795\r\n\r\n\r\n**Full Changelog**: https://github.com/HapeLee/legado-with-MD3/compare/3.26.13...3.26.14",
+    "downloadIds": [
+      "mroysb5rzgpmwo",
+      "mroysb5rardion",
+      "mroysb5rv22m03",
+      "mroysb5rethoew"
+    ]
+  },
+  {
     "id": "mrnk5j55w1mks4",
     "projectId": "mpwouieuddbq2d",
     "version": "3.26.13",

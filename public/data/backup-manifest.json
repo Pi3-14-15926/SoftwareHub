@@ -3,24 +3,24 @@
     {
       "category": "阅读",
       "project": "阅读_Archive",
-      "versionDir": "阅读/阅读_Archive/2026-07-07_archive-v3-3.26.07071245",
+      "versionDir": "阅读/阅读_Archive/2026-07-18_archive-v3-3.26.07180729",
       "files": [
         {
-          "name": "legado-arm64-v8a_app_3.26.07071245_29723325.apk",
-          "size": 39636172.8,
-          "url": "/SoftwareHub/阅读/阅读_Archive/2026-07-07_archive-v3-3.26.07071245/legado-arm64-v8a_app_3.26.07071245_29723325.apk"
+          "name": "legado-arm64-v8a_app_3.26.07180729_29738849.apk",
+          "size": 39950745.6,
+          "url": "/SoftwareHub/阅读/阅读_Archive/2026-07-18_archive-v3-3.26.07180729/legado-arm64-v8a_app_3.26.07180729_29738849.apk"
         }
       ]
     },
     {
       "category": "阅读",
       "project": "阅读_Archive",
-      "versionDir": "阅读/阅读_Archive/2026-07-06_archive-v3-3.26.07062303",
+      "versionDir": "阅读/阅读_Archive/2026-07-07_archive-v3-3.26.07071245",
       "files": [
         {
-          "name": "legado-arm64-v8a_app_3.26.07062303_29722503.apk",
+          "name": "legado-arm64-v8a_app_3.26.07071245_29723325.apk",
           "size": 39636172.8,
-          "url": "/SoftwareHub/阅读/阅读_Archive/2026-07-06_archive-v3-3.26.07062303/legado-arm64-v8a_app_3.26.07062303_29722503.apk"
+          "url": "/SoftwareHub/阅读/阅读_Archive/2026-07-07_archive-v3-3.26.07071245/legado-arm64-v8a_app_3.26.07071245_29723325.apk"
         }
       ]
     },
@@ -1878,5 +1878,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-07-17T18:10:47.674Z"
+  "updatedAt": "2026-07-18T17:24:22.096Z"
 }

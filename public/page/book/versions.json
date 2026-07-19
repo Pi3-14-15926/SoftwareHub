@@ -790,6 +790,32 @@
     ]
   },
   {
+    "id": "mrrt9vsojpkyjy",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.16-beta.1",
+    "publishedAt": "2026-07-18T18:34:33Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\r\n### [发布页](https://t.me/materado)\r\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\r\n\r\n## What's Changed\r\n* Refractor mad by @5151561 in https://github.com/HapeLee/legado-with-MD3/pull/1809\r\n* feat(read): add custom header/footer template feature by @52fisher in https://github.com/HapeLee/legado-with-MD3/pull/1807\r\n* 添加对字体选择的排序支持 by @woruteyqi in https://github.com/HapeLee/legado-with-MD3/pull/1811\r\n* fix:阅读界面切换深浅后状态栏显示的问题 by @fansangg in https://github.com/HapeLee/legado-with-MD3/pull/1810\r\n* fix: resolve theme slider UX changes on latest main by @HapeLee in https://github.com/HapeLee/legado-with-MD3/pull/1812\r\n* feat: 多角色 TTS 与听书播放器 by @HapeLee in https://github.com/HapeLee/legado-with-MD3/pull/1813\r\n\r\n\r\n**Full Changelog**: https://github.com/HapeLee/legado-with-MD3/compare/3.26.15...3.26.16-beta.1",
+    "downloadIds": [
+      "mrrt9vso8mi2kv",
+      "mrrt9vsoohpemz",
+      "mrrt9vsoxyun5j",
+      "mrrt9vsoazd5j3"
+    ]
+  },
+  {
+    "id": "mrrt9vsoq4bpay",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.15",
+    "publishedAt": "2026-07-18T17:02:25Z",
+    "changelog": "### 更新内容\n\n* fix: Miuix亮暗色问题\n* fix: 优化了一下阅读菜单\n* fix: 同步窗口背景色与 Compose 主题背景色，优化背景色更新逻辑\n* fix: 提供旧主题迁移，保存书架卡片日间、夜间背景色\n* fix: sigma的一些特性 @luoyacheng\n* fix: 同步窗口背景色与 Compose 主题背景色\n* 修复: 优化动态配色逻辑，确保缺失图片时回退到种子色\n* 修复: 切换主题时支持无重启更新，优化配置管理\n* [修复] 切换自定义主题不再需要重启\n* fix: 漫画刷新问题\n* Fix accessibility issues and synchronize reading progress (#1790)\n* 修复朗读错误重置，朗读进度强调与实际不同步的问题 (#1787)",
+    "downloadIds": [
+      "mrrt9vso3vt7r1",
+      "mrrt9vson6bgjv",
+      "mrrt9vsorrfvlu",
+      "mrrt9vso181knu"
+    ]
+  },
+  {
     "id": "mroysb5rjro8rw",
     "projectId": "mpwouieuddbq2d",
     "version": "3.26.14",

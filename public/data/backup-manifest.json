@@ -84,6 +84,23 @@
     {
       "category": "阅读",
       "project": "阅读_T",
+      "versionDir": "阅读/阅读_T/2026-07-21_3.26.072120",
+      "files": [
+        {
+          "name": "legado_app_3.26.072120_arm64-v8a.apk",
+          "size": 15099494.4,
+          "url": "/SoftwareHub/阅读/阅读_T/2026-07-21_3.26.072120/legado_app_3.26.072120_arm64-v8a.apk"
+        },
+        {
+          "name": "legado_app_3.26.072120_armeabi-v7a.apk",
+          "size": 14470348.8,
+          "url": "/SoftwareHub/阅读/阅读_T/2026-07-21_3.26.072120/legado_app_3.26.072120_armeabi-v7a.apk"
+        }
+      ]
+    },
+    {
+      "category": "阅读",
+      "project": "阅读_T",
       "versionDir": "阅读/阅读_T/2026-07-13_3.26.071316",
       "files": [
         {
@@ -100,18 +117,28 @@
     },
     {
       "category": "阅读",
-      "project": "阅读_T",
-      "versionDir": "阅读/阅读_T/2026-06-11_beta",
+      "project": "阅读_MD3",
+      "versionDir": "阅读/阅读_MD3/2026-07-20_3.26.16-beta.3",
       "files": [
         {
-          "name": "legado_app_3.26.06111746_arm64-v8a_release.apk",
-          "size": 12687769.6,
-          "url": "/SoftwareHub/阅读/阅读_T/2026-06-11_beta/legado_app_3.26.06111746_arm64-v8a_release.apk"
+          "name": "legado-3.26.16-beta.3-arm64-v8a.apk",
+          "size": 18874368,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-20_3.26.16-beta.3/legado-3.26.16-beta.3-arm64-v8a.apk"
         },
         {
-          "name": "legado_app_3.26.06111746_armeabi-v7a_release.apk",
-          "size": 12058624,
-          "url": "/SoftwareHub/阅读/阅读_T/2026-06-11_beta/legado_app_3.26.06111746_armeabi-v7a_release.apk"
+          "name": "legado-3.26.16-beta.3-armeabi-v7a.apk",
+          "size": 18454937.6,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-20_3.26.16-beta.3/legado-3.26.16-beta.3-armeabi-v7a.apk"
+        },
+        {
+          "name": "legado-3.26.16-beta.3.apk",
+          "size": 25480396.8,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-20_3.26.16-beta.3/legado-3.26.16-beta.3.apk"
+        },
+        {
+          "name": "mapping.txt",
+          "size": 247778508.8,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-20_3.26.16-beta.3/mapping.txt"
         }
       ]
     },
@@ -139,33 +166,6 @@
           "name": "mapping.txt",
           "size": 247359078.4,
           "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-19_3.26.16-beta.2/mapping.txt"
-        }
-      ]
-    },
-    {
-      "category": "阅读",
-      "project": "阅读_MD3",
-      "versionDir": "阅读/阅读_MD3/2026-07-18_3.26.16-beta.1",
-      "files": [
-        {
-          "name": "legado-3.26.16-beta.1-arm64-v8a.apk",
-          "size": 18874368,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-18_3.26.16-beta.1/legado-3.26.16-beta.1-arm64-v8a.apk"
-        },
-        {
-          "name": "legado-3.26.16-beta.1-armeabi-v7a.apk",
-          "size": 18350080,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-18_3.26.16-beta.1/legado-3.26.16-beta.1-armeabi-v7a.apk"
-        },
-        {
-          "name": "legado-3.26.16-beta.1.apk",
-          "size": 25375539.2,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-18_3.26.16-beta.1/legado-3.26.16-beta.1.apk"
-        },
-        {
-          "name": "mapping.txt",
-          "size": 244423065.6,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-18_3.26.16-beta.1/mapping.txt"
         }
       ]
     },
@@ -1888,5 +1888,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-07-20T18:39:12.114Z"
+  "updatedAt": "2026-07-21T18:23:08.445Z"
 }

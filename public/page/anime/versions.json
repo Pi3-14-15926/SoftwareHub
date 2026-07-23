@@ -464,6 +464,42 @@
     ]
   },
   {
+    "id": "mrxkg8ubh8ax3r",
+    "projectId": "mpzjkpvzeuh3zl",
+    "version": "2.2.3",
+    "publishedAt": "2026-07-23T05:09:55Z",
+    "changelog": "> [!NOTE]\r\n> 这是 2.2.2 的热修复版本，更多更新日志参考 2.2.2",
+    "downloadIds": [
+      "mrxkg8ub2rgws9",
+      "mrxkg8ubbkcato",
+      "mrxkg8ubecxvuw",
+      "mrxkg8ubzr5y8s",
+      "mrxkg8ubmdidfy",
+      "mrxkg8ub7u2r6q",
+      "mrxkg8ub8w458m",
+      "mrxkg8ubkygu5e",
+      "mrxkg8ubtngl8d"
+    ]
+  },
+  {
+    "id": "mrxkg8ubti5g3d",
+    "projectId": "mpzjkpvzeuh3zl",
+    "version": "2.2.2",
+    "publishedAt": "2026-07-23T04:16:20Z",
+    "changelog": "- 修复长分页状态下可能出现重复条目的问题 (@wanxinlei1)\r\n- 改进的规则导入机制 (@Predidit)\r\n- 新增 Linux 平台 X11 硬件加速渲染支持 (@Predidit)\r\n- 其他 UI 改进 (@Predidit)\r\n- 其他文档改进 (@Axiaobo7788)",
+    "downloadIds": [
+      "mrxkg8ub3oug05",
+      "mrxkg8ubi1w1f6",
+      "mrxkg8ubzvfxtf",
+      "mrxkg8ubyw9yn2",
+      "mrxkg8ub7pisp8",
+      "mrxkg8ubqowfnz",
+      "mrxkg8ub58iowe",
+      "mrxkg8ub86ijtt",
+      "mrxkg8ub2fmmp7"
+    ]
+  },
+  {
     "id": "mrnk5pcg5j9dqk",
     "projectId": "mpzjkpvzeuh3zl",
     "version": "2.2.1",

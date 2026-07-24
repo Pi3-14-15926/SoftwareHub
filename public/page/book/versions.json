@@ -1,5 +1,15 @@
 [
   {
+    "id": "mryz6aheb56jqn",
+    "projectId": "mpwoxcif3y72eu",
+    "version": "archive-v3-3.26.07241418",
+    "publishedAt": "2026-07-24T07:45:32Z",
+    "changelog": "修复部分用户恢复旧备份后打开正文黑屏或闪退的问题\r\n",
+    "downloadIds": [
+      "mryz6ahe8du2pa"
+    ]
+  },
+  {
     "id": "mrxkg0t41qdqcm",
     "projectId": "mpwoxcif3y72eu",
     "version": "archive-v3-3.26.07231310",

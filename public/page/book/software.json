@@ -9,14 +9,14 @@
     "featured": false,
     "githubRepo": "Rimchars/legado",
     "githubUrl": "https://github.com/Rimchars/legado",
-    "stars": 396,
-    "forks": 17,
+    "stars": 401,
+    "forks": 18,
     "platforms": [
       "Android"
     ],
     "latestVersionId": "mqdzx80hhogwvh",
-    "latestUpdateTime": "2026-07-23T05:50:04Z",
-    "latestVersion": "archive-v3-3.26.07231310"
+    "latestUpdateTime": "2026-07-24T07:45:32Z",
+    "latestVersion": "archive-v3-3.26.07241418"
   },
   {
     "id": "mqdordihsc5rxn",
@@ -29,7 +29,7 @@
     "githubRepo": "anxcye/anx-reader",
     "githubUrl": "https://github.com/anxcye/anx-reader",
     "latestUpdateTime": "2025-11-01T13:17:04Z",
-    "stars": 8458,
+    "stars": 8460,
     "forks": 576,
     "latestVersionId": "mqdzx94ic2xzm0"
   },
@@ -43,7 +43,7 @@
     "featured": false,
     "githubRepo": "skybbk1001/legadoT",
     "githubUrl": "https://github.com/skybbk1001/legadoT",
-    "stars": 89,
+    "stars": 93,
     "forks": 14,
     "platforms": [
       "Android"
@@ -62,8 +62,8 @@
     "featured": false,
     "githubRepo": "HapeLee/legado-with-MD3",
     "githubUrl": "https://github.com/HapeLee/legado-with-MD3",
-    "stars": 5240,
-    "forks": 582,
+    "stars": 5260,
+    "forks": 585,
     "platforms": [
       "Android"
     ],
@@ -81,7 +81,7 @@
     "featured": false,
     "githubRepo": "youfengknight/Legado_Max",
     "githubUrl": "https://github.com/youfengknight/Legado_Max",
-    "stars": 263,
+    "stars": 264,
     "forks": 30,
     "platforms": [
       "Android"
@@ -134,8 +134,8 @@
     "featured": false,
     "githubRepo": "Luoyacheng/legado",
     "githubUrl": "https://github.com/Luoyacheng/legado",
-    "stars": 2150,
-    "forks": 474,
+    "stars": 2159,
+    "forks": 479,
     "platforms": [
       "Android"
     ],
@@ -154,8 +154,8 @@
     "githubRepo": "readest/readest",
     "githubUrl": "https://github.com/readest/readest",
     "latestUpdateTime": "2026-07-19T20:11:12Z",
-    "stars": 22659,
-    "forks": 1397,
+    "stars": 22708,
+    "forks": 1398,
     "latestVersionId": "mqe099q50edkdy",
     "latestVersion": "v0.11.20"
   }

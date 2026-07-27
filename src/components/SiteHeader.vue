@@ -53,7 +53,13 @@ function handleAccelerate() {
   
   const proxyUrl = ghProxyUrl.value + url
   
-  window.open(proxyUrl, '_blank')
+  const link = document.createElement('a')
+  link.href = proxyUrl
+  link.target = '_blank'
+  link.rel = 'noopener noreferrer'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
   
   setTimeout(() => {
     isDownloading.value = false

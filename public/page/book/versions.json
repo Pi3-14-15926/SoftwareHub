@@ -821,6 +821,19 @@
     ]
   },
   {
+    "id": "ms3bhqvlb64eky",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.16-beta.7",
+    "publishedAt": "2026-07-26T16:21:35Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\r\n### [发布页](https://t.me/materado)\r\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\r\n\r\n### 更新内容\r\n\r\n* feat: 一些优化\r\n* fix: restore TXT TOC volume collapse\r\n* fix(reader): 开书不再闪一帧加载数据中\r\n* fix(cache): 对齐图片缓存成功判定，并完善多书 FIFO 独占调度\r\n* 修复几个遗留问题\r\n\r\n## What's Changed\r\n* 修复几个遗留问题 by @5151561 in https://github.com/HapeLee/legado-with-MD3/pull/1870\r\n* fix(cache): 对齐图片缓存成功判定，并完善多书 FIFO 独占调度 by @Homchen in https://github.com/HapeLee/legado-with-MD3/pull/1872\r\n* fix(reader): 开书不再闪一帧\"加载数据中\" by @5151561 in https://github.com/HapeLee/legado-with-MD3/pull/1873\r\n\r\n\r\n**Full Changelog**: https://github.com/HapeLee/legado-with-MD3/compare/3.26.16-beta.6...3.26.16-beta.7",
+    "downloadIds": [
+      "ms3bhqvl44npof",
+      "ms3bhqvl1d29sd",
+      "ms3bhqvl1adz8a",
+      "ms3bhqvlb6bexv"
+    ]
+  },
+  {
     "id": "ms1tgqoxfuvxkd",
     "projectId": "mpwouieuddbq2d",
     "version": "3.26.16-beta.6",

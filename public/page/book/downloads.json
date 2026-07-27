@@ -1,5 +1,205 @@
 [
   {
+    "id": "mryz6ahe8du2pa",
+    "versionId": "mryz6aheb56jqn",
+    "platform": "Android",
+    "filename": "legado_app_3.26.07241418_29747898.apk",
+    "size": "38.2 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.07241418/legado_app_3.26.07241418_29747898.apk"
+  },
+  {
+    "id": "mrxkg0t59cgcfb",
+    "versionId": "mrxkg0t41qdqcm",
+    "platform": "Android",
+    "filename": "legado_app_3.26.07231310_29746390.apk",
+    "size": "41.7 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.07231310/legado_app_3.26.07231310_29746390.apk"
+  },
+  {
+    "id": "mrqdqjk2600yry",
+    "versionId": "mrqdqjk2lhm6ko",
+    "platform": "Android",
+    "filename": "legado-arm64-v8a_app_3.26.07180729_29738849.apk",
+    "size": "38.1 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.07180729/legado-arm64-v8a_app_3.26.07180729_29738849.apk"
+  },
+  {
+    "id": "mraqnxvh5ou2bf",
+    "versionId": "mraqnxvh617142",
+    "platform": "Android",
+    "filename": "legado-arm64-v8a_app_3.26.07071245_29723325.apk",
+    "size": "37.8 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.07071245/legado-arm64-v8a_app_3.26.07071245_29723325.apk"
+  },
+  {
+    "id": "mraqnxvhj27x78",
+    "versionId": "mraqnxvhin86l8",
+    "platform": "Android",
+    "filename": "legado-arm64-v8a_app_3.26.07062303_29722503.apk",
+    "size": "37.8 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.07062303/legado-arm64-v8a_app_3.26.07062303_29722503.apk"
+  },
+  {
+    "id": "mr9dcuvtehw6s2",
+    "versionId": "mr9dcuvsabzczq",
+    "platform": "Android",
+    "filename": "legado-arm64-v8a_app_3.26.07060213_29721253.apk",
+    "size": "37.8 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.07060213/legado-arm64-v8a_app_3.26.07060213_29721253.apk"
+  },
+  {
+    "id": "mr7tmigha0usl1",
+    "versionId": "mr7tmighecfxz2",
+    "platform": "Android",
+    "filename": "legado-arm64-v8a_app_3.26.07050004_29719684.apk",
+    "size": "37.8 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.07050004/legado-arm64-v8a_app_3.26.07050004_29719684.apk"
+  },
+  {
+    "id": "mr3karw534rq6c",
+    "versionId": "mr3karw5wjijrx",
+    "platform": "Android",
+    "filename": "legado-arm64-v8a_app_3.26.07012317_29715317.apk",
+    "size": "37.6 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.07012317/legado-arm64-v8a_app_3.26.07012317_29715317.apk"
+  },
+  {
+    "id": "mr0q542m91xn4t",
+    "versionId": "mr0q542mmxy3yu",
+    "platform": "Android",
+    "filename": "legado-arm64-v8a_app_3.26.06301304_29713264.apk",
+    "size": "37.1 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.06301304/legado-arm64-v8a_app_3.26.06301304_29713264.apk"
+  },
+  {
+    "id": "mqv0jvp65byv9h",
+    "versionId": "mqv0jvp66zpqpn",
+    "platform": "Android",
+    "filename": "legado-arm64-v8a_app_3.26.06262133_29708013.apk",
+    "size": "37.1 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.06262133/legado-arm64-v8a_app_3.26.06262133_29708013.apk"
+  },
+  {
+    "id": "mqv0jvp675vm6e",
+    "versionId": "mqv0jvp66zpqpn",
+    "platform": "Android",
+    "filename": "legado-armeabi-v7a_app_3.26.06262133_29708013.apk",
+    "size": "37.0 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.06262133/legado-armeabi-v7a_app_3.26.06262133_29708013.apk"
+  },
+  {
+    "id": "mqv0jvp6mde86g",
+    "versionId": "mqv0jvp64o5rg2",
+    "platform": "Android",
+    "filename": "legado-arm64-v8a_app_3.26.06261301_29707501.apk",
+    "size": "37.0 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.06261301/legado-arm64-v8a_app_3.26.06261301_29707501.apk"
+  },
+  {
+    "id": "mqv0jvp6gmyvvx",
+    "versionId": "mqv0jvp64o5rg2",
+    "platform": "Android",
+    "filename": "legado-armeabi-v7a_app_3.26.06261301_29707501.apk",
+    "size": "37.0 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.06261301/legado-armeabi-v7a_app_3.26.06261301_29707501.apk"
+  },
+  {
+    "id": "mqv0jvp6edp5s6",
+    "versionId": "mqv0jvp66c38cw",
+    "platform": "Android",
+    "filename": "legado-arm64-v8a_app_3.26.06260247_29706887.apk",
+    "size": "37.0 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.06260247/legado-arm64-v8a_app_3.26.06260247_29706887.apk"
+  },
+  {
+    "id": "mqv0jvp6v2hq90",
+    "versionId": "mqv0jvp66c38cw",
+    "platform": "Android",
+    "filename": "legado-armeabi-v7a_app_3.26.06260247_29706887.apk",
+    "size": "37.0 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.06260247/legado-armeabi-v7a_app_3.26.06260247_29706887.apk"
+  },
+  {
+    "id": "mqtleb4ltvbv59",
+    "versionId": "mqtleb4ljvx6wh",
+    "platform": "Android",
+    "filename": "legado-arm64-v8a_app_3.26.06250226_29705426.apk",
+    "size": "36.8 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.06250226/legado-arm64-v8a_app_3.26.06250226_29705426.apk"
+  },
+  {
+    "id": "mqtleb4lqs66jd",
+    "versionId": "mqtleb4ljvx6wh",
+    "platform": "Android",
+    "filename": "legado-armeabi-v7a_app_3.26.06250226_29705426.apk",
+    "size": "36.8 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.06250226/legado-armeabi-v7a_app_3.26.06250226_29705426.apk"
+  },
+  {
+    "id": "mqs5xk4tuqxwbk",
+    "versionId": "mqs5xk4tiq7f34",
+    "platform": "Android",
+    "filename": "legado-arm64-v8a_app_3.26.06221859_29702099.apk",
+    "size": "36.8 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.06221859/legado-arm64-v8a_app_3.26.06221859_29702099.apk"
+  },
+  {
+    "id": "mqs5xk4tu5r1s4",
+    "versionId": "mqs5xk4tiq7f34",
+    "platform": "Android",
+    "filename": "legado-armeabi-v7a_app_3.26.06221859_29702099.apk",
+    "size": "36.7 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.06221859/legado-armeabi-v7a_app_3.26.06221859_29702099.apk"
+  },
+  {
+    "id": "mqs5xk4t1zpb56",
+    "versionId": "mqs5xk4tqxvkku",
+    "platform": "Android",
+    "filename": "legado-arm64-v8a_app_3.26.06221730_29702010.apk",
+    "size": "36.8 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.06221730/legado-arm64-v8a_app_3.26.06221730_29702010.apk"
+  },
+  {
+    "id": "mqs5xk4tl5no61",
+    "versionId": "mqs5xk4tqxvkku",
+    "platform": "Android",
+    "filename": "legado-armeabi-v7a_app_3.26.06221730_29702010.apk",
+    "size": "36.7 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.06221730/legado-armeabi-v7a_app_3.26.06221730_29702010.apk"
+  },
+  {
+    "id": "mqs5xk4tssthk3",
+    "versionId": "mqs5xk4t3dbydi",
+    "platform": "Android",
+    "filename": "legado-arm64-v8a_app_3.26.06221650_29701970.apk",
+    "size": "36.8 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.06221650/legado-arm64-v8a_app_3.26.06221650_29701970.apk"
+  },
+  {
+    "id": "mqs5xk4t3r9loa",
+    "versionId": "mqs5xk4t3dbydi",
+    "platform": "Android",
+    "filename": "legado-armeabi-v7a_app_3.26.06221650_29701970.apk",
+    "size": "36.7 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.06221650/legado-armeabi-v7a_app_3.26.06221650_29701970.apk"
+  },
+  {
+    "id": "mqs5xk4tlmcer6",
+    "versionId": "mqs5xk4t6k4oat",
+    "platform": "Android",
+    "filename": "legado-arm64-v8a_app_3.26.06192315_29698035.apk",
+    "size": "36.7 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.06192315/legado-arm64-v8a_app_3.26.06192315_29698035.apk"
+  },
+  {
+    "id": "mqs5xk4tzzg9ut",
+    "versionId": "mqs5xk4t6k4oat",
+    "platform": "Android",
+    "filename": "legado-armeabi-v7a_app_3.26.06192315_29698035.apk",
+    "size": "36.6 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.06192315/legado-armeabi-v7a_app_3.26.06192315_29698035.apk"
+  },
+  {
     "id": "mqdzx7u9p8exn7",
     "versionId": "mqdzx7tpfgaqq2",
     "platform": "Android",
@@ -360,6 +560,26 @@
     "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
   },
   {
+    "id": "mqdzx80jgduolz",
+    "versionId": "mqdzx80hhogwvh",
+    "platform": "Android",
+    "filename": "legado-arm64-v8a_app_3.26.050716_29635697.apk",
+    "size": "28.2 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.0507/legado-arm64-v8a_app_3.26.050716_29635697.apk",
+    "downloadCount": 304,
+    "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
+  },
+  {
+    "id": "mqdzx80mrxnocz",
+    "versionId": "mqdzx80hhogwvh",
+    "platform": "Android",
+    "filename": "legado-armeabi-v7a_app_3.26.050716_29635697.apk",
+    "size": "28.1 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.0507/legado-armeabi-v7a_app_3.26.050716_29635697.apk",
+    "downloadCount": 7,
+    "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
+  },
+  {
     "id": "mqdzx80b2alrak",
     "versionId": "mqdzx8085br26m",
     "platform": "Android",
@@ -380,24 +600,20 @@
     "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
   },
   {
-    "id": "mqdzx80jgduolz",
-    "versionId": "mqdzx80hhogwvh",
+    "id": "mqs5xk4tdynnfo",
+    "versionId": "mqs5xk4tswt10m",
     "platform": "Android",
-    "filename": "legado-arm64-v8a_app_3.26.050716_29635697.apk",
-    "size": "28.2 MB",
-    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.0507/legado-arm64-v8a_app_3.26.050716_29635697.apk",
-    "downloadCount": 304,
-    "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
+    "filename": "legado-arm64-v8a_app_3.26.06221859_29702099.apk",
+    "size": "36.8 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/latest-arm64-release/legado-arm64-v8a_app_3.26.06221859_29702099.apk"
   },
   {
-    "id": "mqdzx80mrxnocz",
-    "versionId": "mqdzx80hhogwvh",
+    "id": "mqs5xk4t09rft1",
+    "versionId": "mqs5xk4tswt10m",
     "platform": "Android",
-    "filename": "legado-armeabi-v7a_app_3.26.050716_29635697.apk",
-    "size": "28.1 MB",
-    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.0507/legado-armeabi-v7a_app_3.26.050716_29635697.apk",
-    "downloadCount": 7,
-    "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
+    "filename": "legado-armeabi-v7a_app_3.26.06221859_29702099.apk",
+    "size": "36.7 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/latest-arm64-release/legado-armeabi-v7a_app_3.26.06221859_29702099.apk"
   },
   {
     "id": "mqdzx84kj18ccu",
@@ -2300,6 +2516,38 @@
     "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
   },
   {
+    "id": "mruoxa6hagtiff",
+    "versionId": "mruoxa6hkr8zex",
+    "platform": "Android",
+    "filename": "legado_app_3.26.072120_arm64-v8a.apk",
+    "size": "14.4 MB",
+    "url": "https://github.com/skybbk1001/legadoT/releases/download/3.26.072120/legado_app_3.26.072120_arm64-v8a.apk"
+  },
+  {
+    "id": "mruoxa6heyb1zy",
+    "versionId": "mruoxa6hkr8zex",
+    "platform": "Android",
+    "filename": "legado_app_3.26.072120_armeabi-v7a.apk",
+    "size": "13.8 MB",
+    "url": "https://github.com/skybbk1001/legadoT/releases/download/3.26.072120/legado_app_3.26.072120_armeabi-v7a.apk"
+  },
+  {
+    "id": "mrjbdorqwlugq5",
+    "versionId": "mrjbdorqp71d9o",
+    "platform": "Android",
+    "filename": "legado_app_3.26.071316_arm64-v8a.apk",
+    "size": "12.3 MB",
+    "url": "https://github.com/skybbk1001/legadoT/releases/download/3.26.071316/legado_app_3.26.071316_arm64-v8a.apk"
+  },
+  {
+    "id": "mrjbdorqc4yepn",
+    "versionId": "mrjbdorqp71d9o",
+    "platform": "Android",
+    "filename": "legado_app_3.26.071316_armeabi-v7a.apk",
+    "size": "11.7 MB",
+    "url": "https://github.com/skybbk1001/legadoT/releases/download/3.26.071316/legado_app_3.26.071316_armeabi-v7a.apk"
+  },
+  {
     "id": "mqdzx9w19mvn9s",
     "versionId": "mqdzx9vskf99i8",
     "platform": "Android",
@@ -2324,6 +2572,998 @@
     "url": "https://github.com/skybbk1001/legadoT/releases/download/release/legado_app_3.26.06062118_release.apk",
     "downloadCount": 317,
     "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
+  },
+  {
+    "id": "ms1tgqoxs6h9b0",
+    "versionId": "ms1tgqoxfuvxkd",
+    "platform": "Android",
+    "filename": "legado-3.26.16-beta.6-arm64-v8a.apk",
+    "size": "18.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.6/legado-3.26.16-beta.6-arm64-v8a.apk"
+  },
+  {
+    "id": "ms1tgqoxuqk3d3",
+    "versionId": "ms1tgqoxfuvxkd",
+    "platform": "Android",
+    "filename": "legado-3.26.16-beta.6-armeabi-v7a.apk",
+    "size": "17.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.6/legado-3.26.16-beta.6-armeabi-v7a.apk"
+  },
+  {
+    "id": "ms1tgqoxqdnp2o",
+    "versionId": "ms1tgqoxfuvxkd",
+    "platform": "Android",
+    "filename": "legado-3.26.16-beta.6.apk",
+    "size": "24.5 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.6/legado-3.26.16-beta.6.apk"
+  },
+  {
+    "id": "ms1tgqox2i76c2",
+    "versionId": "ms1tgqoxfuvxkd",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "239.1 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.6/mapping.txt"
+  },
+  {
+    "id": "mrxkg296romyi7",
+    "versionId": "mrxkg296y6db7p",
+    "platform": "Android",
+    "filename": "legado-3.26.16-beta.5-arm64-v8a.apk",
+    "size": "18.1 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.5/legado-3.26.16-beta.5-arm64-v8a.apk"
+  },
+  {
+    "id": "mrxkg2967enzlh",
+    "versionId": "mrxkg296y6db7p",
+    "platform": "Android",
+    "filename": "legado-3.26.16-beta.5-armeabi-v7a.apk",
+    "size": "17.7 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.5/legado-3.26.16-beta.5-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrxkg2961zdz5d",
+    "versionId": "mrxkg296y6db7p",
+    "platform": "Android",
+    "filename": "legado-3.26.16-beta.5.apk",
+    "size": "24.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.5/legado-3.26.16-beta.5.apk"
+  },
+  {
+    "id": "mrxkg296iytxv0",
+    "versionId": "mrxkg296y6db7p",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "238.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.5/mapping.txt"
+  },
+  {
+    "id": "mrw4sz5ktuagq3",
+    "versionId": "mrw4sz5k6dfngq",
+    "platform": "Android",
+    "filename": "legado-3.26.16-beta.4-arm64-v8a.apk",
+    "size": "18.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.4/legado-3.26.16-beta.4-arm64-v8a.apk"
+  },
+  {
+    "id": "mrw4sz5kw2c2jp",
+    "versionId": "mrw4sz5k6dfngq",
+    "platform": "Android",
+    "filename": "legado-3.26.16-beta.4-armeabi-v7a.apk",
+    "size": "17.6 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.4/legado-3.26.16-beta.4-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrw4sz5kvna9ae",
+    "versionId": "mrw4sz5k6dfngq",
+    "platform": "Android",
+    "filename": "legado-3.26.16-beta.4.apk",
+    "size": "24.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.4/legado-3.26.16-beta.4.apk"
+  },
+  {
+    "id": "mrw4sz5kfywgfv",
+    "versionId": "mrw4sz5k6dfngq",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "236.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.4/mapping.txt"
+  },
+  {
+    "id": "mruoxaqwvxwu7b",
+    "versionId": "mruoxaqw8stpxq",
+    "platform": "Android",
+    "filename": "legado-3.26.16-beta.3-arm64-v8a.apk",
+    "size": "18.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.3/legado-3.26.16-beta.3-arm64-v8a.apk"
+  },
+  {
+    "id": "mruoxaqwmfxvub",
+    "versionId": "mruoxaqw8stpxq",
+    "platform": "Android",
+    "filename": "legado-3.26.16-beta.3-armeabi-v7a.apk",
+    "size": "17.6 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.3/legado-3.26.16-beta.3-armeabi-v7a.apk"
+  },
+  {
+    "id": "mruoxaqwy9yxfv",
+    "versionId": "mruoxaqw8stpxq",
+    "platform": "Android",
+    "filename": "legado-3.26.16-beta.3.apk",
+    "size": "24.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.3/legado-3.26.16-beta.3.apk"
+  },
+  {
+    "id": "mruoxaqwn6xied",
+    "versionId": "mruoxaqw8stpxq",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "236.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.3/mapping.txt"
+  },
+  {
+    "id": "mrtagn0iwopbqh",
+    "versionId": "mrtagn0im0vnq5",
+    "platform": "Android",
+    "filename": "legado-3.26.16-beta.2-arm64-v8a.apk",
+    "size": "18.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.2/legado-3.26.16-beta.2-arm64-v8a.apk"
+  },
+  {
+    "id": "mrtagn0ibv7e30",
+    "versionId": "mrtagn0im0vnq5",
+    "platform": "Android",
+    "filename": "legado-3.26.16-beta.2-armeabi-v7a.apk",
+    "size": "17.6 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.2/legado-3.26.16-beta.2-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrtagn0iigoi8c",
+    "versionId": "mrtagn0im0vnq5",
+    "platform": "Android",
+    "filename": "legado-3.26.16-beta.2.apk",
+    "size": "24.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.2/legado-3.26.16-beta.2.apk"
+  },
+  {
+    "id": "mrtagn0imh5r11",
+    "versionId": "mrtagn0im0vnq5",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "235.9 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.2/mapping.txt"
+  },
+  {
+    "id": "mrrt9vso8mi2kv",
+    "versionId": "mrrt9vsojpkyjy",
+    "platform": "Android",
+    "filename": "legado-3.26.16-beta.1-arm64-v8a.apk",
+    "size": "18.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.1/legado-3.26.16-beta.1-arm64-v8a.apk"
+  },
+  {
+    "id": "mrrt9vsoohpemz",
+    "versionId": "mrrt9vsojpkyjy",
+    "platform": "Android",
+    "filename": "legado-3.26.16-beta.1-armeabi-v7a.apk",
+    "size": "17.5 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.1/legado-3.26.16-beta.1-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrrt9vsoxyun5j",
+    "versionId": "mrrt9vsojpkyjy",
+    "platform": "Android",
+    "filename": "legado-3.26.16-beta.1.apk",
+    "size": "24.2 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.1/legado-3.26.16-beta.1.apk"
+  },
+  {
+    "id": "mrrt9vsoazd5j3",
+    "versionId": "mrrt9vsojpkyjy",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "233.1 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.1/mapping.txt"
+  },
+  {
+    "id": "mrrt9vso3vt7r1",
+    "versionId": "mrrt9vsoq4bpay",
+    "platform": "Android",
+    "filename": "legado-3.26.15-arm64-v8a.apk",
+    "size": "17.5 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.15/legado-3.26.15-arm64-v8a.apk"
+  },
+  {
+    "id": "mrrt9vson6bgjv",
+    "versionId": "mrrt9vsoq4bpay",
+    "platform": "Android",
+    "filename": "legado-3.26.15-armeabi-v7a.apk",
+    "size": "17.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.15/legado-3.26.15-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrrt9vsorrfvlu",
+    "versionId": "mrrt9vsoq4bpay",
+    "platform": "Android",
+    "filename": "legado-3.26.15.apk",
+    "size": "23.7 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.15/legado-3.26.15.apk"
+  },
+  {
+    "id": "mrrt9vso181knu",
+    "versionId": "mrrt9vsoq4bpay",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "223.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.15/mapping.txt"
+  },
+  {
+    "id": "mroysb5rzgpmwo",
+    "versionId": "mroysb5rjro8rw",
+    "platform": "Android",
+    "filename": "legado-3.26.14-arm64-v8a.apk",
+    "size": "17.5 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.14/legado-3.26.14-arm64-v8a.apk"
+  },
+  {
+    "id": "mroysb5rardion",
+    "versionId": "mroysb5rjro8rw",
+    "platform": "Android",
+    "filename": "legado-3.26.14-armeabi-v7a.apk",
+    "size": "17.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.14/legado-3.26.14-armeabi-v7a.apk"
+  },
+  {
+    "id": "mroysb5rv22m03",
+    "versionId": "mroysb5rjro8rw",
+    "platform": "Android",
+    "filename": "legado-3.26.14.apk",
+    "size": "23.7 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.14/legado-3.26.14.apk"
+  },
+  {
+    "id": "mroysb5rethoew",
+    "versionId": "mroysb5rjro8rw",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "223.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.14/mapping.txt"
+  },
+  {
+    "id": "mrnk5j55hnsd2t",
+    "versionId": "mrnk5j55w1mks4",
+    "platform": "Android",
+    "filename": "legado-3.26.13-arm64-v8a.apk",
+    "size": "17.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13/legado-3.26.13-arm64-v8a.apk"
+  },
+  {
+    "id": "mrnk5j55kwqtbe",
+    "versionId": "mrnk5j55w1mks4",
+    "platform": "Android",
+    "filename": "legado-3.26.13-armeabi-v7a.apk",
+    "size": "17.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13/legado-3.26.13-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrnk5j55k9n38c",
+    "versionId": "mrnk5j55w1mks4",
+    "platform": "Android",
+    "filename": "legado-3.26.13.apk",
+    "size": "23.7 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13/legado-3.26.13.apk"
+  },
+  {
+    "id": "mrnk5j55392tya",
+    "versionId": "mrnk5j55w1mks4",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "222.9 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13/mapping.txt"
+  },
+  {
+    "id": "mrm47q5ckf8kpa",
+    "versionId": "mrm47q5cg3h83g",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.50-arm64-v8a.apk",
+    "size": "17.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.50/legado-3.26.13-beta.50-arm64-v8a.apk"
+  },
+  {
+    "id": "mrm47q5cj050ay",
+    "versionId": "mrm47q5cg3h83g",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.50-armeabi-v7a.apk",
+    "size": "17.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.50/legado-3.26.13-beta.50-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrm47q5czqjurq",
+    "versionId": "mrm47q5cg3h83g",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.50.apk",
+    "size": "23.7 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.50/legado-3.26.13-beta.50.apk"
+  },
+  {
+    "id": "mrm47q5czih436",
+    "versionId": "mrm47q5cg3h83g",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "222.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.50/mapping.txt"
+  },
+  {
+    "id": "mrm47q5cs20c8g",
+    "versionId": "mrm47q5ccxbmg1",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.49-arm64-v8a.apk",
+    "size": "17.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.49/legado-3.26.13-beta.49-arm64-v8a.apk"
+  },
+  {
+    "id": "mrm47q5cg8jitu",
+    "versionId": "mrm47q5ccxbmg1",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.49-armeabi-v7a.apk",
+    "size": "17.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.49/legado-3.26.13-beta.49-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrm47q5cqr92tk",
+    "versionId": "mrm47q5ccxbmg1",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.49.apk",
+    "size": "23.7 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.49/legado-3.26.13-beta.49.apk"
+  },
+  {
+    "id": "mrm47q5cw3td4c",
+    "versionId": "mrm47q5ccxbmg1",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "222.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.49/mapping.txt"
+  },
+  {
+    "id": "mrkotzlyrdzgse",
+    "versionId": "mrkotzlyd775h1",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.48-arm64-v8a.apk",
+    "size": "17.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.48/legado-3.26.13-beta.48-arm64-v8a.apk"
+  },
+  {
+    "id": "mrkotzlyxkr6k6",
+    "versionId": "mrkotzlyd775h1",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.48-armeabi-v7a.apk",
+    "size": "17.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.48/legado-3.26.13-beta.48-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrkotzlyh5rsvr",
+    "versionId": "mrkotzlyd775h1",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.48.apk",
+    "size": "23.7 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.48/legado-3.26.13-beta.48.apk"
+  },
+  {
+    "id": "mrkotzlyf0k75g",
+    "versionId": "mrkotzlyd775h1",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "222.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.48/mapping.txt"
+  },
+  {
+    "id": "mrjbdpcrsh6glx",
+    "versionId": "mrjbdpcrrgeta1",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.47-arm64-v8a.apk",
+    "size": "17.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.47/legado-3.26.13-beta.47-arm64-v8a.apk"
+  },
+  {
+    "id": "mrjbdpcrak0cit",
+    "versionId": "mrjbdpcrrgeta1",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.47-armeabi-v7a.apk",
+    "size": "16.9 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.47/legado-3.26.13-beta.47-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrjbdpcr7m386r",
+    "versionId": "mrjbdpcrrgeta1",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.47.apk",
+    "size": "23.6 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.47/legado-3.26.13-beta.47.apk"
+  },
+  {
+    "id": "mrjbdpcrlkpw4p",
+    "versionId": "mrjbdpcrrgeta1",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "221.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.47/mapping.txt"
+  },
+  {
+    "id": "mrjbdpcs58y01i",
+    "versionId": "mrjbdpcrzei0ft",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.46-arm64-v8a.apk",
+    "size": "17.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.46/legado-3.26.13-beta.46-arm64-v8a.apk"
+  },
+  {
+    "id": "mrjbdpcsc01b88",
+    "versionId": "mrjbdpcrzei0ft",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.46-armeabi-v7a.apk",
+    "size": "16.9 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.46/legado-3.26.13-beta.46-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrjbdpcsvivfse",
+    "versionId": "mrjbdpcrzei0ft",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.46.apk",
+    "size": "23.6 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.46/legado-3.26.13-beta.46.apk"
+  },
+  {
+    "id": "mrjbdpcsdb99bt",
+    "versionId": "mrjbdpcrzei0ft",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "221.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.46/mapping.txt"
+  },
+  {
+    "id": "mrgdshqcjq27i2",
+    "versionId": "mrgdshqczivatf",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.45-arm64-v8a.apk",
+    "size": "17.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.45/legado-3.26.13-beta.45-arm64-v8a.apk"
+  },
+  {
+    "id": "mrgdshqcmtiw0d",
+    "versionId": "mrgdshqczivatf",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.45-armeabi-v7a.apk",
+    "size": "16.9 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.45/legado-3.26.13-beta.45-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrgdshqc5vgwx1",
+    "versionId": "mrgdshqczivatf",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.45.apk",
+    "size": "23.6 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.45/legado-3.26.13-beta.45.apk"
+  },
+  {
+    "id": "mrgdshqc1qj1wn",
+    "versionId": "mrgdshqczivatf",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "220.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.45/mapping.txt"
+  },
+  {
+    "id": "mrc51pe7wg3vbo",
+    "versionId": "mrc51pe7rv5ju1",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.44-arm64-v8a.apk",
+    "size": "17.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.44/legado-3.26.13-beta.44-arm64-v8a.apk"
+  },
+  {
+    "id": "mrc51pe714wpmn",
+    "versionId": "mrc51pe7rv5ju1",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.44-armeabi-v7a.apk",
+    "size": "16.9 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.44/legado-3.26.13-beta.44-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrc51pe79mwztw",
+    "versionId": "mrc51pe7rv5ju1",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.44.apk",
+    "size": "23.6 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.44/legado-3.26.13-beta.44.apk"
+  },
+  {
+    "id": "mrc51pe7hzqqv4",
+    "versionId": "mrc51pe7rv5ju1",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "220.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.44/mapping.txt"
+  },
+  {
+    "id": "mr9dcw9voy8rwq",
+    "versionId": "mr9dcw9vatcmeg",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.43-arm64-v8a.apk",
+    "size": "17.2 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.43/legado-3.26.13-beta.43-arm64-v8a.apk"
+  },
+  {
+    "id": "mr9dcw9vz6d83a",
+    "versionId": "mr9dcw9vatcmeg",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.43-armeabi-v7a.apk",
+    "size": "16.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.43/legado-3.26.13-beta.43-armeabi-v7a.apk"
+  },
+  {
+    "id": "mr9dcw9vk3nabv",
+    "versionId": "mr9dcw9vatcmeg",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.43.apk",
+    "size": "23.5 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.43/legado-3.26.13-beta.43.apk"
+  },
+  {
+    "id": "mr9dcw9vwuxc1f",
+    "versionId": "mr9dcw9vatcmeg",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "218.1 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.43/mapping.txt"
+  },
+  {
+    "id": "mr7tmjyjgl8g2h",
+    "versionId": "mr7tmjyifgq7g0",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.42-arm64-v8a.apk",
+    "size": "17.2 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.42/legado-3.26.13-beta.42-arm64-v8a.apk"
+  },
+  {
+    "id": "mr7tmjyjzjphkb",
+    "versionId": "mr7tmjyifgq7g0",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.42-armeabi-v7a.apk",
+    "size": "16.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.42/legado-3.26.13-beta.42-armeabi-v7a.apk"
+  },
+  {
+    "id": "mr7tmjyjyp5t8f",
+    "versionId": "mr7tmjyifgq7g0",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.42.apk",
+    "size": "23.5 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.42/legado-3.26.13-beta.42.apk"
+  },
+  {
+    "id": "mr7tmjyjvujyqd",
+    "versionId": "mr7tmjyifgq7g0",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "218.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.42/mapping.txt"
+  },
+  {
+    "id": "mr4zv9i1hnbfvc",
+    "versionId": "mr4zv9i1vnissm",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.41-arm64-v8a.apk",
+    "size": "17.1 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.41/legado-3.26.13-beta.41-arm64-v8a.apk"
+  },
+  {
+    "id": "mr4zv9i1wlgxe3",
+    "versionId": "mr4zv9i1vnissm",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.41-armeabi-v7a.apk",
+    "size": "16.7 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.41/legado-3.26.13-beta.41-armeabi-v7a.apk"
+  },
+  {
+    "id": "mr4zv9i1q5c90e",
+    "versionId": "mr4zv9i1vnissm",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.41.apk",
+    "size": "23.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.41/legado-3.26.13-beta.41.apk"
+  },
+  {
+    "id": "mr4zv9i2g5csm9",
+    "versionId": "mr4zv9i1vnissm",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "215.7 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.41/mapping.txt"
+  },
+  {
+    "id": "mr3katabnfgdv4",
+    "versionId": "mr3katabhxov4w",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.40-arm64-v8a.apk",
+    "size": "17.1 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.40/legado-3.26.13-beta.40-arm64-v8a.apk"
+  },
+  {
+    "id": "mr3katabuwqo4k",
+    "versionId": "mr3katabhxov4w",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.40-armeabi-v7a.apk",
+    "size": "16.7 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.40/legado-3.26.13-beta.40-armeabi-v7a.apk"
+  },
+  {
+    "id": "mr3katab752un4",
+    "versionId": "mr3katabhxov4w",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.40.apk",
+    "size": "23.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.40/legado-3.26.13-beta.40.apk"
+  },
+  {
+    "id": "mr3katab0odc7i",
+    "versionId": "mr3katabhxov4w",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "215.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.40/mapping.txt"
+  },
+  {
+    "id": "mr3katab91kjl0",
+    "versionId": "mr3katab63xwbf",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.39-arm64-v8a.apk",
+    "size": "17.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.39/legado-3.26.13-beta.39-arm64-v8a.apk"
+  },
+  {
+    "id": "mr3katab2insf1",
+    "versionId": "mr3katab63xwbf",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.39-armeabi-v7a.apk",
+    "size": "16.6 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.39/legado-3.26.13-beta.39-armeabi-v7a.apk"
+  },
+  {
+    "id": "mr3katab94tl27",
+    "versionId": "mr3katab63xwbf",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.39.apk",
+    "size": "23.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.39/legado-3.26.13-beta.39.apk"
+  },
+  {
+    "id": "mr3katabrxfyei",
+    "versionId": "mr3katab63xwbf",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "214.7 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.39/mapping.txt"
+  },
+  {
+    "id": "mr265md4sw6ex3",
+    "versionId": "mr265md4mvcodp",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.38-arm64-v8a.apk",
+    "size": "17.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.38/legado-3.26.13-beta.38-arm64-v8a.apk"
+  },
+  {
+    "id": "mr265md44f891d",
+    "versionId": "mr265md4mvcodp",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.38-armeabi-v7a.apk",
+    "size": "16.6 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.38/legado-3.26.13-beta.38-armeabi-v7a.apk"
+  },
+  {
+    "id": "mr265md4pqgsx6",
+    "versionId": "mr265md4mvcodp",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.38.apk",
+    "size": "23.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.38/legado-3.26.13-beta.38.apk"
+  },
+  {
+    "id": "mr265md4qmc1n3",
+    "versionId": "mr265md4mvcodp",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "214.6 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.38/mapping.txt"
+  },
+  {
+    "id": "mr0q55yrq4b2gd",
+    "versionId": "mr0q55yr47wiu7",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.37-arm64-v8a.apk",
+    "size": "17.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.37/legado-3.26.13-beta.37-arm64-v8a.apk"
+  },
+  {
+    "id": "mr0q55yryy0h5c",
+    "versionId": "mr0q55yr47wiu7",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.37-armeabi-v7a.apk",
+    "size": "16.5 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.37/legado-3.26.13-beta.37-armeabi-v7a.apk"
+  },
+  {
+    "id": "mr0q55yrn5vj2u",
+    "versionId": "mr0q55yr47wiu7",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.37.apk",
+    "size": "23.2 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.37/legado-3.26.13-beta.37.apk"
+  },
+  {
+    "id": "mr0q55yrv7jkte",
+    "versionId": "mr0q55yr47wiu7",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "213.7 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.37/mapping.txt"
+  },
+  {
+    "id": "mr0q55yrv34xow",
+    "versionId": "mr0q55yr376quy",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.36-arm64-v8a.apk",
+    "size": "17.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.36/legado-3.26.13-beta.36-arm64-v8a.apk"
+  },
+  {
+    "id": "mr0q55yr0tjjjl",
+    "versionId": "mr0q55yr376quy",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.36-armeabi-v7a.apk",
+    "size": "16.5 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.36/legado-3.26.13-beta.36-armeabi-v7a.apk"
+  },
+  {
+    "id": "mr0q55yrmghxns",
+    "versionId": "mr0q55yr376quy",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.36.apk",
+    "size": "23.2 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.36/legado-3.26.13-beta.36.apk"
+  },
+  {
+    "id": "mr0q55yr8juh49",
+    "versionId": "mr0q55yr376quy",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "213.6 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.36/mapping.txt"
+  },
+  {
+    "id": "mr0q55yraf6nk5",
+    "versionId": "mr0q55yrrjlt4t",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.35-arm64-v8a.apk",
+    "size": "17.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.35/legado-3.26.13-beta.35-arm64-v8a.apk"
+  },
+  {
+    "id": "mr0q55yr5pcraq",
+    "versionId": "mr0q55yrrjlt4t",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.35-armeabi-v7a.apk",
+    "size": "16.5 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.35/legado-3.26.13-beta.35-armeabi-v7a.apk"
+  },
+  {
+    "id": "mr0q55yrl9iid6",
+    "versionId": "mr0q55yrrjlt4t",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.35.apk",
+    "size": "23.2 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.35/legado-3.26.13-beta.35.apk"
+  },
+  {
+    "id": "mr0q55yrmjwwf7",
+    "versionId": "mr0q55yrrjlt4t",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "213.6 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.35/mapping.txt"
+  },
+  {
+    "id": "mr0q55yrb4hzb6",
+    "versionId": "mr0q55yrmbry19",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.34-arm64-v8a.apk",
+    "size": "17.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.34/legado-3.26.13-beta.34-arm64-v8a.apk"
+  },
+  {
+    "id": "mr0q55yrr6wnb4",
+    "versionId": "mr0q55yrmbry19",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.34-armeabi-v7a.apk",
+    "size": "16.5 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.34/legado-3.26.13-beta.34-armeabi-v7a.apk"
+  },
+  {
+    "id": "mr0q55yrqhi808",
+    "versionId": "mr0q55yrmbry19",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.34.apk",
+    "size": "23.2 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.34/legado-3.26.13-beta.34.apk"
+  },
+  {
+    "id": "mr0q55yrm5rgor",
+    "versionId": "mr0q55yrmbry19",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "213.0 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.34/mapping.txt"
+  },
+  {
+    "id": "mr0q55yroi7rfr",
+    "versionId": "mr0q55yrba2rgn",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.33-arm64-v8a.apk",
+    "size": "16.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.33/legado-3.26.13-beta.33-arm64-v8a.apk"
+  },
+  {
+    "id": "mr0q55yr7aps6h",
+    "versionId": "mr0q55yrba2rgn",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.33-armeabi-v7a.apk",
+    "size": "16.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.33/legado-3.26.13-beta.33-armeabi-v7a.apk"
+  },
+  {
+    "id": "mr0q55yrwv5eqg",
+    "versionId": "mr0q55yrba2rgn",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.33.apk",
+    "size": "23.1 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.33/legado-3.26.13-beta.33.apk"
+  },
+  {
+    "id": "mr0q55yrx4hdq3",
+    "versionId": "mr0q55yrba2rgn",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "212.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.33/mapping.txt"
+  },
+  {
+    "id": "mqwe66i98fkwn4",
+    "versionId": "mqwe66i99jdvfw",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.32-arm64-v8a.apk",
+    "size": "16.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.32/legado-3.26.13-beta.32-arm64-v8a.apk"
+  },
+  {
+    "id": "mqwe66i9wcz2zz",
+    "versionId": "mqwe66i99jdvfw",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.32-armeabi-v7a.apk",
+    "size": "16.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.32/legado-3.26.13-beta.32-armeabi-v7a.apk"
+  },
+  {
+    "id": "mqwe66i95lxgd0",
+    "versionId": "mqwe66i99jdvfw",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.32.apk",
+    "size": "23.1 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.32/legado-3.26.13-beta.32.apk"
+  },
+  {
+    "id": "mqwe66i936mapk",
+    "versionId": "mqwe66i99jdvfw",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "211.9 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.32/mapping.txt"
+  },
+  {
+    "id": "mqs5xlp3hfky5s",
+    "versionId": "mqs5xlp3jqy4e8",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.31-arm64-v8a.apk",
+    "size": "16.6 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.31/legado-3.26.13-beta.31-arm64-v8a.apk"
+  },
+  {
+    "id": "mqs5xlp3flgetd",
+    "versionId": "mqs5xlp3jqy4e8",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.31-armeabi-v7a.apk",
+    "size": "16.1 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.31/legado-3.26.13-beta.31-armeabi-v7a.apk"
+  },
+  {
+    "id": "mqs5xlp3djqd82",
+    "versionId": "mqs5xlp3jqy4e8",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.31.apk",
+    "size": "22.9 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.31/legado-3.26.13-beta.31.apk"
+  },
+  {
+    "id": "mqs5xlp3v1v069",
+    "versionId": "mqs5xlp3jqy4e8",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "207.5 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.31/mapping.txt"
+  },
+  {
+    "id": "mqs5xlp3nqlpie",
+    "versionId": "mqs5xlp3wbljc1",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.30-arm64-v8a.apk",
+    "size": "16.6 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.30/legado-3.26.13-beta.30-arm64-v8a.apk"
+  },
+  {
+    "id": "mqs5xlp3z1jldj",
+    "versionId": "mqs5xlp3wbljc1",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.30-armeabi-v7a.apk",
+    "size": "16.1 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.30/legado-3.26.13-beta.30-armeabi-v7a.apk"
+  },
+  {
+    "id": "mqs5xlp3geuzwo",
+    "versionId": "mqs5xlp3wbljc1",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.30.apk",
+    "size": "22.9 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.30/legado-3.26.13-beta.30.apk"
+  },
+  {
+    "id": "mqs5xlp32ngkgm",
+    "versionId": "mqs5xlp3wbljc1",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "207.5 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.30/mapping.txt"
+  },
+  {
+    "id": "mqs5xlp336rjz4",
+    "versionId": "mqs5xlp343oyl0",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.29-arm64-v8a.apk",
+    "size": "16.6 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.29/legado-3.26.13-beta.29-arm64-v8a.apk"
+  },
+  {
+    "id": "mqs5xlp3qv0tgr",
+    "versionId": "mqs5xlp343oyl0",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.29-armeabi-v7a.apk",
+    "size": "16.1 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.29/legado-3.26.13-beta.29-armeabi-v7a.apk"
+  },
+  {
+    "id": "mqs5xlp3r5475s",
+    "versionId": "mqs5xlp343oyl0",
+    "platform": "Android",
+    "filename": "legado-3.26.13-beta.29.apk",
+    "size": "22.9 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.29/legado-3.26.13-beta.29.apk"
+  },
+  {
+    "id": "mqs5xlp32yrj57",
+    "versionId": "mqs5xlp343oyl0",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "207.1 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.13-beta.29/mapping.txt"
   },
   {
     "id": "mql1y5aq1z9cap",
@@ -3678,6 +4918,462 @@
     "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
   },
   {
+    "id": "mrnk5j55ugzxw8",
+    "versionId": "mrnk5j555f3wbk",
+    "platform": "Android",
+    "filename": "legado-3.26.12-arm64-v8a.apk",
+    "size": "15.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.12/legado-3.26.12-arm64-v8a.apk"
+  },
+  {
+    "id": "mrnk5j555vs3xn",
+    "versionId": "mrnk5j555f3wbk",
+    "platform": "Android",
+    "filename": "legado-3.26.12-armeabi-v7a.apk",
+    "size": "14.9 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.12/legado-3.26.12-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrnk5j55yxva9p",
+    "versionId": "mrnk5j555f3wbk",
+    "platform": "Android",
+    "filename": "legado-3.26.12.apk",
+    "size": "21.6 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.12/legado-3.26.12.apk"
+  },
+  {
+    "id": "mrnk5j55h05sf5",
+    "versionId": "mrnk5j55jiv0gp",
+    "platform": "Android",
+    "filename": "legado-3.26.11-arm64-v8a.apk",
+    "size": "15.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.11/legado-3.26.11-arm64-v8a.apk"
+  },
+  {
+    "id": "mrnk5j55egs9k9",
+    "versionId": "mrnk5j55jiv0gp",
+    "platform": "Android",
+    "filename": "legado-3.26.11-armeabi-v7a.apk",
+    "size": "14.9 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.11/legado-3.26.11-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrnk5j5691oexd",
+    "versionId": "mrnk5j55jiv0gp",
+    "platform": "Android",
+    "filename": "legado-3.26.11.apk",
+    "size": "21.6 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.11/legado-3.26.11.apk"
+  },
+  {
+    "id": "mrnk5j5669kmit",
+    "versionId": "mrnk5j56laqb3a",
+    "platform": "Android",
+    "filename": "legado-3.26.10-arm64-v8a.apk",
+    "size": "14.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.10/legado-3.26.10-arm64-v8a.apk"
+  },
+  {
+    "id": "mrnk5j56snv874",
+    "versionId": "mrnk5j56laqb3a",
+    "platform": "Android",
+    "filename": "legado-3.26.10-armeabi-v7a.apk",
+    "size": "14.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.10/legado-3.26.10-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrnk5j5658h11q",
+    "versionId": "mrnk5j56laqb3a",
+    "platform": "Android",
+    "filename": "legado-3.26.10.apk",
+    "size": "21.1 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.10/legado-3.26.10.apk"
+  },
+  {
+    "id": "mrnk5j56fuyk0s",
+    "versionId": "mrnk5j56hsux2o",
+    "platform": "Android",
+    "filename": "legado-3.26.9-arm64-v8a.apk",
+    "size": "14.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.9/legado-3.26.9-arm64-v8a.apk"
+  },
+  {
+    "id": "mrnk5j56ebz23i",
+    "versionId": "mrnk5j56hsux2o",
+    "platform": "Android",
+    "filename": "legado-3.26.9-armeabi-v7a.apk",
+    "size": "14.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.9/legado-3.26.9-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrnk5j56jlkkoe",
+    "versionId": "mrnk5j56hsux2o",
+    "platform": "Android",
+    "filename": "legado-3.26.9.apk",
+    "size": "21.1 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.9/legado-3.26.9.apk"
+  },
+  {
+    "id": "mrnk5j56kohci6",
+    "versionId": "mrnk5j56a3k3r7",
+    "platform": "Android",
+    "filename": "legado-3.26.8-arm64-v8a.apk",
+    "size": "14.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.8/legado-3.26.8-arm64-v8a.apk"
+  },
+  {
+    "id": "mrnk5j5694a7dk",
+    "versionId": "mrnk5j56a3k3r7",
+    "platform": "Android",
+    "filename": "legado-3.26.8-armeabi-v7a.apk",
+    "size": "14.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.8/legado-3.26.8-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrnk5j56u349tv",
+    "versionId": "mrnk5j56a3k3r7",
+    "platform": "Android",
+    "filename": "legado-3.26.8.apk",
+    "size": "21.1 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.8/legado-3.26.8.apk"
+  },
+  {
+    "id": "mrnk5j56spj1qp",
+    "versionId": "mrnk5j563q2qht",
+    "platform": "Android",
+    "filename": "legado-3.26.7-arm64-v8a.apk",
+    "size": "14.2 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.7/legado-3.26.7-arm64-v8a.apk"
+  },
+  {
+    "id": "mrnk5j560ju1yk",
+    "versionId": "mrnk5j563q2qht",
+    "platform": "Android",
+    "filename": "legado-3.26.7-armeabi-v7a.apk",
+    "size": "13.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.7/legado-3.26.7-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrnk5j562ydw2t",
+    "versionId": "mrnk5j563q2qht",
+    "platform": "Android",
+    "filename": "legado-3.26.7.apk",
+    "size": "20.6 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.7/legado-3.26.7.apk"
+  },
+  {
+    "id": "mrnk5j56f4u6o3",
+    "versionId": "mrnk5j566qi3im",
+    "platform": "Android",
+    "filename": "legado-3.26.6-arm64-v8a.apk",
+    "size": "14.2 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.6/legado-3.26.6-arm64-v8a.apk"
+  },
+  {
+    "id": "mrnk5j56239626",
+    "versionId": "mrnk5j566qi3im",
+    "platform": "Android",
+    "filename": "legado-3.26.6-armeabi-v7a.apk",
+    "size": "13.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.6/legado-3.26.6-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrnk5j5684v6yo",
+    "versionId": "mrnk5j566qi3im",
+    "platform": "Android",
+    "filename": "legado-3.26.6.apk",
+    "size": "20.6 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.6/legado-3.26.6.apk"
+  },
+  {
+    "id": "mrnk5j56nd8ywb",
+    "versionId": "mrnk5j56iv02nk",
+    "platform": "Android",
+    "filename": "legado-3.26.5-arm64-v8a.apk",
+    "size": "14.2 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.5/legado-3.26.5-arm64-v8a.apk"
+  },
+  {
+    "id": "mrnk5j56kt8nxd",
+    "versionId": "mrnk5j56iv02nk",
+    "platform": "Android",
+    "filename": "legado-3.26.5-armeabi-v7a.apk",
+    "size": "13.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.5/legado-3.26.5-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrnk5j56pk4vos",
+    "versionId": "mrnk5j56iv02nk",
+    "platform": "Android",
+    "filename": "legado-3.26.5.apk",
+    "size": "20.6 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.5/legado-3.26.5.apk"
+  },
+  {
+    "id": "mrnk5j565b8gp9",
+    "versionId": "mrnk5j569x9upn",
+    "platform": "Android",
+    "filename": "legado-3.26.4-arm64-v8a.apk",
+    "size": "13.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.4/legado-3.26.4-arm64-v8a.apk"
+  },
+  {
+    "id": "mrnk5j56g0mnou",
+    "versionId": "mrnk5j569x9upn",
+    "platform": "Android",
+    "filename": "legado-3.26.4-armeabi-v7a.apk",
+    "size": "13.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.4/legado-3.26.4-armeabi-v7a.apk"
+  },
+  {
+    "id": "mrnk5j56irwe58",
+    "versionId": "mrnk5j569x9upn",
+    "platform": "Android",
+    "filename": "legado-3.26.4.apk",
+    "size": "20.2 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.4/legado-3.26.4.apk"
+  },
+  {
+    "id": "mrnk5j56f0hfw4",
+    "versionId": "mrnk5j56oop1pb",
+    "platform": "Android",
+    "filename": "legado_app_3.26.3.apk",
+    "size": "18.5 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.3/legado_app_3.26.3.apk"
+  },
+  {
+    "id": "mrnk5j56z1r56s",
+    "versionId": "mrnk5j56oop1pb",
+    "platform": "Android",
+    "filename": "legado_app_3.26.3_arm64-v8a.apk",
+    "size": "12.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.3/legado_app_3.26.3_arm64-v8a.apk"
+  },
+  {
+    "id": "mrnk5j568282k8",
+    "versionId": "mrnk5j56oop1pb",
+    "platform": "Android",
+    "filename": "legado_app_3.26.3_armeabi-v7a.apk",
+    "size": "11.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.3/legado_app_3.26.3_armeabi-v7a.apk"
+  },
+  {
+    "id": "mrnk5j56igk6g5",
+    "versionId": "mrnk5j56k536qs",
+    "platform": "Android",
+    "filename": "legado_app_3.26.2.apk",
+    "size": "18.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.2/legado_app_3.26.2.apk"
+  },
+  {
+    "id": "mrnk5j56fuqtdd",
+    "versionId": "mrnk5j56k536qs",
+    "platform": "Android",
+    "filename": "legado_app_3.26.2_arm64-v8a.apk",
+    "size": "12.2 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.2/legado_app_3.26.2_arm64-v8a.apk"
+  },
+  {
+    "id": "mrnk5j56jud63v",
+    "versionId": "mrnk5j56k536qs",
+    "platform": "Android",
+    "filename": "legado_app_3.26.2_armeabi-v7a.apk",
+    "size": "11.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.2/legado_app_3.26.2_armeabi-v7a.apk"
+  },
+  {
+    "id": "mrnk5j56bfstvt",
+    "versionId": "mrnk5j56f3grbe",
+    "platform": "Android",
+    "filename": "legado_app_3.26.1.apk",
+    "size": "18.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.1/legado_app_3.26.1.apk"
+  },
+  {
+    "id": "mrnk5j56uwg8h6",
+    "versionId": "mrnk5j56f3grbe",
+    "platform": "Android",
+    "filename": "legado_app_3.26.1_arm64-v8a.apk",
+    "size": "12.2 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.1/legado_app_3.26.1_arm64-v8a.apk"
+  },
+  {
+    "id": "mrnk5j56vio7v7",
+    "versionId": "mrnk5j56f3grbe",
+    "platform": "Android",
+    "filename": "legado_app_3.26.1_armeabi-v7a.apk",
+    "size": "11.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.1/legado_app_3.26.1_armeabi-v7a.apk"
+  },
+  {
+    "id": "mrnk5j56kwuczz",
+    "versionId": "mrnk5j56s7va44",
+    "platform": "Android",
+    "filename": "legado_app_3.25.15.apk",
+    "size": "18.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.25.15/legado_app_3.25.15.apk"
+  },
+  {
+    "id": "mrnk5j56c9hexr",
+    "versionId": "mrnk5j56s7va44",
+    "platform": "Android",
+    "filename": "legado_app_3.25.15_arm64-v8a.apk",
+    "size": "12.2 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.25.15/legado_app_3.25.15_arm64-v8a.apk"
+  },
+  {
+    "id": "mrnk5j568v0bau",
+    "versionId": "mrnk5j56s7va44",
+    "platform": "Android",
+    "filename": "legado_app_3.25.15_armeabi-v7a.apk",
+    "size": "11.8 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.25.15/legado_app_3.25.15_armeabi-v7a.apk"
+  },
+  {
+    "id": "mrnk5j568gsefy",
+    "versionId": "mrnk5j56lzq7hc",
+    "platform": "Android",
+    "filename": "legado_app_3.25.14.apk",
+    "size": "18.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.25.14/legado_app_3.25.14.apk"
+  },
+  {
+    "id": "mrnk5j5677xd99",
+    "versionId": "mrnk5j56lzq7hc",
+    "platform": "Android",
+    "filename": "legado_app_3.25.14_arm64-v8a.apk",
+    "size": "12.2 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.25.14/legado_app_3.25.14_arm64-v8a.apk"
+  },
+  {
+    "id": "mrnk5j56i8o6dx",
+    "versionId": "mrnk5j56lzq7hc",
+    "platform": "Android",
+    "filename": "legado_app_3.25.14_armeabi-v7a.apk",
+    "size": "11.7 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.25.14/legado_app_3.25.14_armeabi-v7a.apk"
+  },
+  {
+    "id": "mrnk5j568pmbpx",
+    "versionId": "mrnk5j56sigehr",
+    "platform": "Android",
+    "filename": "legado_app_3.25.13.apk",
+    "size": "18.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.25.13/legado_app_3.25.13.apk"
+  },
+  {
+    "id": "mrnk5j564b9sjq",
+    "versionId": "mrnk5j56sigehr",
+    "platform": "Android",
+    "filename": "legado_app_3.25.13_arm64-v8a.apk",
+    "size": "12.2 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.25.13/legado_app_3.25.13_arm64-v8a.apk"
+  },
+  {
+    "id": "mrnk5j56yg4ct3",
+    "versionId": "mrnk5j56sigehr",
+    "platform": "Android",
+    "filename": "legado_app_3.25.13_armeabi-v7a.apk",
+    "size": "11.7 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.25.13/legado_app_3.25.13_armeabi-v7a.apk"
+  },
+  {
+    "id": "mrnk5j564ll5as",
+    "versionId": "mrnk5j56kr0ugf",
+    "platform": "Android",
+    "filename": "legado_app_3.25.12.apk",
+    "size": "18.4 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.25.12/legado_app_3.25.12.apk"
+  },
+  {
+    "id": "mrnk5j56scqeqb",
+    "versionId": "mrnk5j56kr0ugf",
+    "platform": "Android",
+    "filename": "legado_app_3.25.12_arm64-v8a.apk",
+    "size": "12.2 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.25.12/legado_app_3.25.12_arm64-v8a.apk"
+  },
+  {
+    "id": "mrnk5j56efga7k",
+    "versionId": "mrnk5j56kr0ugf",
+    "platform": "Android",
+    "filename": "legado_app_3.25.12_armeabi-v7a.apk",
+    "size": "11.7 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.25.12/legado_app_3.25.12_armeabi-v7a.apk"
+  },
+  {
+    "id": "mrnk5j56v8bhs8",
+    "versionId": "mrnk5j5631m8dk",
+    "platform": "Android",
+    "filename": "legado_app_3.25.11.apk",
+    "size": "18.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.25.11/legado_app_3.25.11.apk"
+  },
+  {
+    "id": "mrnk5j56j55pm5",
+    "versionId": "mrnk5j5631m8dk",
+    "platform": "Android",
+    "filename": "legado_app_3.25.11_arm64-v8a.apk",
+    "size": "12.1 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.25.11/legado_app_3.25.11_arm64-v8a.apk"
+  },
+  {
+    "id": "mrnk5j56n604h4",
+    "versionId": "mrnk5j5631m8dk",
+    "platform": "Android",
+    "filename": "legado_app_3.25.11_armeabi-v7a.apk",
+    "size": "11.7 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.25.11/legado_app_3.25.11_armeabi-v7a.apk"
+  },
+  {
+    "id": "mrnk5j56acw7ab",
+    "versionId": "mrnk5j56z1ffu0",
+    "platform": "Android",
+    "filename": "legado_app_3.25.10.apk",
+    "size": "18.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.25.10/legado_app_3.25.10.apk"
+  },
+  {
+    "id": "mrnk5j56pig7j2",
+    "versionId": "mrnk5j56z1ffu0",
+    "platform": "Android",
+    "filename": "legado_app_3.25.10_arm64-v8a.apk",
+    "size": "12.1 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.25.10/legado_app_3.25.10_arm64-v8a.apk"
+  },
+  {
+    "id": "mrnk5j56bccetn",
+    "versionId": "mrnk5j56z1ffu0",
+    "platform": "Android",
+    "filename": "legado_app_3.25.10_armeabi-v7a.apk",
+    "size": "11.7 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.25.10/legado_app_3.25.10_armeabi-v7a.apk"
+  },
+  {
+    "id": "mrnk5j56h2fk49",
+    "versionId": "mrnk5j56rmi6x8",
+    "platform": "Android",
+    "filename": "legado_app_3.25.093000.apk",
+    "size": "18.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.25.093000/legado_app_3.25.093000.apk"
+  },
+  {
+    "id": "mrnk5j568q08al",
+    "versionId": "mrnk5j56rmi6x8",
+    "platform": "Android",
+    "filename": "legado_app_3.25.093000_arm64-v8a.apk",
+    "size": "12.1 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.25.093000/legado_app_3.25.093000_arm64-v8a.apk"
+  },
+  {
+    "id": "mrnk5j567n65ww",
+    "versionId": "mrnk5j56rmi6x8",
+    "platform": "Android",
+    "filename": "legado_app_3.25.093000_armeabi-v7a.apk",
+    "size": "11.7 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.25.093000/legado_app_3.25.093000_armeabi-v7a.apk"
+  },
+  {
     "id": "mqjml7ghyup8tz",
     "versionId": "mqjml7ghy7ir56",
     "platform": "Android",
@@ -4102,6 +5798,22 @@
     "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
   },
   {
+    "id": "mrnk5kmgf8oos7",
+    "versionId": "mrnk5kmgmeeya0",
+    "platform": "Android",
+    "filename": "legado_beta_3.26.07152258_release.apk",
+    "size": "19.4 MB",
+    "url": "https://github.com/Luoyacheng/legado-E/releases/download/3.26.071522/legado_beta_3.26.07152258_release.apk"
+  },
+  {
+    "id": "mrnk5kmg33rx5x",
+    "versionId": "mrnk5kmgmeeya0",
+    "platform": "Android",
+    "filename": "legado_plus_3.26.07152258_releaseS.apk",
+    "size": "19.4 MB",
+    "url": "https://github.com/Luoyacheng/legado-E/releases/download/3.26.071522/legado_plus_3.26.07152258_releaseS.apk"
+  },
+  {
     "id": "mqdzxd3sz6xet9",
     "versionId": "mqdzxd3knran74",
     "platform": "Android",
@@ -4310,6 +6022,1230 @@
     "url": "https://github.com/Luoyacheng/legado/releases/download/3.25.111622/legado_plus_3.25.11162230_releaseS.apk",
     "downloadCount": 151,
     "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
+  },
+  {
+    "id": "mrtagps6k1cny0",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/latest.json"
+  },
+  {
+    "id": "mrtagps6gkypho",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Other",
+    "filename": "Readest-0.11.20-1.aarch64.rpm",
+    "size": "38.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest-0.11.20-1.aarch64.rpm"
+  },
+  {
+    "id": "mrtagps6e6mn4i",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Other",
+    "filename": "Readest-0.11.20-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest-0.11.20-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mrtagps6byzrnc",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Other",
+    "filename": "Readest-0.11.20-1.koplugin.zip",
+    "size": "0.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest-0.11.20-1.koplugin.zip"
+  },
+  {
+    "id": "mrtagps6ep4yq4",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Other",
+    "filename": "Readest-0.11.20-1.x86_64.rpm",
+    "size": "37.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest-0.11.20-1.x86_64.rpm"
+  },
+  {
+    "id": "mrtagps6gxdp04",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Other",
+    "filename": "Readest-0.11.20-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest-0.11.20-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mrtagps6trrr6v",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Other",
+    "filename": "Readest-0.11.20.calibre-plugin.zip",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest-0.11.20.calibre-plugin.zip"
+  },
+  {
+    "id": "mrtagps6td8nw7",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Linux",
+    "filename": "Readest_0.11.20_aarch64.AppImage",
+    "size": "137.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_aarch64.AppImage"
+  },
+  {
+    "id": "mrtagps664fp8z",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Linux",
+    "filename": "Readest_0.11.20_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mrtagps6ppt6y0",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Linux",
+    "filename": "Readest_0.11.20_amd64.AppImage",
+    "size": "145.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_amd64.AppImage"
+  },
+  {
+    "id": "mrtagps6fqueyn",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Linux",
+    "filename": "Readest_0.11.20_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_amd64.AppImage.sig"
+  },
+  {
+    "id": "mrtagps6g11nm6",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Linux",
+    "filename": "Readest_0.11.20_amd64.deb",
+    "size": "37.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_amd64.deb"
+  },
+  {
+    "id": "mrtagps619olsm",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Linux",
+    "filename": "Readest_0.11.20_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_amd64.deb.sig"
+  },
+  {
+    "id": "mrtagps6lbv4lh",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Windows",
+    "filename": "Readest_0.11.20_arm64-portable.exe",
+    "size": "56.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_arm64-portable.exe"
+  },
+  {
+    "id": "mrtagps6pt67fh",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Windows",
+    "filename": "Readest_0.11.20_arm64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_arm64-portable.exe.sig"
+  },
+  {
+    "id": "mrtagps6f0x0j6",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Windows",
+    "filename": "Readest_0.11.20_arm64-setup.exe",
+    "size": "30.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_arm64-setup.exe"
+  },
+  {
+    "id": "mrtagps65i6027",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Windows",
+    "filename": "Readest_0.11.20_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mrtagps6xi6xnj",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Android",
+    "filename": "Readest_0.11.20_arm64.apk",
+    "size": "73.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_arm64.apk"
+  },
+  {
+    "id": "mrtagps61cpjr1",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Android",
+    "filename": "Readest_0.11.20_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_arm64.apk.sig"
+  },
+  {
+    "id": "mrtagps6v31re3",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Linux",
+    "filename": "Readest_0.11.20_arm64.deb",
+    "size": "38.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_arm64.deb"
+  },
+  {
+    "id": "mrtagps61yeb9s",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Linux",
+    "filename": "Readest_0.11.20_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_arm64.deb.sig"
+  },
+  {
+    "id": "mrtagps69egdfy",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Android",
+    "filename": "Readest_0.11.20_universal.apk",
+    "size": "268.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_universal.apk"
+  },
+  {
+    "id": "mrtagps6ou0kt3",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Android",
+    "filename": "Readest_0.11.20_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_universal.apk.sig"
+  },
+  {
+    "id": "mrtagps6vcexvd",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Other",
+    "filename": "Readest_0.11.20_universal.app.tar.gz",
+    "size": "71.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_universal.app.tar.gz"
+  },
+  {
+    "id": "mrtagps66ecnyq",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Other",
+    "filename": "Readest_0.11.20_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mrtagps6z4crr2",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "MacOS",
+    "filename": "Readest_0.11.20_universal.dmg",
+    "size": "72.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_universal.dmg"
+  },
+  {
+    "id": "mrtagps63n5uhg",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Windows",
+    "filename": "Readest_0.11.20_x64-portable.exe",
+    "size": "64.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_x64-portable.exe"
+  },
+  {
+    "id": "mrtagps6uvdldn",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Windows",
+    "filename": "Readest_0.11.20_x64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_x64-portable.exe.sig"
+  },
+  {
+    "id": "mrtagps64e4sbj",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Windows",
+    "filename": "Readest_0.11.20_x64-setup.exe",
+    "size": "31.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_x64-setup.exe"
+  },
+  {
+    "id": "mrtagps6ffzp8o",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Windows",
+    "filename": "Readest_0.11.20_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/Readest_0.11.20_x64-setup.exe.sig"
+  },
+  {
+    "id": "mrtagps6qkz704",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/release-notes.json"
+  },
+  {
+    "id": "mrtagps6m00vzg",
+    "versionId": "mrtagps6k3t4xd",
+    "platform": "Other",
+    "filename": "send-to-readest-0.2.1.zip",
+    "size": "0.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.20/send-to-readest-0.2.1.zip"
+  },
+  {
+    "id": "mrc51rnqrb4n8h",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/latest.json"
+  },
+  {
+    "id": "mrc51rnqiu9j9v",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Other",
+    "filename": "Readest-0.11.18-1.aarch64.rpm",
+    "size": "38.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest-0.11.18-1.aarch64.rpm"
+  },
+  {
+    "id": "mrc51rnqw4cst0",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Other",
+    "filename": "Readest-0.11.18-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest-0.11.18-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mrc51rnqqfzpq6",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Other",
+    "filename": "Readest-0.11.18-1.koplugin.zip",
+    "size": "0.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest-0.11.18-1.koplugin.zip"
+  },
+  {
+    "id": "mrc51rnqf0bz24",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Other",
+    "filename": "Readest-0.11.18-1.x86_64.rpm",
+    "size": "38.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest-0.11.18-1.x86_64.rpm"
+  },
+  {
+    "id": "mrc51rnqr97p33",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Other",
+    "filename": "Readest-0.11.18-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest-0.11.18-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mrc51rnqchotii",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Other",
+    "filename": "Readest-0.11.18.calibre-plugin.zip",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest-0.11.18.calibre-plugin.zip"
+  },
+  {
+    "id": "mrc51rnq75kd84",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Linux",
+    "filename": "Readest_0.11.18_aarch64.AppImage",
+    "size": "137.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_aarch64.AppImage"
+  },
+  {
+    "id": "mrc51rnqwyltso",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Linux",
+    "filename": "Readest_0.11.18_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mrc51rnqh643ub",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Linux",
+    "filename": "Readest_0.11.18_amd64.AppImage",
+    "size": "146.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_amd64.AppImage"
+  },
+  {
+    "id": "mrc51rnqdewdtv",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Linux",
+    "filename": "Readest_0.11.18_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_amd64.AppImage.sig"
+  },
+  {
+    "id": "mrc51rnq23x70e",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Linux",
+    "filename": "Readest_0.11.18_amd64.deb",
+    "size": "38.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_amd64.deb"
+  },
+  {
+    "id": "mrc51rnq63eqm2",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Linux",
+    "filename": "Readest_0.11.18_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_amd64.deb.sig"
+  },
+  {
+    "id": "mrc51rnqc129ph",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Windows",
+    "filename": "Readest_0.11.18_arm64-portable.exe",
+    "size": "56.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_arm64-portable.exe"
+  },
+  {
+    "id": "mrc51rnqrov4hn",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Windows",
+    "filename": "Readest_0.11.18_arm64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_arm64-portable.exe.sig"
+  },
+  {
+    "id": "mrc51rnqayhd75",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Windows",
+    "filename": "Readest_0.11.18_arm64-setup.exe",
+    "size": "30.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_arm64-setup.exe"
+  },
+  {
+    "id": "mrc51rnq7gloyy",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Windows",
+    "filename": "Readest_0.11.18_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mrc51rnqyr19l3",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Android",
+    "filename": "Readest_0.11.18_arm64.apk",
+    "size": "68.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_arm64.apk"
+  },
+  {
+    "id": "mrc51rnqyazjnl",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Android",
+    "filename": "Readest_0.11.18_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_arm64.apk.sig"
+  },
+  {
+    "id": "mrc51rnqi13xq4",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Linux",
+    "filename": "Readest_0.11.18_arm64.deb",
+    "size": "38.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_arm64.deb"
+  },
+  {
+    "id": "mrc51rnqu5ex3z",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Linux",
+    "filename": "Readest_0.11.18_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_arm64.deb.sig"
+  },
+  {
+    "id": "mrc51rnq4f6dqb",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Android",
+    "filename": "Readest_0.11.18_universal.apk",
+    "size": "247.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_universal.apk"
+  },
+  {
+    "id": "mrc51rnqwg5vrw",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Android",
+    "filename": "Readest_0.11.18_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_universal.apk.sig"
+  },
+  {
+    "id": "mrc51rnqsk513m",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Other",
+    "filename": "Readest_0.11.18_universal.app.tar.gz",
+    "size": "72.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_universal.app.tar.gz"
+  },
+  {
+    "id": "mrc51rnqji6ij0",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Other",
+    "filename": "Readest_0.11.18_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mrc51rnq8lx6x3",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "MacOS",
+    "filename": "Readest_0.11.18_universal.dmg",
+    "size": "72.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_universal.dmg"
+  },
+  {
+    "id": "mrc51rnqt8jy1i",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Windows",
+    "filename": "Readest_0.11.18_x64-portable.exe",
+    "size": "63.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_x64-portable.exe"
+  },
+  {
+    "id": "mrc51rnqy5by5d",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Windows",
+    "filename": "Readest_0.11.18_x64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_x64-portable.exe.sig"
+  },
+  {
+    "id": "mrc51rnqew1r82",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Windows",
+    "filename": "Readest_0.11.18_x64-setup.exe",
+    "size": "31.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_x64-setup.exe"
+  },
+  {
+    "id": "mrc51rnq1h12tu",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Windows",
+    "filename": "Readest_0.11.18_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/Readest_0.11.18_x64-setup.exe.sig"
+  },
+  {
+    "id": "mrc51rnqf65y5g",
+    "versionId": "mrc51rnqeyf739",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.18/release-notes.json"
+  },
+  {
+    "id": "mr0q58us1zv05j",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/latest.json"
+  },
+  {
+    "id": "mr0q58us9f9gjh",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Other",
+    "filename": "Readest-0.11.17-1.aarch64.rpm",
+    "size": "37.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest-0.11.17-1.aarch64.rpm"
+  },
+  {
+    "id": "mr0q58us5qzc13",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Other",
+    "filename": "Readest-0.11.17-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest-0.11.17-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mr0q58usl1ktrt",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Other",
+    "filename": "Readest-0.11.17-1.koplugin.zip",
+    "size": "0.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest-0.11.17-1.koplugin.zip"
+  },
+  {
+    "id": "mr0q58usw5u1pk",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Other",
+    "filename": "Readest-0.11.17-1.x86_64.rpm",
+    "size": "37.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest-0.11.17-1.x86_64.rpm"
+  },
+  {
+    "id": "mr0q58uss7snrg",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Other",
+    "filename": "Readest-0.11.17-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest-0.11.17-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mr0q58uso1nonu",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Linux",
+    "filename": "Readest_0.11.17_aarch64.AppImage",
+    "size": "136.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_0.11.17_aarch64.AppImage"
+  },
+  {
+    "id": "mr0q58usy8toro",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Linux",
+    "filename": "Readest_0.11.17_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_0.11.17_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mr0q58us0q8r15",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Linux",
+    "filename": "Readest_0.11.17_amd64.AppImage",
+    "size": "145.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_0.11.17_amd64.AppImage"
+  },
+  {
+    "id": "mr0q58uspht6n5",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Linux",
+    "filename": "Readest_0.11.17_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_0.11.17_amd64.AppImage.sig"
+  },
+  {
+    "id": "mr0q58usnvtg1g",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Linux",
+    "filename": "Readest_0.11.17_amd64.deb",
+    "size": "37.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_0.11.17_amd64.deb"
+  },
+  {
+    "id": "mr0q58usb873ho",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Linux",
+    "filename": "Readest_0.11.17_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_0.11.17_amd64.deb.sig"
+  },
+  {
+    "id": "mr0q58usqvffl5",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Windows",
+    "filename": "Readest_0.11.17_arm64-portable.exe",
+    "size": "54.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_0.11.17_arm64-portable.exe"
+  },
+  {
+    "id": "mr0q58usildixq",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Windows",
+    "filename": "Readest_0.11.17_arm64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_0.11.17_arm64-portable.exe.sig"
+  },
+  {
+    "id": "mr0q58uslekbvt",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Windows",
+    "filename": "Readest_0.11.17_arm64-setup.exe",
+    "size": "29.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_0.11.17_arm64-setup.exe"
+  },
+  {
+    "id": "mr0q58usaawzug",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Windows",
+    "filename": "Readest_0.11.17_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_0.11.17_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mr0q58uszlsev1",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Android",
+    "filename": "Readest_0.11.17_arm64.apk",
+    "size": "64.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_0.11.17_arm64.apk"
+  },
+  {
+    "id": "mr0q58usenn9ui",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Android",
+    "filename": "Readest_0.11.17_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_0.11.17_arm64.apk.sig"
+  },
+  {
+    "id": "mr0q58usc89gp4",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Linux",
+    "filename": "Readest_0.11.17_arm64.deb",
+    "size": "37.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_0.11.17_arm64.deb"
+  },
+  {
+    "id": "mr0q58usarxycu",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Linux",
+    "filename": "Readest_0.11.17_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_0.11.17_arm64.deb.sig"
+  },
+  {
+    "id": "mr0q58usgge87h",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Android",
+    "filename": "Readest_0.11.17_universal.apk",
+    "size": "233.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_0.11.17_universal.apk"
+  },
+  {
+    "id": "mr0q58usjjzrdx",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Android",
+    "filename": "Readest_0.11.17_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_0.11.17_universal.apk.sig"
+  },
+  {
+    "id": "mr0q58usugvtz6",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "MacOS",
+    "filename": "Readest_0.11.17_universal.dmg",
+    "size": "70.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_0.11.17_universal.dmg"
+  },
+  {
+    "id": "mr0q58us713b10",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Windows",
+    "filename": "Readest_0.11.17_x64-portable.exe",
+    "size": "61.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_0.11.17_x64-portable.exe"
+  },
+  {
+    "id": "mr0q58usdd501b",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Windows",
+    "filename": "Readest_0.11.17_x64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_0.11.17_x64-portable.exe.sig"
+  },
+  {
+    "id": "mr0q58usvwyq6l",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Windows",
+    "filename": "Readest_0.11.17_x64-setup.exe",
+    "size": "30.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_0.11.17_x64-setup.exe"
+  },
+  {
+    "id": "mr0q58usglv29t",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Windows",
+    "filename": "Readest_0.11.17_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_0.11.17_x64-setup.exe.sig"
+  },
+  {
+    "id": "mr0q58usoq1818",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz",
+    "size": "70.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_universal.app.tar.gz"
+  },
+  {
+    "id": "mr0q58usrkurb1",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/Readest_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mr0q58usw393z8",
+    "versionId": "mr0q58usf0ylmb",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.17/release-notes.json"
+  },
+  {
+    "id": "mr0q58us1hc424",
+    "versionId": "mr0q58usktaply",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/latest.json"
+  },
+  {
+    "id": "mr0q58us2bf81x",
+    "versionId": "mr0q58usktaply",
+    "platform": "Other",
+    "filename": "Readest-0.11.16-1.aarch64.rpm",
+    "size": "37.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest-0.11.16-1.aarch64.rpm"
+  },
+  {
+    "id": "mr0q58us2zep7p",
+    "versionId": "mr0q58usktaply",
+    "platform": "Other",
+    "filename": "Readest-0.11.16-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest-0.11.16-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mr0q58uswrbn1a",
+    "versionId": "mr0q58usktaply",
+    "platform": "Other",
+    "filename": "Readest-0.11.16-1.koplugin.zip",
+    "size": "0.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest-0.11.16-1.koplugin.zip"
+  },
+  {
+    "id": "mr0q58usvi67vj",
+    "versionId": "mr0q58usktaply",
+    "platform": "Other",
+    "filename": "Readest-0.11.16-1.x86_64.rpm",
+    "size": "37.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest-0.11.16-1.x86_64.rpm"
+  },
+  {
+    "id": "mr0q58usl8mmhy",
+    "versionId": "mr0q58usktaply",
+    "platform": "Other",
+    "filename": "Readest-0.11.16-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest-0.11.16-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mr0q58us2srx7m",
+    "versionId": "mr0q58usktaply",
+    "platform": "Linux",
+    "filename": "Readest_0.11.16_aarch64.AppImage",
+    "size": "136.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_0.11.16_aarch64.AppImage"
+  },
+  {
+    "id": "mr0q58us3xk2fx",
+    "versionId": "mr0q58usktaply",
+    "platform": "Linux",
+    "filename": "Readest_0.11.16_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_0.11.16_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mr0q58usqh0g6p",
+    "versionId": "mr0q58usktaply",
+    "platform": "Linux",
+    "filename": "Readest_0.11.16_amd64.AppImage",
+    "size": "145.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_0.11.16_amd64.AppImage"
+  },
+  {
+    "id": "mr0q58us8hm71s",
+    "versionId": "mr0q58usktaply",
+    "platform": "Linux",
+    "filename": "Readest_0.11.16_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_0.11.16_amd64.AppImage.sig"
+  },
+  {
+    "id": "mr0q58usfkt24u",
+    "versionId": "mr0q58usktaply",
+    "platform": "Linux",
+    "filename": "Readest_0.11.16_amd64.deb",
+    "size": "37.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_0.11.16_amd64.deb"
+  },
+  {
+    "id": "mr0q58ussem9wu",
+    "versionId": "mr0q58usktaply",
+    "platform": "Linux",
+    "filename": "Readest_0.11.16_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_0.11.16_amd64.deb.sig"
+  },
+  {
+    "id": "mr0q58usr4h5mh",
+    "versionId": "mr0q58usktaply",
+    "platform": "Windows",
+    "filename": "Readest_0.11.16_arm64-portable.exe",
+    "size": "54.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_0.11.16_arm64-portable.exe"
+  },
+  {
+    "id": "mr0q58us6zfx6n",
+    "versionId": "mr0q58usktaply",
+    "platform": "Windows",
+    "filename": "Readest_0.11.16_arm64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_0.11.16_arm64-portable.exe.sig"
+  },
+  {
+    "id": "mr0q58usz3nu4y",
+    "versionId": "mr0q58usktaply",
+    "platform": "Windows",
+    "filename": "Readest_0.11.16_arm64-setup.exe",
+    "size": "29.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_0.11.16_arm64-setup.exe"
+  },
+  {
+    "id": "mr0q58us53hke6",
+    "versionId": "mr0q58usktaply",
+    "platform": "Windows",
+    "filename": "Readest_0.11.16_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_0.11.16_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mr0q58us7ulza6",
+    "versionId": "mr0q58usktaply",
+    "platform": "Android",
+    "filename": "Readest_0.11.16_arm64.apk",
+    "size": "64.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_0.11.16_arm64.apk"
+  },
+  {
+    "id": "mr0q58usvkzmrd",
+    "versionId": "mr0q58usktaply",
+    "platform": "Android",
+    "filename": "Readest_0.11.16_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_0.11.16_arm64.apk.sig"
+  },
+  {
+    "id": "mr0q58usl028eq",
+    "versionId": "mr0q58usktaply",
+    "platform": "Linux",
+    "filename": "Readest_0.11.16_arm64.deb",
+    "size": "37.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_0.11.16_arm64.deb"
+  },
+  {
+    "id": "mr0q58uspoqjv8",
+    "versionId": "mr0q58usktaply",
+    "platform": "Linux",
+    "filename": "Readest_0.11.16_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_0.11.16_arm64.deb.sig"
+  },
+  {
+    "id": "mr0q58uslhf5vl",
+    "versionId": "mr0q58usktaply",
+    "platform": "Android",
+    "filename": "Readest_0.11.16_universal.apk",
+    "size": "233.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_0.11.16_universal.apk"
+  },
+  {
+    "id": "mr0q58usm3yntk",
+    "versionId": "mr0q58usktaply",
+    "platform": "Android",
+    "filename": "Readest_0.11.16_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_0.11.16_universal.apk.sig"
+  },
+  {
+    "id": "mr0q58usg6d5yb",
+    "versionId": "mr0q58usktaply",
+    "platform": "MacOS",
+    "filename": "Readest_0.11.16_universal.dmg",
+    "size": "70.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_0.11.16_universal.dmg"
+  },
+  {
+    "id": "mr0q58us2rxho3",
+    "versionId": "mr0q58usktaply",
+    "platform": "Windows",
+    "filename": "Readest_0.11.16_x64-portable.exe",
+    "size": "61.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_0.11.16_x64-portable.exe"
+  },
+  {
+    "id": "mr0q58uscb4cyr",
+    "versionId": "mr0q58usktaply",
+    "platform": "Windows",
+    "filename": "Readest_0.11.16_x64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_0.11.16_x64-portable.exe.sig"
+  },
+  {
+    "id": "mr0q58uscvi3jf",
+    "versionId": "mr0q58usktaply",
+    "platform": "Windows",
+    "filename": "Readest_0.11.16_x64-setup.exe",
+    "size": "30.7 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_0.11.16_x64-setup.exe"
+  },
+  {
+    "id": "mr0q58ust5ok3p",
+    "versionId": "mr0q58usktaply",
+    "platform": "Windows",
+    "filename": "Readest_0.11.16_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_0.11.16_x64-setup.exe.sig"
+  },
+  {
+    "id": "mr0q58usxkph3i",
+    "versionId": "mr0q58usktaply",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz",
+    "size": "70.4 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_universal.app.tar.gz"
+  },
+  {
+    "id": "mr0q58usv5jcdo",
+    "versionId": "mr0q58usktaply",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/Readest_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mr0q58usqc5tv0",
+    "versionId": "mr0q58usktaply",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.16/release-notes.json"
+  },
+  {
+    "id": "mqs5xo8ulzeffw",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Other",
+    "filename": "latest.json",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/latest.json"
+  },
+  {
+    "id": "mqs5xo8usak795",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Other",
+    "filename": "Readest-0.11.12-1.aarch64.rpm",
+    "size": "36.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest-0.11.12-1.aarch64.rpm"
+  },
+  {
+    "id": "mqs5xo8umq2bdn",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Other",
+    "filename": "Readest-0.11.12-1.aarch64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest-0.11.12-1.aarch64.rpm.sig"
+  },
+  {
+    "id": "mqs5xo8u44tq8g",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Other",
+    "filename": "Readest-0.11.12-1.koplugin.zip",
+    "size": "0.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest-0.11.12-1.koplugin.zip"
+  },
+  {
+    "id": "mqs5xo8u9a96zm",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Other",
+    "filename": "Readest-0.11.12-1.x86_64.rpm",
+    "size": "36.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest-0.11.12-1.x86_64.rpm"
+  },
+  {
+    "id": "mqs5xo8ul07g4k",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Other",
+    "filename": "Readest-0.11.12-1.x86_64.rpm.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest-0.11.12-1.x86_64.rpm.sig"
+  },
+  {
+    "id": "mqs5xo8u9o2rwq",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Linux",
+    "filename": "Readest_0.11.12_aarch64.AppImage",
+    "size": "136.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_0.11.12_aarch64.AppImage"
+  },
+  {
+    "id": "mqs5xo8usfm3o0",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Linux",
+    "filename": "Readest_0.11.12_aarch64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_0.11.12_aarch64.AppImage.sig"
+  },
+  {
+    "id": "mqs5xo8uoi21jw",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Linux",
+    "filename": "Readest_0.11.12_amd64.AppImage",
+    "size": "145.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_0.11.12_amd64.AppImage"
+  },
+  {
+    "id": "mqs5xo8uhcvef1",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Linux",
+    "filename": "Readest_0.11.12_amd64.AppImage.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_0.11.12_amd64.AppImage.sig"
+  },
+  {
+    "id": "mqs5xo8u91a0zh",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Linux",
+    "filename": "Readest_0.11.12_amd64.deb",
+    "size": "36.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_0.11.12_amd64.deb"
+  },
+  {
+    "id": "mqs5xo8up0rpzm",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Linux",
+    "filename": "Readest_0.11.12_amd64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_0.11.12_amd64.deb.sig"
+  },
+  {
+    "id": "mqs5xo8uwdct92",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Windows",
+    "filename": "Readest_0.11.12_arm64-portable.exe",
+    "size": "53.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_0.11.12_arm64-portable.exe"
+  },
+  {
+    "id": "mqs5xo8unngb6y",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Windows",
+    "filename": "Readest_0.11.12_arm64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_0.11.12_arm64-portable.exe.sig"
+  },
+  {
+    "id": "mqs5xo8ul2csoj",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Windows",
+    "filename": "Readest_0.11.12_arm64-setup.exe",
+    "size": "29.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_0.11.12_arm64-setup.exe"
+  },
+  {
+    "id": "mqs5xo8u4z1ojh",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Windows",
+    "filename": "Readest_0.11.12_arm64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_0.11.12_arm64-setup.exe.sig"
+  },
+  {
+    "id": "mqs5xo8u0e507i",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Android",
+    "filename": "Readest_0.11.12_arm64.apk",
+    "size": "63.8 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_0.11.12_arm64.apk"
+  },
+  {
+    "id": "mqs5xo8u7xrxqw",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Android",
+    "filename": "Readest_0.11.12_arm64.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_0.11.12_arm64.apk.sig"
+  },
+  {
+    "id": "mqs5xo8ujb81kg",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Linux",
+    "filename": "Readest_0.11.12_arm64.deb",
+    "size": "36.9 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_0.11.12_arm64.deb"
+  },
+  {
+    "id": "mqs5xo8u7rfqrl",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Linux",
+    "filename": "Readest_0.11.12_arm64.deb.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_0.11.12_arm64.deb.sig"
+  },
+  {
+    "id": "mqs5xo8uy3r93v",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Android",
+    "filename": "Readest_0.11.12_universal.apk",
+    "size": "232.2 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_0.11.12_universal.apk"
+  },
+  {
+    "id": "mqs5xo8u6wst2h",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Android",
+    "filename": "Readest_0.11.12_universal.apk.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_0.11.12_universal.apk.sig"
+  },
+  {
+    "id": "mqs5xo8ugpmjr7",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "MacOS",
+    "filename": "Readest_0.11.12_universal.dmg",
+    "size": "70.6 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_0.11.12_universal.dmg"
+  },
+  {
+    "id": "mqs5xo8u3qoexo",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Windows",
+    "filename": "Readest_0.11.12_x64-portable.exe",
+    "size": "61.3 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_0.11.12_x64-portable.exe"
+  },
+  {
+    "id": "mqs5xo8usmul5i",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Windows",
+    "filename": "Readest_0.11.12_x64-portable.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_0.11.12_x64-portable.exe.sig"
+  },
+  {
+    "id": "mqs5xo8u3r3s1n",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Windows",
+    "filename": "Readest_0.11.12_x64-setup.exe",
+    "size": "30.5 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_0.11.12_x64-setup.exe"
+  },
+  {
+    "id": "mqs5xo8ukgzsxp",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Windows",
+    "filename": "Readest_0.11.12_x64-setup.exe.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_0.11.12_x64-setup.exe.sig"
+  },
+  {
+    "id": "mqs5xo8ufkpf6g",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz",
+    "size": "70.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_universal.app.tar.gz"
+  },
+  {
+    "id": "mqs5xo8ul4mopt",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Other",
+    "filename": "Readest_universal.app.tar.gz.sig",
+    "size": "0.0 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/Readest_universal.app.tar.gz.sig"
+  },
+  {
+    "id": "mqs5xo8u1sifhm",
+    "versionId": "mqs5xo8tofsxxg",
+    "platform": "Other",
+    "filename": "release-notes.json",
+    "size": "0.1 MB",
+    "url": "https://github.com/readest/readest/releases/download/v0.11.12/release-notes.json"
   },
   {
     "id": "mql1y7zum4fx0t",

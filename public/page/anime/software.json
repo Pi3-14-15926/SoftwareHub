@@ -9,12 +9,11 @@
     "featured": false,
     "githubRepo": "Sle2p/AniCh",
     "githubUrl": "https://github.com/Sle2p/AniCh",
-    "latestUpdateTime": "2026-06-17T17:35:07Z",
-    "stars": 5105,
-    "forks": 111,
+    "latestUpdateTime": "2026-07-13T04:35:19Z",
+    "stars": 5607,
+    "forks": 123,
     "latestVersionId": "mqdzxfsmu9z0ao",
-    "latestVersion": "1.5.18",
-    "categorySlug": "anime"
+    "latestVersion": "1.5.20"
   },
   {
     "id": "mpzjkpvzeuh3zl",
@@ -26,8 +25,8 @@
     "featured": false,
     "githubRepo": "Predidit/Kazumi",
     "githubUrl": "https://github.com/Predidit/Kazumi",
-    "stars": 26723,
-    "forks": 769,
+    "stars": 28111,
+    "forks": 823,
     "platforms": [
       "Android",
       "Other",
@@ -36,9 +35,8 @@
       "Windows"
     ],
     "latestVersionId": "mqdzxh79ry0b02",
-    "latestUpdateTime": "2026-06-18T08:12:10Z",
-    "latestVersion": "2.1.6",
-    "categorySlug": "anime"
+    "latestUpdateTime": "2026-07-23T05:09:55Z",
+    "latestVersion": "2.2.3"
   },
   {
     "id": "mpzjjzg2ylm14p",
@@ -50,8 +48,8 @@
     "featured": true,
     "githubRepo": "open-ani/animeko",
     "githubUrl": "https://github.com/open-ani/animeko",
-    "stars": 18413,
-    "forks": 498,
+    "stars": 19067,
+    "forks": 522,
     "platforms": [
       "Android",
       "Linux",
@@ -60,9 +58,8 @@
       "Other"
     ],
     "latestVersionId": "mqdzxp2g45cekb",
-    "latestUpdateTime": "2026-06-17T04:28:55Z",
-    "latestVersion": "v5.7.0-beta01",
-    "categorySlug": "anime"
+    "latestUpdateTime": "2026-07-24T11:22:44Z",
+    "latestVersion": "v6.0.0-beta01"
   },
   {
     "id": "mqf2wp9ruusxo6",
@@ -74,8 +71,7 @@
     "featured": false,
     "latestUpdateTime": "2026-04-29T00:00:00.000Z",
     "website": "https://www.omoo.app/",
-    "latestVersionId": "mqf31apkdolugn",
-    "categorySlug": "anime"
+    "latestVersionId": "mqf31apkdolugn"
   },
   {
     "id": "mqf2hvi0ero5r0",
@@ -87,7 +83,6 @@
     "featured": false,
     "latestUpdateTime": "2026-06-15T00:00:00.000Z",
     "website": "https://www.dmghg.com/",
-    "latestVersionId": "mqf2n9y000y2vp",
-    "categorySlug": "anime"
+    "latestVersionId": "mqf2n9y000y2vp"
   }
 ]

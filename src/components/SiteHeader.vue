@@ -37,11 +37,6 @@ function isGitHubUrl(url: string): boolean {
   return url.includes('github.com') || url.includes('githubusercontent.com')
 }
 
-function getFileName(url: string): string {
-  const parts = url.split('/')
-  return parts[parts.length - 1].split('?')[0] || 'download'
-}
-
 function handleAccelerate() {
   const url = githubUrl.value.trim()
   if (!url) {
@@ -57,16 +52,8 @@ function handleAccelerate() {
   downloadMessage.value = '正在加速下载...'
   
   const proxyUrl = ghProxyUrl.value + url
-  const fileName = getFileName(url)
   
-  const link = document.createElement('a')
-  link.href = proxyUrl
-  link.download = fileName
-  link.target = '_blank'
-  link.rel = 'noopener noreferrer'
-  document.body.appendChild(link)
-  link.click()
-  document.body.removeChild(link)
+  window.open(proxyUrl, '_blank')
   
   setTimeout(() => {
     isDownloading.value = false

@@ -821,6 +821,19 @@
     ]
   },
   {
+    "id": "ms65jngbpca7ta",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.16-beta.8",
+    "publishedAt": "2026-07-28T20:38:13Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\n### [发布页](https://t.me/materado)\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\n\n### 更新内容\n\n* fix(cache): 缓存文字书正文插图\n* feat: 小容器背景喵喵喵\n* feat: 简单的替换\n* feat: 目录Sheet\n* fix(book): 简介统一段首缩进并过滤书籍信息字段\n* feat(reader): 优化全文页码计算与页眉页脚展示",
+    "downloadIds": [
+      "ms65jngb612uf9",
+      "ms65jngbcf6elv",
+      "ms65jngblxyaa5",
+      "ms65jngb5rvw9a"
+    ]
+  },
+  {
     "id": "ms3bhqvlb64eky",
     "projectId": "mpwouieuddbq2d",
     "version": "3.26.16-beta.7",

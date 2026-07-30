@@ -464,6 +464,24 @@
     ]
   },
   {
+    "id": "ms7klfam92urgd",
+    "projectId": "mpzjkpvzeuh3zl",
+    "version": "2.2.4",
+    "publishedAt": "2026-07-30T06:37:01Z",
+    "changelog": "- 重新设计的设置页 (@Predidit)\r\n- 新增番剧关联选项卡 (@liangyuR)\r\n- 优化验证码规则检索速度 (@Predidit)\r\n- 现在在移动数据网络下自动启用节流模式 (@Predidit)\r\n- 优化Linux平台软件解码功能 (@Predidit)\r\n- 修复镜像模式下评论区GIF只显示第一帧的问题 (@Predidit)\r\n- 修复一起看功能在大陆地区不稳定的问题 (#2388) (@Predidit)",
+    "downloadIds": [
+      "ms7klfamh7dwfh",
+      "ms7klfam2lqbn2",
+      "ms7klfam7vuvsa",
+      "ms7klfam7r2vyn",
+      "ms7klfamj8mcq9",
+      "ms7klfamwj1q81",
+      "ms7klfamkb2vfu",
+      "ms7klfamlac9cu",
+      "ms7klfamyhhd3k"
+    ]
+  },
+  {
     "id": "mrxkg8ubh8ax3r",
     "projectId": "mpzjkpvzeuh3zl",
     "version": "2.2.3",

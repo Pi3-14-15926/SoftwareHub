@@ -821,6 +821,19 @@
     ]
   },
   {
+    "id": "ms7kl9vpmh629a",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.16-beta.9",
+    "publishedAt": "2026-07-29T19:13:01Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\n### [发布页](https://t.me/materado)\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\n\n### 更新内容\n\n* feat: 界面优化\n* feat: 界面优化\n* feat: 优化主题管理\n* feat: 优化一下MIUIX主题管理\n* feat: 书源管理界面优化\n* feat: 界面优化\n* feat: 重构书源与订阅源编辑调试界面\n* refactor: 提取可复用书源编辑与调试组件\n* fix: 修复书源列表开关状态更新\n* feat:阅读设置里增加按钮切换新旧目录显示\n* feat: 重写书源编辑界面\n* feat: 重写书源列表界面\n* style(zh-strings): simplify \"正文标题\" to \"标题\" across chinese locales\n* chore(zh-strings): remove unused header and footer related strings\n* refactor(txtToc): 重构文本目录规则，拆分章节与分卷正则\n* feat(toc): 添加更新目录按钮并修复卷目录层级逻辑\n* refactor(read): 重构排版配置页面，整合页眉页脚设置\n* feat(highlight): add font weight, italic and 9-slice background support\n* feat(highlight): add font weight, italic and 9-slice background support",
+    "downloadIds": [
+      "ms7kl9vp34jpsx",
+      "ms7kl9vpna21g1",
+      "ms7kl9vpbw5s19",
+      "ms7kl9vphl98k3"
+    ]
+  },
+  {
     "id": "ms65jngbpca7ta",
     "projectId": "mpwouieuddbq2d",
     "version": "3.26.16-beta.8",

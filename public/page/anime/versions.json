@@ -464,6 +464,24 @@
     ]
   },
   {
+    "id": "ms907nhnrjwl91",
+    "projectId": "mpzjkpvzeuh3zl",
+    "version": "2.2.5",
+    "publishedAt": "2026-07-30T17:01:02Z",
+    "changelog": "> [!NOTE]\r\n> 这是 2.2.4 的热修复版本，更多更新日志参考 2.2.4",
+    "downloadIds": [
+      "ms907nhneqlslb",
+      "ms907nhop0w7vu",
+      "ms907nhoh17xoq",
+      "ms907nhosg54f4",
+      "ms907nhot46y2j",
+      "ms907nhor1j973",
+      "ms907nho0w5jt2",
+      "ms907nhoy7eymx",
+      "ms907nhor2iqbp"
+    ]
+  },
+  {
     "id": "ms7klfam92urgd",
     "projectId": "mpzjkpvzeuh3zl",
     "version": "2.2.4",

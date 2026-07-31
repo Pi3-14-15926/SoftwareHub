@@ -9,8 +9,8 @@
     "featured": false,
     "githubRepo": "Rimchars/legado",
     "githubUrl": "https://github.com/Rimchars/legado",
-    "stars": 421,
-    "forks": 20,
+    "stars": 418,
+    "forks": 19,
     "platforms": [
       "Android"
     ],
@@ -29,8 +29,8 @@
     "githubRepo": "anxcye/anx-reader",
     "githubUrl": "https://github.com/anxcye/anx-reader",
     "latestUpdateTime": "2025-11-01T13:17:04Z",
-    "stars": 8577,
-    "forks": 593,
+    "stars": 8579,
+    "forks": 594,
     "latestVersionId": "mqdzx94ic2xzm0"
   },
   {
@@ -62,7 +62,7 @@
     "featured": false,
     "githubRepo": "HapeLee/legado-with-MD3",
     "githubUrl": "https://github.com/HapeLee/legado-with-MD3",
-    "stars": 5370,
+    "stars": 5386,
     "forks": 602,
     "platforms": [
       "Android"
@@ -115,7 +115,7 @@
     "featured": false,
     "githubRepo": "LegadoTeam/Legado-Tauri-Release",
     "githubUrl": "https://github.com/LegadoTeam/Legado-Tauri-Release",
-    "stars": 185,
+    "stars": 184,
     "forks": 15,
     "platforms": [
       "Windows",
@@ -134,8 +134,8 @@
     "featured": false,
     "githubRepo": "Luoyacheng/legado",
     "githubUrl": "https://github.com/Luoyacheng/legado",
-    "stars": 2214,
-    "forks": 492,
+    "stars": 2222,
+    "forks": 494,
     "platforms": [
       "Android"
     ],
@@ -154,7 +154,7 @@
     "githubRepo": "readest/readest",
     "githubUrl": "https://github.com/readest/readest",
     "latestUpdateTime": "2026-07-19T20:11:12Z",
-    "stars": 22938,
+    "stars": 22968,
     "forks": 1418,
     "latestVersionId": "mqe099q50edkdy",
     "latestVersion": "v0.11.20"

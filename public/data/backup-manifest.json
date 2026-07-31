@@ -1380,6 +1380,58 @@
     {
       "category": "动漫",
       "project": "Kazumi",
+      "versionDir": "动漫/Kazumi/2026-07-30_2.2.5",
+      "files": [
+        {
+          "name": "Kazumi_android_2.2.5.apk",
+          "size": 31352422.4,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-07-30_2.2.5/Kazumi_android_2.2.5.apk"
+        },
+        {
+          "name": "Kazumi_ios_2.2.5_no_sign.ipa",
+          "size": 29569843.2,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-07-30_2.2.5/Kazumi_ios_2.2.5_no_sign.ipa"
+        },
+        {
+          "name": "Kazumi_linux_2.2.5_amd64.deb",
+          "size": 26109542.4,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-07-30_2.2.5/Kazumi_linux_2.2.5_amd64.deb"
+        },
+        {
+          "name": "Kazumi_linux_2.2.5_amd64.tar.gz",
+          "size": 31142707.2,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-07-30_2.2.5/Kazumi_linux_2.2.5_amd64.tar.gz"
+        },
+        {
+          "name": "Kazumi_linux_2.2.5_arm64.deb",
+          "size": 24851251.2,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-07-30_2.2.5/Kazumi_linux_2.2.5_arm64.deb"
+        },
+        {
+          "name": "Kazumi_linux_2.2.5_arm64.tar.gz",
+          "size": 29674700.8,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-07-30_2.2.5/Kazumi_linux_2.2.5_arm64.tar.gz"
+        },
+        {
+          "name": "Kazumi_macos_2.2.5.dmg",
+          "size": 53687091.2,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-07-30_2.2.5/Kazumi_macos_2.2.5.dmg"
+        },
+        {
+          "name": "Kazumi_windows_2.2.5.msix",
+          "size": 46766489.6,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-07-30_2.2.5/Kazumi_windows_2.2.5.msix"
+        },
+        {
+          "name": "Kazumi_windows_2.2.5.zip",
+          "size": 41838182.4,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-07-30_2.2.5/Kazumi_windows_2.2.5.zip"
+        }
+      ]
+    },
+    {
+      "category": "动漫",
+      "project": "Kazumi",
       "versionDir": "动漫/Kazumi/2026-07-30_2.2.4",
       "files": [
         {
@@ -1426,58 +1478,6 @@
           "name": "Kazumi_windows_2.2.4.zip",
           "size": 41838182.4,
           "url": "/SoftwareHub/动漫/Kazumi/2026-07-30_2.2.4/Kazumi_windows_2.2.4.zip"
-        }
-      ]
-    },
-    {
-      "category": "动漫",
-      "project": "Kazumi",
-      "versionDir": "动漫/Kazumi/2026-07-23_2.2.3",
-      "files": [
-        {
-          "name": "Kazumi_android_2.2.3.apk",
-          "size": 31352422.4,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-07-23_2.2.3/Kazumi_android_2.2.3.apk"
-        },
-        {
-          "name": "Kazumi_ios_2.2.3_no_sign.ipa",
-          "size": 29150412.8,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-07-23_2.2.3/Kazumi_ios_2.2.3_no_sign.ipa"
-        },
-        {
-          "name": "Kazumi_linux_2.2.3_amd64.deb",
-          "size": 25165824,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-07-23_2.2.3/Kazumi_linux_2.2.3_amd64.deb"
-        },
-        {
-          "name": "Kazumi_linux_2.2.3_amd64.tar.gz",
-          "size": 29989273.6,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-07-23_2.2.3/Kazumi_linux_2.2.3_amd64.tar.gz"
-        },
-        {
-          "name": "Kazumi_linux_2.2.3_arm64.deb",
-          "size": 24431820.8,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-07-23_2.2.3/Kazumi_linux_2.2.3_arm64.deb"
-        },
-        {
-          "name": "Kazumi_linux_2.2.3_arm64.tar.gz",
-          "size": 29150412.8,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-07-23_2.2.3/Kazumi_linux_2.2.3_arm64.tar.gz"
-        },
-        {
-          "name": "Kazumi_macos_2.2.3.dmg",
-          "size": 53582233.6,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-07-23_2.2.3/Kazumi_macos_2.2.3.dmg"
-        },
-        {
-          "name": "Kazumi_windows_2.2.3.msix",
-          "size": 46661632,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-07-23_2.2.3/Kazumi_windows_2.2.3.msix"
-        },
-        {
-          "name": "Kazumi_windows_2.2.3.zip",
-          "size": 41838182.4,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-07-23_2.2.3/Kazumi_windows_2.2.3.zip"
         }
       ]
     },
@@ -1908,5 +1908,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-07-30T18:31:43.468Z"
+  "updatedAt": "2026-07-31T18:41:10.566Z"
 }

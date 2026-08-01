@@ -3,24 +3,24 @@
     {
       "category": "阅读",
       "project": "阅读_Archive",
-      "versionDir": "阅读/阅读_Archive/2026-07-24_archive-v3-3.26.07241418",
+      "versionDir": "阅读/阅读_Archive/2026-08-01_archive-v3-3.26.08010418",
       "files": [
         {
-          "name": "legado_app_3.26.07241418_29747898.apk",
-          "size": 40055603.2,
-          "url": "/SoftwareHub/阅读/阅读_Archive/2026-07-24_archive-v3-3.26.07241418/legado_app_3.26.07241418_29747898.apk"
+          "name": "legado_app_3.26.08010418_29759298.apk",
+          "size": 40160460.8,
+          "url": "/SoftwareHub/阅读/阅读_Archive/2026-08-01_archive-v3-3.26.08010418/legado_app_3.26.08010418_29759298.apk"
         }
       ]
     },
     {
       "category": "阅读",
       "project": "阅读_Archive",
-      "versionDir": "阅读/阅读_Archive/2026-07-23_archive-v3-3.26.07231310",
+      "versionDir": "阅读/阅读_Archive/2026-07-24_archive-v3-3.26.07241418",
       "files": [
         {
-          "name": "legado_app_3.26.07231310_29746390.apk",
-          "size": 43725619.2,
-          "url": "/SoftwareHub/阅读/阅读_Archive/2026-07-23_archive-v3-3.26.07231310/legado_app_3.26.07231310_29746390.apk"
+          "name": "legado_app_3.26.07241418_29747898.apk",
+          "size": 40055603.2,
+          "url": "/SoftwareHub/阅读/阅读_Archive/2026-07-24_archive-v3-3.26.07241418/legado_app_3.26.07241418_29747898.apk"
         }
       ]
     },
@@ -118,6 +118,33 @@
     {
       "category": "阅读",
       "project": "阅读_MD3",
+      "versionDir": "阅读/阅读_MD3/2026-07-31_3.26.16-beta.10",
+      "files": [
+        {
+          "name": "legado-3.26.16-beta.10-arm64-v8a.apk",
+          "size": 19188940.8,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-31_3.26.16-beta.10/legado-3.26.16-beta.10-arm64-v8a.apk"
+        },
+        {
+          "name": "legado-3.26.16-beta.10-armeabi-v7a.apk",
+          "size": 18769510.4,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-31_3.26.16-beta.10/legado-3.26.16-beta.10-armeabi-v7a.apk"
+        },
+        {
+          "name": "legado-3.26.16-beta.10.apk",
+          "size": 25794969.6,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-31_3.26.16-beta.10/legado-3.26.16-beta.10.apk"
+        },
+        {
+          "name": "mapping.txt",
+          "size": 253860249.6,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-31_3.26.16-beta.10/mapping.txt"
+        }
+      ]
+    },
+    {
+      "category": "阅读",
+      "project": "阅读_MD3",
       "versionDir": "阅读/阅读_MD3/2026-07-29_3.26.16-beta.9",
       "files": [
         {
@@ -139,33 +166,6 @@
           "name": "mapping.txt",
           "size": 252287385.6,
           "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-29_3.26.16-beta.9/mapping.txt"
-        }
-      ]
-    },
-    {
-      "category": "阅读",
-      "project": "阅读_MD3",
-      "versionDir": "阅读/阅读_MD3/2026-07-28_3.26.16-beta.8",
-      "files": [
-        {
-          "name": "legado-3.26.16-beta.8-arm64-v8a.apk",
-          "size": 19188940.8,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-28_3.26.16-beta.8/legado-3.26.16-beta.8-arm64-v8a.apk"
-        },
-        {
-          "name": "legado-3.26.16-beta.8-armeabi-v7a.apk",
-          "size": 18664652.8,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-28_3.26.16-beta.8/legado-3.26.16-beta.8-armeabi-v7a.apk"
-        },
-        {
-          "name": "legado-3.26.16-beta.8.apk",
-          "size": 25794969.6,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-28_3.26.16-beta.8/legado-3.26.16-beta.8.apk"
-        },
-        {
-          "name": "mapping.txt",
-          "size": 251867955.2,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-28_3.26.16-beta.8/mapping.txt"
         }
       ]
     },
@@ -1380,6 +1380,58 @@
     {
       "category": "动漫",
       "project": "Kazumi",
+      "versionDir": "动漫/Kazumi/2026-08-01_2.2.6",
+      "files": [
+        {
+          "name": "Kazumi_android_2.2.6.apk",
+          "size": 31457280,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-08-01_2.2.6/Kazumi_android_2.2.6.apk"
+        },
+        {
+          "name": "Kazumi_ios_2.2.6_no_sign.ipa",
+          "size": 29569843.2,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-08-01_2.2.6/Kazumi_ios_2.2.6_no_sign.ipa"
+        },
+        {
+          "name": "Kazumi_linux_2.2.6_amd64.deb",
+          "size": 26109542.4,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-08-01_2.2.6/Kazumi_linux_2.2.6_amd64.deb"
+        },
+        {
+          "name": "Kazumi_linux_2.2.6_amd64.tar.gz",
+          "size": 31142707.2,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-08-01_2.2.6/Kazumi_linux_2.2.6_amd64.tar.gz"
+        },
+        {
+          "name": "Kazumi_linux_2.2.6_arm64.deb",
+          "size": 24851251.2,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-08-01_2.2.6/Kazumi_linux_2.2.6_arm64.deb"
+        },
+        {
+          "name": "Kazumi_linux_2.2.6_arm64.tar.gz",
+          "size": 29674700.8,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-08-01_2.2.6/Kazumi_linux_2.2.6_arm64.tar.gz"
+        },
+        {
+          "name": "Kazumi_macos_2.2.6.dmg",
+          "size": 53687091.2,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-08-01_2.2.6/Kazumi_macos_2.2.6.dmg"
+        },
+        {
+          "name": "Kazumi_windows_2.2.6.msix",
+          "size": 46766489.6,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-08-01_2.2.6/Kazumi_windows_2.2.6.msix"
+        },
+        {
+          "name": "Kazumi_windows_2.2.6.zip",
+          "size": 41943040,
+          "url": "/SoftwareHub/动漫/Kazumi/2026-08-01_2.2.6/Kazumi_windows_2.2.6.zip"
+        }
+      ]
+    },
+    {
+      "category": "动漫",
+      "project": "Kazumi",
       "versionDir": "动漫/Kazumi/2026-07-30_2.2.5",
       "files": [
         {
@@ -1426,58 +1478,6 @@
           "name": "Kazumi_windows_2.2.5.zip",
           "size": 41838182.4,
           "url": "/SoftwareHub/动漫/Kazumi/2026-07-30_2.2.5/Kazumi_windows_2.2.5.zip"
-        }
-      ]
-    },
-    {
-      "category": "动漫",
-      "project": "Kazumi",
-      "versionDir": "动漫/Kazumi/2026-07-30_2.2.4",
-      "files": [
-        {
-          "name": "Kazumi_android_2.2.4.apk",
-          "size": 31352422.4,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-07-30_2.2.4/Kazumi_android_2.2.4.apk"
-        },
-        {
-          "name": "Kazumi_ios_2.2.4_no_sign.ipa",
-          "size": 29255270.4,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-07-30_2.2.4/Kazumi_ios_2.2.4_no_sign.ipa"
-        },
-        {
-          "name": "Kazumi_linux_2.2.4_amd64.deb",
-          "size": 26109542.4,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-07-30_2.2.4/Kazumi_linux_2.2.4_amd64.deb"
-        },
-        {
-          "name": "Kazumi_linux_2.2.4_amd64.tar.gz",
-          "size": 31142707.2,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-07-30_2.2.4/Kazumi_linux_2.2.4_amd64.tar.gz"
-        },
-        {
-          "name": "Kazumi_linux_2.2.4_arm64.deb",
-          "size": 24851251.2,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-07-30_2.2.4/Kazumi_linux_2.2.4_arm64.deb"
-        },
-        {
-          "name": "Kazumi_linux_2.2.4_arm64.tar.gz",
-          "size": 29674700.8,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-07-30_2.2.4/Kazumi_linux_2.2.4_arm64.tar.gz"
-        },
-        {
-          "name": "Kazumi_macos_2.2.4.dmg",
-          "size": 53687091.2,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-07-30_2.2.4/Kazumi_macos_2.2.4.dmg"
-        },
-        {
-          "name": "Kazumi_windows_2.2.4.msix",
-          "size": 46766489.6,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-07-30_2.2.4/Kazumi_windows_2.2.4.msix"
-        },
-        {
-          "name": "Kazumi_windows_2.2.4.zip",
-          "size": 41838182.4,
-          "url": "/SoftwareHub/动漫/Kazumi/2026-07-30_2.2.4/Kazumi_windows_2.2.4.zip"
         }
       ]
     },
@@ -1908,5 +1908,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-07-31T18:41:10.566Z"
+  "updatedAt": "2026-08-01T18:48:00.455Z"
 }

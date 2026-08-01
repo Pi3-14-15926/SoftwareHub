@@ -464,6 +464,24 @@
     ]
   },
   {
+    "id": "msae1r9lh4gt6f",
+    "projectId": "mpzjkpvzeuh3zl",
+    "version": "2.2.6",
+    "publishedAt": "2026-08-01T10:29:14Z",
+    "changelog": "- 修复图片加载问题",
+    "downloadIds": [
+      "msae1r9l8behj1",
+      "msae1r9lp2cbyu",
+      "msae1r9lp7hgcb",
+      "msae1r9lbiy8t4",
+      "msae1r9l6wfmia",
+      "msae1r9lkxodv1",
+      "msae1r9l8n2o84",
+      "msae1r9lueo4ed",
+      "msae1r9ldhfyby"
+    ]
+  },
+  {
     "id": "ms907nhnrjwl91",
     "projectId": "mpzjkpvzeuh3zl",
     "version": "2.2.5",

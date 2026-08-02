@@ -3,24 +3,24 @@
     {
       "category": "阅读",
       "project": "阅读_Archive",
-      "versionDir": "阅读/阅读_Archive/2026-08-01_archive-v3-3.26.08010418",
+      "versionDir": "阅读/阅读_Archive/2026-08-02_archive-v3-3.26.08020301",
       "files": [
         {
-          "name": "legado_app_3.26.08010418_29759298.apk",
+          "name": "legado_app_3.26.08020301_29760661.apk",
           "size": 40160460.8,
-          "url": "/SoftwareHub/阅读/阅读_Archive/2026-08-01_archive-v3-3.26.08010418/legado_app_3.26.08010418_29759298.apk"
+          "url": "/SoftwareHub/阅读/阅读_Archive/2026-08-02_archive-v3-3.26.08020301/legado_app_3.26.08020301_29760661.apk"
         }
       ]
     },
     {
       "category": "阅读",
       "project": "阅读_Archive",
-      "versionDir": "阅读/阅读_Archive/2026-07-24_archive-v3-3.26.07241418",
+      "versionDir": "阅读/阅读_Archive/2026-08-01_archive-v3-3.26.08010418",
       "files": [
         {
-          "name": "legado_app_3.26.07241418_29747898.apk",
-          "size": 40055603.2,
-          "url": "/SoftwareHub/阅读/阅读_Archive/2026-07-24_archive-v3-3.26.07241418/legado_app_3.26.07241418_29747898.apk"
+          "name": "legado_app_3.26.08010418_29759298.apk",
+          "size": 40160460.8,
+          "url": "/SoftwareHub/阅读/阅读_Archive/2026-08-01_archive-v3-3.26.08010418/legado_app_3.26.08010418_29759298.apk"
         }
       ]
     },
@@ -118,6 +118,33 @@
     {
       "category": "阅读",
       "project": "阅读_MD3",
+      "versionDir": "阅读/阅读_MD3/2026-08-01_3.26.16-beta.11",
+      "files": [
+        {
+          "name": "legado-3.26.16-beta.11-arm64-v8a.apk",
+          "size": 19188940.8,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-08-01_3.26.16-beta.11/legado-3.26.16-beta.11-arm64-v8a.apk"
+        },
+        {
+          "name": "legado-3.26.16-beta.11-armeabi-v7a.apk",
+          "size": 18769510.4,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-08-01_3.26.16-beta.11/legado-3.26.16-beta.11-armeabi-v7a.apk"
+        },
+        {
+          "name": "legado-3.26.16-beta.11.apk",
+          "size": 25794969.6,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-08-01_3.26.16-beta.11/legado-3.26.16-beta.11.apk"
+        },
+        {
+          "name": "mapping.txt",
+          "size": 255118540.8,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-08-01_3.26.16-beta.11/mapping.txt"
+        }
+      ]
+    },
+    {
+      "category": "阅读",
+      "project": "阅读_MD3",
       "versionDir": "阅读/阅读_MD3/2026-07-31_3.26.16-beta.10",
       "files": [
         {
@@ -139,33 +166,6 @@
           "name": "mapping.txt",
           "size": 253860249.6,
           "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-31_3.26.16-beta.10/mapping.txt"
-        }
-      ]
-    },
-    {
-      "category": "阅读",
-      "project": "阅读_MD3",
-      "versionDir": "阅读/阅读_MD3/2026-07-29_3.26.16-beta.9",
-      "files": [
-        {
-          "name": "legado-3.26.16-beta.9-arm64-v8a.apk",
-          "size": 19188940.8,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-29_3.26.16-beta.9/legado-3.26.16-beta.9-arm64-v8a.apk"
-        },
-        {
-          "name": "legado-3.26.16-beta.9-armeabi-v7a.apk",
-          "size": 18664652.8,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-29_3.26.16-beta.9/legado-3.26.16-beta.9-armeabi-v7a.apk"
-        },
-        {
-          "name": "legado-3.26.16-beta.9.apk",
-          "size": 25690112,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-29_3.26.16-beta.9/legado-3.26.16-beta.9.apk"
-        },
-        {
-          "name": "mapping.txt",
-          "size": 252287385.6,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-07-29_3.26.16-beta.9/mapping.txt"
         }
       ]
     },
@@ -1484,6 +1484,163 @@
     {
       "category": "动漫",
       "project": "Animeko",
+      "versionDir": "动漫/Animeko/2026-08-01_v6.0.0",
+      "files": [
+        {
+          "name": "ani-6.0.0-arm64-v8a.apk",
+          "size": 35127296,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-arm64-v8a.apk"
+        },
+        {
+          "name": "ani-6.0.0-arm64-v8a.apk.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-arm64-v8a.apk.sha1"
+        },
+        {
+          "name": "ani-6.0.0-armeabi-v7a.apk",
+          "size": 33764147.2,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-armeabi-v7a.apk"
+        },
+        {
+          "name": "ani-6.0.0-armeabi-v7a.apk.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-armeabi-v7a.apk.sha1"
+        },
+        {
+          "name": "ani-6.0.0-linux-x86_64.appimage",
+          "size": 336802611.2,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-linux-x86_64.appimage"
+        },
+        {
+          "name": "ani-6.0.0-linux-x86_64.appimage.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-linux-x86_64.appimage.sha1"
+        },
+        {
+          "name": "ani-6.0.0-linux-x86_64.appimage.zsync",
+          "size": 524288,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-linux-x86_64.appimage.zsync"
+        },
+        {
+          "name": "ani-6.0.0-linux-x86_64.appimage.zsync.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-linux-x86_64.appimage.zsync.sha1"
+        },
+        {
+          "name": "ani-6.0.0-macos-aarch64.dmg",
+          "size": 314992230.4,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-macos-aarch64.dmg"
+        },
+        {
+          "name": "ani-6.0.0-macos-aarch64.dmg.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-macos-aarch64.dmg.sha1"
+        },
+        {
+          "name": "ani-6.0.0-macos-x86_64.zip",
+          "size": 334810316.8,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-macos-x86_64.zip"
+        },
+        {
+          "name": "ani-6.0.0-macos-x86_64.zip.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-macos-x86_64.zip.sha1"
+        },
+        {
+          "name": "ani-6.0.0-universal.apk",
+          "size": 64592281.6,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-universal.apk"
+        },
+        {
+          "name": "ani-6.0.0-universal.apk.cloudflare.qrcode.png",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-universal.apk.cloudflare.qrcode.png"
+        },
+        {
+          "name": "ani-6.0.0-universal.apk.cloudflare.qrcode.png.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-universal.apk.cloudflare.qrcode.png.sha1"
+        },
+        {
+          "name": "ani-6.0.0-universal.apk.github.qrcode.png",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-universal.apk.github.qrcode.png"
+        },
+        {
+          "name": "ani-6.0.0-universal.apk.github.qrcode.png.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-universal.apk.github.qrcode.png.sha1"
+        },
+        {
+          "name": "ani-6.0.0-universal.apk.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-universal.apk.sha1"
+        },
+        {
+          "name": "ani-6.0.0-windows-aarch64.zip",
+          "size": 428553011.2,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-windows-aarch64.zip"
+        },
+        {
+          "name": "ani-6.0.0-windows-aarch64.zip.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-windows-aarch64.zip.sha1"
+        },
+        {
+          "name": "ani-6.0.0-windows-x86_64.zip",
+          "size": 313104793.6,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-windows-x86_64.zip"
+        },
+        {
+          "name": "ani-6.0.0-windows-x86_64.zip.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-windows-x86_64.zip.sha1"
+        },
+        {
+          "name": "ani-6.0.0-x86_64.apk",
+          "size": 36595302.4,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-x86_64.apk"
+        },
+        {
+          "name": "ani-6.0.0-x86_64.apk.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0-x86_64.apk.sha1"
+        },
+        {
+          "name": "ani-6.0.0.ipa",
+          "size": 41418752,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0.ipa"
+        },
+        {
+          "name": "ani-6.0.0.ipa.cloudflare.qrcode.png",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0.ipa.cloudflare.qrcode.png"
+        },
+        {
+          "name": "ani-6.0.0.ipa.cloudflare.qrcode.png.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0.ipa.cloudflare.qrcode.png.sha1"
+        },
+        {
+          "name": "ani-6.0.0.ipa.github.qrcode.png",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0.ipa.github.qrcode.png"
+        },
+        {
+          "name": "ani-6.0.0.ipa.github.qrcode.png.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0.ipa.github.qrcode.png.sha1"
+        },
+        {
+          "name": "ani-6.0.0.ipa.sha1",
+          "size": 0,
+          "url": "/SoftwareHub/动漫/Animeko/2026-08-01_v6.0.0/ani-6.0.0.ipa.sha1"
+        }
+      ]
+    },
+    {
+      "category": "动漫",
+      "project": "Animeko",
       "versionDir": "动漫/Animeko/2026-07-28_v6.0.0-beta02",
       "files": [
         {
@@ -1639,153 +1796,6 @@
       ]
     },
     {
-      "category": "动漫",
-      "project": "Animeko",
-      "versionDir": "动漫/Animeko/2026-07-24_v6.0.0-beta01",
-      "files": [
-        {
-          "name": "ani-6.0.0-beta01-arm64-v8a.apk",
-          "size": 34288435.2,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-arm64-v8a.apk"
-        },
-        {
-          "name": "ani-6.0.0-beta01-arm64-v8a.apk.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-arm64-v8a.apk.sha1"
-        },
-        {
-          "name": "ani-6.0.0-beta01-armeabi-v7a.apk",
-          "size": 32925286.4,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-armeabi-v7a.apk"
-        },
-        {
-          "name": "ani-6.0.0-beta01-armeabi-v7a.apk.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-armeabi-v7a.apk.sha1"
-        },
-        {
-          "name": "ani-6.0.0-beta01-linux-x86_64.appimage",
-          "size": 331454873.6,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-linux-x86_64.appimage"
-        },
-        {
-          "name": "ani-6.0.0-beta01-linux-x86_64.appimage.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-linux-x86_64.appimage.sha1"
-        },
-        {
-          "name": "ani-6.0.0-beta01-linux-x86_64.appimage.zsync",
-          "size": 524288,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-linux-x86_64.appimage.zsync"
-        },
-        {
-          "name": "ani-6.0.0-beta01-linux-x86_64.appimage.zsync.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-linux-x86_64.appimage.zsync.sha1"
-        },
-        {
-          "name": "ani-6.0.0-beta01-macos-aarch64.dmg",
-          "size": 312790220.8,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-macos-aarch64.dmg"
-        },
-        {
-          "name": "ani-6.0.0-beta01-macos-aarch64.dmg.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-macos-aarch64.dmg.sha1"
-        },
-        {
-          "name": "ani-6.0.0-beta01-macos-x86_64.zip",
-          "size": 331874304,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-macos-x86_64.zip"
-        },
-        {
-          "name": "ani-6.0.0-beta01-macos-x86_64.zip.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-macos-x86_64.zip.sha1"
-        },
-        {
-          "name": "ani-6.0.0-beta01-universal.apk",
-          "size": 63648563.2,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-universal.apk"
-        },
-        {
-          "name": "ani-6.0.0-beta01-universal.apk.cloudflare.qrcode.png",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-universal.apk.cloudflare.qrcode.png"
-        },
-        {
-          "name": "ani-6.0.0-beta01-universal.apk.cloudflare.qrcode.png.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-universal.apk.cloudflare.qrcode.png.sha1"
-        },
-        {
-          "name": "ani-6.0.0-beta01-universal.apk.github.qrcode.png",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-universal.apk.github.qrcode.png"
-        },
-        {
-          "name": "ani-6.0.0-beta01-universal.apk.github.qrcode.png.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-universal.apk.github.qrcode.png.sha1"
-        },
-        {
-          "name": "ani-6.0.0-beta01-universal.apk.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-universal.apk.sha1"
-        },
-        {
-          "name": "ani-6.0.0-beta01-windows-x86_64.zip",
-          "size": 311322214.4,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-windows-x86_64.zip"
-        },
-        {
-          "name": "ani-6.0.0-beta01-windows-x86_64.zip.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-windows-x86_64.zip.sha1"
-        },
-        {
-          "name": "ani-6.0.0-beta01-x86_64.apk",
-          "size": 35651584,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-x86_64.apk"
-        },
-        {
-          "name": "ani-6.0.0-beta01-x86_64.apk.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01-x86_64.apk.sha1"
-        },
-        {
-          "name": "ani-6.0.0-beta01.ipa",
-          "size": 40475033.6,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01.ipa"
-        },
-        {
-          "name": "ani-6.0.0-beta01.ipa.cloudflare.qrcode.png",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01.ipa.cloudflare.qrcode.png"
-        },
-        {
-          "name": "ani-6.0.0-beta01.ipa.cloudflare.qrcode.png.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01.ipa.cloudflare.qrcode.png.sha1"
-        },
-        {
-          "name": "ani-6.0.0-beta01.ipa.github.qrcode.png",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01.ipa.github.qrcode.png"
-        },
-        {
-          "name": "ani-6.0.0-beta01.ipa.github.qrcode.png.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01.ipa.github.qrcode.png.sha1"
-        },
-        {
-          "name": "ani-6.0.0-beta01.ipa.sha1",
-          "size": 0,
-          "url": "/SoftwareHub/动漫/Animeko/2026-07-24_v6.0.0-beta01/ani-6.0.0-beta01.ipa.sha1"
-        }
-      ]
-    },
-    {
       "category": "游戏",
       "project": "SteamTools",
       "versionDir": "游戏/SteamTools/2026-03-11_3.1.0",
@@ -1908,5 +1918,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-08-01T18:48:00.455Z"
+  "updatedAt": "2026-08-02T18:54:54.119Z"
 }

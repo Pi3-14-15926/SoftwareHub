@@ -1,5 +1,15 @@
 [
   {
+    "id": "msbtk2h9ypok8h",
+    "projectId": "mpwoxcif3y72eu",
+    "version": "archive-v3-3.26.08020301",
+    "publishedAt": "2026-08-02T03:17:45Z",
+    "changelog": "## 修复\n- **打开小说正文闪退**：滚动翻页 + 高级标题时，阅读界面在构造过程中会重入自身的布局加载，递归重建界面约 370 层，主线程卡死后被系统杀掉。现已从根本上断开该递归。\n- 恢复备份后首次打开正文、反复进入正文闪退等现象均由此问题引起。\n\n## 其他改进\n- 新增主线程卡死监控：主线程超过 2 秒无响应时自动记录调用栈，便于后续定位问题。\n- 字体查找加入缓存：此前每次解析字体都会重新扫描字体目录并查询 SAF 文档树。\n- 移除高级标题/页眉页脚的 Lottie 软件渲染。\n\nversionCode: 29760661",
+    "downloadIds": [
+      "msbtk2h90o04yd"
+    ]
+  },
+  {
     "id": "msae1kkj6ajh7s",
     "projectId": "mpwoxcif3y72eu",
     "version": "archive-v3-3.26.08010418",
@@ -828,6 +838,19 @@
     "changelog": "## 近期更新：\r\n1.Material Design 3 视觉改版，大量组件使用md3风格，更多圆角，更多色彩风格\r\n2.主题设置新增沉浸式操作栏开关，开启后顶栏和底栏透明并沉浸\r\n3.增加高亮功能，支持多种样式组合、批注式高亮和规则高亮(正则/关键词)\r\n4.书架管理支持批量定时更新\r\n",
     "downloadIds": [
       "mqdzx9wsjzdo0s"
+    ]
+  },
+  {
+    "id": "msbtk46m6awe8n",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.16-beta.11",
+    "publishedAt": "2026-08-01T17:52:47Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\n### [发布页](https://t.me/materado)\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\n\n### 更新内容\n\n* feat: 界面优化\n* fix: preserve DeepSeek medium reasoning effort\n* fix(read): 导出配置补齐 fontSizeOffset 字段，字号偏移描述改用字符串资源\n* refactor: AppContextWrapper.getFontScale 复用 resolveAppFontScale\n* Revert \"fix: 修复探索和RSS页面弹窗字体缩放问题\"\n* feat: 补充书源管理页功能，重写登录Sheet\n* fix: 修复探索和RSS页面弹窗字体缩放问题\n* fix: 修复弹窗字体缩放不跟随设置且窗口尺寸变化后失效\n* feat: 补充书源管理页功能\n* refactor(reader): 摘 ReadReplaceRuleDelegate，清上游两笔提交的护栏账单\n* fix(config): 收紧 ReadStyleConfigStore 并发与 Config 不可变性\n* fix(reader): 绘制热路径三项进 RenderStyle 快照，补齐快照重建入口\n* feat(read): add font size offset adjustment for text styles\n* refactor(read): 简化标题字体大小的计算逻辑\n* feat: 增加模型思考强度配置，使用openai标准low / medium / high / xhigh / max 五个挡位，deepseek等模型做了向此挡位配置的映射",
+    "downloadIds": [
+      "msbtk46mg5zekm",
+      "msbtk46m03vg4w",
+      "msbtk46m4bo7fo",
+      "msbtk46m7p96wj"
     ]
   },
   {

@@ -9,14 +9,14 @@
     "featured": false,
     "githubRepo": "Rimchars/legado",
     "githubUrl": "https://github.com/Rimchars/legado",
-    "stars": 423,
+    "stars": 428,
     "forks": 19,
     "platforms": [
       "Android"
     ],
     "latestVersionId": "mqdzx80hhogwvh",
-    "latestUpdateTime": "2026-08-01T05:11:23Z",
-    "latestVersion": "archive-v3-3.26.08010418"
+    "latestUpdateTime": "2026-08-02T03:17:45Z",
+    "latestVersion": "archive-v3-3.26.08020301"
   },
   {
     "id": "mqdordihsc5rxn",
@@ -29,8 +29,8 @@
     "githubRepo": "anxcye/anx-reader",
     "githubUrl": "https://github.com/anxcye/anx-reader",
     "latestUpdateTime": "2025-11-01T13:17:04Z",
-    "stars": 8584,
-    "forks": 594,
+    "stars": 8588,
+    "forks": 595,
     "latestVersionId": "mqdzx94ic2xzm0"
   },
   {
@@ -62,14 +62,14 @@
     "featured": false,
     "githubRepo": "HapeLee/legado-with-MD3",
     "githubUrl": "https://github.com/HapeLee/legado-with-MD3",
-    "stars": 5409,
-    "forks": 605,
+    "stars": 5431,
+    "forks": 608,
     "platforms": [
       "Android"
     ],
     "latestVersionId": "mqdzxbdokth5o5",
-    "latestUpdateTime": "2026-07-31T15:25:14Z",
-    "latestVersion": "3.26.16-beta.10"
+    "latestUpdateTime": "2026-08-01T17:52:47Z",
+    "latestVersion": "3.26.16-beta.11"
   },
   {
     "id": "mpwp1hvpsn5ffl",
@@ -115,7 +115,7 @@
     "featured": false,
     "githubRepo": "LegadoTeam/Legado-Tauri-Release",
     "githubUrl": "https://github.com/LegadoTeam/Legado-Tauri-Release",
-    "stars": 184,
+    "stars": 183,
     "forks": 16,
     "platforms": [
       "Windows",
@@ -134,8 +134,8 @@
     "featured": false,
     "githubRepo": "Luoyacheng/legado",
     "githubUrl": "https://github.com/Luoyacheng/legado",
-    "stars": 2230,
-    "forks": 497,
+    "stars": 2243,
+    "forks": 502,
     "platforms": [
       "Android"
     ],
@@ -154,8 +154,8 @@
     "githubRepo": "readest/readest",
     "githubUrl": "https://github.com/readest/readest",
     "latestUpdateTime": "2026-07-19T20:11:12Z",
-    "stars": 22986,
-    "forks": 1418,
+    "stars": 23011,
+    "forks": 1427,
     "latestVersionId": "mqe099q50edkdy",
     "latestVersion": "v0.11.20"
   }

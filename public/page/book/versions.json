@@ -841,6 +841,19 @@
     ]
   },
   {
+    "id": "msdbs6zu80c0h9",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.16-beta.12",
+    "publishedAt": "2026-08-02T18:01:10Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\n### [发布页](https://t.me/materado)\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\n\n### 更新内容\n\n* feat: 优化导出\n* feat: 阅读界面新增一些设置项入口和目录相关优化\n* feat: 书源列表导出URL\n* fix: expose JS crypto utilities to WebView",
+    "downloadIds": [
+      "msdbs6zvlsekb8",
+      "msdbs6zvsdodhy",
+      "msdbs6zvajpq23",
+      "msdbs6zvb9dqit"
+    ]
+  },
+  {
     "id": "msbtk46m6awe8n",
     "projectId": "mpwouieuddbq2d",
     "version": "3.26.16-beta.11",

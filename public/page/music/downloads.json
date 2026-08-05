@@ -7670,6 +7670,22 @@
     "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
   },
   {
+    "id": "msg5k6o7pps88i",
+    "versionId": "msg5k6o7mp1h4k",
+    "platform": "Android",
+    "filename": "QingMusic-arm-v1.3.8.apk",
+    "size": "54.6 MB",
+    "url": "https://github.com/kejichangqing/QingMusic/releases/download/v1.3.8/QingMusic-arm-v1.3.8.apk"
+  },
+  {
+    "id": "msg5k6o7oqhmzy",
+    "versionId": "msg5k6o7mp1h4k",
+    "platform": "Android",
+    "filename": "QingMusic-x86-v1.3.8.apk",
+    "size": "60.4 MB",
+    "url": "https://github.com/kejichangqing/QingMusic/releases/download/v1.3.8/QingMusic-x86-v1.3.8.apk"
+  },
+  {
     "id": "mr0q5bu86y5ofp",
     "versionId": "mr0q5bu8bvsfya",
     "platform": "Android",

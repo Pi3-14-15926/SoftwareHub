@@ -1173,6 +1173,23 @@
     {
       "category": "音乐",
       "project": "QingMusic_青听音乐",
+      "versionDir": "音乐/QingMusic_青听音乐/2026-08-05_v1.3.8",
+      "files": [
+        {
+          "name": "QingMusic-arm-v1.3.8.apk",
+          "size": 57252249.6,
+          "url": "/SoftwareHub/音乐/QingMusic_青听音乐/2026-08-05_v1.3.8/QingMusic-arm-v1.3.8.apk"
+        },
+        {
+          "name": "QingMusic-x86-v1.3.8.apk",
+          "size": 63333990.4,
+          "url": "/SoftwareHub/音乐/QingMusic_青听音乐/2026-08-05_v1.3.8/QingMusic-x86-v1.3.8.apk"
+        }
+      ]
+    },
+    {
+      "category": "音乐",
+      "project": "QingMusic_青听音乐",
       "versionDir": "音乐/QingMusic_青听音乐/2026-06-30_v1.3.7",
       "files": [
         {
@@ -1184,38 +1201,6 @@
           "name": "QingMusic-v1.3.7-x86.apk",
           "size": 57776537.6,
           "url": "/SoftwareHub/音乐/QingMusic_青听音乐/2026-06-30_v1.3.7/QingMusic-v1.3.7-x86.apk"
-        }
-      ]
-    },
-    {
-      "category": "音乐",
-      "project": "QingMusic_青听音乐",
-      "versionDir": "音乐/QingMusic_青听音乐/2026-05-29_v1.3.6",
-      "files": [
-        {
-          "name": "QingMusic_v1.3.6-.universal.apk",
-          "size": 63963136,
-          "url": "/SoftwareHub/音乐/QingMusic_青听音乐/2026-05-29_v1.3.6/QingMusic_v1.3.6-.universal.apk"
-        },
-        {
-          "name": "QingMusic_v1.3.6-arm64-v8a.apk",
-          "size": 29045555.2,
-          "url": "/SoftwareHub/音乐/QingMusic_青听音乐/2026-05-29_v1.3.6/QingMusic_v1.3.6-arm64-v8a.apk"
-        },
-        {
-          "name": "QingMusic_v1.3.6-armeabi-v7a.apk",
-          "size": 25375539.2,
-          "url": "/SoftwareHub/音乐/QingMusic_青听音乐/2026-05-29_v1.3.6/QingMusic_v1.3.6-armeabi-v7a.apk"
-        },
-        {
-          "name": "QingMusic_v1.3.6-x86-release.apk",
-          "size": 29779558.4,
-          "url": "/SoftwareHub/音乐/QingMusic_青听音乐/2026-05-29_v1.3.6/QingMusic_v1.3.6-x86-release.apk"
-        },
-        {
-          "name": "QingMusic_v1.3.6-x86_64.apk",
-          "size": 28730982.4,
-          "url": "/SoftwareHub/音乐/QingMusic_青听音乐/2026-05-29_v1.3.6/QingMusic_v1.3.6-x86_64.apk"
         }
       ]
     },
@@ -1918,5 +1903,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-08-04T17:55:40.984Z"
+  "updatedAt": "2026-08-05T17:45:56.693Z"
 }

@@ -464,6 +464,24 @@
     ]
   },
   {
+    "id": "mskd0xwx63dbhg",
+    "projectId": "mpzjkpvzeuh3zl",
+    "version": "2.2.7",
+    "publishedAt": "2026-08-08T08:17:26Z",
+    "changelog": "- 制作人员列表现在得到正确排序 (#2051) (@ChouChiu)\r\n- 修复 Linux 平台 nvidia 设备启用超分辨率可能出现偏色的问题 (#1547) (@zhn1100)\r\n- 优化 windows 平台视频解析器 (@Predidit)\r\n- 其他 UI 调整 (@Predidit)\r\n- 其他文档调整 (@WhiteXero)",
+    "downloadIds": [
+      "mskd0xwxk0h820",
+      "mskd0xwxg8g1gu",
+      "mskd0xwx4nk2p1",
+      "mskd0xwxm2uqf7",
+      "mskd0xwxy94654",
+      "mskd0xwxs5tza0",
+      "mskd0xwxv1in36",
+      "mskd0xwx5djzyr",
+      "mskd0xwx39dd5f"
+    ]
+  },
+  {
     "id": "msae1r9lh4gt6f",
     "projectId": "mpzjkpvzeuh3zl",
     "version": "2.2.6",

@@ -1,5 +1,26 @@
 [
   {
+    "id": "msriz5gj0ohwo5",
+    "projectId": "mqa2ifsduzlphs",
+    "version": "1.5.21",
+    "publishedAt": "2026-07-15T15:36:10Z",
+    "changelog": "- 回退旧版番剧列表样式(可在外观设置使用新版)\r\n- 新增番剧评论、评分功能\r\n- 新增播放页面追番按钮\r\n- 新增应用内下载最新版功能",
+    "downloadIds": [
+      "msriz5gj1hugym",
+      "msriz5gjx0srvo",
+      "msriz5gjm7oim4",
+      "msriz5gjdsj8tc",
+      "msriz5gjmaypzp",
+      "msriz5gju7cemv",
+      "msriz5gjeqhiup",
+      "msriz5gjfuphdq",
+      "msriz5gj2nd1lo",
+      "msriz5gjml7pg7",
+      "msriz5gjpf6vd5",
+      "msriz5gjdudjkz"
+    ]
+  },
+  {
     "id": "mrjbdwigjjrukf",
     "projectId": "mqa2ifsduzlphs",
     "version": "1.5.20",

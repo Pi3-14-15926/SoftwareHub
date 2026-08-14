@@ -851,6 +851,32 @@
     ]
   },
   {
+    "id": "mssyb1dm22cvby",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.16-beta.17",
+    "publishedAt": "2026-08-14T08:45:14Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\n### [发布页](https://t.me/materado)\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\n\n### 更新内容\n\n* fix: 统一听书播放器语速调节范围与经典朗读控制一致 (#2033)\n* feat: 书源外部导入问题",
+    "downloadIds": [
+      "mssyb1dm944jpw",
+      "mssyb1dmdwn4my",
+      "mssyb1dmb36dru",
+      "mssyb1dmhm7iay"
+    ]
+  },
+  {
+    "id": "mssyb1dmpkwlf2",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.16-beta.16",
+    "publishedAt": "2026-08-14T05:47:52Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\r\n### [发布页](https://t.me/materado)\r\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\r\n\r\n## 重写了漫画阅读页，不怕死的朋友可以试试\r\n\r\n### 更新内容\r\n\r\n* fix: 修复 Verify 工作流失败并回归全绿\r\n* fix: 完善朗读媒体控制并抽取读完本章状态机\r\n* feat: 更完整的漫画实现\r\n* fix: 书源调试崩溃\r\n* fix: 前台服务超时崩溃\r\n* feat: add incremental AI bookshelf grouping\r\n* feat: 新增定时读完当前章节选项,优化朗读媒体控制通知\r\n* feat: 添加安卓媒体控制通知\r\n* fix: 修复听书播放器蒙版点击穿透\r\n* feat: 漫画相关\r\n* fix: prevent manga chapter navigation rollback\r\n* fix: align manga chapter navigation and sheets\r\n* feat:允许设置无规则匹配时的章节分割字数\r\n* refactor: align manga reader state with UDF\r\n* fix: stabilize manga reader navigation state\r\n* refactor: integrate manga reader with Nav3\r\n* refactor: migrate manga reader to Compose\r\n* fix: sigma的一些特性\r\n\r\n## What's Changed\r\n* feat:允许设置无规则匹配时的章节分割字数 by @todoXu in https://github.com/HapeLee/legado-with-MD3/pull/2016\r\n* feat: AI 自动分组支持增量模式 by @lalala-12138 in https://github.com/HapeLee/legado-with-MD3/pull/2029\r\n* 修复听书播放器蒙版点击穿透，添加Android媒体控制通知，朗读定时添加读完本章功能 by @lingran7031 in https://github.com/HapeLee/legado-with-MD3/pull/2024\r\n\r\n## New Contributors\r\n* @lingran7031 made their first contribution in https://github.com/HapeLee/legado-with-MD3/pull/2024\r\n\r\n**Full Changelog**: https://github.com/HapeLee/legado-with-MD3/compare/3.26.16-beta.15...3.26.16-beta.16",
+    "downloadIds": [
+      "mssyb1dmy0bnvg",
+      "mssyb1dm6zxjjq",
+      "mssyb1dmxe8idm",
+      "mssyb1dmxzk6cj"
+    ]
+  },
+  {
     "id": "msn8lj9sdlja4a",
     "projectId": "mpwouieuddbq2d",
     "version": "3.26.16-beta.15",

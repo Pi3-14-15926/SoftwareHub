@@ -2594,6 +2594,78 @@
     "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
   },
   {
+    "id": "msvs92zqhyg73y",
+    "versionId": "msvs92zqg8dz83",
+    "platform": "Android",
+    "filename": "Kazumi_android_2.2.8.apk",
+    "size": "30.0 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.8/Kazumi_android_2.2.8.apk"
+  },
+  {
+    "id": "msvs92zqems63a",
+    "versionId": "msvs92zqg8dz83",
+    "platform": "Other",
+    "filename": "Kazumi_ios_2.2.8_no_sign.ipa",
+    "size": "28.3 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.8/Kazumi_ios_2.2.8_no_sign.ipa"
+  },
+  {
+    "id": "msvs92zqrtrw34",
+    "versionId": "msvs92zqg8dz83",
+    "platform": "Linux",
+    "filename": "Kazumi_linux_2.2.8_amd64.deb",
+    "size": "24.6 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.8/Kazumi_linux_2.2.8_amd64.deb"
+  },
+  {
+    "id": "msvs92zqc8taqv",
+    "versionId": "msvs92zqg8dz83",
+    "platform": "Linux",
+    "filename": "Kazumi_linux_2.2.8_amd64.tar.gz",
+    "size": "29.3 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.8/Kazumi_linux_2.2.8_amd64.tar.gz"
+  },
+  {
+    "id": "msvs92zqccbamb",
+    "versionId": "msvs92zqg8dz83",
+    "platform": "Linux",
+    "filename": "Kazumi_linux_2.2.8_arm64.deb",
+    "size": "23.4 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.8/Kazumi_linux_2.2.8_arm64.deb"
+  },
+  {
+    "id": "msvs92zqfu2e64",
+    "versionId": "msvs92zqg8dz83",
+    "platform": "Linux",
+    "filename": "Kazumi_linux_2.2.8_arm64.tar.gz",
+    "size": "27.9 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.8/Kazumi_linux_2.2.8_arm64.tar.gz"
+  },
+  {
+    "id": "msvs92zq9ot14z",
+    "versionId": "msvs92zqg8dz83",
+    "platform": "MacOS",
+    "filename": "Kazumi_macos_2.2.8.dmg",
+    "size": "51.4 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.8/Kazumi_macos_2.2.8.dmg"
+  },
+  {
+    "id": "msvs92zqt87xgg",
+    "versionId": "msvs92zqg8dz83",
+    "platform": "Windows",
+    "filename": "Kazumi_windows_2.2.8.msix",
+    "size": "44.1 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.8/Kazumi_windows_2.2.8.msix"
+  },
+  {
+    "id": "msvs92zqpyx7n5",
+    "versionId": "msvs92zqg8dz83",
+    "platform": "Windows",
+    "filename": "Kazumi_windows_2.2.8.zip",
+    "size": "39.5 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.8/Kazumi_windows_2.2.8.zip"
+  },
+  {
     "id": "mskd0xwxk0h820",
     "versionId": "mskd0xwx63dbhg",
     "platform": "Android",

@@ -485,6 +485,24 @@
     ]
   },
   {
+    "id": "msvs92zqg8dz83",
+    "projectId": "mpzjkpvzeuh3zl",
+    "version": "2.2.8",
+    "publishedAt": "2026-08-15T01:52:16Z",
+    "changelog": "- 适配 flutter 3.47 (@Predidit)\r\n- 修复 windows 平台部分视频来源只能播放5秒零碎片段的问题 (#2265 #1976 #2301) (@Predidit)\r\n- 兼容更多非标准视频流 (@zhn1100)\r\n- 桌面平台UI性能优化 (@Predidit)",
+    "downloadIds": [
+      "msvs92zqhyg73y",
+      "msvs92zqems63a",
+      "msvs92zqrtrw34",
+      "msvs92zqc8taqv",
+      "msvs92zqccbamb",
+      "msvs92zqfu2e64",
+      "msvs92zq9ot14z",
+      "msvs92zqt87xgg",
+      "msvs92zqpyx7n5"
+    ]
+  },
+  {
     "id": "mskd0xwx63dbhg",
     "projectId": "mpzjkpvzeuh3zl",
     "version": "2.2.7",

@@ -1,5 +1,15 @@
 [
   {
+    "id": "msynd7l8150d57",
+    "projectId": "mpwoxcif3y72eu",
+    "version": "archive-v3-3.26.08172114",
+    "publishedAt": "2026-08-17T14:14:21Z",
+    "changelog": "第十一版更新\n\n- EPUB 阅读引擎更替为纯 WebView 渲染引擎\n- EPUB 纯文本模式回归 Legado 原版文本处理逻辑",
+    "downloadIds": [
+      "msynd7l854zojb"
+    ]
+  },
+  {
     "id": "msiy4dn91pn3j4",
     "projectId": "mpwoxcif3y72eu",
     "version": "archive-v3-3.26.08051531",
@@ -805,6 +815,18 @@
       "mqdzx9667re4r2",
       "mqdzx96gut33zs",
       "mqdzx96s77wazj"
+    ]
+  },
+  {
+    "id": "msynd8kmau3ywt",
+    "projectId": "mpwowqbvn123ig",
+    "version": "3.26.081812",
+    "publishedAt": "2026-08-18T04:36:13Z",
+    "changelog": "更新日志\n\n> ⚠️ **更新前请务必备份数据**，以免升级迁移出现意外导致数据丢失。\n> 本版数据库结构有升级（v87 → v91），首次启动会自动迁移，旧数据无损保留。\n\n## 朗读引擎\n\n- 新增角色化朗读：外部 AI 服务标注旁白和角色，可为每个角色指定朗读引擎及音色\n- 新增角色音色表和可编辑的引擎音色清单，配音方案随书保存\n- 章节标注结果自动缓存；标注或配音解析失败时回落普通朗读\n- HttpTTS 补齐 jsLib 和启用 CookieJar 选项\n\n## 书源/规则\n\n- 登录 UI v2 支持多步流程、下拉选择、和 toggle 登录开关\n- 增强书源网页会话桥接，关联书源的网页可访问source、java、cache\n- js文件源修复下载导入\n- MCP 服务：新增 Bearer Token 鉴权，工具增至 23 个\n- 书源加密兼容层改用 Android/JDK 原生 API，移除 Hutool 依赖\n\n## 阅读与界面\n\n- 高亮新增 5 种背景形态（圆角/马克笔/半高/基线/胶囊）与阴影发光效果\n- 主题自定义配色：日夜双联预览，四色日夜分别调整\n- 图片 URL 支持内联 style 选项，可为单图独立设置排版模式及 width/height\n- 日志面板支持类别色条、过滤、实时刷新和导出分享\n- 书架布局设置改为底部面板，发现页增加分组筛选\n- 辅助按键浮窗支持设置显示行数\n\n## 其他\n\n- 帮助文档支持全文搜索和两级章节目录，重写定时任务帮助\n- 启动时自动检查更新，更新弹窗显示安装包大小和发布日期，并支持忽略版本\n- 修复 Web 代码编辑器在 Android 端的交互问题\n- 代码编辑器语法检查上限放宽至 12 万字符，超限显示暂停提示，不再隐藏语法状态栏\n- 修复口令识别、华为导航栏显示、高亮定位偏移等问题\n\n---\n\n[完整更新历史](https://github.com/skybbk1001/legadoT/blob/master/app/src/main/assets/updateLog.md)\n",
+    "downloadIds": [
+      "msynd8kmxdem16",
+      "msynd8kmj7tnhn",
+      "msynd8kmnsv82f"
     ]
   },
   {

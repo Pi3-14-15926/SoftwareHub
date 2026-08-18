@@ -1,5 +1,13 @@
 [
   {
+    "id": "msynd7l854zojb",
+    "versionId": "msynd7l8150d57",
+    "platform": "Android",
+    "filename": "legado_app_3.26.08172114_29782314.apk",
+    "size": "38.4 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.08172114/legado_app_3.26.08172114_29782314.apk"
+  },
+  {
     "id": "msiy4dn98wum1z",
     "versionId": "msiy4dn91pn3j4",
     "platform": "Android",
@@ -2538,6 +2546,30 @@
     "url": "https://github.com/Anxcye/anx-reader/releases/download/v1.9.2-beta.7/Anx-Reader-windows-1.9.2-beta.7.zip",
     "downloadCount": 9,
     "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
+  },
+  {
+    "id": "msynd8kmxdem16",
+    "versionId": "msynd8kmau3ywt",
+    "platform": "Android",
+    "filename": "legado_app_3.26.081812_arm64-v8a.apk",
+    "size": "14.4 MB",
+    "url": "https://github.com/skybbk1001/legadoT/releases/download/3.26.081812/legado_app_3.26.081812_arm64-v8a.apk"
+  },
+  {
+    "id": "msynd8kmj7tnhn",
+    "versionId": "msynd8kmau3ywt",
+    "platform": "Android",
+    "filename": "legado_app_3.26.081812_armeabi-v7a.apk",
+    "size": "13.8 MB",
+    "url": "https://github.com/skybbk1001/legadoT/releases/download/3.26.081812/legado_app_3.26.081812_armeabi-v7a.apk"
+  },
+  {
+    "id": "msynd8kmnsv82f",
+    "versionId": "msynd8kmau3ywt",
+    "platform": "Android",
+    "filename": "legado_app_3.26.081812_universal.apk",
+    "size": "14.6 MB",
+    "url": "https://github.com/skybbk1001/legadoT/releases/download/3.26.081812/legado_app_3.26.081812_universal.apk"
   },
   {
     "id": "mruoxa6hagtiff",

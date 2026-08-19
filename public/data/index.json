@@ -11,8 +11,8 @@
     "latestUpdateTime": "2026-08-17T14:14:21Z",
     "githubRepo": "Rimchars/legado",
     "githubUrl": "https://github.com/Rimchars/legado",
-    "stars": 468,
-    "forks": 24
+    "stars": 472,
+    "forks": 25
   },
   {
     "id": "mqdordihsc5rxn",
@@ -26,7 +26,7 @@
     "latestUpdateTime": "2026-06-07T15:49:08Z",
     "githubRepo": "anxcye/anx-reader",
     "githubUrl": "https://github.com/anxcye/anx-reader",
-    "stars": 8701,
+    "stars": 8706,
     "forks": 607
   },
   {
@@ -41,7 +41,7 @@
     "latestUpdateTime": "2026-08-18T04:36:13Z",
     "githubRepo": "skybbk1001/legadoT",
     "githubUrl": "https://github.com/skybbk1001/legadoT",
-    "stars": 115,
+    "stars": 114,
     "forks": 17
   },
   {
@@ -52,11 +52,11 @@
     "description": "使用 Material Design 3 全新设计的阅读 3.0",
     "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/阅读-MD3.webp",
     "featured": false,
-    "latestVersionId": "mssyb1dm22cvby",
-    "latestUpdateTime": "2026-08-14T08:45:14Z",
+    "latestVersionId": "mt02tl6c164502",
+    "latestUpdateTime": "2026-08-18T17:19:24Z",
     "githubRepo": "HapeLee/legado-with-MD3",
     "githubUrl": "https://github.com/HapeLee/legado-with-MD3",
-    "stars": 5711,
+    "stars": 5728,
     "forks": 642
   },
   {
@@ -116,8 +116,8 @@
     "latestUpdateTime": "2026-07-15T15:09:08Z",
     "githubRepo": "Luoyacheng/legado",
     "githubUrl": "https://github.com/Luoyacheng/legado",
-    "stars": 2405,
-    "forks": 545
+    "stars": 2418,
+    "forks": 550
   },
   {
     "id": "mqe091nl2j14ej",
@@ -131,8 +131,8 @@
     "latestUpdateTime": "2026-08-08T17:03:56Z",
     "githubRepo": "readest/readest",
     "githubUrl": "https://github.com/readest/readest",
-    "stars": 23517,
-    "forks": 1480
+    "stars": 23547,
+    "forks": 1484
   },
   {
     "id": "mpwreu1xdmxt5v",
@@ -146,8 +146,8 @@
     "latestUpdateTime": "2026-05-01T05:35:34Z",
     "githubRepo": "lyswhut/lx-music-desktop",
     "githubUrl": "https://github.com/lyswhut/lx-music-desktop",
-    "stars": 52861,
-    "forks": 6957
+    "stars": 52890,
+    "forks": 6960
   },
   {
     "id": "mqdz0w9jb6a6mx",
@@ -162,8 +162,8 @@
     "githubRepo": "lyswhut/lx-music-mobile",
     "githubUrl": "https://github.com/lyswhut/lx-music-mobile",
     "website": "LX Music 移动版",
-    "stars": 17857,
-    "forks": 2046
+    "stars": 17869,
+    "forks": 2048
   },
   {
     "id": "mqdz4vlw18enkx",
@@ -177,8 +177,8 @@
     "latestUpdateTime": "2026-01-06T14:15:47Z",
     "githubRepo": "maotoumao/MusicFree",
     "githubUrl": "https://github.com/maotoumao/MusicFree",
-    "stars": 26162,
-    "forks": 1849
+    "stars": 26181,
+    "forks": 1850
   },
   {
     "id": "mqdz5tn7va86j4",
@@ -192,7 +192,7 @@
     "latestUpdateTime": "2026-03-23T09:15:42Z",
     "githubRepo": "maotoumao/MusicFreeDesktop",
     "githubUrl": "https://github.com/maotoumao/MusicFreeDesktop",
-    "stars": 8720,
+    "stars": 8726,
     "forks": 850
   },
   {
@@ -207,7 +207,7 @@
     "latestUpdateTime": "2026-08-05T13:55:26Z",
     "githubRepo": "kejichangqing/QingMusic",
     "githubUrl": "https://github.com/kejichangqing/QingMusic",
-    "stars": 1421,
+    "stars": 1420,
     "forks": 69
   },
   {
@@ -222,8 +222,8 @@
     "latestUpdateTime": "2026-08-10T12:54:32Z",
     "githubRepo": "Moriafly/SaltPlayerSource",
     "githubUrl": "https://github.com/Moriafly/SaltPlayerSource",
-    "stars": 7180,
-    "forks": 208
+    "stars": 7196,
+    "forks": 209
   },
   {
     "id": "mqa2ifsduzlphs",
@@ -237,8 +237,8 @@
     "latestUpdateTime": "2026-07-15T15:36:10Z",
     "githubRepo": "Sle2p/AniCh",
     "githubUrl": "https://github.com/Sle2p/AniCh",
-    "stars": 5879,
-    "forks": 126
+    "stars": 5922,
+    "forks": 127
   },
   {
     "id": "mpzjkpvzeuh3zl",
@@ -252,7 +252,7 @@
     "latestUpdateTime": "2026-08-15T01:52:16Z",
     "githubRepo": "Predidit/Kazumi",
     "githubUrl": "https://github.com/Predidit/Kazumi",
-    "stars": 28939,
+    "stars": 28978,
     "forks": 847
   },
   {
@@ -267,8 +267,8 @@
     "latestUpdateTime": "2026-08-01T18:38:19Z",
     "githubRepo": "open-ani/animeko",
     "githubUrl": "https://github.com/open-ani/animeko",
-    "stars": 19624,
-    "forks": 548
+    "stars": 19649,
+    "forks": 550
   },
   {
     "id": "mqf2wp9ruusxo6",
@@ -306,8 +306,8 @@
     "latestUpdateTime": "2026-03-11T18:03:11Z",
     "githubRepo": "BeyondDimension/SteamTools",
     "githubUrl": "https://github.com/BeyondDimension/SteamTools",
-    "stars": 26520,
-    "forks": 1691
+    "stars": 26532,
+    "forks": 1693
   },
   {
     "id": "mqf8eoolhym84x",
@@ -321,7 +321,7 @@
     "latestUpdateTime": "2026-03-16T03:25:44Z",
     "githubRepo": "dyang886/Game-Cheats-Manager",
     "githubUrl": "https://github.com/dyang886/Game-Cheats-Manager",
-    "stars": 14127,
+    "stars": 14135,
     "forks": 482
   },
   {
@@ -332,11 +332,11 @@
     "description": "在 Android 平台上使用 Steam、Epic、GOG 和 Amazon 集成的原生 PC 游戏。",
     "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/GameNative-游戏模拟器.webp",
     "featured": false,
-    "latestVersionId": "ms1tgyijwo7fy2",
-    "latestUpdateTime": "2026-07-26T00:16:49Z",
+    "latestVersionId": "mt02tryday86xa",
+    "latestUpdateTime": "2026-08-19T06:13:06Z",
     "githubRepo": "utkarshdalal/GameNative",
     "githubUrl": "https://github.com/utkarshdalal/GameNative",
-    "stars": 9735,
-    "forks": 380
+    "stars": 9754,
+    "forks": 384
   }
 ]

@@ -873,6 +873,19 @@
     ]
   },
   {
+    "id": "mt02tl6c164502",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.16-beta.18",
+    "publishedAt": "2026-08-18T17:19:24Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\n### [发布页](https://t.me/materado)\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\n\n### 更新内容\n\n* feat: 恢复扫码导入书源入口 (#2078)\n* refactor: 移除 Hutool 依赖,改用 JCA 与纯 Kotlin 实现\n* fix(read-record): 修复备份导入重复记录并完善未知作者归属 (#2076)\n* fix: 目录更新后新增章节点击无法跳转 (Closes #2043) (#2077)\n* fix: 听书系统媒体播放器进度条随朗读推进 (#2042)\n* fix: 底栏填充样式着色层半透明,修复模糊被完全遮住 (Closes #2044) (#2075)\n* feat: 智谱AI相关\n* feat: 优化漫画阅读\n* fix: 同步刷新后的在线目录阅读状态",
+    "downloadIds": [
+      "mt02tl6cpbhwnd",
+      "mt02tl6c5ft553",
+      "mt02tl6cwf66dm",
+      "mt02tl6cxzv7ee"
+    ]
+  },
+  {
     "id": "mssyb1dm22cvby",
     "projectId": "mpwouieuddbq2d",
     "version": "3.26.16-beta.17",

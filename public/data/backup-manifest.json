@@ -123,6 +123,33 @@
     {
       "category": "阅读",
       "project": "阅读_MD3",
+      "versionDir": "阅读/阅读_MD3/2026-08-18_3.26.16-beta.18",
+      "files": [
+        {
+          "name": "legado-3.26.16-beta.18-arm64-v8a.apk",
+          "size": 19398656,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-08-18_3.26.16-beta.18/legado-3.26.16-beta.18-arm64-v8a.apk"
+        },
+        {
+          "name": "legado-3.26.16-beta.18-armeabi-v7a.apk",
+          "size": 18979225.6,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-08-18_3.26.16-beta.18/legado-3.26.16-beta.18-armeabi-v7a.apk"
+        },
+        {
+          "name": "legado-3.26.16-beta.18.apk",
+          "size": 26004684.8,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-08-18_3.26.16-beta.18/legado-3.26.16-beta.18.apk"
+        },
+        {
+          "name": "mapping.txt",
+          "size": 262773145.6,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-08-18_3.26.16-beta.18/mapping.txt"
+        }
+      ]
+    },
+    {
+      "category": "阅读",
+      "project": "阅读_MD3",
       "versionDir": "阅读/阅读_MD3/2026-08-14_3.26.16-beta.17",
       "files": [
         {
@@ -144,33 +171,6 @@
           "name": "mapping.txt",
           "size": 262878003.2,
           "url": "/SoftwareHub/阅读/阅读_MD3/2026-08-14_3.26.16-beta.17/mapping.txt"
-        }
-      ]
-    },
-    {
-      "category": "阅读",
-      "project": "阅读_MD3",
-      "versionDir": "阅读/阅读_MD3/2026-08-14_3.26.16-beta.16",
-      "files": [
-        {
-          "name": "legado-3.26.16-beta.16-arm64-v8a.apk",
-          "size": 19608371.2,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-08-14_3.26.16-beta.16/legado-3.26.16-beta.16-arm64-v8a.apk"
-        },
-        {
-          "name": "legado-3.26.16-beta.16-armeabi-v7a.apk",
-          "size": 19084083.2,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-08-14_3.26.16-beta.16/legado-3.26.16-beta.16-armeabi-v7a.apk"
-        },
-        {
-          "name": "legado-3.26.16-beta.16.apk",
-          "size": 26109542.4,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-08-14_3.26.16-beta.16/legado-3.26.16-beta.16.apk"
-        },
-        {
-          "name": "mapping.txt",
-          "size": 262878003.2,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-08-14_3.26.16-beta.16/mapping.txt"
         }
       ]
     },
@@ -1876,6 +1876,23 @@
     {
       "category": "游戏",
       "project": "GameNative_游戏模拟器",
+      "versionDir": "游戏/GameNative_游戏模拟器/2026-08-19_v1.2.0-prerelease",
+      "files": [
+        {
+          "name": "gamenative-v1.2.0-prerelease-legacy-xr.apk",
+          "size": 566650470.4,
+          "url": "/SoftwareHub/游戏/GameNative_游戏模拟器/2026-08-19_v1.2.0-prerelease/gamenative-v1.2.0-prerelease-legacy-xr.apk"
+        },
+        {
+          "name": "gamenative-v1.2.0-prerelease.apk",
+          "size": 566650470.4,
+          "url": "/SoftwareHub/游戏/GameNative_游戏模拟器/2026-08-19_v1.2.0-prerelease/gamenative-v1.2.0-prerelease.apk"
+        }
+      ]
+    },
+    {
+      "category": "游戏",
+      "project": "GameNative_游戏模拟器",
       "versionDir": "游戏/GameNative_游戏模拟器/2026-07-26_v1.1.1",
       "files": [
         {
@@ -1889,29 +1906,7 @@
           "url": "/SoftwareHub/游戏/GameNative_游戏模拟器/2026-07-26_v1.1.1/gamenative-v1.1.1.apk"
         }
       ]
-    },
-    {
-      "category": "游戏",
-      "project": "GameNative_游戏模拟器",
-      "versionDir": "游戏/GameNative_游戏模拟器/2026-07-14_v1.1.1-prerelease",
-      "files": [
-        {
-          "name": "gamenative-v1.1.1-prerelease-legacy-xr.apk",
-          "size": 566021324.8,
-          "url": "/SoftwareHub/游戏/GameNative_游戏模拟器/2026-07-14_v1.1.1-prerelease/gamenative-v1.1.1-prerelease-legacy-xr.apk"
-        },
-        {
-          "name": "gamenative-v1.1.1-prerelease-modern.apk",
-          "size": 117964800,
-          "url": "/SoftwareHub/游戏/GameNative_游戏模拟器/2026-07-14_v1.1.1-prerelease/gamenative-v1.1.1-prerelease-modern.apk"
-        },
-        {
-          "name": "gamenative-v1.1.1-prerelease.apk",
-          "size": 566021324.8,
-          "url": "/SoftwareHub/游戏/GameNative_游戏模拟器/2026-07-14_v1.1.1-prerelease/gamenative-v1.1.1-prerelease.apk"
-        }
-      ]
     }
   ],
-  "updatedAt": "2026-08-18T17:49:47.148Z"
+  "updatedAt": "2026-08-19T17:36:37.857Z"
 }

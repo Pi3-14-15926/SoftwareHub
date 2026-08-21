@@ -11,7 +11,7 @@
     "latestUpdateTime": "2026-08-17T14:14:21Z",
     "githubRepo": "Rimchars/legado",
     "githubUrl": "https://github.com/Rimchars/legado",
-    "stars": 473,
+    "stars": 476,
     "forks": 25
   },
   {
@@ -26,8 +26,8 @@
     "latestUpdateTime": "2026-06-07T15:49:08Z",
     "githubRepo": "anxcye/anx-reader",
     "githubUrl": "https://github.com/anxcye/anx-reader",
-    "stars": 8717,
-    "forks": 606
+    "stars": 8725,
+    "forks": 607
   },
   {
     "id": "mpwowqbvn123ig",
@@ -56,8 +56,8 @@
     "latestUpdateTime": "2026-08-19T18:39:41Z",
     "githubRepo": "HapeLee/legado-with-MD3",
     "githubUrl": "https://github.com/HapeLee/legado-with-MD3",
-    "stars": 5745,
-    "forks": 644
+    "stars": 5756,
+    "forks": 645
   },
   {
     "id": "mpwp1hvpsn5ffl",
@@ -116,8 +116,8 @@
     "latestUpdateTime": "2026-07-15T15:09:08Z",
     "githubRepo": "Luoyacheng/legado",
     "githubUrl": "https://github.com/Luoyacheng/legado",
-    "stars": 2426,
-    "forks": 551
+    "stars": 2433,
+    "forks": 552
   },
   {
     "id": "mqe091nl2j14ej",
@@ -131,8 +131,8 @@
     "latestUpdateTime": "2026-08-08T17:03:56Z",
     "githubRepo": "readest/readest",
     "githubUrl": "https://github.com/readest/readest",
-    "stars": 23577,
-    "forks": 1490
+    "stars": 23604,
+    "forks": 1491
   },
   {
     "id": "mpwreu1xdmxt5v",
@@ -146,8 +146,8 @@
     "latestUpdateTime": "2026-05-01T05:35:34Z",
     "githubRepo": "lyswhut/lx-music-desktop",
     "githubUrl": "https://github.com/lyswhut/lx-music-desktop",
-    "stars": 52914,
-    "forks": 6960
+    "stars": 52944,
+    "forks": 6963
   },
   {
     "id": "mqdz0w9jb6a6mx",
@@ -162,7 +162,7 @@
     "githubRepo": "lyswhut/lx-music-mobile",
     "githubUrl": "https://github.com/lyswhut/lx-music-mobile",
     "website": "LX Music 移动版",
-    "stars": 17881,
+    "stars": 17897,
     "forks": 2052
   },
   {
@@ -177,8 +177,8 @@
     "latestUpdateTime": "2026-01-06T14:15:47Z",
     "githubRepo": "maotoumao/MusicFree",
     "githubUrl": "https://github.com/maotoumao/MusicFree",
-    "stars": 26194,
-    "forks": 1852
+    "stars": 26219,
+    "forks": 1855
   },
   {
     "id": "mqdz5tn7va86j4",
@@ -192,7 +192,7 @@
     "latestUpdateTime": "2026-03-23T09:15:42Z",
     "githubRepo": "maotoumao/MusicFreeDesktop",
     "githubUrl": "https://github.com/maotoumao/MusicFreeDesktop",
-    "stars": 8730,
+    "stars": 8736,
     "forks": 850
   },
   {
@@ -207,7 +207,7 @@
     "latestUpdateTime": "2026-08-05T13:55:26Z",
     "githubRepo": "kejichangqing/QingMusic",
     "githubUrl": "https://github.com/kejichangqing/QingMusic",
-    "stars": 1422,
+    "stars": 1424,
     "forks": 69
   },
   {
@@ -222,7 +222,7 @@
     "latestUpdateTime": "2026-08-10T12:54:32Z",
     "githubRepo": "Moriafly/SaltPlayerSource",
     "githubUrl": "https://github.com/Moriafly/SaltPlayerSource",
-    "stars": 7206,
+    "stars": 7209,
     "forks": 210
   },
   {
@@ -237,7 +237,7 @@
     "latestUpdateTime": "2026-07-15T15:36:10Z",
     "githubRepo": "Sle2p/AniCh",
     "githubUrl": "https://github.com/Sle2p/AniCh",
-    "stars": 5963,
+    "stars": 5980,
     "forks": 127
   },
   {
@@ -248,12 +248,12 @@
     "description": "基于自定义规则的番剧采集APP，支持流媒体在线观看，支持弹幕，支持实时超分辨率。",
     "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/Kazumi.webp",
     "featured": false,
-    "latestVersionId": "msvs92zqg8dz83",
-    "latestUpdateTime": "2026-08-15T01:52:16Z",
+    "latestVersionId": "mt2xq0airax1j7",
+    "latestUpdateTime": "2026-08-21T06:53:25Z",
     "githubRepo": "Predidit/Kazumi",
     "githubUrl": "https://github.com/Predidit/Kazumi",
-    "stars": 29014,
-    "forks": 848
+    "stars": 29062,
+    "forks": 853
   },
   {
     "id": "mpzjjzg2ylm14p",
@@ -267,7 +267,7 @@
     "latestUpdateTime": "2026-08-01T18:38:19Z",
     "githubRepo": "open-ani/animeko",
     "githubUrl": "https://github.com/open-ani/animeko",
-    "stars": 19670,
+    "stars": 19693,
     "forks": 550
   },
   {
@@ -306,7 +306,7 @@
     "latestUpdateTime": "2026-03-11T18:03:11Z",
     "githubRepo": "BeyondDimension/SteamTools",
     "githubUrl": "https://github.com/BeyondDimension/SteamTools",
-    "stars": 26545,
+    "stars": 26556,
     "forks": 1693
   },
   {
@@ -321,7 +321,7 @@
     "latestUpdateTime": "2026-03-16T03:25:44Z",
     "githubRepo": "dyang886/Game-Cheats-Manager",
     "githubUrl": "https://github.com/dyang886/Game-Cheats-Manager",
-    "stars": 14141,
+    "stars": 14151,
     "forks": 482
   },
   {
@@ -336,7 +336,7 @@
     "latestUpdateTime": "2026-08-19T06:13:06Z",
     "githubRepo": "utkarshdalal/GameNative",
     "githubUrl": "https://github.com/utkarshdalal/GameNative",
-    "stars": 9774,
-    "forks": 387
+    "stars": 9795,
+    "forks": 386
   }
 ]

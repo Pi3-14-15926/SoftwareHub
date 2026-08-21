@@ -2594,6 +2594,78 @@
     "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
   },
   {
+    "id": "mt2xq0aiqphc8k",
+    "versionId": "mt2xq0airax1j7",
+    "platform": "Android",
+    "filename": "Kazumi_android_2.2.9.apk",
+    "size": "30.0 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.9/Kazumi_android_2.2.9.apk"
+  },
+  {
+    "id": "mt2xq0aitdn7q5",
+    "versionId": "mt2xq0airax1j7",
+    "platform": "Other",
+    "filename": "Kazumi_ios_2.2.9_no_sign.ipa",
+    "size": "28.3 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.9/Kazumi_ios_2.2.9_no_sign.ipa"
+  },
+  {
+    "id": "mt2xq0aiibfz44",
+    "versionId": "mt2xq0airax1j7",
+    "platform": "Linux",
+    "filename": "Kazumi_linux_2.2.9_amd64.deb",
+    "size": "24.6 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.9/Kazumi_linux_2.2.9_amd64.deb"
+  },
+  {
+    "id": "mt2xq0aic5kc7d",
+    "versionId": "mt2xq0airax1j7",
+    "platform": "Linux",
+    "filename": "Kazumi_linux_2.2.9_amd64.tar.gz",
+    "size": "29.3 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.9/Kazumi_linux_2.2.9_amd64.tar.gz"
+  },
+  {
+    "id": "mt2xq0aiqvqv2d",
+    "versionId": "mt2xq0airax1j7",
+    "platform": "Linux",
+    "filename": "Kazumi_linux_2.2.9_arm64.deb",
+    "size": "23.4 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.9/Kazumi_linux_2.2.9_arm64.deb"
+  },
+  {
+    "id": "mt2xq0ailiwfzd",
+    "versionId": "mt2xq0airax1j7",
+    "platform": "Linux",
+    "filename": "Kazumi_linux_2.2.9_arm64.tar.gz",
+    "size": "27.9 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.9/Kazumi_linux_2.2.9_arm64.tar.gz"
+  },
+  {
+    "id": "mt2xq0aiyt1tds",
+    "versionId": "mt2xq0airax1j7",
+    "platform": "MacOS",
+    "filename": "Kazumi_macos_2.2.9.dmg",
+    "size": "51.4 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.9/Kazumi_macos_2.2.9.dmg"
+  },
+  {
+    "id": "mt2xq0aiyhsuap",
+    "versionId": "mt2xq0airax1j7",
+    "platform": "Windows",
+    "filename": "Kazumi_windows_2.2.9.msix",
+    "size": "44.1 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.9/Kazumi_windows_2.2.9.msix"
+  },
+  {
+    "id": "mt2xq0aiiluh1e",
+    "versionId": "mt2xq0airax1j7",
+    "platform": "Windows",
+    "filename": "Kazumi_windows_2.2.9.zip",
+    "size": "39.5 MB",
+    "url": "https://github.com/Predidit/Kazumi/releases/download/2.2.9/Kazumi_windows_2.2.9.zip"
+  },
+  {
     "id": "msvs92zqhyg73y",
     "versionId": "msvs92zqg8dz83",
     "platform": "Android",

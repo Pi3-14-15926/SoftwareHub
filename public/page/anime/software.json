@@ -10,7 +10,7 @@
     "githubRepo": "Sle2p/AniCh",
     "githubUrl": "https://github.com/Sle2p/AniCh",
     "latestUpdateTime": "2026-07-15T15:36:10Z",
-    "stars": 5963,
+    "stars": 5980,
     "forks": 127,
     "latestVersionId": "mqdzxfsmu9z0ao",
     "latestVersion": "1.5.21"
@@ -25,8 +25,8 @@
     "featured": false,
     "githubRepo": "Predidit/Kazumi",
     "githubUrl": "https://github.com/Predidit/Kazumi",
-    "stars": 29014,
-    "forks": 848,
+    "stars": 29062,
+    "forks": 853,
     "platforms": [
       "Android",
       "Other",
@@ -35,8 +35,8 @@
       "Windows"
     ],
     "latestVersionId": "mqdzxh79ry0b02",
-    "latestUpdateTime": "2026-08-15T01:52:16Z",
-    "latestVersion": "2.2.8"
+    "latestUpdateTime": "2026-08-21T06:53:25Z",
+    "latestVersion": "2.2.9"
   },
   {
     "id": "mpzjjzg2ylm14p",
@@ -48,7 +48,7 @@
     "featured": true,
     "githubRepo": "open-ani/animeko",
     "githubUrl": "https://github.com/open-ani/animeko",
-    "stars": 19670,
+    "stars": 19693,
     "forks": 550,
     "platforms": [
       "Android",

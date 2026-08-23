@@ -296,6 +296,17 @@
     ]
   },
   {
+    "id": "mt5sd27njke4z3",
+    "projectId": "mqf8eoolhym84x",
+    "version": "v2.5.0",
+    "publishedAt": "2026-08-22T07:35:11Z",
+    "changelog": "## Minor Update\r\n\r\n### English\r\n- Added smarter search functionality, so trainers can be searched much easier than before and takes much less time\r\n- Added progress bar when downloading trainers\r\n- Implemented parallel downloads, downloads are now faster\r\n- UI optimization for the download search bar\r\n- Added an intuitive and smart CE integration. Now, not only can you download CE directly in GCM, but it also automatically prompts you to download CE if it is not installed when launching `.ct/.cetrainer` files. The install path for `Cheat Engine` in `Trainer Management` is now the source of truth for assigning which CE to use to launch `.ct/.cetrainer` files\r\n- Improved community trainer download integration — tools such as Steam Achievement Manager and Xbox Achievement Unlocker can now be downloaded\r\n- Moved and added settings in the Trainer Management panel, including options for whether to run trainers / cheat tables as administrator\r\n- Fixed blurry images when system display scaling is enabled\r\n- Newly downloaded trainers now get highlighted for easy notice\r\n\r\n### 简体中文\r\n- 新增了更智能的搜索功能，搜索修改器更加方便，所需时间也大幅减少\r\n- 下载修改器时新增了进度条\r\n- 新增并行下载功能，下载速度更快\r\n- 下载修改器搜索框 UI 优化\r\n- 新增了直观、智能的 CE 集成功能。现在，您不仅可以直接在 GCM 中下载 CE，而且在启动 `.ct/.cetrainer` 文件时，如果检测到尚未安装 CE，程序还会自动提示您进行下载。`修改器管理`中 `Cheat Engine` 的安装路径现在将作为唯一依据，用于指定启动 `.ct/.cetrainer` 文件时所使用的 CE\r\n- 更完善的社区修改器下载集成，现在可以下载如 Steam 成就管理器, Xbox 成就解锁器等工具\r\n- `修改器管理` 面板转移/新增了一些设置，包括选择是否使用管理员身份运行修改器/ct 表\r\n- 修复了在有系统缩放时图片模糊的问题\r\n- 新下载的修改器现在会被高亮以方便查看",
+    "downloadIds": [
+      "mt5sd27nlv8aus",
+      "mt5sd27nf47k6m"
+    ]
+  },
+  {
     "id": "mqf8eoqlmqnjeq",
     "projectId": "mqf8eoolhym84x",
     "version": "v2.4.6",

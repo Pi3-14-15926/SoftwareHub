@@ -873,6 +873,19 @@
     ]
   },
   {
+    "id": "mt5sculscw2okl",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.16-beta.20",
+    "publishedAt": "2026-08-22T18:20:29Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\n### [发布页](https://t.me/materado)\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\n\n### 更新内容\n\n* feat: 神秘\n* Feat/reading anchor (#2089)\n* fix(read-record): 修复跨设备记录合并、时长统计及合并弹窗问题 (#2093)\n* feat: 依旧听书和有声书界面优化\n* feat: 依旧漫画优化\n* feat: 神的规范",
+    "downloadIds": [
+      "mt5sculsf2tnxq",
+      "mt5sculs7ie1ub",
+      "mt5sculs407eua",
+      "mt5sculsj3ijhv"
+    ]
+  },
+  {
     "id": "mt1iatkqm3n6vj",
     "projectId": "mpwouieuddbq2d",
     "version": "3.26.16-beta.19",

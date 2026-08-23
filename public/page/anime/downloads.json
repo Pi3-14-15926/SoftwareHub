@@ -4930,6 +4930,486 @@
     "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
   },
   {
+    "id": "mt5sd1ba8139zu",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha03-arm64-v8a.apk",
+    "size": "34.9 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-arm64-v8a.apk"
+  },
+  {
+    "id": "mt5sd1baf7qg8d",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha03-arm64-v8a.apk.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-arm64-v8a.apk.sha1"
+  },
+  {
+    "id": "mt5sd1baknw4bo",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha03-armeabi-v7a.apk",
+    "size": "33.6 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-armeabi-v7a.apk"
+  },
+  {
+    "id": "mt5sd1baoewv73",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha03-armeabi-v7a.apk.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-armeabi-v7a.apk.sha1"
+  },
+  {
+    "id": "mt5sd1batykqro",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Linux",
+    "filename": "ani-6.1.0-alpha03-linux-x86_64.appimage",
+    "size": "321.2 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-linux-x86_64.appimage"
+  },
+  {
+    "id": "mt5sd1ba6oambb",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Linux",
+    "filename": "ani-6.1.0-alpha03-linux-x86_64.appimage.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-linux-x86_64.appimage.sha1"
+  },
+  {
+    "id": "mt5sd1bafeegpb",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Linux",
+    "filename": "ani-6.1.0-alpha03-linux-x86_64.appimage.zsync",
+    "size": "0.5 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-linux-x86_64.appimage.zsync"
+  },
+  {
+    "id": "mt5sd1bal2pglb",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Linux",
+    "filename": "ani-6.1.0-alpha03-linux-x86_64.appimage.zsync.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-linux-x86_64.appimage.zsync.sha1"
+  },
+  {
+    "id": "mt5sd1ba98a41s",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "MacOS",
+    "filename": "ani-6.1.0-alpha03-macos-aarch64.dmg",
+    "size": "301.7 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-macos-aarch64.dmg"
+  },
+  {
+    "id": "mt5sd1bags1zw4",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "MacOS",
+    "filename": "ani-6.1.0-alpha03-macos-aarch64.dmg.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-macos-aarch64.dmg.sha1"
+  },
+  {
+    "id": "mt5sd1bakz4eif",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "MacOS",
+    "filename": "ani-6.1.0-alpha03-macos-x86_64.zip",
+    "size": "329.9 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-macos-x86_64.zip"
+  },
+  {
+    "id": "mt5sd1bajf24ik",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "MacOS",
+    "filename": "ani-6.1.0-alpha03-macos-x86_64.zip.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-macos-x86_64.zip.sha1"
+  },
+  {
+    "id": "mt5sd1ban90qfx",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha03-universal.apk",
+    "size": "64.2 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-universal.apk"
+  },
+  {
+    "id": "mt5sd1ba7heyu0",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha03-universal.apk.cloudflare.qrcode.png",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-universal.apk.cloudflare.qrcode.png"
+  },
+  {
+    "id": "mt5sd1bam5jx0m",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha03-universal.apk.cloudflare.qrcode.png.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-universal.apk.cloudflare.qrcode.png.sha1"
+  },
+  {
+    "id": "mt5sd1baeexnwi",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha03-universal.apk.github.qrcode.png",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-universal.apk.github.qrcode.png"
+  },
+  {
+    "id": "mt5sd1bai87avw",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha03-universal.apk.github.qrcode.png.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-universal.apk.github.qrcode.png.sha1"
+  },
+  {
+    "id": "mt5sd1ba0fiw2k",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha03-universal.apk.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-universal.apk.sha1"
+  },
+  {
+    "id": "mt5sd1bau0hnuo",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Windows",
+    "filename": "ani-6.1.0-alpha03-windows-aarch64.zip",
+    "size": "408.8 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-windows-aarch64.zip"
+  },
+  {
+    "id": "mt5sd1bavx7ggx",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Windows",
+    "filename": "ani-6.1.0-alpha03-windows-aarch64.zip.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-windows-aarch64.zip.sha1"
+  },
+  {
+    "id": "mt5sd1ba2438gt",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Windows",
+    "filename": "ani-6.1.0-alpha03-windows-x86_64.zip",
+    "size": "298.9 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-windows-x86_64.zip"
+  },
+  {
+    "id": "mt5sd1bagodjph",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Windows",
+    "filename": "ani-6.1.0-alpha03-windows-x86_64.zip.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-windows-x86_64.zip.sha1"
+  },
+  {
+    "id": "mt5sd1bawjnx6g",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha03-x86_64.apk",
+    "size": "36.2 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-x86_64.apk"
+  },
+  {
+    "id": "mt5sd1bape5d9m",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha03-x86_64.apk.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03-x86_64.apk.sha1"
+  },
+  {
+    "id": "mt5sd1batjqym3",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Other",
+    "filename": "ani-6.1.0-alpha03.ipa",
+    "size": "42.4 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03.ipa"
+  },
+  {
+    "id": "mt5sd1bacx0z6v",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Other",
+    "filename": "ani-6.1.0-alpha03.ipa.cloudflare.qrcode.png",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03.ipa.cloudflare.qrcode.png"
+  },
+  {
+    "id": "mt5sd1ba50kuov",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Other",
+    "filename": "ani-6.1.0-alpha03.ipa.cloudflare.qrcode.png.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03.ipa.cloudflare.qrcode.png.sha1"
+  },
+  {
+    "id": "mt5sd1babi7mp4",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Other",
+    "filename": "ani-6.1.0-alpha03.ipa.github.qrcode.png",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03.ipa.github.qrcode.png"
+  },
+  {
+    "id": "mt5sd1ba6yt79r",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Other",
+    "filename": "ani-6.1.0-alpha03.ipa.github.qrcode.png.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03.ipa.github.qrcode.png.sha1"
+  },
+  {
+    "id": "mt5sd1bantbkj0",
+    "versionId": "mt5sd1ban1pk1y",
+    "platform": "Other",
+    "filename": "ani-6.1.0-alpha03.ipa.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha03/ani-6.1.0-alpha03.ipa.sha1"
+  },
+  {
+    "id": "mt5sd1bardwn7v",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha02-arm64-v8a.apk",
+    "size": "34.8 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-arm64-v8a.apk"
+  },
+  {
+    "id": "mt5sd1baz7pz3f",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha02-arm64-v8a.apk.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-arm64-v8a.apk.sha1"
+  },
+  {
+    "id": "mt5sd1ba9mvxjv",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha02-armeabi-v7a.apk",
+    "size": "33.5 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-armeabi-v7a.apk"
+  },
+  {
+    "id": "mt5sd1baaj7ohw",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha02-armeabi-v7a.apk.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-armeabi-v7a.apk.sha1"
+  },
+  {
+    "id": "mt5sd1barn6hn3",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Linux",
+    "filename": "ani-6.1.0-alpha02-linux-x86_64.appimage",
+    "size": "321.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-linux-x86_64.appimage"
+  },
+  {
+    "id": "mt5sd1bahwb8zx",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Linux",
+    "filename": "ani-6.1.0-alpha02-linux-x86_64.appimage.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-linux-x86_64.appimage.sha1"
+  },
+  {
+    "id": "mt5sd1baj5oike",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Linux",
+    "filename": "ani-6.1.0-alpha02-linux-x86_64.appimage.zsync",
+    "size": "0.5 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-linux-x86_64.appimage.zsync"
+  },
+  {
+    "id": "mt5sd1bauc9wu2",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Linux",
+    "filename": "ani-6.1.0-alpha02-linux-x86_64.appimage.zsync.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-linux-x86_64.appimage.zsync.sha1"
+  },
+  {
+    "id": "mt5sd1bamlgov1",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "MacOS",
+    "filename": "ani-6.1.0-alpha02-macos-aarch64.dmg",
+    "size": "301.5 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-macos-aarch64.dmg"
+  },
+  {
+    "id": "mt5sd1ba78175g",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "MacOS",
+    "filename": "ani-6.1.0-alpha02-macos-aarch64.dmg.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-macos-aarch64.dmg.sha1"
+  },
+  {
+    "id": "mt5sd1baiuyvvv",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "MacOS",
+    "filename": "ani-6.1.0-alpha02-macos-x86_64.zip",
+    "size": "329.6 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-macos-x86_64.zip"
+  },
+  {
+    "id": "mt5sd1bafxka5a",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "MacOS",
+    "filename": "ani-6.1.0-alpha02-macos-x86_64.zip.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-macos-x86_64.zip.sha1"
+  },
+  {
+    "id": "mt5sd1bak3m6fb",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha02-universal.apk",
+    "size": "64.1 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-universal.apk"
+  },
+  {
+    "id": "mt5sd1bao0884t",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha02-universal.apk.cloudflare.qrcode.png",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-universal.apk.cloudflare.qrcode.png"
+  },
+  {
+    "id": "mt5sd1ba0paoeh",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha02-universal.apk.cloudflare.qrcode.png.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-universal.apk.cloudflare.qrcode.png.sha1"
+  },
+  {
+    "id": "mt5sd1baodrv9p",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha02-universal.apk.github.qrcode.png",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-universal.apk.github.qrcode.png"
+  },
+  {
+    "id": "mt5sd1bahtsowf",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha02-universal.apk.github.qrcode.png.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-universal.apk.github.qrcode.png.sha1"
+  },
+  {
+    "id": "mt5sd1ba0g7qgq",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha02-universal.apk.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-universal.apk.sha1"
+  },
+  {
+    "id": "mt5sd1bawyyrxu",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Windows",
+    "filename": "ani-6.1.0-alpha02-windows-aarch64.zip",
+    "size": "408.5 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-windows-aarch64.zip"
+  },
+  {
+    "id": "mt5sd1ba7ribc8",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Windows",
+    "filename": "ani-6.1.0-alpha02-windows-aarch64.zip.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-windows-aarch64.zip.sha1"
+  },
+  {
+    "id": "mt5sd1baiwluj7",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Windows",
+    "filename": "ani-6.1.0-alpha02-windows-x86_64.zip",
+    "size": "298.7 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-windows-x86_64.zip"
+  },
+  {
+    "id": "mt5sd1ba5genet",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Windows",
+    "filename": "ani-6.1.0-alpha02-windows-x86_64.zip.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-windows-x86_64.zip.sha1"
+  },
+  {
+    "id": "mt5sd1bassje0s",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha02-x86_64.apk",
+    "size": "36.1 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-x86_64.apk"
+  },
+  {
+    "id": "mt5sd1barvqf7y",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Android",
+    "filename": "ani-6.1.0-alpha02-x86_64.apk.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02-x86_64.apk.sha1"
+  },
+  {
+    "id": "mt5sd1ba8n66hp",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Other",
+    "filename": "ani-6.1.0-alpha02.ipa",
+    "size": "42.2 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02.ipa"
+  },
+  {
+    "id": "mt5sd1babrp023",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Other",
+    "filename": "ani-6.1.0-alpha02.ipa.cloudflare.qrcode.png",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02.ipa.cloudflare.qrcode.png"
+  },
+  {
+    "id": "mt5sd1banww2cb",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Other",
+    "filename": "ani-6.1.0-alpha02.ipa.cloudflare.qrcode.png.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02.ipa.cloudflare.qrcode.png.sha1"
+  },
+  {
+    "id": "mt5sd1bac93koc",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Other",
+    "filename": "ani-6.1.0-alpha02.ipa.github.qrcode.png",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02.ipa.github.qrcode.png"
+  },
+  {
+    "id": "mt5sd1balyw1sl",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Other",
+    "filename": "ani-6.1.0-alpha02.ipa.github.qrcode.png.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02.ipa.github.qrcode.png.sha1"
+  },
+  {
+    "id": "mt5sd1bammnf2y",
+    "versionId": "mt5sd1ba4gcca7",
+    "platform": "Other",
+    "filename": "ani-6.1.0-alpha02.ipa.sha1",
+    "size": "0.0 MB",
+    "url": "https://github.com/open-ani/animeko/releases/download/v6.1.0-alpha02/ani-6.1.0-alpha02.ipa.sha1"
+  },
+  {
     "id": "msbtkbkajhr4xv",
     "versionId": "msbtkbkaf17953",
     "platform": "Android",

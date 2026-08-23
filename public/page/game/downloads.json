@@ -1160,6 +1160,22 @@
     "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
   },
   {
+    "id": "mt5sd27nlv8aus",
+    "versionId": "mt5sd27njke4z3",
+    "platform": "Other",
+    "filename": "Game.Cheats.Manager.Portable.2.5.0.zip",
+    "size": "53.4 MB",
+    "url": "https://github.com/dyang886/Game-Cheats-Manager/releases/download/v2.5.0/Game.Cheats.Manager.Portable.2.5.0.zip"
+  },
+  {
+    "id": "mt5sd27nf47k6m",
+    "versionId": "mt5sd27njke4z3",
+    "platform": "Windows",
+    "filename": "Game.Cheats.Manager.Setup.2.5.0.exe",
+    "size": "39.1 MB",
+    "url": "https://github.com/dyang886/Game-Cheats-Manager/releases/download/v2.5.0/Game.Cheats.Manager.Setup.2.5.0.exe"
+  },
+  {
     "id": "mqf8eor35dw4rj",
     "versionId": "mqf8eoqlmqnjeq",
     "platform": "Windows",

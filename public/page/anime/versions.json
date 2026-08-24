@@ -1,5 +1,26 @@
 [
   {
+    "id": "mt784j8512b7wl",
+    "projectId": "mqa2ifsduzlphs",
+    "version": "1.5.22",
+    "publishedAt": "2026-08-24T11:48:20Z",
+    "changelog": "- 优化弹幕列表显示逻辑\r\n- 新增导入本地弹幕(.xml/.ass)功能\r\n- 新增资源下载适用线路排序的功能\r\n- 新增批量下载失败时自动尝试其他线路的功能\r\n- 新增暂停状态下的帧步进功能\r\n- 新增键盘ESC键与鼠标侧键返回的功能\r\n- 新增磁力链接解析后手动选择资源的功能\r\n- 修复Android平台使用audiotrack会闪退的问题\r\n- 修复Windows平台permission_handler依赖会使用位置权限的问题\r\n- 修复鸿蒙平台播放器控制界面无法正常呼出的问题",
+    "downloadIds": [
+      "mt784j85zal7v4",
+      "mt784j85a6h30z",
+      "mt784j8570wte2",
+      "mt784j85x69mlx",
+      "mt784j85mmxmia",
+      "mt784j85j6hm9d",
+      "mt784j85resi7d",
+      "mt784j857zaynf",
+      "mt784j8573ttwp",
+      "mt784j85rbbi3p",
+      "mt784j85ws36zm",
+      "mt784j85grbf5o"
+    ]
+  },
+  {
     "id": "msriz5gj0ohwo5",
     "projectId": "mqa2ifsduzlphs",
     "version": "1.5.21",

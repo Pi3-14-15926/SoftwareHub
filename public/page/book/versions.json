@@ -873,6 +873,19 @@
     ]
   },
   {
+    "id": "mt784dlgp6xd5l",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.16-beta.21",
+    "publishedAt": "2026-08-23T16:58:30Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\n### [发布页](https://t.me/materado)\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\n\n### 更新内容\n\n* feat: 阅读设置相关\n* feat: 有声书封面比例设置\n* feat: 朗读脱离提示开关改为双态语义，默认关闭\n* feat: 简介更多渲染\n* feat: 阅读记录相关\n* feat: 朗读脱离提示增加启用开关",
+    "downloadIds": [
+      "mt784dlgtbtig6",
+      "mt784dlg910ai1",
+      "mt784dlggjh0lj",
+      "mt784dlgyur6gn"
+    ]
+  },
+  {
     "id": "mt5sculscw2okl",
     "projectId": "mpwouieuddbq2d",
     "version": "3.26.16-beta.20",

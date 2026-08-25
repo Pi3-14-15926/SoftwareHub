@@ -1,5 +1,26 @@
 [
   {
+    "id": "mt8nj993i6993i",
+    "projectId": "mqa2ifsduzlphs",
+    "version": "1.5.23",
+    "publishedAt": "2026-08-24T13:24:04Z",
+    "changelog": "- 修复PC端播放器快捷键失效的问题\r\n- 优化弹幕列表显示逻辑\r\n- 新增导入本地弹幕(.xml/.ass)功能\r\n- 新增资源下载适用线路排序的功能\r\n- 新增批量下载失败时自动尝试其他线路的功能\r\n- 新增暂停状态下的帧步进功能\r\n- 新增键盘ESC键与鼠标侧键返回的功能\r\n- 新增磁力链接解析后手动选择资源的功能\r\n- 修复Android平台使用audiotrack会闪退的问题\r\n- 修复Windows平台permission_handler依赖会使用位置权限的问题\r\n- 修复鸿蒙平台播放器控制界面无法正常呼出的问题",
+    "downloadIds": [
+      "mt8nj993x7m8b6",
+      "mt8nj9934nu972",
+      "mt8nj993and8vv",
+      "mt8nj993ok4jaz",
+      "mt8nj993i4xqan",
+      "mt8nj993420sa7",
+      "mt8nj993s1ibhy",
+      "mt8nj993zbc9zb",
+      "mt8nj993i5tnns",
+      "mt8nj993yke4h4",
+      "mt8nj993cy2tif",
+      "mt8nj993oh4pdo"
+    ]
+  },
+  {
     "id": "mt784j8512b7wl",
     "projectId": "mqa2ifsduzlphs",
     "version": "1.5.22",

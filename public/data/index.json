@@ -11,7 +11,7 @@
     "latestUpdateTime": "2026-08-17T14:14:21Z",
     "githubRepo": "Rimchars/legado",
     "githubUrl": "https://github.com/Rimchars/legado",
-    "stars": 482,
+    "stars": 492,
     "forks": 25
   },
   {
@@ -26,8 +26,8 @@
     "latestUpdateTime": "2026-06-07T15:49:08Z",
     "githubRepo": "anxcye/anx-reader",
     "githubUrl": "https://github.com/anxcye/anx-reader",
-    "stars": 8745,
-    "forks": 609
+    "stars": 8752,
+    "forks": 611
   },
   {
     "id": "mpwowqbvn123ig",
@@ -41,7 +41,7 @@
     "latestUpdateTime": "2026-08-18T04:36:13Z",
     "githubRepo": "skybbk1001/legadoT",
     "githubUrl": "https://github.com/skybbk1001/legadoT",
-    "stars": 116,
+    "stars": 117,
     "forks": 18
   },
   {
@@ -52,12 +52,12 @@
     "description": "使用 Material Design 3 全新设计的阅读 3.0",
     "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/阅读-MD3.webp",
     "featured": false,
-    "latestVersionId": "mt784dlgp6xd5l",
-    "latestUpdateTime": "2026-08-23T16:58:30Z",
+    "latestVersionId": "mtc1pyxgeihkno",
+    "latestUpdateTime": "2026-08-26T17:42:25Z",
     "githubRepo": "HapeLee/legado-with-MD3",
     "githubUrl": "https://github.com/HapeLee/legado-with-MD3",
-    "stars": 5841,
-    "forks": 652
+    "stars": 5879,
+    "forks": 655
   },
   {
     "id": "mpwp1hvpsn5ffl",
@@ -71,7 +71,7 @@
     "latestUpdateTime": "2026-06-17T15:43:18Z",
     "githubRepo": "youfengknight/Legado_Max",
     "githubUrl": "https://github.com/youfengknight/Legado_Max",
-    "stars": 286,
+    "stars": 283,
     "forks": 33
   },
   {
@@ -116,8 +116,8 @@
     "latestUpdateTime": "2026-07-15T15:09:08Z",
     "githubRepo": "Luoyacheng/legado",
     "githubUrl": "https://github.com/Luoyacheng/legado",
-    "stars": 2471,
-    "forks": 559
+    "stars": 2495,
+    "forks": 566
   },
   {
     "id": "mqe091nl2j14ej",
@@ -131,8 +131,8 @@
     "latestUpdateTime": "2026-08-08T17:03:56Z",
     "githubRepo": "readest/readest",
     "githubUrl": "https://github.com/readest/readest",
-    "stars": 23707,
-    "forks": 1508
+    "stars": 23793,
+    "forks": 1514
   },
   {
     "id": "mpwreu1xdmxt5v",
@@ -146,8 +146,8 @@
     "latestUpdateTime": "2026-05-01T05:35:34Z",
     "githubRepo": "lyswhut/lx-music-desktop",
     "githubUrl": "https://github.com/lyswhut/lx-music-desktop",
-    "stars": 53067,
-    "forks": 6964
+    "stars": 53119,
+    "forks": 6966
   },
   {
     "id": "mqdz0w9jb6a6mx",
@@ -162,8 +162,8 @@
     "githubRepo": "lyswhut/lx-music-mobile",
     "githubUrl": "https://github.com/lyswhut/lx-music-mobile",
     "website": "LX Music 移动版",
-    "stars": 17959,
-    "forks": 2062
+    "stars": 17981,
+    "forks": 2069
   },
   {
     "id": "mqdz4vlw18enkx",
@@ -177,8 +177,8 @@
     "latestUpdateTime": "2026-01-06T14:15:47Z",
     "githubRepo": "maotoumao/MusicFree",
     "githubUrl": "https://github.com/maotoumao/MusicFree",
-    "stars": 26293,
-    "forks": 1867
+    "stars": 26371,
+    "forks": 1876
   },
   {
     "id": "mqdz5tn7va86j4",
@@ -192,7 +192,7 @@
     "latestUpdateTime": "2026-03-23T09:15:42Z",
     "githubRepo": "maotoumao/MusicFreeDesktop",
     "githubUrl": "https://github.com/maotoumao/MusicFreeDesktop",
-    "stars": 8753,
+    "stars": 8763,
     "forks": 851
   },
   {
@@ -207,7 +207,7 @@
     "latestUpdateTime": "2026-08-05T13:55:26Z",
     "githubRepo": "kejichangqing/QingMusic",
     "githubUrl": "https://github.com/kejichangqing/QingMusic",
-    "stars": 1437,
+    "stars": 1442,
     "forks": 70
   },
   {
@@ -222,7 +222,7 @@
     "latestUpdateTime": "2026-08-10T12:54:32Z",
     "githubRepo": "Moriafly/SaltPlayerSource",
     "githubUrl": "https://github.com/Moriafly/SaltPlayerSource",
-    "stars": 7228,
+    "stars": 7236,
     "forks": 210
   },
   {
@@ -237,8 +237,8 @@
     "latestUpdateTime": "2026-08-24T13:24:04Z",
     "githubRepo": "Sle2p/AniCh",
     "githubUrl": "https://github.com/Sle2p/AniCh",
-    "stars": 6037,
-    "forks": 129
+    "stars": 6080,
+    "forks": 128
   },
   {
     "id": "mpzjkpvzeuh3zl",
@@ -252,8 +252,8 @@
     "latestUpdateTime": "2026-08-21T06:53:25Z",
     "githubRepo": "Predidit/Kazumi",
     "githubUrl": "https://github.com/Predidit/Kazumi",
-    "stars": 29203,
-    "forks": 860
+    "stars": 29292,
+    "forks": 866
   },
   {
     "id": "mpzjjzg2ylm14p",
@@ -263,12 +263,12 @@
     "description": "集找番、追番、看番的一站式弹幕追番平台，云收藏同步 (Bangumi)，离线缓存，BitTorrent，弹幕云过滤。100% Kotlin/Compose Multiplatform",
     "logo": "https://avatars.githubusercontent.com/u/166622089?v=4",
     "featured": true,
-    "latestVersionId": "mt5sd1ban1pk1y",
-    "latestUpdateTime": "2026-08-23T01:53:29Z",
+    "latestVersionId": "mtc1q4so9ctvji",
+    "latestUpdateTime": "2026-08-26T08:28:01Z",
     "githubRepo": "open-ani/animeko",
     "githubUrl": "https://github.com/open-ani/animeko",
-    "stars": 19754,
-    "forks": 552
+    "stars": 19796,
+    "forks": 554
   },
   {
     "id": "mqf2wp9ruusxo6",
@@ -306,8 +306,8 @@
     "latestUpdateTime": "2026-03-11T18:03:11Z",
     "githubRepo": "BeyondDimension/SteamTools",
     "githubUrl": "https://github.com/BeyondDimension/SteamTools",
-    "stars": 26609,
-    "forks": 1695
+    "stars": 26645,
+    "forks": 1699
   },
   {
     "id": "mqf8eoolhym84x",
@@ -321,8 +321,8 @@
     "latestUpdateTime": "2026-08-22T07:35:11Z",
     "githubRepo": "dyang886/Game-Cheats-Manager",
     "githubUrl": "https://github.com/dyang886/Game-Cheats-Manager",
-    "stars": 14270,
-    "forks": 485
+    "stars": 14333,
+    "forks": 488
   },
   {
     "id": "mqf8l4hpnnnf0w",
@@ -332,11 +332,11 @@
     "description": "在 Android 平台上使用 Steam、Epic、GOG 和 Amazon 集成的原生 PC 游戏。",
     "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/GameNative-游戏模拟器.webp",
     "featured": false,
-    "latestVersionId": "mt02tryday86xa",
-    "latestUpdateTime": "2026-08-19T06:13:06Z",
+    "latestVersionId": "mtc1q60kge5zem",
+    "latestUpdateTime": "2026-08-25T14:04:02Z",
     "githubRepo": "utkarshdalal/GameNative",
     "githubUrl": "https://github.com/utkarshdalal/GameNative",
-    "stars": 10028,
-    "forks": 392
+    "stars": 10130,
+    "forks": 397
   }
 ]

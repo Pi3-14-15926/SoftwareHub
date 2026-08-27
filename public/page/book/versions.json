@@ -873,6 +873,19 @@
     ]
   },
   {
+    "id": "mtc1pyxgeihkno",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.16-beta.22",
+    "publishedAt": "2026-08-26T17:42:25Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\n### [发布页](https://t.me/materado)\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\n\n### 更新内容\n\n* feat: 导航和界面优化\n* feat: 漫画相关问题\n* feat: 眉/页脚边距上限300\n* feat: 补充详情页其他神秘组件",
+    "downloadIds": [
+      "mtc1pyxgn2c23q",
+      "mtc1pyxgq1oujk",
+      "mtc1pyxg9ebytp",
+      "mtc1pyxgxu4odt"
+    ]
+  },
+  {
     "id": "mt784dlgp6xd5l",
     "projectId": "mpwouieuddbq2d",
     "version": "3.26.16-beta.21",

@@ -873,6 +873,19 @@
     ]
   },
   {
+    "id": "mthl36xtsgov56",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.16-beta.23",
+    "publishedAt": "2026-08-30T19:51:53Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\n### [发布页](https://t.me/materado)\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\n\n### 更新内容\n\n* fix: clarify change-source action and sheet title (#2157)\n* fix: 从媒体控件打开阅读器时重置导航栈至主页 (#2158)\n* feat: 登录相关\n* feat: 订阅源相关\n* feat: 登录SheetWebView问题\n* feat: 听书相关\n* feat: 有声书相关\n* feat: 听书相关问题",
+    "downloadIds": [
+      "mthl36xt5l5dbc",
+      "mthl36xtqalbj1",
+      "mthl36xt79mdr8",
+      "mthl36xt6r0ws5"
+    ]
+  },
+  {
     "id": "mtc1pyxgeihkno",
     "projectId": "mpwouieuddbq2d",
     "version": "3.26.16-beta.22",

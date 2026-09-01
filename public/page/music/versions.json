@@ -1614,6 +1614,16 @@
     ]
   },
   {
+    "id": "mtiurq8doizsfu",
+    "projectId": "mqdzae23et9isy",
+    "version": "12.3.0",
+    "publishedAt": "2026-09-01T06:31:32Z",
+    "changelog": "*对比 12.2.2\r\n全新 Salt Player 均衡器（PRO）\r\n  - 8000+ AutoEQ 配置参数\r\n  - 20+ 内置均衡预设\r\n  - 图形化，至高 32 段参数均衡器\r\n  - 支持自定义，导入导出\r\n \r\n新增 Morvanium 智能过渡（Audiophile Pack 包）\r\n新增迷你播放条至播放界面的封面过渡动画\r\n新增支持播放队列拖拽排序歌曲\r\n新增支持 FLAC ID3 标签头封面\r\n新增歌词获取顺序调整（SPL、LRC、内嵌）\r\n新增支持 .spl 拓展歌词文件\r\n新增艺术家页面按数量排序的功能\r\n新增专辑页面在年份排序显示快速滚动条\r\n优化 USB 独占稳定性\r\n优化歌曲扫描流程\r\n优化 USB 独占音量进度条为 100 等级\r\n优化侧边栏手势滚动处理\r\n修复系统音量条无法控制 USB 独占音量的问题",
+    "downloadIds": [
+      "mtiurq8d68t6vj"
+    ]
+  },
+  {
     "id": "msn8lnjv4poomv",
     "projectId": "mqdzae23et9isy",
     "version": "12.2.0",

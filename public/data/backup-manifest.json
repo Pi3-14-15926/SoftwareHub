@@ -1217,24 +1217,24 @@
     {
       "category": "音乐",
       "project": "SaltPlayer_椒盐音乐",
-      "versionDir": "音乐/SaltPlayer_椒盐音乐/2026-08-10_12.2.0",
+      "versionDir": "音乐/SaltPlayer_椒盐音乐/2026-09-01_12.3.0",
       "files": [
         {
-          "name": "12.2.0-2026081002-official-arm64-v8a.apk",
-          "size": 11219763.2,
-          "url": "/SoftwareHub/音乐/SaltPlayer_椒盐音乐/2026-08-10_12.2.0/12.2.0-2026081002-official-arm64-v8a.apk"
+          "name": "12.3.0-2026090101-official-arm64-v8a.apk",
+          "size": 9961472,
+          "url": "/SoftwareHub/音乐/SaltPlayer_椒盐音乐/2026-09-01_12.3.0/12.3.0-2026090101-official-arm64-v8a.apk"
         }
       ]
     },
     {
       "category": "音乐",
       "project": "SaltPlayer_椒盐音乐",
-      "versionDir": "音乐/SaltPlayer_椒盐音乐/2026-07-05_12.1.1",
+      "versionDir": "音乐/SaltPlayer_椒盐音乐/2026-08-10_12.2.0",
       "files": [
         {
-          "name": "12.1.1-2026070502-official-arm64-v8a.apk",
-          "size": 12163481.6,
-          "url": "/SoftwareHub/音乐/SaltPlayer_椒盐音乐/2026-07-05_12.1.1/12.1.1-2026070502-official-arm64-v8a.apk"
+          "name": "12.2.0-2026081002-official-arm64-v8a.apk",
+          "size": 11219763.2,
+          "url": "/SoftwareHub/音乐/SaltPlayer_椒盐音乐/2026-08-10_12.2.0/12.2.0-2026081002-official-arm64-v8a.apk"
         }
       ]
     },
@@ -1913,5 +1913,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-08-31T18:51:18.185Z"
+  "updatedAt": "2026-09-01T16:12:47.716Z"
 }

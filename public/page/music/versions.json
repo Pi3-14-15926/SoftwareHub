@@ -1614,6 +1614,16 @@
     ]
   },
   {
+    "id": "mtk9zfelrk8s66",
+    "projectId": "mqdzae23et9isy",
+    "version": "12.3.1",
+    "publishedAt": "2026-09-02T11:09:30Z",
+    "changelog": "优化软件内存占用\r\n修复 Salt Player 均衡器保存异常的问题",
+    "downloadIds": [
+      "mtk9zfelql126t"
+    ]
+  },
+  {
     "id": "mtiurq8doizsfu",
     "projectId": "mqdzae23et9isy",
     "version": "12.3.0",

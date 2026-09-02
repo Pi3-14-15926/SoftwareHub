@@ -873,6 +873,19 @@
     ]
   },
   {
+    "id": "mtk9z9zng3f7ie",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.16-beta.24",
+    "publishedAt": "2026-09-02T01:13:20Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\r\n### [发布页](https://t.me/materado)\r\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\r\n\r\n## 滚动模式有已知卡顿问题\r\n\r\n### 更新内容\r\n\r\n* feat: 不怕死的可以更新\r\n* feat: 更新依赖\r\n* feat: 重写阅读排版核心\r\n* refactor: onboarding 页面文案与错误提示资源化\r\n* feat: 欢迎页迁移至 Compose (feature/onboarding)\r\n* chore: 移除 70 个无引用的历史 XML 布局",
+    "downloadIds": [
+      "mtk9z9znd9i9pt",
+      "mtk9z9znlxnolx",
+      "mtk9z9zn11s2rx",
+      "mtk9z9zn4ukcik"
+    ]
+  },
+  {
     "id": "mthl36xtsgov56",
     "projectId": "mpwouieuddbq2d",
     "version": "3.26.16-beta.23",

@@ -873,6 +873,19 @@
     ]
   },
   {
+    "id": "mtlp11s6vgeb7h",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.16-beta.25",
+    "publishedAt": "2026-09-02T17:45:57Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\n### [发布页](https://t.me/materado)\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\n\n### 更新内容\n\n* feat: 章节边界加载占位页与阅读渲染优化\n* fix: 听书换章复读与停止\n* feat: 欢迎页\n* refactor: 消除编译弃用警告（421→72）",
+    "downloadIds": [
+      "mtlp11s6ee1yxz",
+      "mtlp11s66dt6fp",
+      "mtlp11s63wuocm",
+      "mtlp11s69o5esg"
+    ]
+  },
+  {
     "id": "mtk9z9zng3f7ie",
     "projectId": "mpwouieuddbq2d",
     "version": "3.26.16-beta.24",

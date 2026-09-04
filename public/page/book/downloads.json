@@ -1,5 +1,21 @@
 [
   {
+    "id": "mtn4fmq1n0dc4p",
+    "versionId": "mtn4fmq1za7vjl",
+    "platform": "Android",
+    "filename": "legado_app_3.26.09041221_29808261.apk",
+    "size": "38.7 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.09041221/legado_app_3.26.09041221_29808261.apk"
+  },
+  {
+    "id": "mtn4fmq1v1bw8o",
+    "versionId": "mtn4fmq1ggsnca",
+    "platform": "Android",
+    "filename": "legado_app_3.26.09040230_29807670.apk",
+    "size": "38.7 MB",
+    "url": "https://github.com/Rimchars/legado/releases/download/archive-v3-3.26.09040230/legado_app_3.26.09040230_29807670.apk"
+  },
+  {
     "id": "msynd7l854zojb",
     "versionId": "msynd7l8150d57",
     "platform": "Android",
@@ -2628,6 +2644,38 @@
     "url": "https://github.com/skybbk1001/legadoT/releases/download/release/legado_app_3.26.06062118_release.apk",
     "downloadCount": 317,
     "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
+  },
+  {
+    "id": "mtn4focdoia299",
+    "versionId": "mtn4focdgqokqd",
+    "platform": "Android",
+    "filename": "legado-3.26.16-beta.26-arm64-v8a.apk",
+    "size": "18.6 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.26/legado-3.26.16-beta.26-arm64-v8a.apk"
+  },
+  {
+    "id": "mtn4focdjbnrxg",
+    "versionId": "mtn4focdgqokqd",
+    "platform": "Android",
+    "filename": "legado-3.26.16-beta.26-armeabi-v7a.apk",
+    "size": "18.2 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.26/legado-3.26.16-beta.26-armeabi-v7a.apk"
+  },
+  {
+    "id": "mtn4focdtrw60a",
+    "versionId": "mtn4focdgqokqd",
+    "platform": "Android",
+    "filename": "legado-3.26.16-beta.26.apk",
+    "size": "24.9 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.26/legado-3.26.16-beta.26.apk"
+  },
+  {
+    "id": "mtn4focd8h0l4p",
+    "versionId": "mtn4focdgqokqd",
+    "platform": "Other",
+    "filename": "mapping.txt",
+    "size": "251.3 MB",
+    "url": "https://github.com/HapeLee/legado-with-MD3/releases/download/3.26.16-beta.26/mapping.txt"
   },
   {
     "id": "mtlp11s6ee1yxz",

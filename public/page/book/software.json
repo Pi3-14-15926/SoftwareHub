@@ -9,7 +9,7 @@
     "featured": false,
     "githubRepo": "Rimchars/legado",
     "githubUrl": "https://github.com/Rimchars/legado",
-    "stars": 503,
+    "stars": 506,
     "forks": 28,
     "platforms": [
       "Android"
@@ -29,8 +29,8 @@
     "githubRepo": "anxcye/anx-reader",
     "githubUrl": "https://github.com/anxcye/anx-reader",
     "latestUpdateTime": "2025-11-01T13:17:04Z",
-    "stars": 8802,
-    "forks": 616,
+    "stars": 8821,
+    "forks": 619,
     "latestVersionId": "mqdzx94ic2xzm0"
   },
   {
@@ -43,7 +43,7 @@
     "featured": false,
     "githubRepo": "skybbk1001/legadoT",
     "githubUrl": "https://github.com/skybbk1001/legadoT",
-    "stars": 122,
+    "stars": 123,
     "forks": 21,
     "platforms": [
       "Android"
@@ -62,14 +62,14 @@
     "featured": false,
     "githubRepo": "HapeLee/legado-with-MD3",
     "githubUrl": "https://github.com/HapeLee/legado-with-MD3",
-    "stars": 5974,
-    "forks": 666,
+    "stars": 5984,
+    "forks": 668,
     "platforms": [
       "Android"
     ],
     "latestVersionId": "mqdzxbdokth5o5",
-    "latestUpdateTime": "2026-09-03T18:32:24Z",
-    "latestVersion": "3.26.16-beta.26"
+    "latestUpdateTime": "2026-09-04T20:04:09Z",
+    "latestVersion": "3.26.16-beta.27"
   },
   {
     "id": "mpwp1hvpsn5ffl",
@@ -81,7 +81,7 @@
     "featured": false,
     "githubRepo": "youfengknight/Legado_Max",
     "githubUrl": "https://github.com/youfengknight/Legado_Max",
-    "stars": 282,
+    "stars": 281,
     "forks": 34,
     "platforms": [
       "Android"
@@ -134,8 +134,8 @@
     "featured": false,
     "githubRepo": "Luoyacheng/legado",
     "githubUrl": "https://github.com/Luoyacheng/legado",
-    "stars": 2575,
-    "forks": 597,
+    "stars": 2581,
+    "forks": 600,
     "platforms": [
       "Android"
     ],
@@ -154,8 +154,8 @@
     "githubRepo": "readest/readest",
     "githubUrl": "https://github.com/readest/readest",
     "latestUpdateTime": "2026-08-28T19:39:03Z",
-    "stars": 24064,
-    "forks": 1535,
+    "stars": 24088,
+    "forks": 1539,
     "latestVersionId": "mqe099q50edkdy",
     "latestVersion": "v0.12.6"
   }

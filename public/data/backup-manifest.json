@@ -123,6 +123,33 @@
     {
       "category": "阅读",
       "project": "阅读_MD3",
+      "versionDir": "阅读/阅读_MD3/2026-09-04_3.26.16-beta.27",
+      "files": [
+        {
+          "name": "legado-3.26.16-beta.27-arm64-v8a.apk",
+          "size": 19503513.6,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-09-04_3.26.16-beta.27/legado-3.26.16-beta.27-arm64-v8a.apk"
+        },
+        {
+          "name": "legado-3.26.16-beta.27-armeabi-v7a.apk",
+          "size": 19084083.2,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-09-04_3.26.16-beta.27/legado-3.26.16-beta.27-armeabi-v7a.apk"
+        },
+        {
+          "name": "legado-3.26.16-beta.27.apk",
+          "size": 26109542.4,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-09-04_3.26.16-beta.27/legado-3.26.16-beta.27.apk"
+        },
+        {
+          "name": "mapping.txt",
+          "size": 263821721.6,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-09-04_3.26.16-beta.27/mapping.txt"
+        }
+      ]
+    },
+    {
+      "category": "阅读",
+      "project": "阅读_MD3",
       "versionDir": "阅读/阅读_MD3/2026-09-03_3.26.16-beta.26",
       "files": [
         {
@@ -144,33 +171,6 @@
           "name": "mapping.txt",
           "size": 263507148.8,
           "url": "/SoftwareHub/阅读/阅读_MD3/2026-09-03_3.26.16-beta.26/mapping.txt"
-        }
-      ]
-    },
-    {
-      "category": "阅读",
-      "project": "阅读_MD3",
-      "versionDir": "阅读/阅读_MD3/2026-09-02_3.26.16-beta.25",
-      "files": [
-        {
-          "name": "legado-3.26.16-beta.25-arm64-v8a.apk",
-          "size": 19608371.2,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-09-02_3.26.16-beta.25/legado-3.26.16-beta.25-arm64-v8a.apk"
-        },
-        {
-          "name": "legado-3.26.16-beta.25-armeabi-v7a.apk",
-          "size": 19188940.8,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-09-02_3.26.16-beta.25/legado-3.26.16-beta.25-armeabi-v7a.apk"
-        },
-        {
-          "name": "legado-3.26.16-beta.25.apk",
-          "size": 26214400,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-09-02_3.26.16-beta.25/legado-3.26.16-beta.25.apk"
-        },
-        {
-          "name": "mapping.txt",
-          "size": 265080012.8,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-09-02_3.26.16-beta.25/mapping.txt"
         }
       ]
     },
@@ -1241,6 +1241,73 @@
     {
       "category": "动漫",
       "project": "AniCh",
+      "versionDir": "动漫/AniCh/2026-09-04_1.5.24",
+      "files": [
+        {
+          "name": "anich-android-arm64-v8a-1.5.24.apk",
+          "size": 26424115.2,
+          "url": "/SoftwareHub/动漫/AniCh/2026-09-04_1.5.24/anich-android-arm64-v8a-1.5.24.apk"
+        },
+        {
+          "name": "anich-android-armeabi-v7a-1.5.24.apk",
+          "size": 24851251.2,
+          "url": "/SoftwareHub/动漫/AniCh/2026-09-04_1.5.24/anich-android-armeabi-v7a-1.5.24.apk"
+        },
+        {
+          "name": "anich-android-universal-1.5.24.apk",
+          "size": 74973184,
+          "url": "/SoftwareHub/动漫/AniCh/2026-09-04_1.5.24/anich-android-universal-1.5.24.apk"
+        },
+        {
+          "name": "anich-android-x86_64-1.5.24.apk",
+          "size": 26843545.6,
+          "url": "/SoftwareHub/动漫/AniCh/2026-09-04_1.5.24/anich-android-x86_64-1.5.24.apk"
+        },
+        {
+          "name": "anich-ios-no_sign-1.5.24.ipa",
+          "size": 41209036.8,
+          "url": "/SoftwareHub/动漫/AniCh/2026-09-04_1.5.24/anich-ios-no_sign-1.5.24.ipa"
+        },
+        {
+          "name": "anich-linux-1.5.24.deb",
+          "size": 22439526.4,
+          "url": "/SoftwareHub/动漫/AniCh/2026-09-04_1.5.24/anich-linux-1.5.24.deb"
+        },
+        {
+          "name": "anich-linux-1.5.24.zip",
+          "size": 30094131.2,
+          "url": "/SoftwareHub/动漫/AniCh/2026-09-04_1.5.24/anich-linux-1.5.24.zip"
+        },
+        {
+          "name": "anich-macos-1.5.24.dmg",
+          "size": 55889100.8,
+          "url": "/SoftwareHub/动漫/AniCh/2026-09-04_1.5.24/anich-macos-1.5.24.dmg"
+        },
+        {
+          "name": "anich-macos-1.5.24.zip",
+          "size": 54630809.6,
+          "url": "/SoftwareHub/动漫/AniCh/2026-09-04_1.5.24/anich-macos-1.5.24.zip"
+        },
+        {
+          "name": "anich-ohos-unsigned-1.5.24.hap",
+          "size": 71408025.6,
+          "url": "/SoftwareHub/动漫/AniCh/2026-09-04_1.5.24/anich-ohos-unsigned-1.5.24.hap"
+        },
+        {
+          "name": "anich-windows-1.5.24.zip",
+          "size": 50017075.2,
+          "url": "/SoftwareHub/动漫/AniCh/2026-09-04_1.5.24/anich-windows-1.5.24.zip"
+        },
+        {
+          "name": "anich-windows-installer-1.5.24.exe",
+          "size": 37748736,
+          "url": "/SoftwareHub/动漫/AniCh/2026-09-04_1.5.24/anich-windows-installer-1.5.24.exe"
+        }
+      ]
+    },
+    {
+      "category": "动漫",
+      "project": "AniCh",
       "versionDir": "动漫/AniCh/2026-08-24_1.5.23",
       "files": [
         {
@@ -1302,73 +1369,6 @@
           "name": "anich-windows-installer-1.5.23.exe",
           "size": 37748736,
           "url": "/SoftwareHub/动漫/AniCh/2026-08-24_1.5.23/anich-windows-installer-1.5.23.exe"
-        }
-      ]
-    },
-    {
-      "category": "动漫",
-      "project": "AniCh",
-      "versionDir": "动漫/AniCh/2026-08-24_1.5.22",
-      "files": [
-        {
-          "name": "anich-android-arm64-v8a-1.5.22.apk",
-          "size": 26424115.2,
-          "url": "/SoftwareHub/动漫/AniCh/2026-08-24_1.5.22/anich-android-arm64-v8a-1.5.22.apk"
-        },
-        {
-          "name": "anich-android-armeabi-v7a-1.5.22.apk",
-          "size": 24851251.2,
-          "url": "/SoftwareHub/动漫/AniCh/2026-08-24_1.5.22/anich-android-armeabi-v7a-1.5.22.apk"
-        },
-        {
-          "name": "anich-android-universal-1.5.22.apk",
-          "size": 74973184,
-          "url": "/SoftwareHub/动漫/AniCh/2026-08-24_1.5.22/anich-android-universal-1.5.22.apk"
-        },
-        {
-          "name": "anich-android-x86_64-1.5.22.apk",
-          "size": 26843545.6,
-          "url": "/SoftwareHub/动漫/AniCh/2026-08-24_1.5.22/anich-android-x86_64-1.5.22.apk"
-        },
-        {
-          "name": "anich-ios-no_sign-1.5.22.ipa",
-          "size": 41209036.8,
-          "url": "/SoftwareHub/动漫/AniCh/2026-08-24_1.5.22/anich-ios-no_sign-1.5.22.ipa"
-        },
-        {
-          "name": "anich-linux-1.5.22.deb",
-          "size": 22439526.4,
-          "url": "/SoftwareHub/动漫/AniCh/2026-08-24_1.5.22/anich-linux-1.5.22.deb"
-        },
-        {
-          "name": "anich-linux-1.5.22.zip",
-          "size": 30094131.2,
-          "url": "/SoftwareHub/动漫/AniCh/2026-08-24_1.5.22/anich-linux-1.5.22.zip"
-        },
-        {
-          "name": "anich-macos-1.5.22.dmg",
-          "size": 55889100.8,
-          "url": "/SoftwareHub/动漫/AniCh/2026-08-24_1.5.22/anich-macos-1.5.22.dmg"
-        },
-        {
-          "name": "anich-macos-1.5.22.zip",
-          "size": 54630809.6,
-          "url": "/SoftwareHub/动漫/AniCh/2026-08-24_1.5.22/anich-macos-1.5.22.zip"
-        },
-        {
-          "name": "anich-ohos-unsigned-1.5.22.hap",
-          "size": 71303168,
-          "url": "/SoftwareHub/动漫/AniCh/2026-08-24_1.5.22/anich-ohos-unsigned-1.5.22.hap"
-        },
-        {
-          "name": "anich-windows-1.5.22.zip",
-          "size": 50017075.2,
-          "url": "/SoftwareHub/动漫/AniCh/2026-08-24_1.5.22/anich-windows-1.5.22.zip"
-        },
-        {
-          "name": "anich-windows-installer-1.5.22.exe",
-          "size": 37748736,
-          "url": "/SoftwareHub/动漫/AniCh/2026-08-24_1.5.22/anich-windows-installer-1.5.22.exe"
         }
       ]
     },
@@ -1913,5 +1913,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-09-04T18:14:45.134Z"
+  "updatedAt": "2026-09-05T18:28:10.364Z"
 }

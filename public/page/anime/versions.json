@@ -1,5 +1,26 @@
 [
   {
+    "id": "mtoha57o48o5il",
+    "projectId": "mqa2ifsduzlphs",
+    "version": "1.5.24",
+    "publishedAt": "2026-09-04T16:27:59Z",
+    "changelog": "- 下载页面新增线路排序入口\r\n- 搜索记录关键词支持长按删除\r\n- 画廊灯箱组件支持鼠标滚轮、键盘方向切换图片\r\n- 画廊灯箱组件支持鼠标右键打开详情\r\n- 修复画中画模式不显示弹幕设置按钮的问题\r\n- 修复进入搜索面板时输入框无法直接获取焦点的问题\r\n- 修复鸿蒙平台播放器控制栏状态异常的问题\r\n- 尝试修复鸿蒙平台锁定屏幕旋转时无法横屏的问题",
+    "downloadIds": [
+      "mtoha57o033zxe",
+      "mtoha57omk6cqa",
+      "mtoha57odep4ru",
+      "mtoha57oenflok",
+      "mtoha57o6en4cv",
+      "mtoha57oi2u3hz",
+      "mtoha57ot0doh6",
+      "mtoha57ozf1ril",
+      "mtoha57ocnzz8f",
+      "mtoha57o0bku93",
+      "mtoha57op4h19z",
+      "mtoha57ounsixe"
+    ]
+  },
+  {
     "id": "mt8nj993i6993i",
     "projectId": "mqa2ifsduzlphs",
     "version": "1.5.23",

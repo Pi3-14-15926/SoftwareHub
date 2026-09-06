@@ -6120,6 +6120,46 @@
     "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
   },
   {
+    "id": "mtpxib0dhlxji3",
+    "versionId": "mtpxib0db81rbs",
+    "platform": "Android",
+    "filename": "app-arm64-v8a-release.apk",
+    "size": "26.0 MB",
+    "url": "https://github.com/maotoumao/MusicFree/releases/download/v1.0.0-beta.1/app-arm64-v8a-release.apk"
+  },
+  {
+    "id": "mtpxib0dksrn0r",
+    "versionId": "mtpxib0db81rbs",
+    "platform": "Android",
+    "filename": "app-armeabi-v7a-release.apk",
+    "size": "24.3 MB",
+    "url": "https://github.com/maotoumao/MusicFree/releases/download/v1.0.0-beta.1/app-armeabi-v7a-release.apk"
+  },
+  {
+    "id": "mtpxib0d7j3p1s",
+    "versionId": "mtpxib0db81rbs",
+    "platform": "Android",
+    "filename": "app-universal-release.apk",
+    "size": "62.9 MB",
+    "url": "https://github.com/maotoumao/MusicFree/releases/download/v1.0.0-beta.1/app-universal-release.apk"
+  },
+  {
+    "id": "mtpxib0dxsdjh8",
+    "versionId": "mtpxib0db81rbs",
+    "platform": "Android",
+    "filename": "app-x86-release.apk",
+    "size": "27.0 MB",
+    "url": "https://github.com/maotoumao/MusicFree/releases/download/v1.0.0-beta.1/app-x86-release.apk"
+  },
+  {
+    "id": "mtpxib0d5eilia",
+    "versionId": "mtpxib0db81rbs",
+    "platform": "Android",
+    "filename": "app-x86_64-release.apk",
+    "size": "26.7 MB",
+    "url": "https://github.com/maotoumao/MusicFree/releases/download/v1.0.0-beta.1/app-x86_64-release.apk"
+  },
+  {
     "id": "mqdz4vmp3n80rt",
     "versionId": "mqdz4vmh2bz4go",
     "platform": "Android",
@@ -8210,6 +8250,14 @@
     "url": "https://github.com/kejichangqing/QingMusic/releases/download/v1.0.6/qingmusic_v1.0.6.apk",
     "downloadCount": 294,
     "downloadCountSyncedAt": "2026-06-16T09:42:58.547Z"
+  },
+  {
+    "id": "mtpxic3keisjnu",
+    "versionId": "mtpxic3k5rr7hc",
+    "platform": "Android",
+    "filename": "12.3.2-2026090601-official-arm64-v8a.apk",
+    "size": "9.6 MB",
+    "url": "https://github.com/Moriafly/SaltPlayerSource/releases/download/12.3.2/12.3.2-2026090601-official-arm64-v8a.apk"
   },
   {
     "id": "mtk9zfelql126t",

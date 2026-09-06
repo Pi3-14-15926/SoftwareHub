@@ -972,6 +972,20 @@
     ]
   },
   {
+    "id": "mtpxib0db81rbs",
+    "projectId": "mqdz4vlw18enkx",
+    "version": "v1.0.0-beta.1",
+    "publishedAt": "2026-09-06T10:54:50Z",
+    "changelog": "重写了软件.\r\n完整代码会随正式版一起更新到主分支",
+    "downloadIds": [
+      "mtpxib0dhlxji3",
+      "mtpxib0dksrn0r",
+      "mtpxib0d7j3p1s",
+      "mtpxib0dxsdjh8",
+      "mtpxib0d5eilia"
+    ]
+  },
+  {
     "id": "mqdz4vmh2bz4go",
     "projectId": "mqdz4vlw18enkx",
     "version": "v0.6.3-beta.1",
@@ -1611,6 +1625,16 @@
     "changelog": "1、优化APP首页UI界面样式\r\n2、优化播放器页面（可切换大专辑图和歌词）\r\n3、修复批量下载歌曲封面不正确问题\r\n4、添加深色模式，可切换浅色/深色\r\n5、修复本地歌曲无法切换下一曲上一曲问题\r\n6、增加搜索页面右侧图标触摸范围，防止误触播放歌曲\r\n7、新增超时检测，歌曲播放卡住超6秒自动播放下一曲\r\n8、新增搜索歌曲可以加载下一页更多歌曲\r\n9、搜索歌曲不同线路单独统计滚动位置",
     "downloadIds": [
       "mqdzbeffgvhcvm"
+    ]
+  },
+  {
+    "id": "mtpxic3k5rr7hc",
+    "projectId": "mqdzae23et9isy",
+    "version": "12.3.2",
+    "publishedAt": "2026-09-06T12:59:47Z",
+    "changelog": "回归 Salt Player AUDIOFX V4，放入 Salt Player 均衡器 V4 选项卡（无需 Pro）\r\n优化 Salt Player 均衡器音效列表样式\r\n优化 Morvanium 内存占用\r\n优化 USB 独占对 JM6PRO 2 的适配\r\n修复关闭 USB 独占模式后仍触发系统授权入口的问题\r\n修复迷你播放条和播放界面封面过渡的阴影动画问题\r\n其他的一些细节优化和问题修复",
+    "downloadIds": [
+      "mtpxic3keisjnu"
     ]
   },
   {

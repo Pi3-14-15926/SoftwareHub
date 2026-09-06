@@ -9,7 +9,7 @@
     "featured": false,
     "githubRepo": "Rimchars/legado",
     "githubUrl": "https://github.com/Rimchars/legado",
-    "stars": 506,
+    "stars": 509,
     "forks": 28,
     "platforms": [
       "Android"
@@ -29,8 +29,8 @@
     "githubRepo": "anxcye/anx-reader",
     "githubUrl": "https://github.com/anxcye/anx-reader",
     "latestUpdateTime": "2025-11-01T13:17:04Z",
-    "stars": 8821,
-    "forks": 619,
+    "stars": 8822,
+    "forks": 620,
     "latestVersionId": "mqdzx94ic2xzm0"
   },
   {
@@ -43,7 +43,7 @@
     "featured": false,
     "githubRepo": "skybbk1001/legadoT",
     "githubUrl": "https://github.com/skybbk1001/legadoT",
-    "stars": 123,
+    "stars": 124,
     "forks": 21,
     "platforms": [
       "Android"
@@ -62,14 +62,14 @@
     "featured": false,
     "githubRepo": "HapeLee/legado-with-MD3",
     "githubUrl": "https://github.com/HapeLee/legado-with-MD3",
-    "stars": 5984,
-    "forks": 668,
+    "stars": 6002,
+    "forks": 669,
     "platforms": [
       "Android"
     ],
     "latestVersionId": "mqdzxbdokth5o5",
-    "latestUpdateTime": "2026-09-04T20:04:09Z",
-    "latestVersion": "3.26.16-beta.27"
+    "latestUpdateTime": "2026-09-05T20:22:51Z",
+    "latestVersion": "3.26.16-beta.28"
   },
   {
     "id": "mpwp1hvpsn5ffl",
@@ -134,8 +134,8 @@
     "featured": false,
     "githubRepo": "Luoyacheng/legado",
     "githubUrl": "https://github.com/Luoyacheng/legado",
-    "stars": 2581,
-    "forks": 600,
+    "stars": 2592,
+    "forks": 601,
     "platforms": [
       "Android"
     ],
@@ -154,8 +154,8 @@
     "githubRepo": "readest/readest",
     "githubUrl": "https://github.com/readest/readest",
     "latestUpdateTime": "2026-08-28T19:39:03Z",
-    "stars": 24088,
-    "forks": 1539,
+    "stars": 24114,
+    "forks": 1541,
     "latestVersionId": "mqe099q50edkdy",
     "latestVersion": "v0.12.6"
   }

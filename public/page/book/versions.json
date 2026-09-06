@@ -893,6 +893,19 @@
     ]
   },
   {
+    "id": "mtpxi7cmmfgvji",
+    "projectId": "mpwouieuddbq2d",
+    "version": "3.26.16-beta.28",
+    "publishedAt": "2026-09-05T20:22:51Z",
+    "changelog": "**此版本为测试版，会存在不稳定问题。**\n### [发布页](https://t.me/materado)\n### [反馈群组](https://t.me/+Yn1_v5PZqddmMjQ1)\n\n### 更新内容\n\n* feat: 漫画阅读器相关优化与修复\n* feat: 阅读器相关优化与修复",
+    "downloadIds": [
+      "mtpxi7cmevm7lp",
+      "mtpxi7cmzthxi3",
+      "mtpxi7cmqvfok5",
+      "mtpxi7cmecke3z"
+    ]
+  },
+  {
     "id": "mtoha11lcd337j",
     "projectId": "mpwouieuddbq2d",
     "version": "3.26.16-beta.27",

@@ -123,6 +123,33 @@
     {
       "category": "阅读",
       "project": "阅读_MD3",
+      "versionDir": "阅读/阅读_MD3/2026-09-05_3.26.16-beta.28",
+      "files": [
+        {
+          "name": "legado-3.26.16-beta.28-arm64-v8a.apk",
+          "size": 19503513.6,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-09-05_3.26.16-beta.28/legado-3.26.16-beta.28-arm64-v8a.apk"
+        },
+        {
+          "name": "legado-3.26.16-beta.28-armeabi-v7a.apk",
+          "size": 19084083.2,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-09-05_3.26.16-beta.28/legado-3.26.16-beta.28-armeabi-v7a.apk"
+        },
+        {
+          "name": "legado-3.26.16-beta.28.apk",
+          "size": 26109542.4,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-09-05_3.26.16-beta.28/legado-3.26.16-beta.28.apk"
+        },
+        {
+          "name": "mapping.txt",
+          "size": 263821721.6,
+          "url": "/SoftwareHub/阅读/阅读_MD3/2026-09-05_3.26.16-beta.28/mapping.txt"
+        }
+      ]
+    },
+    {
+      "category": "阅读",
+      "project": "阅读_MD3",
       "versionDir": "阅读/阅读_MD3/2026-09-04_3.26.16-beta.27",
       "files": [
         {
@@ -144,33 +171,6 @@
           "name": "mapping.txt",
           "size": 263821721.6,
           "url": "/SoftwareHub/阅读/阅读_MD3/2026-09-04_3.26.16-beta.27/mapping.txt"
-        }
-      ]
-    },
-    {
-      "category": "阅读",
-      "project": "阅读_MD3",
-      "versionDir": "阅读/阅读_MD3/2026-09-03_3.26.16-beta.26",
-      "files": [
-        {
-          "name": "legado-3.26.16-beta.26-arm64-v8a.apk",
-          "size": 19503513.6,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-09-03_3.26.16-beta.26/legado-3.26.16-beta.26-arm64-v8a.apk"
-        },
-        {
-          "name": "legado-3.26.16-beta.26-armeabi-v7a.apk",
-          "size": 19084083.2,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-09-03_3.26.16-beta.26/legado-3.26.16-beta.26-armeabi-v7a.apk"
-        },
-        {
-          "name": "legado-3.26.16-beta.26.apk",
-          "size": 26109542.4,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-09-03_3.26.16-beta.26/legado-3.26.16-beta.26.apk"
-        },
-        {
-          "name": "mapping.txt",
-          "size": 263507148.8,
-          "url": "/SoftwareHub/阅读/阅读_MD3/2026-09-03_3.26.16-beta.26/mapping.txt"
         }
       ]
     },
@@ -1025,6 +1025,38 @@
     {
       "category": "音乐",
       "project": "MusicFree_移动版",
+      "versionDir": "音乐/MusicFree_移动版/2026-09-06_v1.0.0-beta.1",
+      "files": [
+        {
+          "name": "app-arm64-v8a-release.apk",
+          "size": 27262976,
+          "url": "/SoftwareHub/音乐/MusicFree_移动版/2026-09-06_v1.0.0-beta.1/app-arm64-v8a-release.apk"
+        },
+        {
+          "name": "app-armeabi-v7a-release.apk",
+          "size": 25480396.8,
+          "url": "/SoftwareHub/音乐/MusicFree_移动版/2026-09-06_v1.0.0-beta.1/app-armeabi-v7a-release.apk"
+        },
+        {
+          "name": "app-universal-release.apk",
+          "size": 65955430.4,
+          "url": "/SoftwareHub/音乐/MusicFree_移动版/2026-09-06_v1.0.0-beta.1/app-universal-release.apk"
+        },
+        {
+          "name": "app-x86-release.apk",
+          "size": 28311552,
+          "url": "/SoftwareHub/音乐/MusicFree_移动版/2026-09-06_v1.0.0-beta.1/app-x86-release.apk"
+        },
+        {
+          "name": "app-x86_64-release.apk",
+          "size": 27996979.2,
+          "url": "/SoftwareHub/音乐/MusicFree_移动版/2026-09-06_v1.0.0-beta.1/app-x86_64-release.apk"
+        }
+      ]
+    },
+    {
+      "category": "音乐",
+      "project": "MusicFree_移动版",
       "versionDir": "音乐/MusicFree_移动版/2026-01-06_v0.6.3-beta.1",
       "files": [
         {
@@ -1051,38 +1083,6 @@
           "name": "app-x86_64-release.apk",
           "size": 22963814.4,
           "url": "/SoftwareHub/音乐/MusicFree_移动版/2026-01-06_v0.6.3-beta.1/app-x86_64-release.apk"
-        }
-      ]
-    },
-    {
-      "category": "音乐",
-      "project": "MusicFree_移动版",
-      "versionDir": "音乐/MusicFree_移动版/2025-11-17_v0.6.3-beta.0",
-      "files": [
-        {
-          "name": "app-arm64-v8a-release.apk",
-          "size": 21600665.6,
-          "url": "/SoftwareHub/音乐/MusicFree_移动版/2025-11-17_v0.6.3-beta.0/app-arm64-v8a-release.apk"
-        },
-        {
-          "name": "app-armeabi-v7a-release.apk",
-          "size": 20971520,
-          "url": "/SoftwareHub/音乐/MusicFree_移动版/2025-11-17_v0.6.3-beta.0/app-armeabi-v7a-release.apk"
-        },
-        {
-          "name": "app-universal-release.apk",
-          "size": 35022438.4,
-          "url": "/SoftwareHub/音乐/MusicFree_移动版/2025-11-17_v0.6.3-beta.0/app-universal-release.apk"
-        },
-        {
-          "name": "app-x86-release.apk",
-          "size": 22020096,
-          "url": "/SoftwareHub/音乐/MusicFree_移动版/2025-11-17_v0.6.3-beta.0/app-x86-release.apk"
-        },
-        {
-          "name": "app-x86_64-release.apk",
-          "size": 21705523.2,
-          "url": "/SoftwareHub/音乐/MusicFree_移动版/2025-11-17_v0.6.3-beta.0/app-x86_64-release.apk"
         }
       ]
     },
@@ -1217,24 +1217,24 @@
     {
       "category": "音乐",
       "project": "SaltPlayer_椒盐音乐",
-      "versionDir": "音乐/SaltPlayer_椒盐音乐/2026-09-02_12.3.1",
+      "versionDir": "音乐/SaltPlayer_椒盐音乐/2026-09-06_12.3.2",
       "files": [
         {
-          "name": "12.3.1-2026090201-official-arm64-v8a.apk",
-          "size": 10380902.4,
-          "url": "/SoftwareHub/音乐/SaltPlayer_椒盐音乐/2026-09-02_12.3.1/12.3.1-2026090201-official-arm64-v8a.apk"
+          "name": "12.3.2-2026090601-official-arm64-v8a.apk",
+          "size": 10066329.6,
+          "url": "/SoftwareHub/音乐/SaltPlayer_椒盐音乐/2026-09-06_12.3.2/12.3.2-2026090601-official-arm64-v8a.apk"
         }
       ]
     },
     {
       "category": "音乐",
       "project": "SaltPlayer_椒盐音乐",
-      "versionDir": "音乐/SaltPlayer_椒盐音乐/2026-09-01_12.3.0",
+      "versionDir": "音乐/SaltPlayer_椒盐音乐/2026-09-02_12.3.1",
       "files": [
         {
-          "name": "12.3.0-2026090101-official-arm64-v8a.apk",
-          "size": 9961472,
-          "url": "/SoftwareHub/音乐/SaltPlayer_椒盐音乐/2026-09-01_12.3.0/12.3.0-2026090101-official-arm64-v8a.apk"
+          "name": "12.3.1-2026090201-official-arm64-v8a.apk",
+          "size": 10380902.4,
+          "url": "/SoftwareHub/音乐/SaltPlayer_椒盐音乐/2026-09-02_12.3.1/12.3.1-2026090201-official-arm64-v8a.apk"
         }
       ]
     },
@@ -1881,6 +1881,23 @@
     {
       "category": "游戏",
       "project": "GameNative_游戏模拟器",
+      "versionDir": "游戏/GameNative_游戏模拟器/2026-09-06_v1.2.1-prerelease",
+      "files": [
+        {
+          "name": "gamenative-v1.2.1-prerelease-legacy-xr.apk",
+          "size": 568537907.2,
+          "url": "/SoftwareHub/游戏/GameNative_游戏模拟器/2026-09-06_v1.2.1-prerelease/gamenative-v1.2.1-prerelease-legacy-xr.apk"
+        },
+        {
+          "name": "gamenative-v1.2.1-prerelease.apk",
+          "size": 567174758.4,
+          "url": "/SoftwareHub/游戏/GameNative_游戏模拟器/2026-09-06_v1.2.1-prerelease/gamenative-v1.2.1-prerelease.apk"
+        }
+      ]
+    },
+    {
+      "category": "游戏",
+      "project": "GameNative_游戏模拟器",
       "versionDir": "游戏/GameNative_游戏模拟器/2026-08-25_v1.2.0",
       "files": [
         {
@@ -1894,24 +1911,7 @@
           "url": "/SoftwareHub/游戏/GameNative_游戏模拟器/2026-08-25_v1.2.0/gamenative-v1.2.0.apk"
         }
       ]
-    },
-    {
-      "category": "游戏",
-      "project": "GameNative_游戏模拟器",
-      "versionDir": "游戏/GameNative_游戏模拟器/2026-08-19_v1.2.0-prerelease",
-      "files": [
-        {
-          "name": "gamenative-v1.2.0-prerelease-legacy-xr.apk",
-          "size": 566650470.4,
-          "url": "/SoftwareHub/游戏/GameNative_游戏模拟器/2026-08-19_v1.2.0-prerelease/gamenative-v1.2.0-prerelease-legacy-xr.apk"
-        },
-        {
-          "name": "gamenative-v1.2.0-prerelease.apk",
-          "size": 566650470.4,
-          "url": "/SoftwareHub/游戏/GameNative_游戏模拟器/2026-08-19_v1.2.0-prerelease/gamenative-v1.2.0-prerelease.apk"
-        }
-      ]
     }
   ],
-  "updatedAt": "2026-09-05T18:28:10.364Z"
+  "updatedAt": "2026-09-06T18:00:18.292Z"
 }

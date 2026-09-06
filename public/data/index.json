@@ -11,7 +11,7 @@
     "latestUpdateTime": "2026-09-04T06:46:01Z",
     "githubRepo": "Rimchars/legado",
     "githubUrl": "https://github.com/Rimchars/legado",
-    "stars": 506,
+    "stars": 509,
     "forks": 28
   },
   {
@@ -26,8 +26,8 @@
     "latestUpdateTime": "2026-06-07T15:49:08Z",
     "githubRepo": "anxcye/anx-reader",
     "githubUrl": "https://github.com/anxcye/anx-reader",
-    "stars": 8821,
-    "forks": 619
+    "stars": 8822,
+    "forks": 620
   },
   {
     "id": "mpwowqbvn123ig",
@@ -41,7 +41,7 @@
     "latestUpdateTime": "2026-08-18T04:36:13Z",
     "githubRepo": "skybbk1001/legadoT",
     "githubUrl": "https://github.com/skybbk1001/legadoT",
-    "stars": 123,
+    "stars": 124,
     "forks": 21
   },
   {
@@ -52,12 +52,12 @@
     "description": "使用 Material Design 3 全新设计的阅读 3.0",
     "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/阅读-MD3.webp",
     "featured": false,
-    "latestVersionId": "mtoha11lcd337j",
-    "latestUpdateTime": "2026-09-04T20:04:09Z",
+    "latestVersionId": "mtpxi7cmmfgvji",
+    "latestUpdateTime": "2026-09-05T20:22:51Z",
     "githubRepo": "HapeLee/legado-with-MD3",
     "githubUrl": "https://github.com/HapeLee/legado-with-MD3",
-    "stars": 5984,
-    "forks": 668
+    "stars": 6002,
+    "forks": 669
   },
   {
     "id": "mpwp1hvpsn5ffl",
@@ -116,8 +116,8 @@
     "latestUpdateTime": "2026-07-15T15:09:08Z",
     "githubRepo": "Luoyacheng/legado",
     "githubUrl": "https://github.com/Luoyacheng/legado",
-    "stars": 2581,
-    "forks": 600
+    "stars": 2592,
+    "forks": 601
   },
   {
     "id": "mqe091nl2j14ej",
@@ -131,8 +131,8 @@
     "latestUpdateTime": "2026-08-28T19:39:03Z",
     "githubRepo": "readest/readest",
     "githubUrl": "https://github.com/readest/readest",
-    "stars": 24088,
-    "forks": 1539
+    "stars": 24114,
+    "forks": 1541
   },
   {
     "id": "mpwreu1xdmxt5v",
@@ -146,8 +146,8 @@
     "latestUpdateTime": "2026-05-01T05:35:34Z",
     "githubRepo": "lyswhut/lx-music-desktop",
     "githubUrl": "https://github.com/lyswhut/lx-music-desktop",
-    "stars": 53335,
-    "forks": 6984
+    "stars": 53365,
+    "forks": 6985
   },
   {
     "id": "mqdz0w9jb6a6mx",
@@ -162,8 +162,8 @@
     "githubRepo": "lyswhut/lx-music-mobile",
     "githubUrl": "https://github.com/lyswhut/lx-music-mobile",
     "website": "LX Music 移动版",
-    "stars": 18093,
-    "forks": 2079
+    "stars": 18106,
+    "forks": 2078
   },
   {
     "id": "mqdz4vlw18enkx",
@@ -173,12 +173,12 @@
     "description": "插件化、定制化、无广告的免费音乐播放器",
     "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/MusicFree-移动版.webp",
     "featured": false,
-    "latestVersionId": "mqdz4vmh2bz4go",
-    "latestUpdateTime": "2026-01-06T14:15:47Z",
+    "latestVersionId": "mtpxib0db81rbs",
+    "latestUpdateTime": "2026-09-06T10:54:50Z",
     "githubRepo": "maotoumao/MusicFree",
     "githubUrl": "https://github.com/maotoumao/MusicFree",
-    "stars": 26596,
-    "forks": 1896
+    "stars": 26627,
+    "forks": 1899
   },
   {
     "id": "mqdz5tn7va86j4",
@@ -192,7 +192,7 @@
     "latestUpdateTime": "2026-03-23T09:15:42Z",
     "githubRepo": "maotoumao/MusicFreeDesktop",
     "githubUrl": "https://github.com/maotoumao/MusicFreeDesktop",
-    "stars": 8791,
+    "stars": 8796,
     "forks": 849
   },
   {
@@ -207,7 +207,7 @@
     "latestUpdateTime": "2026-08-05T13:55:26Z",
     "githubRepo": "kejichangqing/QingMusic",
     "githubUrl": "https://github.com/kejichangqing/QingMusic",
-    "stars": 1485,
+    "stars": 1489,
     "forks": 70
   },
   {
@@ -218,12 +218,12 @@
     "description": "椒盐播放器，深受数十万用户信赖和选择的本地音乐播放器",
     "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/SaltPlayer-椒盐音乐.webp",
     "featured": false,
-    "latestVersionId": "mtk9zfelrk8s66",
-    "latestUpdateTime": "2026-09-02T11:09:30Z",
+    "latestVersionId": "mtpxic3k5rr7hc",
+    "latestUpdateTime": "2026-09-06T12:59:47Z",
     "githubRepo": "Moriafly/SaltPlayerSource",
     "githubUrl": "https://github.com/Moriafly/SaltPlayerSource",
-    "stars": 7315,
-    "forks": 211
+    "stars": 7324,
+    "forks": 212
   },
   {
     "id": "mqa2ifsduzlphs",
@@ -237,7 +237,7 @@
     "latestUpdateTime": "2026-09-04T16:27:59Z",
     "githubRepo": "Sle2p/AniCh",
     "githubUrl": "https://github.com/Sle2p/AniCh",
-    "stars": 6225,
+    "stars": 6241,
     "forks": 131
   },
   {
@@ -252,8 +252,8 @@
     "latestUpdateTime": "2026-08-28T04:25:26Z",
     "githubRepo": "Predidit/Kazumi",
     "githubUrl": "https://github.com/Predidit/Kazumi",
-    "stars": 29584,
-    "forks": 880
+    "stars": 29630,
+    "forks": 882
   },
   {
     "id": "mpzjjzg2ylm14p",
@@ -267,7 +267,7 @@
     "latestUpdateTime": "2026-08-28T16:41:30Z",
     "githubRepo": "open-ani/animeko",
     "githubUrl": "https://github.com/open-ani/animeko",
-    "stars": 19963,
+    "stars": 19979,
     "forks": 562
   },
   {
@@ -306,7 +306,7 @@
     "latestUpdateTime": "2026-03-11T18:03:11Z",
     "githubRepo": "BeyondDimension/SteamTools",
     "githubUrl": "https://github.com/BeyondDimension/SteamTools",
-    "stars": 26742,
+    "stars": 26752,
     "forks": 1701
   },
   {
@@ -321,8 +321,8 @@
     "latestUpdateTime": "2026-08-22T07:35:11Z",
     "githubRepo": "dyang886/Game-Cheats-Manager",
     "githubUrl": "https://github.com/dyang886/Game-Cheats-Manager",
-    "stars": 14537,
-    "forks": 492
+    "stars": 14559,
+    "forks": 493
   },
   {
     "id": "mqf8l4hpnnnf0w",
@@ -332,11 +332,11 @@
     "description": "在 Android 平台上使用 Steam、Epic、GOG 和 Amazon 集成的原生 PC 游戏。",
     "logo": "https://raw.githubusercontent.com/Pi3-14-15926/SoftwareHub/image/public/icons/GameNative-游戏模拟器.webp",
     "featured": false,
-    "latestVersionId": "mtc1q60kge5zem",
-    "latestUpdateTime": "2026-08-25T14:04:02Z",
+    "latestVersionId": "mtpxiepgo6era5",
+    "latestUpdateTime": "2026-09-06T03:13:34Z",
     "githubRepo": "utkarshdalal/GameNative",
     "githubUrl": "https://github.com/utkarshdalal/GameNative",
-    "stars": 10313,
-    "forks": 407
+    "stars": 10337,
+    "forks": 408
   }
 ]
